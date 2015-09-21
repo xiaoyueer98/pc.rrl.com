@@ -1,0 +1,252 @@
+<?php
+
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2014 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+// 应用入口文件
+
+define("WB_AKEY", '1862350536');
+define("WB_SKEY", '4c77f5694e6f3e82278e831390355bb8');
+define("WB_CALLBACK_URL", 'http://www.sutuijian.com/index.php/Home/Test/callback');
+// 检测PHP环境
+if (version_compare(PHP_VERSION, '5.3.0', '<'))
+        die('require PHP > 5.3.0 !');
+
+// 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
+define('APP_DEBUG', true);
+
+// 定义应用目录
+define('APP_PATH', './sutuijian/');
+define('__URL__', 'http://123.57.79.2');
+define('__SELF__', 'http://123.57.79.2/Public');
+
+
+/*****************************************************以下是对于访问pc或微信页面时，各终端的不同处理******************************************/
+
+//如果是微信，只需要限制访问pc的情况
+if (is_weixin()) {
+        
+        //如果微信访问pc的职位详情页面
+        if (isset($_GET['s']) && strpos($_GET['s'], "/jobid/") && strpos($_GET['s'], "/comid")) {
+                
+                $requesString = explode("/jobid/", $_GET['s']);
+                $requesString = explode("/share", $requesString[1]);
+
+                $hJobID = rtrim($requesString[0], ".html");
+
+//                echo  ' http://192.168.1.112:8081/Home/Webchatnew/job_detail/jobid/' . $hJobID;die;
+                header('Location: http://www.renrenlie.com/Home/Webchatnew/job_detail/jobid/' . $hJobID);
+                exit();
+        }
+        
+        //如果微信访问pc的私人定制页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Home/Customized/index") !== false) {
+               
+                header("Location: http://www.renrenlie.com/Home/Webchatcustomized/index.html");
+                die;
+        }
+        //如果微信访问pc的qa页面
+        if (strpos(strtolower($_SERVER['REQUEST_URI']), "/home/public/qa") !== false) {
+                header("Location: http://www.renrenlie.com/Home/Webchatnew/qa.html");
+                die;
+        }
+        //如果微信访问pc的上传简历页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Home/Upresume/index") !== false) {
+                header("Location: http://www.renrenlie.com/Home/Webchatnew/upresume_info.html");
+                die;
+        }
+        
+        if ($_SERVER['QUERY_STRING'] == "s=/Home/Index/jobresponsibilities.html" || $_SERVER['QUERY_STRING'] == "s=/Home/Index/jobresponsibilities2.html") {
+
+                header('Location: http://m.renrenlie.com/');
+                exit();
+        }
+        
+        
+} elseif (is_mobile_request()) {//如果是手机
+
+        /*         * **********************************************手机访问pc页面begin************************************************ */
+
+        //如果手机访问pc的职位详情页面    
+        if (isset($_GET['s']) && strpos($_GET['s'], "/jobid/") && strpos($_GET['s'], "/comid")) {
+                
+                $requesString = explode("/jobid/", $_GET['s']);
+                $requesString = explode("/share", $requesString[1]);
+
+                $hJobID = rtrim($requesString[0], ".html");
+
+                header('Location: http://m.renrenlie.com/index.php?s=/Job/job_detail_new/jobid/' . $hJobID);
+                exit();
+        }
+        //如果手机访问pc的职位详情页面   
+        if (!empty($_GET['jobid']) && !empty($_GET['comid'])) {
+
+                header('Location: http://m.renrenlie.com/index.php?s=/Job/job_detail_new/jobid/' . $_GET['jobid']);
+                die();
+        }
+        if ($_SERVER['QUERY_STRING'] == "s=/Home/Index/jobresponsibilities.html") {
+                header('Location:http://m.renrenlie.com/index.php?s=/Job/new_job4.html');
+                exit();
+        }
+        if ($_SERVER['QUERY_STRING'] == "s=/Home/Index/jobresponsibilities2.html") {
+                header('Location:http://m.renrenlie.com/index.php?s=/Job/new_job3.html');
+                exit();
+        }
+        
+         
+        /*         * **********************************************手机访问pc页面end************************************************ */
+               
+        /*         * **********************************************手机访问pc或weixin页面begin************************************************ */
+
+        //如果手机访问pc或微信的私人定制页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Home/Customized/index") !== false || strpos($_SERVER['REQUEST_URI'], "/Home/Webchatcustomized/index") !== false ) {
+
+                header("Location: http://m.renrenlie.com/index.php?s=/Customized/index.html");
+                die;
+        }
+
+        //判断手机访问pc或微信的qa页面
+        if (strpos(strtolower($_SERVER['REQUEST_URI']), "/home/public/qa") !== false  || strpos($_SERVER['REQUEST_URI'], "/Home/Webchatnew/qa") !== false ) {
+
+                header("Location: http://m.renrenlie.com/index.php?s=/Index/qa.html");
+                die;
+        }
+         //判断手机访问pc或微信的上传简历页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Home/Upresume/index") !== false  || strpos($_SERVER['REQUEST_URI'], "/Home/Webchatnew/upresume_info") !== false ) {
+
+//                header("Location: http://m.renrenlie.com/index.php?s=/Upresume/index.html");
+//                die;
+        }
+
+        /*         * **********************************************手机访问pc或weixin页面end************************************************ */
+
+        /*         * **********************************************手机访问weixin页面begin************************************************ */
+
+        //手机访问微信的职位详情
+        if (strpos($_SERVER['REQUEST_URI'], "/Webchatnew/job_detail/jobid/") !== false ) {
+
+                $requesString = explode("/jobid/", $_SERVER['REQUEST_URI']);
+                $requesString = explode("&share=", $requesString[1]);
+
+//            var_dump($requesString);die;
+                header("Location: http://m.renrenlie.com/index.php?s=/Job/job_detail_new/jobid/" . $requesString[0]);
+                die;
+        }
+        
+        //手机访问weixin红包
+        if (strpos($_SERVER['QUERY_STRING'], "s=/Home/Webchatactive/wxredpackage") !== false) {
+                header('Location:http://m.renrenlie.com/index.php?s=/Active/activities4.html');
+                exit();
+        }
+        /*         * **********************************************手机访问weixin页面end************************************************ */
+        
+        header('Location:http://m.renrenlie.com/');
+        exit();
+        
+        
+} else {//如果是pc，只要限制微信即可
+
+        //pc访问微信职位详情页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Webchatnew/job_detail/jobid/") !== false ) {
+
+                $requesString = explode("/jobid/", $_SERVER['REQUEST_URI']);
+                $requesString = explode("&share=", $requesString[1]);
+
+              //var_dump($requesString);die;
+                header("Location: http://www.renrenlie.com/Home/Index/job_detail_redirect/jobid/" . $requesString[0]);
+                die;
+        }
+        //pc访问微信的私人定制页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Home/Webchatcustomized/index") !== false) {
+
+                header("Location: http://www.renrenlie.com/Home/Customized/index.html");
+                die;
+        }
+
+        //pc访问微信的的qa页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Home/Webchatnew/qa") !== false) {
+
+                header("Location: http://www.renrenlie.com/Home/public/qa.html");
+                die;
+        }
+         //pc访问微信的的上传简历页面
+        if (strpos($_SERVER['REQUEST_URI'], "/Home/Webchatnew/upresume_info") !== false) {
+
+                header("Location: http://www.renrenlie.com/Home/Upresume/index.html");
+                die;
+        }
+        //pc访问微信红包页面
+        if (strpos($_SERVER['QUERY_STRING'], "s=/Home/Webchatactive/wxredpackage") !== false) {
+
+                header('Location:http://www.renrenlie.com/index.php?s=/Home/Index/activities4.html');
+                exit();
+        }
+}
+
+//判断是不是手机
+function is_mobile_request() {
+        $_SERVER['ALL_HTTP'] = isset($_SERVER['ALL_HTTP']) ? $_SERVER['ALL_HTTP'] : '';
+        $mobile_browser = '0';
+        if (preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|iphone|ipad|ipod|android|xoom)/i', strtolower($_SERVER['HTTP_USER_AGENT'])))
+                $mobile_browser++;
+        if ((isset($_SERVER['HTTP_ACCEPT'])) and ( strpos(strtolower($_SERVER['HTTP_ACCEPT']), 'application/vnd.wap.xhtml+xml') !== false))
+                $mobile_browser++;
+        if (isset($_SERVER['HTTP_X_WAP_PROFILE']))
+                $mobile_browser++;
+        if (isset($_SERVER['HTTP_PROFILE']))
+                $mobile_browser++;
+        $mobile_ua = strtolower(substr($_SERVER['HTTP_USER_AGENT'], 0, 4));
+        $mobile_agents = array(
+            'w3c ', 'acs-', 'alav', 'alca', 'amoi', 'audi', 'avan', 'benq', 'bird', 'blac',
+            'blaz', 'brew', 'cell', 'cldc', 'cmd-', 'dang', 'doco', 'eric', 'hipt', 'inno',
+            'ipaq', 'java', 'jigs', 'kddi', 'keji', 'leno', 'lg-c', 'lg-d', 'lg-g', 'lge-',
+            'maui', 'maxo', 'midp', 'mits', 'mmef', 'mobi', 'mot-', 'moto', 'mwbp', 'nec-',
+            'newt', 'noki', 'oper', 'palm', 'pana', 'pant', 'phil', 'play', 'port', 'prox',
+            'qwap', 'sage', 'sams', 'sany', 'sch-', 'sec-', 'send', 'seri', 'sgh-', 'shar',
+            'sie-', 'siem', 'smal', 'smar', 'sony', 'sph-', 'symb', 't-mo', 'teli', 'tim-',
+            'tosh', 'tsm-', 'upg1', 'upsi', 'vk-v', 'voda', 'wap-', 'wapa', 'wapi', 'wapp',
+            'wapr', 'webc', 'winw', 'winw', 'xda', 'xda-'
+        );
+        if (in_array($mobile_ua, $mobile_agents))
+                $mobile_browser++;
+        if (strpos(strtolower($_SERVER['ALL_HTTP']), 'operamini') !== false)
+                $mobile_browser++;
+        // Pre-final check to reset everything if the user is on Windows
+        if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'windows') !== false)
+                $mobile_browser = 0;
+        // But WP7 is also Windows, with a slightly different characteristic
+        if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'windows phone') !== false)
+                $mobile_browser++;
+        if ($mobile_browser > 0)
+                return true;
+        else
+                return false;
+}
+
+//判断是是不是微信
+function is_weixin() {
+        if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
+                return true;
+        }
+        return false;
+}
+
+//判断是pc
+function from_to_weixin() {
+        if (is_weixin() === false) {
+                if (is_mobile_request() === false) {
+
+                        header('Location: http://www.renrenlie.com/');
+                }
+        }
+}
+
+// 引入ThinkPHP入口文件
+require './ThinkPHP/ThinkPHP.php';
+

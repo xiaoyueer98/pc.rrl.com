@@ -1,0 +1,73 @@
+<div class="mins2 clearfix">
+    <div class="mins2Left">
+        <h3>最新职位</h3>
+        <ul>
+            <volist name="comp" id="cp">
+                <li class="clearfix">
+
+                    <em><a><img src="{$cp.thumlogo}" alt=""  width="50px" height="50px"></a></em>
+                    <div>
+                        <dt class="clearfix">
+                        <span class="Position"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.title}</a><i></i></span>
+                        <span class="EntprisName"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.cpname}</a></span>
+                        <span class="Salary" style="font-size:14px;color:#1b5d95"><i style='color:#1b5d95'>￥</i>{$cp.treatment}</span>
+                        </dt>
+                        <dd class="clearfix">
+                            <span class="WorkAge"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.experience}</a></span>
+                            <span class="Education"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.education}</a></span>
+                            <span class="Place3" ><a style='color: #333333' href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.jobplace}</a></span>
+                            <span class="Place2"><i>￥</i>{$cp.Tariff}</span>
+                        </dd>
+                    </div>
+                </li>
+            </volist>
+        </ul>
+        <span class="gengduo"><a href="__URL__/search&sort=puttime">更多...</a></span>
+    </div>
+    <div class="mins2Right">
+        <h3>热招职位</h3>
+        <ul>
+            <volist name="comp2" id="cp">
+                <li class="clearfix">
+                    <em><a><img src="{$cp.thumlogo}" alt="" width="50px" height="50px"></a></em>
+                    <div>
+                        <dt class="clearfix">
+                        <span class="Position"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.title}</a><i></i></span>
+                        <span class="EntprisName"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.cpname}</a></span>
+                        <span class="Salary" style="font-size:14px;color:#1b5d95"><i style='color:#1b5d95'>￥</i>{$cp.treatment}</span>
+                        </dt>
+                        <dd class="clearfix">
+                            <span class="WorkAge"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.experience}</a></span>
+                            <span class="Education"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.education}</a></span>
+                            <span class="Place3" ><a  style='color: #333333' href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.jobplace}</a></span>
+                            <span class="Place2"><i>￥</i>{$cp.Tariff}</span>
+                        </dd>
+                    </div>
+                </li>
+            </volist>
+        </ul>
+        <span class="gengduo"><a href="__URL__/search.html">更多...</a></span>
+        <div class="guanzhu clearfix">
+            <h3>关注我们</h3>
+            <div class="clearfix">
+                <dl class="dl1">
+                    <dt><img src="__ROOT__/Public/img/weixin.png" alt="" ></dt>
+                    <dd>
+                        <b>扫码关注微信</b>
+                        <span><img src="__ROOT__/Public/img/wein_icon.png" alt="">扫码添加</span>
+                    </dd>
+                    <i><img src="__ROOT__/Public/img/erweima2.png" alt=""></i>
+                </dl>
+
+                <dl class="dl2">
+                    <dt><img src="__ROOT__/Public/img/xinlang.png" alt=""></dt>
+                    <dd>
+                        <b>关注新浪微博</b>
+                        <span><wb:follow-button uid="5540068389" type="gray_1" width="67" height="24" ></wb:follow-button></span>
+
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

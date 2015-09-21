@@ -1,0 +1,49 @@
+<div  class="denglu dengluBtn2">
+    <a class="Close"></a>
+    <h3></h3>
+    <dl>
+        <dt>
+        <ul class="InputUl">
+            <li><input onkeydown="DL_KeyDown(event);" class="DLUser" type="text" name="usernamees" value='<?php echo $_COOKIE[username];?>'/><span><?php if(!($_COOKIE[username] && $_COOKIE[password])){ echo "请输入用户名/手机号";}?></span></li>
+            <li><input onkeydown="DL_KeyDown(event);" class="DLpassword" type="password" name="passwordes" value='<?php echo $_COOKIE[password];?>'/><span><?php if(!($_COOKIE[username] && $_COOKIE[password])){ echo "请输入密码";}?></span></li>
+            <p class="error2"></p>
+        </ul>
+        <div class="yanzheng">
+            <input type="checkbox" id="remembeme" <?php if($_COOKIE[username] && $_COOKIE[password]){ echo "checked";}?>>
+                   <span>记住我<a href="/Home/Index/findpwd.html">忘记密码？</a></span>
+        </div>
+        <input type="submit" class="zhucequeren" value="确认" id="denglubutton">
+        <div class="weixin_img">
+            <img src="__ROOT__/Public/img/erweima_img.jpg" alt="">
+        </div>
+        </dt>
+        <dd>
+            <div class="yd">
+                <span>还没账号</span>
+                <em id="dengluBtn2">点此注册</em>
+            </div>
+            <p>使用联合账号登录</p>
+            <ul>
+                <li><a href="/Home/Index/login?type=qq"><img src="__ROOT__/Public/img/qq_icon.png"></a></li>
+                <!-- <li><a href="{:U('login?type=qq')}"><img src="__ROOT__/Public/img/qq2.png"></a></li> -->
+                <li><a href="/Home/Index/login?type=sina"><img src="__ROOT__/Public/img/weibo.png"></a></li>
+                <li><a href="/Home/Index/login?type=weixin"><img src="__ROOT__/Public/img/weixin.png"></a></li>
+                <!-- <li class="dl_weixin"><img src="__ROOT__/Public/img/weixin.png"></li> -->
+                <li><a href="/Home/Index/login?type=renren"><img src="__ROOT__/Public/img/renren.png"></a></li>
+            </ul>
+        </dd>
+    </dl>
+</div>
+<div class="cfid">
+    <a class="Close2" id="colosewindowd"></a>
+    <h3><img src="__ROOT__/Public/img/denglu_hed.png" alt=""></h3>
+    <ul>
+        <li><b id="helloname">Robin您好！</b></li>
+        <li>系统检测到你有另外一个相同的用于<span>推荐人</span>登录的用户ID<br>请你下次使用以下ID登录<span>推荐人页面</span></li>
+        <li><div id="updatename">hrRobin</div></li>
+        <li>
+            <input type="hidden" id="hrefUrl">
+            <input class="btn" type="button" value="我知道了" id="colosewindowds"></li>
+    </ul>
+</div>
+ <script type="text/javascript" src="__ROOT__/Public/js/denglu.js"></script>

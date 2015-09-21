@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>欢迎注册</title>
+	</head>
+<script type="text/javascript" src="jquery.js"></script>
+	<body>
+		<form action="__URL__/active" method="post" name="formUser">
+			<table>
+				<tr>
+					<td>账号信息<td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>用户名:<td>
+					<td><input type="text" name="username" id="username" class="username"/></td>
+				</tr>
+				<tr>
+					<td>请设置密码:<td>
+					<td><input type="password" name="password" id="password" class="password"/></td>
+				</tr>
+				<tr>
+					<td>请确认密码:<td>
+					<td><input type="password" name="password" id="repass" class="repass"/></td>
+				</tr>
+				<tr>
+					<td><td>
+					<td></td>
+					<td><td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>联系人信息<td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>联系人姓名:<td>
+					<td><input type="text" name="cnname" id="cnname" class="cnname"/></td>
+				</tr>
+				<tr>
+					<td>电子邮件:<td>
+					<td><input type="text" name="email" id="email" class="email"/></td>
+				</tr>
+				<tr>
+					<td align="right">手机<td>
+					<input id="mobile" name="mobile" type="text" size="25" class="inputBg" value=""/>
+					<span style="color:#FF0000"> *</span> 
+					<td><input id="zphone" type="button" value=" 获取手机验证码 " onClick="get_mobile_code();"></td>
+				</tr>
+				<tr>
+					<td align="right">验证码</td>
+					<td><input type="text" size="8" name="mobile_code" class="inputBg" /></td>
+				</tr>
+				<tr>
+					<td align="right"></td>
+					<td><input type="submit" value=" 注册 " class="button"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+	<script type="text/javascript">
+	<!--
+		function get_mobile_code(){
+
+        $.post('./sms.php', {mobile:jQuery.trim($('#mobile').val()),send_code:<?php echo $_SESSION['send_code'];?>}, function(msg) {
+            alert(jQuery.trim(unescape(msg)));
+			if(msg=='提交成功'){
+				RemainTime();
+			}
+        });
+	};
+	var iTime = 59;
+	var Account;
+	function RemainTime(){
+		document.getElementById('zphone').disabled = true;
+		var iSecond,sSecond="",sTime="";
+		if (iTime >= 0){
+			iSecond = parseInt(iTime%60);
+			iMinute = parseInt(iTime/60)
+			if (iSecond >= 0){
+				if(iMinute>0){
+					sSecond = iMinute + "分" + iSecond + "秒";
+				}else{
+					sSecond = iSecond + "秒";
+				}
+			}
+			sTime=sSecond;
+			if(iTime==0){
+				clearTimeout(Account);
+				sTime='获取手机验证码';
+				iTime = 59;
+				document.getElementById('zphone').disabled = false;
+			}else{
+				Account = setTimeout("RemainTime()",1000);
+				iTime=iTime-1;
+			}
+		}else{
+			sTime='没有倒计时';
+		}
+		document.getElementById('zphone').value = sTime;
+	}
+	//-->
+	</script>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>候选人列表-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="recom1 xg" style="margin-top:35px;">
+                <div class="recom1_tp">
+                    <h3>推荐设置</h3>
+                    <ul>
+                        <li>行业：<input type="text" value="互联网"></li>
+                        <li>职位：<input type="text" value="PHP"></li>
+                    </ul>
+
+                    <h3>地区设置</h3>
+                    <ul>
+                        <li>地区：<input type="text" value="北京市"></li>
+                    </ul>
+
+                    <h3>时间设置</h3>
+                    <ul>
+                        <li>时间：<input type="text" value="至2015.3.31止"></li>
+                    </ul>
+
+                    <h3>消息设置</h3>
+                    <ul style="border:none;margin-bottom:0;">
+                        <li><input class="checbox" id="dd" type="checkbox"><label for="dd">我同意接收符合本人设置条件的新职位的通知。</label></li>
+                    </ul>
+                </div>
+                <div class="recoml_btm">
+                    <input class="bc" type="button" value="保存">
+                    <input class="qx" type="button" value="取消">
+                </div>
+            </div>
+            <div class="recom1 data recom2 recom3">
+                <div class="recom1_tp">
+                    <h3>正在推荐</h3>
+                    <div class="tab">
+                        <table  border="1">
+                            <tr class="bg">
+                                <th width="7%">序号</th>
+                                <th  width="10%">姓名</th>
+                                <th  width="15%">推荐公司</th>
+                                <th  width="15%">职位名称</th>
+                                <th  width="12%">推荐进度</th>
+                                <th  >可面试时间</th>
+                                <th  width="10%">推荐费（元）</th>
+                                <th  width="10%">总招聘人数</th>
+                            </tr>
+                            <volist name="comp" id="vo">
+                                <tr class="bg">
+                                    <td>{$vo.sort_id}</td>
+                                    <td>{$vo.username}</td>
+                                    <td>{$vo.cpname}</tb>
+                                    <td>{$vo.Jobcate}</td>
+                                    <!--	<td><a href="{:U('Login/EnterIndex2')}">{$vo.Jobcate}</a></td>-->
+                                <if condition= "$vo.disreason !=''">   <td>{$vo.status}<a href="javascript:;" onclick="showDisMsg('{$vo.disreason}')"><img src='/images/ntice.png'/></a></td>
+                                    <else/>
+                                    <td>{$vo.status}</td>
+                                </if>
+                                <td>{$vo.audstartdate}</td>
+                                <td>{$vo.Tariff}</td>
+                                <td>{$vo.employ}</td>
+                                <td></td>
+                                </tr>
+                            </volist>
+                        </table>
+                    </div>
+                    {$page}
+                </div>
+                <div class="recoml_btm">
+                </div>
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+    <script>
+        function showDisMsg(msg) {
+            alert(msg);
+        }
+
+    </script>
+</body>
+</html>

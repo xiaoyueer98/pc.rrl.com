@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>评论</title>
+        <link rel="stylesheet"  href="/Public/css/webchatnew/reset.css">
+        <link rel="stylesheet"  href="/Public/css/webchat/wechat.css">
+        <script type="text/javascript" src="/Public/js/webchatnew/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/Public/js/webchatnew/iscroll.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+        <style>
+            #content{
+                width: 100%;
+                height: 144px;
+                display: block;
+                border: none;
+                background: #ffffff;
+                resize: none;
+                overflow: hidden;
+                outline: medium;
+                font-size: 14px;
+                line-height: 20px;
+                border-bottom: 1px #ccc solid;
+            }
+        </style>
+    </head>
+    <body>
+    <include file="Webchatnew:like_alert"/>
+    <div class="set_wrapper" id="re_wrapper" style="background:#ffffff;" >
+        <div id="scroller">
+
+            <form action="/Home/Webchatrecommend/add_evaluate" method="post" id="form">
+
+                <textarea placeholder="请填写评论内容" name="content" id="content" ></textarea>
+                <input type="hidden" value='<?php echo $_GET[recordid]?>' name='recordid' />
+                <input type="hidden" value='<?php echo $_GET[j_id]?>' name='j_id' />
+                <input type="hidden" value='<?php echo $_GET[pname]?>' name='pname' />
+                <input type="hidden" value='<?php echo $_GET[type]?>' name='type' />
+                <input type="button" value="保存" id="savebtn" style="width:100%;font-size:20px;line-height:30px;background:#0983c6;color:#fff;border-radius:5px;">
+            </form>
+
+
+        </div>
+    </div>
+    <!-- <include file="Public:footer"/> -->
+    <script>
+        document.addEventListener("touchmove", function (e) {
+            e.preventDefault();
+        }, false);
+        $(document).ready(function () {
+
+
+            var myScroll = new IScroll('#re_wrapper', {mouseWheel: true, click: false});
+        })
+
+
+        $("#savebtn").click(function () {
+            $("#savebtn")[0].disabled = true;
+            if ($("#content").val() != "") {
+                $("#form")[0].submit();
+            }else{
+                like_alert("请输入评论内容");
+                $("#savebtn")[0].disabled = false;
+                return;
+            }
+        })
+        $('.jl ul li em').on('click', function () {
+            $(this).hide();
+            $(this).nextAll().show();
+        })
+    </script>
+    <include  file='Webchatnew:statistics' />
+</body>
+</html>

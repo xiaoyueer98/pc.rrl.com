@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>人人猎-上传简历坐等收钱</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <style>
+            .tanchu{
+                width: 300px;
+                height: 120px;
+                padding:10px 0;
+                background: #ffffff;
+                box-shadow: 1px 1px 10px #2c2b2b;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                margin-left:-150px;
+                margin-top: -90px;
+                z-index: 100;
+                border-radius: 15px;
+            }
+            .tanchu dl{
+                margin:0 auto;
+                width: 260px;
+                margin-top: 10px;
+            }
+
+            .tanchu dl dd{
+                text-align: center;
+                color: #2380b8;
+                line-height: 30px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .tanchu dl dd button{
+                width: 110px;
+                height: 30px;
+                background: #2380b8;
+                border-radius: 5px;
+                border:none;
+                color: #ffffff;
+                margin-top:10px;
+            } 
+        </style>
+    </head>
+
+    <body style="background:#ffffff">
+        <div class="mask" style="display:none;"></div>
+        <div style="display:none;" id="like_alert_kuang">
+            <div class="tanchu">
+                <dl>
+                    <dd id="alert_title">您目前是企业账户，请切换至推荐人账户后，参与活动</dd>
+                    <dd id="alert_ok"><button>确定</button></dd>
+                </dl>
+            </div>
+        </div>
+
+    <include file="Public:newHeader"/>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+
+    <div class="wrap yjfk">
+        <div class="content-t">
+            <div class="yjfk-banner" style="margin-bottom:10px"><img src="/Public/img/rcmd-img/srdz-img.png" alt=""></div>
+            <p class="jl-p clearfix" style="margin:20px auto">
+                <label class="dis-block clearfix">
+                    <b class="dis-block dis-inlin fl-lef" style="color:#333333;">HR:</b>
+                    <em style="width:930px;margin-left:10px;">如果你是HR，你所在的公司若招聘1人，往往会面试4-5人，面试过后但未录用的人，其实可以<b>大额变现</b>。</em>
+                </label>
+                <label class="dis-block clearfix" style="margin-top:10px;">
+                    <b class="dis-block dis-inlin fl-lef" style="color:#333333;">猎头:</b>
+                    <em style="width:920px;margin-left:10px;">如果你是猎头，每月会详细了解50名候选人，但是一般只有1-2名候选人拿到offer，你可以将剩余的50人<b>大额变现</b>。</em>
+                </label>
+            </p>
+            <h5><b>1.</b>上传简历</h5>
+            <p class="jl-p clearfix"><em>你只需每天下班后，将候选人简历上传至人人猎，要求上传的候选人简历满足：<br>
+                    <i>1 . 年薪<b>10万</b>以上互联网中高端人才；</i><br>
+                    <i>2 . 候选人<b>正在看</b>工作机会。</i> </em></p>
+            <h5><b>2.</b>系统匹配</h5>
+            <p class="jl-p clearfix"><em>人人猎会将你上传的候选人简历<b>匹配</b>到与之最合适的工作机会，并协调面试预约。</em></p>
+
+            <h5><b>3.</b> 随心掌控</h5>
+            <p class="jl-p clearfix"><em>当你上传候选人进入人人猎推荐流程后，可随时在用户中心查看候选人<b>面试状态</b>。</em></p>
+
+            <h5><b>4.</b> 入职拿钱</h5>
+            <p class="jl-p clearfix"><em>候选人入职后，就可得到相应的推荐<b>奖金</b>。</em></p>
+            <div class="text">整个过程，只需要上传简历，还等什么？快快参与吧！</div>
+            <img src="/Public/img/rcmd-img/hongb.png" alt="" class="hongb">
+        </div>
+        <span class="my-btn hover-hand" id='btn'>立即上传简历</span>
+    </div>
+
+    <include file="Public:newFooter"/>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                $.post(
+                        "/Home/Upresume/is_login",
+                        "",
+                        function(re) {
+                            if ($.trim(re) == 1) {
+                                location.href = "/Home/Login/Recommended/act/addResume.html";
+                                return;
+                            } else if ($.trim(re) == 2) {
+                                $(".mask").show();
+                                $("#like_alert_kuang").show();
+                                return;
+                            } else {
+                                $(".mask").show();
+                                $(".denglu").show();
+                                return;
+                            }
+                        }, "json");
+            })
+            $("#alert_ok").click(function() {
+                $(".mask").hide();
+                $("#like_alert_kuang").hide();
+            })
+        })
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var url = "http://www.renrenlie.com/Home/Upresume/index.html";
+        var jiathis_config = {
+            url: url,
+            title: "人人猎-上传简历坐等收钱",
+            summary: "",
+            pic: "http://www.renrenlie.com/Public/img/web_logo.png"
+        }
+    </script> 
+    <script src="http://v2.jiathis.com/code/jiathis_r.js?move=0"></script> 
+</body>
+</html>

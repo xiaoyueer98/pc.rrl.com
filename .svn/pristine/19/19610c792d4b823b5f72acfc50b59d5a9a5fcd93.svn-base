@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/hd_style.css">
+	<link rel="stylesheet" type="text/css" href="css/resizer.css">
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/hd_script.js"></script>
+</head>
+<body>
+	<div class="wrapper" style="height:1150px;">
+		<div class="bg clearfix">
+			<img src="hd_img/hd2_01.png" alt="">
+			<img src="hd_img/hd2_02.png" alt="">
+			<img src="hd_img/hd2_03.png" alt="">
+			<img src="hd_img/hd2_04.png" alt="">
+			<img src="hd_img/hd2_05.png" alt="">
+		</div>
+		<a href="http://www.renrenlie.com/Home/Index/search.html"  class="hd2_btn"></a> 
+		<!-- <div class="fenxiang">
+			<div class="jiathis_style_32x32">
+				<a class="jiathis_button_qzone">的发生大事</a>
+				<a class="jiathis_button_tsina">阿斯蒂芬阿斯蒂芬</a>
+				<a class="jiathis_button_tqq">阿斯蒂芬阿道夫</a>
+				<a class="jiathis_button_weixin">阿斯蒂芬阿斯蒂芬</a>
+				<a class="jiathis_button_renren">阿斯蒂芬 </a>
+				<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+				<a class="jiathis_counter_style"></a>
+			</div>
+			<a class="fhsy" href="http://www.renrenlie.com"> 返回首页>> </a>
+		</div> -->
+	</div>
+</body>
+<!-- <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+JiaThis Button BEGIN 
+
+<script src="http://v2.jiathis.com/code/jiathis_r.js?move=0"></script> 
+JiaThis Button END -->
+</html>

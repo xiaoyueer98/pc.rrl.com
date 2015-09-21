@@ -1,0 +1,84 @@
+<?php
+
+namespace Home\Controller;
+
+use Think\Controller;
+
+/**
+ * 分享页面三端跳转相关 类文件 
+ * 
+ * @author      sunyue<1551058861@qq.com> 
+ * @since       1.0 
+ */
+class SharemodelController extends Controller {
+
+        private $arShare = array();
+        
+        function __construct() {
+                
+                parent::__construct();
+                $arShare = M("share_info")->where("status=1")->select();
+                $this->arShare = $arShare;
+        }
+        
+        /**
+         * 来自微信的处理  
+         * 
+         * @access public 
+         * @since 1.0 
+         */
+        function from_weixin($referurl) {
+                if(!empty($referurl)){
+                        foreach($this->arShare as $v){
+                               if($referurl == $v['pcurl'] || $referurl == rtrim($v['pcurl'],".html")) {
+                                       header("location:".$v['wxurl']);
+                                       die;
+                               }
+                        }
+                }
+        }
+        
+        /**
+         * 来自非微信的手机的处理  
+         * 
+         * @access public 
+         * @since 1.0 
+         */
+        function from_mobile($referurl) {
+                if(!empty($referurl)){
+                       foreach($this->arShare as $v){
+                               if($referurl == $v['pcurl'] || $referurl == rtrim($v['pcurl'],".html") || $referurl == $v['wxurl'] || $referurl == rtrim($v['wxurl'],".html")) {
+                                       header("location:".$v['wapurl']);
+                                       die;
+                               }
+                        } 
+                }
+        }
+        
+        /**
+         * 来自pc的处理  
+         * 
+         * @access public 
+         * @since 1.0 
+         */
+        function from_pc() {
+                $referurl= urldecode($_GET['ref']);
+                if(!empty($referurl)){
+                        foreach($this->arShare as $v){
+                               if($referurl == $v['wxurl'] || $referurl == rtrim($v['wxurl'],".html")) {
+                                       header("location:".$v['pcurl']);
+                                       die;
+                               }
+                        }
+                }
+                header("location:".$referurl);
+                die;
+        }
+        
+        
+
+        
+
+        
+
+}

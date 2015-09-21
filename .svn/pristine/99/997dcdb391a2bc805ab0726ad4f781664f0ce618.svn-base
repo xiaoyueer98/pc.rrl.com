@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>人人猎</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/hd_style.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+    </head>
+    <body>
+        <div class="mask"></div>
+        <div class="erweima">
+            <a class="clos"></a>
+            <img src="__ROOT__/Public/img/erweima_img.jpg" alt="">
+            <p>扫码关注微信参与活动</p>
+        </div>
+        <div class="wrapper" style="height:1150px;">
+            <div class="bg clearfix">
+                <img src="__ROOT__/Public/img/hd5_01.jpg" alt="">
+                <img src="__ROOT__/Public/img/hd5_02.jpg" alt="">
+                <img src="__ROOT__/Public/img/hd5_03.jpg" alt="">
+                <img src="__ROOT__/Public/img/hd5_04.jpg" alt="">
+                <img src="__ROOT__/Public/img/hd5_05.jpg" alt="">
+            </div>
+            <a class="mscy_a"></a>
+        </div>
+        <script>
+            // $(document).ready(function(){
+            //     $( '.mscy_a' ).click(function(){
+            //         $( '.mask' ).show();
+            //         $( '.erweima' ).show();
+            //     });
+            //     $( '.clos' ).click(function(){
+            //         $( '.mask' ).hide();
+            //         $( '.erweima' ).hide();
+            //     })
+            // })
+        </script>
+    </body>
+</html>

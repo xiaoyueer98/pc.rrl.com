@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>修改密码-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask1"></div>
+        <div id="" class="wjmima">
+            <a class="Close"></a>
+            <h3></h3>
+            <!--<form action="__URL__/savepassv" method="post">  -->
+            <ul class="InputUl mul">
+                <li><input type="password" class="" id="resetpassword" name="password" placeholder="" onblur="findpass()"><span>请输入原始密码</span></li>
+                <li><input type="password" class="" id="resetnewpassword" name="newpassword" placeholder=""><span>请输入新密码</span></li>
+                <li><input type="password" class="" id="resetnewrepassword" name="newrepassword" placeholder=""><span>再次输入新密码</span></li>
+                <p class="error" style="display:none"></p>
+            </ul>
+            <input class="mimaqueren1" type="button" value="确认" id="resetnewrepass">
+            <!--</form>  -->
+        </div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:indexLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="centerCon2">
+            <div class="mins1 clearfix">
+                <div class="promo">
+                    <div class="promo-bd">
+                        <div style="position:absolute;left:-610px;">
+                            <div>
+                                <ins style="display:inline-block;padding:0;margin:0;width:610px;height:280px;*zoom:1;*display:inline"
+                                     id="tanxssp-outer-conmm_12852562_1778064_13670999">
+                                    <a href="http://www.renrenlie.com/ad/ad1/regad.php" target=blank>
+                                        <img border="0" src="__ROOT__/Public/img/hd1_banner.jpg"
+                                             width="610px" height="280px">
+                                    </a>
+                                </ins>
+                                <a class="hide">
+                                </a>
+                            </div>
+                            <div>
+                                <ins style="display:inline-block;padding:0;margin:0;width:610px;height:280px;*zoom:1;*display:inline"
+                                     id="tanxssp-outer-conmm_12852562_1778064_13674396">
+                                    <a href="#" >
+                                        <img border="0" src="__ROOT__/Public/img/hd2_banner.png"
+                                             width="610px" height="280px">
+                                    </a>
+                                </ins>
+                                <a class="hide">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#">
+                                    <img border="0" src="__ROOT__/Public/img/hd3_banner.png"
+                                         width="610px" height="280px">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="promo-ft">
+                        <div id="J_PromoOpt" class="promo-opt">
+                            <a href="javascript:;" class="J_Prev prev">
+                                <i>
+                                </i>
+                            </a>
+                            <a href="javascript:;" class="J_Next next">
+                                <i>
+                                </i>
+                            </a>
+                        </div>
+                        <ul class="promo-nav">
+                            <li class="selected">
+                                <a href="javascript:void(0);">
+                                    1
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    2
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    3
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mins1Right">
+                    <a href="http://www.51shebao.com" target="Blank" ><img src="__ROOT__/Public/img/51_logo.png" alt=""></a>
+                    <a href="http://meililai.com" target="Blank" ><img src="__ROOT__/Public/img/mlilai_logo.png" target="Blank" alt=""></a>
+                    <a href="http://www.idachu.cn/" target="Blank" ><img src="__ROOT__/Public/img/adachu_logo.png" target="Blank" alt=""></a>
+                </div>
+            </div>
+            <include file="Public:center_content"/>
+        </div>
+
+        <include file="Public:centerFooter"/>
+    </div>
+
+    <include file="Public:fiexdTop"/>
+
+    <script type="text/javascript">
+        $(function() {
+            $("#resetnewrepass").attr("disabled", false);
+        })
+
+
+        if ($('.mul input').val() == '') {
+            $('.mul li span').on('click', function() {
+                $(this).hide().prev().focus();
+                $(this).hide();
+            })
+
+            $('.mul input').focus(function() {
+                $(this).nextAll().hide();
+                // $(this).parent().siblings().find('span').show();
+            })
+        }
+
+
+
+        $("#resetnewrepass").click(function() {
+
+            var password = $("#resetpassword").val();
+            var newpassword = $("#resetnewpassword").val();
+            var newrepassword = $("#resetnewrepassword").val();
+
+
+
+
+            if (!password) {
+                $('.error').html('请输入初始密码')
+                $('.error').show();
+                return false;
+            }
+            if (newpassword != newrepassword) {
+                $('.error').html('两次输入密码不一致')
+                $('.error').show();
+                return false;
+            }
+            $("#zhaohuimima").attr("disabled", "disabled");
+            $.post("__URL__/savepassv", {
+                'password': password,
+                'newpassword': newpassword,
+                'newrepassword': newrepassword
+            }, function(data) {
+                if (data.code == 200) {
+                    sys_window("重置成功","http://www.renrenlie.com");
+                   // location.href = "/index.php";
+                    return false;
+                } else {
+                    $("#zhaohuimima").attr("disabled", false);
+                    $('.error').html(data.msg)
+                    $('.error').show();
+                    return false;
+                }
+            }, "json")
+        });
+
+
+        /*  $('.wjmima ul input span').click(function(){
+         $( this ).hide().parent().siblings('li').find('span').show();
+         })    */
+
+    </script>
+
+    <script type="text/javascript">
+        <!--
+            function findpass()
+        {
+            var password = $("#password").val();
+            $.ajax({
+                url: "__URL__/findpass",
+                data: {"password": password},
+                type: "get",
+                success: function(ff)
+                {
+                    if (ff == password)
+                    {
+                        $(".error").html("正确")
+                    }
+                    else
+                    {
+                        $(".error").html("密码错误");
+                    }
+                }
+
+            })
+
+        }
+        //-->
+    </script>
+</body>
+</html>

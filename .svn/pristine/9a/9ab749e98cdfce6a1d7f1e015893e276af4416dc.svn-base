@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>职位详情</title>
+        <link rel="stylesheet"  href="/Public/css/webchatnew/reset.css">
+        <link rel="stylesheet"  href="/Public/css/webchatnew/new-recommende.css">
+        <script type="text/javascript" src="/Public/js/webchatnew/iscroll.js"></script>
+        <script type="text/javascript" src="/Public/js/webchatnew/jquery-1.11.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+        <style>
+            *{outline:none;}
+            div{border: none;}
+            #j_com_art_op ul{
+                list-style: none;
+            }
+            #j_com_art_op .share_op{
+                display: none;
+                margin-left: 10px;
+            }
+            .platforms_small{
+                border:none !important;
+                padding:0;
+                margin-left:10px;
+                width: 60px;
+            }
+            .platforms_small ul li{
+                display: inline-block;
+                border: none;
+                padding:0;
+                padding-top:5px;
+            }
+            .platforms_small ul li span{
+                width: 24px;
+                height:24px;
+                display: block;
+                margin:0;
+                padding: 0;
+                margin-right:5px;
+            }
+            .platforms_small ul li span.aa{
+                background: url(/Public/images/wx.png) no-repeat center !important;
+                background-size: 100% 100%;
+            }
+            .platforms_small ul li span.bb{
+                background: url(/Public/images/pyq.png) no-repeat center !important;
+                background-size: 100% 100%;
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.nav').hide();
+                $('.comp-text').slideDown();
+                $('.myh3-2').addClass("m");
+                $(".myh3").removeClass('m');
+                $(".gsjj-btn").click(function () {
+                    $('.comp-text').slideDown();
+                    $('.myh3-2').addClass("m");
+                    $(".myh3").removeClass('m');
+                    setTimeout(function () {
+                        myScroll.refresh();
+                    }, 500)
+                })
+                $('.myh3-2').click(function () {
+                    $('.comp-text').slideUp();
+                    $('.myh3-2').removeClass("m");
+                    $(".myh3").addClass('m');
+                    setTimeout(function () {
+                        myScroll.refresh();
+                    }, 500)
+                })
+                myScroll = new IScroll('#m', {
+                    click: true,
+                    scrollbars: true,
+                    mouseWheel: true,
+                    interactiveScrollbars: true,
+                    shrinkScrollbars: 'scale',
+                    fadeScrollbars: true
+                });
+
+
+
+
+                var list2 = $(".posi-nav li");
+                var divs2 = $(".m-c>div");
+                list2.on("click", function () {
+                    that = $(this);
+                    index = that.index();
+                    that.addClass("m").siblings().removeClass("m");
+                    $(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+                    divs2.eq(index).show().siblings("div").hide();
+                    setTimeout(function () {
+                        myScroll.refresh();
+                    }, 500)
+                });
+
+            })
+            document.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+            }, false);
+        </script>
+    </head>
+    <body>
+
+        <div class="wrap job-wrap" id="wamp">
+            <div class="content">
+                <include file="Webchatnew:rcmd-steps"/>
+                <div id="m" class="m detail flex">
+                    <div class="scroll">
+                        <div class="bd">
+                            <ul class="posit-name clearfix">
+                                <li><b class="dis-block">{$result.title}</b></li>
+                                <li><span class="dis-block">{$result.treatmentdata}</span></li>
+                                <li><em class="dis-block">推荐成功入职,你即得奖励￥{$result.Tariff}</em></li>
+                                <?php if($tag==1){?>
+                                <span class="clct m" id='collect'></span>
+                                <?php }else{?>
+                                <span class="clct" id='collect' ></span>
+                                <?php }?>
+                            </ul>
+                        </div>
+                        <div class="bd">
+                            <ul class="dt-cn">
+                                <h3>{$result.cpname}</h3>
+                                <li class="clearfix">
+                                    <div class="fl-lef"><span>融资阶段：</span><b>{$result.stagedata} </b></div>
+                                    <div class="fl-rig"><span>性质：</span><b>{$result.naturedata} </b></div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="fl-lef"><span>成立日期：</span><b>{$result.brightreg}</div>
+                                    <div class="fl-rig"><span> 规模：</span><b>{$result.scaledata} </b></div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="fl-lef"><span>招聘人数：</span><b>{$result.employ} </b></div>
+                                    <div class="fl-rig"><span>推荐人数：</span><b style="color:red;">{$result.recommendednum} </b></div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="fl-lef"><span>工作地点：</span><b>{$result.cascname}  </b></div>
+                                    <div class="fl-rig"><span>学历要求：</span><b>{$result.educationdata} </b></div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="posi-nav">
+                            <li class="hover-hand m">职位信息</li>
+                            <li class="hover-hand">公司简介</li>
+                            <li class="hover-hand">累积评价</li>
+                        </ul>
+                        <div class="m-c">
+                            <div class="detail-f1">
+                                <div class="bd">
+                                    <ul>
+                                        <h3>岗位职责</h3>
+                                        <!--									<li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>-->
+                                        <p>{$result.workdesc}</p>
+                                    </ul>
+                                </div>
+                                <div class="bd">
+                                    <ul>
+                                        <h3>任职要求</h3>
+                                        <!--									<li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>-->
+                                        <p>{$result.content}</p>
+                                    </ul>
+                                </div>
+                                <div class="bd" <if condition='$result.softlytip eq ""' >style='display:none;'</if>>
+                                    <ul>
+                                        <h3>职位温馨提示</h3>
+                                        <!--									<li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>-->
+                                        <div style='border:1px green dashed;padding:10px 20px;'>{$result.softlytip}</div>
+                                    </ul>
+                                </div>
+                                <div class="bd"  <if condition='$result.remark eq ""' >style='display:none;'</if>>
+                                    <ul>
+                                        <h3>补充说明</h3>
+                                        <!--									<li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>
+                                                                                                                <li>1、负责整个网站改版网页制作、实现网站用户;</li>-->
+                                        <p>{$result.remark}</p>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="detail-f1" style="display:none;">
+                                <div class="myh3 m">
+                                    <h3 class="hover-hand gsjj-btn">公司简介</h3>
+                                </div>
+                                <div class="comp-text">
+                                    <ul>
+
+                                        <p class="comp-pf">
+                                            <b>公司介绍</b>
+                                            <!--51Talk无忧英语，成立于2011年，我们的创始团队来自清华大学外语系，总部位于中国北京，现有近1000人，并且我们的团队还在不断地扩大中，在上海、菲律宾均设有分公司，是专门从事互联网在线英语培训的教育机构。经过两年多的发展，我们现在已经成为一家拥有2500多名外教，在线学员达数十万之多的业界领军品牌！我们自成立之初凭借着卓越的表现获得了【2013在线1对1口语培训机构最受网友喜爱奖】、【最佳网络影响力奖】、【创业邦100-中国年度创新成长企业100强】、新浪网【最具口碑影响力外语教育机构】、腾讯网【十年知名在线教育机构】等一系列荣誉，受到业界瞩目，欢迎你加入我们！-->
+                                        <p>{$result.intro}</p>
+                                        </p>
+                                    </ul>
+                                    <ul>
+                                        <p class="comp-pf">
+                                            <b>公司亮点</b>
+                                            <!--办公环境优美别墅区还有饮料和，各种小吃吗西瓜，每天还有免费的晚餐负责整个网站改版网页制作、实现网站用户;-->
+                                        <p>{$result.bright}</p>
+                                        </p>
+                                    </ul>
+                                </div>
+                                <div class="myh3-2">
+                                </div>
+                                <div class="bd">
+                                    <volist name='result_job' id='vo'>
+                                        <a href="/Home/Webchatnew/job_detail/jobid/{$vo.id}">
+                                            <ul class="latest-position" style="border:none;">
+                                                <li class="clearfix lis1">
+                                                    <div class="fl-lef dis-inlin">
+                                                        <em class="fl-lef dis-inlin dis-block">{$vo.title}</em>
+                                                    </div>
+                                                    <div class="fl-rig dis-inlin">
+                                                        <em class="fl-lef dis-inlin dis-block">{$vo.treatmentdata}</em>
+                                                    </div>
+                                                </li>
+                                                <li class="clearfix lis2">
+                                                    <div class="fl-lef dis-inlin">
+
+                                                        <span class="fl-lef dis-inlin dis-block">招聘人数:<i>{$vo.employ}</i></span>
+                                                        <span class="fl-lef dis-inlin dis-block">已推荐人数:<b style="color:red;">{$vo.recommendednum}</b></span>
+
+                                                    </div>
+                                                    <div class="fl-rig dis-inlin r">
+                                                        <span class="fl-lef dis-inlin dis-block">[{$vo.cascname}]</span>
+                                                    </div>
+                                                </li>
+                                                <li class="clearfix lis3">
+                                                    <em class="fl-lef dis-inlin">候选人入职，你即得奖励￥{$vo.Tariff}</em>
+                                                    <span class="fl-rig dis-inlin">{$vo.starttime}</span>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </volist>
+                                </div>
+
+                            </div>
+                            <div class="detail-f1" style="display:none;">
+                                <volist name='arComment' id='vo' empty='$empty'>
+                                    <div class="bd">
+                                        <div>
+                                            <p>{$vo.content}</p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <span class="fl-lef">{$vo.username}</span>
+                                            <span class="fl-rig">{$vo.time}</span>
+                                        </div>
+                                    </div>
+                                </volist>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <a href="/Home/Webchatnew/push_resume/jobid/{$result.id}" class="delivery"  data-form="0" style="font-size:30px;" >
+            <span class="myrcmd-btn">
+                我要推荐
+            </span>
+        </a>
+
+        <div style='display:none;'>
+            <input type='hidden' value='{$result.content}' name='content'>
+            <input type='hidden' value='{$result.workdesc}' name='workdesc'>
+
+            <!--为微信分享提供参数开始-->
+            <input type='hidden' value='{$appId}' id='appId'>
+            <input type='hidden' value='{$timestamp}' id='timestamp'>
+            <input type='hidden' value='{$nonceStr}' id='nonceStr'>
+            <input type='hidden' value='{$signature}' id='signature'>
+            <input type='hidden' value='{$result.cpname}' id='companyName'>
+            <input type='hidden' value='{$result.Tariff}' id='TariffMoney'>
+            <input type='hidden' value='{$result.employ}' id='employNum'>
+            <input type='hidden' value='{$result.treatmentdata}' id='treatmentMoney'>
+            <input type='hidden' value='{$result.title}' id='jobtitle'>
+            <!--为微信分享提供参数结束-->
+        </div>
+
+    <include  file='Webchatnew:like_alert' />
+    <script>
+        $("#collect").click(function () {
+
+            if ($(this)[0].className == "clct") {
+                $(this)[0].disabled = true;
+
+                var cpid = "{$result.cpid}";
+                var j_id = "{$result.id}";
+                var title = "{$result.title}";
+                var treatmentdata = "{$result.treatmentdata}";
+                var endtime = "{$result.endtime}";
+                var Tariff = "{$result.Tariff}";
+                var employ = "{$result.employ}";
+                var experiencedata = "{$result.experiencedata}";
+                var educationdata = "{$result.educationdata}";
+                var jobplacedata = "{$result.jobplacedata}";
+                var strycatedata = "{$result.strycatedata}";
+                var Jobcatedata = "{$result.Jobcatedata}";
+                var email = "{$result.email}";
+                var mobile = "{$result.mobile}";
+                var joblangdata = "{$result.joblangdata}";
+                var orderid = "{$result.orderid}";
+                var cascname = "{$result.cascname}";
+                var content = $("[name='content']").val();
+                var workdesc = $("[name='workdesc']").val();
+                var posttime = "{$result.posttime}";
+                var starttime = "{$result.starttime}";
+                $.post("/Home/Webchatnew/collect_job", {
+                    'cpid': cpid,
+                    'j_id': j_id,
+                    'title': title,
+                    'treatmentdata': treatmentdata,
+                    'endtime': endtime,
+                    'Tariff': Tariff,
+                    'employ': employ,
+                    'experiencedata': experiencedata,
+                    'educationdata': educationdata,
+                    'jobplacedata': jobplacedata,
+                    'strycatedata': strycatedata,
+                    'Jobcatedata': Jobcatedata,
+                    'email': email,
+                    'mobile': mobile,
+                    'joblangdata': joblangdata,
+                    'orderid': orderid,
+                    'cascname': cascname,
+                    'content': content,
+                    'workdesc': workdesc,
+                    'posttime': posttime,
+                    'starttime': starttime
+                }, function (data) {
+                    if (data.code == "400") {
+                        location.href = "/Home/Webchatlogin/login";
+                        return;
+                    } else if (data.code != "200") {
+                        like_alert(data.msg);
+                        $("#collect")[0].disabled = false;
+                        return;
+                    } else {
+                        re_like_alert(data.msg);
+                        return;
+                    }
+                }, "json");
+            } else {
+                $(this)[0].disabled = true;
+                var j_id = "{$result.id}";
+                $.post("/Home/Webchatnew/cancel_collect_job", {
+                    'j_id': j_id
+                }, function (data) {
+
+                    if (data.code == "400") {
+                        location.href = "/Home/Webchatlogin/login";
+                        return;
+                    } else if (data.code != "200") {
+                        like_alert(data.msg);
+                        $("#collect")[0].disabled = false;
+                        return;
+                    } else {
+                        re_like_alert(data.msg);
+                        return;
+                    }
+                }, "json");
+            }
+
+        })
+
+
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="/Public/js/webchat/shares.js"></script>
+</body>
+</html>

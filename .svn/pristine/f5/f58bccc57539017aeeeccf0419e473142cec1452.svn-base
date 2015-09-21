@@ -1,0 +1,45 @@
+<head>
+    <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+</head>
+
+<div class="centerCon1">
+    <ul class="left" id="navTop">
+        <li <if  condition="$cur eq index">class="cenTop"</if>><a href="{:U('Index/index')}">首页</a></li>
+        <li <if  condition="$cur eq search">class="cenTop"</if>><a href="{:U('Index/search')}">职位</a></li>
+        <li <if  condition="$cur eq anli">class="cenTop"</if>><a href="{:U('Index/anli')}">成功案例</a></li>
+    </ul>
+
+    <ul class="right">
+        <php>if(empty($_SESSION['username']) && empty($_SESSION['cusername'])){
+
+
+        </php>
+        <li class="firstLi2"><a class="dengluBtn">登录</a></li>
+        <li><a id="zhuce" class="zhuce1">注册</a></li>
+        <php>}else
+            {
+            $username = ($_SESSION['username']?$_SESSION['username']:$_SESSION['cusername']);
+            if(strlen($username)=="31" && substr($username,0,3) == "wx_"){
+                $username = "微信用户";
+            }
+            if(substr($username,0,3) == "qq_" && $_COOKIE[$username]){
+                $username = $_COOKIE[$username];
+            }elseif(substr($username,0,3) == "qq_"){
+                $username = "qq用户";
+            }
+            
+        </php>
+        <ul class="xiala clearfix" >
+            <li class="select first_l"><span><img src="__ROOT__/Public/img/icon_tx.png"></span><em>{$username}</em></li>
+            <ul class="vio  clearfix" style="display:none">
+                <div class="clearfix">
+                    <li class="i_1"><a href="{$data['url']}">用户中心</a></li>
+                    <li class="i_3"><a href="{$data['savepass']}">修改密码</a></li>
+                    <li class="i_2"><a href="{$data['logout']}">退出账户</a></li>
+                </div>
+
+            </ul>
+        </ul>
+        <php>}</php>
+    </ul>
+</div>

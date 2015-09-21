@@ -1,0 +1,37 @@
+<div class="footer clearfix">
+	<ul class="clearfix" style="width:610px;">
+		<li><a href="{:U('Index/sutuijian')}">关于我们</a></li>
+		<li><a href="{:U('Index/tjrxy')}">用户协议</a></li>
+		<li><a href="{:U('Index/yhys')}">用户隐私</a></li>
+		<li><a href="{:U('Index/lxwm')}">联系我们</a></li>
+		<li class="last"><a href="{:U('Index/joinus')}">加入我们</a></li>
+		<p style="float:left;width:210px;">人人猎 京ICP备14040265号-1 &nbsp;&nbsp;&nbsp;&nbsp;<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254515209'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254515209%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</p>
+	</ul>
+        <php>if(empty($linkArr)){</php>
+            <ul class="clearfix links">
+                    <li style="color:#707e8c">友情链接：</li>
+                    <li><a href="http://www.e3job.com/" target="_Blank">E商人才网</a>&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://www.0579job.com/" target="_Blank">千里马人才网</a>&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://www.1epoch.com/" target="_Blank">青岛logo设计</a>&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://www.qidong.zp300.cn/" target="_Blank">启东人才网</a>&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://bj.yi.xbaixing.com" target="_Blank">北京一站通</a>&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://zhengyun.cc/" target="_Blank">郑云工作室</a></li>
+            </ul>
+            <ul class="clearfix links">
+                    <li style="color:#707e8c">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+                    <li><a href="http://www.5niubi.com/" target="_Blank">一折网</a>&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://www.jdaaa.com/" target="_Blank">京东精选</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://www.bcty365.com " target="_Blank">B5教程网</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+                    <li><a href="http://www.shsixun.com " target="_Blank">思讯通</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+            </ul>
+        <php>}else{</php>
+            <ul class="clearfix links">
+                     <li style="color:#707e8c;float:left;background:none;text-align:right;padding:5px 0">友情链接：</li>
+                     <ul style="float:left;width:620px;padding-top:0">
+                    <?php foreach($linkArr as $k=>$v) :$k=$k+1;?>
+                    <li <?php if($k>0 && $k%6 == 0):?>class="endline"<?php endif;?>><a href="{$v['linkurl']}" target="_blank">{$v['webname']}</a></li>
+                    <?php endforeach;?>
+                    </ul>
+        <php>}</php>
+</div>

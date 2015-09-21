@@ -1,0 +1,529 @@
+﻿@import "reset.css";
+
+
+.wrap{
+    width: 100%;
+    margin:  0 auto;
+    background-color: #f5f5f5;
+}
+
+.logo{
+    float: left;
+
+}
+
+
+.logo img {
+    padding-top: 5px;
+}
+
+.bt{
+    line-height: 72px;
+    float: right;
+}
+
+.bt a{
+    cursor: pointer;
+    color: #999999;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+.top{
+    width: 1002px;
+    height: 80px;
+    margin:  0 auto;
+    background-color: #f5f5f5;
+}
+
+
+
+
+
+.login-b form{
+    position: relative;
+}
+
+.login-b input{
+    height: 40px;
+    width: 80%;
+    margin-left: 5%;
+    border: none;
+    border-radius: 3px;
+    margin-top: 20px;
+    padding-left: 10%;
+}
+
+.login-c p{
+    padding-top: 3%;
+    color: #999999;
+}
+
+.login-c p a{
+    color: #999999;
+}
+
+
+
+
+
+#a1{
+
+    background: #fff url("../images/yongh.jpg") no-repeat 8px center;
+
+}
+#a2{
+    background: #fff url("../images/mima.jpg") no-repeat 8px center;
+}
+
+
+.login-c{
+    margin-top: 5px;
+    width: 90%;
+    margin-left: 5%;
+    height: 30%;
+    border-bottom: 1px dashed #999999;
+}
+
+.login-d{
+
+}
+.login-c button{
+    width: 110px;
+    height: 40px;
+    border: none;
+    font-size: 22px;
+    font-family: "微软雅黑";
+
+    color: #fff;
+    margin-top: 3%;
+    border-radius: 3px;
+    margin-left: 8%;
+}
+
+
+
+
+.login{
+    width: 330px;
+    height: 350px;
+    background-color: #f4f4f4;
+    opacity: 0.95;
+    position: absolute;
+    top: 60px;
+    right: 155px;
+}
+
+.login-a{
+    width: 100%;
+    font-size: 16px;
+    height: 38px;
+    line-height: 38px;
+}
+.login-a span{
+    font-family: "微软雅黑";
+    width: 50%;
+    text-align: center;
+    height: 38px;
+    display: block;
+    float: left;
+}
+.footer{
+
+    width: 1002px;
+    height: 100px;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.footer ul{
+    width: 450px;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+}
+
+
+.footer ul li{
+    float: left;
+    width: 50px;
+    height: 24px;
+    text-align: center;
+}
+
+
+.login-d{
+    width: 90%;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.login-d p{
+    margin-bottom: 3%;
+    color: #999999;
+}
+
+.login-d img{
+    margin-right: 5%;
+}
+
+.main{
+    width: 1005px;
+    height: auto;
+    margin: 0 auto;
+
+}
+
+.stj-main-l{
+    float: left;
+    border: 1px solid #d9d9d9;
+    width: 186px;
+    height: auto;
+    background-color: #fff;
+
+}
+
+.stj-main-l h2{
+    line-height: 47px;
+    font-weight: bold;
+    text-align: center;
+    color: #e67010;
+    
+    font-size: 16px;
+}
+
+.stj-main-l ul{
+    width: 100%;
+    height: 84%;
+}
+
+.stj-main-l ul li{
+
+    margin-top: 5%;
+    line-height: 40px;
+    padding-left: 20%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    background: #f5f5f5 url("../images/stj-zwsu-libg-q.jpg") no-repeat 5% center;
+}
+
+.stj-main-l ul li div a{
+    display:  block;
+}
+
+
+.sfq{
+
+    width: 100%;
+    
+    line-height: 38px;
+
+
+}
+
+.sfq dl{
+    margin-top: 5px;
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+
+.sfq dd{
+    cursor: pointer;
+    padding-left: 20%;
+
+
+
+}
+
+
+.sfq dt a{
+    font-weight: normal;
+
+   display: block;
+    width: 100%;
+    padding-left: 20%;
+
+
+}
+
+.sfq dt{
+
+
+    padding-left: 20%;
+
+
+}
+
+.high{
+
+    background: slateblue !important;
+
+}
+
+.high1{
+
+    background: url("../images/stj-zwsu-libg-q.jpg") no-repeat 5% center;
+
+
+}
+
+.high2{
+    color: #e67010;
+    background: url("../images/stj-zwsu-libg-h.jpg") no-repeat 5% center !important;
+
+
+}
+
+.stj-main-r{
+    float: right;
+    margin-left: 20px;
+    width: 790px;
+    margin-bottom: 20px;
+}
+
+.mr-top{
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    border:  1px solid #d9d9d9;
+}
+
+.mr-top h2{
+    width: 98%;
+    height: 32px;
+    font-weight:  bold;
+    color: #000;
+    font-size: 14px;
+    padding-left: 2%;
+    line-height: 32px;
+    background-color: #f5f5f5;
+}
+
+.mr-f{
+    margin-top: 20px;
+    height: 820px;
+    width: 100%;
+    background-color: #fff;
+    border:  1px solid #d9d9d9;
+}
+
+
+.mr-f h2{
+    width: 98%;
+    height: 32px;
+    font-weight:  bold;
+    color: #000;
+    font-size: 14px;
+    padding-left: 2%;
+    line-height: 32px;
+    background-color: #f5f5f5;
+}
+
+.mr-f-a{
+    width: 100%;
+    height: 140px;
+
+}
+
+.mr-f-a-a h3{
+    line-height: 48px;
+    height: 30%;
+    font-size: 16px;
+    color: #e67010;
+    width: 50%;
+    float: left;
+}
+
+.mr-f-a-a h3 a{
+   
+    font-size: 16px;
+    color: #e67010;
+
+}
+
+
+
+.mr-f-a ul{
+    height: 70%;
+    float: left;
+    width: 50%;
+}
+
+.mr-f-a ul li{
+    line-height: 28px;
+}
+
+
+.mr-f-a p{
+    height: 100%;
+    font-size: 16px;
+    line-height: 60px;
+    float: right;
+    width: 30%;
+    padding-left: 20%;
+    font-family: "微软雅黑";
+}
+
+.mr-f-a p span{
+    color: #e67010;
+
+}
+
+
+.mr-f-a-a{
+    padding-left: 2%;
+    height: 100%;
+    width: 98%;
+    float: left;
+    border-bottom: 1px solid #cccccc;
+}
+
+.mr-f-a-a ul li{
+
+}
+
+
+.mr-f-a-a ul li span{
+    color: #e67010;
+}
+.mr-fot{
+    width: 320px;
+    margin: 0 auto;
+}
+
+
+.mr-fot ul li a{
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    width: 20px;
+    border: 1px solid #e8eaee;
+    text-align: center;
+    margin: 0 8px 0 8px;
+}
+
+
+#aa2{
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    float: left;
+    border: 1px solid #e8eaee;
+    background: url("../images/shangyiye.jpg") no-repeat 2px center;
+    padding-left: 13px;
+}
+
+#aa3{
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    border: 1px solid #e8eaee;
+    background: url("../images/xiayiye.jpg") no-repeat  45px center;
+    padding-right: 13px;
+    padding-left: 5px;
+}
+
+.hi{
+    background-color: #e67010;
+    color: #fff;
+}
+
+.mr-top-f form{
+    width: 90%;
+    margin-left: 5%;
+
+}
+
+
+
+.mr-top-f form label{
+    margin-top: 30px;
+    margin-right: 5px;
+}
+
+
+
+#hangyel{
+    margin-top: 30px;
+    width: 37%;
+    height: 24px;
+    padding-left: 5px;
+    margin-right:27px ;
+    border: 1px solid #d9d9d9;
+}
+
+#zhiweil{
+    border: 1px solid #d9d9d9;
+
+    margin-top: 20px;
+    width: 38%;
+    height: 24px;
+    padding-left: 5px;
+}
+
+#gzdd{
+    border: 1px solid #d9d9d9;
+    position:relative;
+    padding-left: 5px;
+    width: 150px;
+    height: 24px;
+    margin-top: 30px;
+    margin-right: 19px;
+    background: url("../images/xuanzek.jpg") no-repeat 125px center;
+}
+
+#gzdy{
+    border: 1px solid #d9d9d9;
+    padding-left: 5px;
+    width: 20%;
+    height: 24px;
+    margin-top: 30px;
+    margin-right: 35px;
+   /* background: url("../images/xuanzek.jpg") no-repeat 125px center;*/
+}
+
+#fbsj{
+   /* background: url("../images/xuanzek.jpg") no-repeat 125px center;*/
+
+    border: 1px solid #d9d9d9;
+    padding-left: 5px;
+    width: 20%;
+    height: 24px;
+    margin-top: 20px;
+}
+
+#ajax{
+    cursor: pointer;
+    width: 140px;
+    position: relative;
+    bottom: -5px;
+    left: 270px;
+    height: 38px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    padding-left: 20px;
+    background: #e67010 url("../images/ssggz.jpg") no-repeat 10px center;
+}
+/* 模拟下拉框样式 */
+
+ .diy_select{position:relative;font-size:12px;background:#fff;color:#000; float: left;}
+.diy_select_btn,.diy_select_txt{float:left;height:100%;line-height:28px}
+.diy_select,.diy_select_list{border:1px solid #E7E7E7;}
+.diy_select_txt{width:180px;}
+.diy_select_txt,.diy_select_list li{text-indent:10px;overflow:hidden}
+.diy_select_btn{width:28px;background:url(rec.gif) no-repeat center}
+.diy_select_list{background:#fff;position:absolute;top:25px;left:-1px;z-index:88888;border-top:none;width:300px;display:none;_top:29px}
+.diy_select_list li{list-style:none;height:25px;width: 150px;float:left;line-height:25px;cursor:default; background:#fff}
+.diy_select_list li.focus{background:#3399FF;color:#fff;width: 150px;}
+
+
+
+/* 模拟下拉框样式 */

@@ -1,0 +1,462 @@
+@import "reset.css";
+
+
+.wrap{
+    width: 100%;
+    margin:  0 auto;
+    background-color: #f5f5f5;
+}
+
+.logo{
+    float: left;
+
+}
+
+
+.logo img {
+    padding-top: 5px;
+}
+
+.bt{
+    line-height: 72px;
+    float: right;
+}
+
+.bt a{
+    cursor: pointer;
+    color: #999999;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+.top{
+    width: 1002px;
+    height: 80px;
+    margin:  0 auto;
+    background-color: #f5f5f5;
+}
+
+
+
+.footer{
+
+    width: 1002px;
+    height: 100px;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.footer ul{
+    width: 450px;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+}
+
+
+.footer ul li{
+    float: left;
+    width: 50px;
+    height: 24px;
+    text-align: center;
+}
+
+
+
+.main{
+    width: 1005px;
+    height: auto;
+    margin: 0 auto;
+
+}
+
+.stj-main-l{
+    float: left;
+    border: 1px solid #d9d9d9;
+    width: 186px;
+    height: auto;
+    background-color: #fff;
+
+}
+
+.stj-main-l h2{
+    line-height: 47px;
+    font-weight: bold;
+    text-align: center;
+    color: #e67010;
+    height: 16%;
+    font-size: 16px;
+}
+
+.stj-main-l ul{
+    width: 100%;
+  
+}
+
+.stj-main-l ul li{
+
+    margin-top: 5%;
+    line-height: 40px;
+    padding-left: 20%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    background: #f5f5f5 url("../images/stj-zwsu-libg-q.jpg") no-repeat 5% center;
+}
+
+.stj-main-l ul li div a{
+    display:  block;
+}
+
+
+.sfq{
+
+    width: 100%;
+
+    line-height: 38px;
+
+
+}
+
+.sfq dl{
+    margin-top: 5px;
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+
+.sfq dd{
+    cursor: pointer;
+    padding-left: 20%;
+
+
+
+}
+
+
+.sfq dt a{
+    font-weight: normal;
+
+   display: block;
+    width: 100%;
+    padding-left: 20%;
+
+
+}
+
+.sfq dt{
+
+
+    padding-left: 20%;
+
+
+}
+
+.high{
+
+    background: slateblue !important;
+
+}
+
+.high1{
+
+    background: url("../images/stj-zwsu-libg-q.jpg") no-repeat 5% center;
+
+
+}
+
+.high2{
+    color: #e67010;
+    background: url("../images/stj-zwsu-libg-h.jpg") no-repeat 5% center !important;
+
+
+}
+
+.stj-main-r{
+    float: right;
+    margin-left: 20px;
+    width: 790px;
+    margin-bottom: 20px;
+}
+
+.mr-history{
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border:  1px solid #d9d9d9;
+
+}
+.mr-history h2{
+    width: 98%;
+    height: 32px;
+    font-weight:  bold;
+    color: #000;
+    font-size: 14px;
+    padding-left: 2%;
+    line-height: 32px;
+    background-color: #f5f5f5;
+}
+
+.mr-top{
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    border:  1px solid #d9d9d9;
+}
+
+.mr-top h2{
+    width: 98%;
+    height: 32px;
+    font-weight:  bold;
+    color: #000;
+    font-size: 14px;
+    padding-left: 2%;
+    line-height: 32px;
+    background-color: #f5f5f5;
+}
+
+.mr-f{
+    margin-top: 20px;
+    height: 180px;
+    width: 100%;
+    background-color: #fff;
+    border:  1px solid #d9d9d9;
+}
+.mr-f-jy{
+    margin-top: 20px;
+    height: 180px;
+    width: 100%;
+    background-color: #fff;
+    border:  1px solid #d9d9d9;
+}
+.mr-fa{
+    margin-top: 20px;
+    height: 140px;
+    width: 100%;
+    background-color: #fff;
+    border:  1px solid #d9d9d9;
+}
+
+.mr-f-jy h2{
+    width: 98%;
+    height: 32px;
+    font-weight:  bold;
+    color: #000;
+    font-size: 14px;
+    padding-left: 2%;
+    line-height: 32px;
+    background-color: #f5f5f5;
+}
+.mr-fa h2{
+    width: 98%;
+    height: 32px;
+    font-weight:  bold;
+    color: #000;
+    font-size: 14px;
+    padding-left: 2%;
+    line-height: 32px;
+    background-color: #f5f5f5;
+}
+
+
+
+.mr-f h2{
+    width: 98%;
+    height: 32px;
+    font-weight:  bold;
+    color: #000;
+    font-size: 14px;
+    padding-left: 2%;
+    line-height: 32px;
+    background-color: #f5f5f5;
+}
+
+.mr-f-a{
+    width: 100%;
+    height: 140px;
+
+}
+
+.mr-f-a-a h3{
+    line-height: 48px;
+    height: 30%;
+    font-size: 16px;
+    color: #e67010;
+    width: 100%;
+    float: left;
+}
+
+.mr-f-a-a h3 a{
+   
+    font-size: 16px;
+    color: #e67010;
+
+}
+
+
+
+.mr-f-a ul{
+    height: 70%;
+    float: left;
+    width: 100%;
+}
+
+.mr-f-a ul li{
+    line-height: 28px;
+}
+
+
+.mr-f-a p{
+    height: 100%;
+    font-size: 16px;
+    line-height: 150px;
+    float: right;
+    width: 35%;
+    font-family: "微软雅黑";
+}
+
+.mr-f-a p span{
+    color: #e67010;
+
+}
+
+
+.mr-f-a-a{
+    padding-left: 2%;
+    height: 100%;
+    width: 48%;
+    float: left;
+}
+
+.mr-f-a-a ul li{
+
+}
+
+
+.mr-f-a-a ul li span{
+    color: #e67010;
+}
+.mr-fot{
+    width: 320px;
+    height: 38px;
+    margin: 0 auto;
+}
+
+
+.mr-fot ul li a{
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    width: 20px;
+    border: 1px solid #e8eaee;
+    text-align: center;
+    margin: 0 8px 0 8px;
+}
+
+
+#aa2{
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    float: left;
+    border: 1px solid #e8eaee;
+    background: url("../images/shangyiye.jpg") no-repeat 2px center;
+    padding-left: 13px;
+}
+
+#aa3{
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    border: 1px solid #e8eaee;
+    background: url("../images/xiayiye.jpg") no-repeat  45px center;
+    padding-right: 13px;
+    padding-left: 5px;
+}
+
+.hi{
+    background-color: #e67010;
+    color: #fff;
+}
+
+.zpzw{
+    width: 90%;
+    height: auto;
+    border:  1px solid #d9d9d9;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.zpzw table{
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+.zpzw table thead{
+    width: 100%;
+    display: block;
+    height: 36px;
+    background: #e8e8e8;
+}
+
+
+.zpzw table thead tr{
+    width: 100%;
+    height: 36px;
+    display: block;
+}
+.zpzw table thead tr th{
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    width: 16.5% ;
+    float: left;
+    border-right: 1px solid #c0c0c0;
+
+}
+.zpzw table tbody{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.zpzw table tbody tr{
+    width: 100%;
+    display: block;
+    height: 32px;
+    border-bottom: 1px solid #ebebeb    ;
+}
+
+.zpzw table tr td{
+    width: 16.4%;
+    line-height: 32px;
+    display: block;
+    float: left;
+    position: relative;
+}
+.zpzw table tr td a{
+    color: #e67010  ;
+}
+
+
+/*红标*/
+.i-a{
+    width:12px;
+    line-height:12px;
+    position: absolute;
+    color: #fff;
+    background: #f00;
+    display: block;
+    padding-top: 1px;
+    text-align:center;
+    border-radius: 6px;
+    top: 0;
+    left: 65px;
+}

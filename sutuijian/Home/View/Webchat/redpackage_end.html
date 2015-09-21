@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抢红包</title>
+	<script type="text/javascript" src="/Public/js/webchat/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet"  href="/Public/css/webchat/reset.css">
+	<link rel="stylesheet"  href="/Public/css/webchat/wep.css">
+	<link rel="stylesheet"  href="/Public/css/webchat/wechat.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+</head>
+<body>
+    
+<div class="waper">
+	<div class="redpckag" style="height:305px;">
+		<h3 class="titl">恭喜你	<i>！！！</i>	</h3>
+		<div class="end">
+			<img src="/Public/images/webchat/redpackage_end.png">
+			<span>{$money}<b>元</b></span>
+		</div>
+		<a class="btn2" href="/Home/Webchat/my_account">立即查看></a>
+	</div>
+</div>
+<include file="Webchat:statistics">
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn2').on('click',function(){
+			$(this).css('background','#d5c903')
+		});
+	})
+</script>
+</body>
+</html>

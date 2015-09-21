@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>公司详情-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:indexLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="Ent_con">
+            <ul>
+                <li class="Ent_list">
+                    <dl class="clearfix frist">
+                        <?php if($companyInfo['comlogo']){?>
+                        <dt class="myfile">
+                        <img src="<?php echo $companyInfo['comlogo'];?>" style="width: 160px;height:  160px;">
+                        </dt>
+                        <?php }?>
+                        <dd>
+                            <h4>{$companyInfo['cpname']}</h4>
+                            <p><em>地址：</em><span>{$companyInfo['address']}</span></p>
+                            <?php if($companyInfo['webname']){?>
+                            <p><em>网址：</em><span><?php echo $companyInfo['webname']?></span></p>
+                            <?php }?>
+                        </dd>
+                    </dl>
+                </li>
+                <if condition= "$companyInfo['intro']">
+                <li class="Ent_list">
+                    <h3>公司介绍</h3>
+                    {$companyInfo['intro']}
+                </li>
+                </if>
+                <if condition= "$companyInfo['bright']">
+                <li class="Ent_list">
+                        <h3>公司亮点</h3>
+                        {$companyInfo['bright']}
+
+                </li>
+                </if>
+                <if condition= "$companyInfo['remark']">
+                    <li class="Ent_list">
+                        <h3>补充说明</h3>
+                        {$companyInfo['remark']}
+                    </li>
+                </if>
+                <li>
+                    <h3>热招职位</h3>
+                    <ul class="m">
+                        <volist name="arJobList" id="cp">
+
+
+
+
+                            <li class="ls">
+                                <dl class="clearfix">
+                                    <dt class="clearfix"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.id}">{$cp.title}</a><span>{$cp.Tariff}</span></dt>
+                                    <dd>
+                                        <a href="javascript:;">{$cp.experience}</a>
+                                        <a href="javascript:;">{$cp.education}</a>
+                                        <a href="javascript:;">{$cp.jobplace}</a>
+                                        <em>{$cp.treatment}</em>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </volist>
+                    </ul>
+                </li>
+                <li class="Ent_list" style="display:none;">
+                    <h3>补充说明</h3>
+                    <p>asdfdsaf</p>
+
+                </li>
+            </ul>
+            <ul class="fixed">
+                <li title="{$companyInfo['stage']}"><em>融资阶段：</em><span class="sp1" >{$companyInfo['stage']}</span></li>
+                <li title="{$companyInfo['nature']}"><em>性质：</em><span class="sp1" title="{$companyInfo['nature']}">{$companyInfo['nature']}</span></li>
+                <li title="{$companyInfo['scale']}"><em>规模：</em><span  >{$companyInfo['scale']}</span></li>
+                <li title="{$companyInfo['brightreg']}"><em>成立日期：</em><span >{$companyInfo['brightreg']}</span></li>
+            </ul>
+            <div class="fixed2">
+                <p class="eval">评价</p>
+                <div class="eval_textar">
+                    <textarea id='evaluate'>{$evaluate}</textarea>
+                    <button id='evalbtn'>保存</button>
+                    <p class="tishi">提示：人人猎会保护个人评价隐私，不会对外公布评论人的个人信息。</p>
+                </div>
+
+
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.eval').click(function () {
+                $('.eval_textar').show();
+            });
+            $('.fixed2 button').click(function () {
+                $('.eval_textar').hide();
+            })
+        })
+        $("#evalbtn").click(function () {
+
+            if ($.trim($("#evaluate").val()) == "") {
+                return;
+            } else {
+                var pid = "{$companyInfo['id']}";
+                var pname = "{$companyInfo['cpname']}";
+                var content = $("#evaluate").val();
+                if (content.length > 500) {
+                    alert("最多允许输入500个字！");
+                    return;
+                }
+                $.ajax({
+                    url: "?s=/Home/Index/evaluateSave",
+                    type: "post",
+                    dataType: "json",
+                    data: "pid=" + pid + "&pname=" + pname + "&content=" + content,
+                    success: function (data) {
+                        
+                       if (data.code == "400") {
+                            $(".mask").show();
+                            $("#odl").hide();
+                            $(".dengluBtn2").show();
+                            $(".Close").hide();
+
+
+                        } else if (data.code != "200") {
+                          //  $("#btn")[0].disabled = false;
+                            sys_window(data.msg);
+                            return;
+                        } else {
+                            sys_window(data.msg,location.href);
+                           // location.reload();
+                            return;
+                        }
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+</html>

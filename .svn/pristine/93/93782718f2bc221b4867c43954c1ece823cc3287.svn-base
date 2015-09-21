@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <?php if($act == 'CurrectJobList'):?>
+        <title>正在招聘-人人猎</title>
+        <?php elseif($act == 'OldJobList'):?>
+        <title>往期招聘-人人猎</title>
+        <?php else:?>
+        <title>发布职位-人人猎</title>
+        <?php endif;?>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/lanrenzhijia.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/laydate.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-company-common.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/job.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <link rel="stylesheet" type="text/css" href="/Public/css/company.css">
+        <script>
+                    $(document).ready(function() {
+            $(".down-menu1").styleSelect({styleClass: "selectDark"});
+                    $(".down-menu2").styleSelect({styleClass: "selectDark"});
+                    $(".down-menu3").styleSelect({styleClass: "selectDark"});
+                    $(".down-menu4").styleSelect({styleClass: "selectDark"});
+                    $(".down-menu5").styleSelect({styleClass: "selectDark"});
+                    $(".down-menu6").styleSelect({styleClass: "selectDark"});
+            });                                     </script>
+          <style>
+              .edit{width:19px;height:25px;margin-right:5px;display:inline-block;margin-top:5px;background:url(/Public/img/rcmd-img/edit-icon.png) no-repeat center 8px}
+              .delete{width:23px;height:25px;display:inline-block;margin-top:5px;background:url(/Public/img/rcmd-img/delete-icon.png) no-repeat center 9px}
+        </style>
+    </head>
+    <body>
+        <div class="mask" id="mask"></div>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>企业用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:company_menu_left"/>
+            <div class="m2-r fl-rig">
+                <ul class="nav nav2">
+                    <li class="first dis-block dis-inlin fl-lef<?php if($act == 'SendJob'):?> m<?php endif;?>"><a href='/Home/Company/SendJob.html' <?php if($act == 'SendJob'):?>class="m"<?php endif;?>>发布职位</a></li>
+                    <li class="first dis-block dis-inlin  fl-lef<?php if($act == 'CurrectJobList'):?> m<?php endif;?>"><a href='/Home/Company/SendJob/act/joblist.html' class="back-none<?php if($act == 'CurrectJobList'):?> m<?php endif;?>">正在招聘</a></li>
+                    <li class="first dis-block dis-inlin fl-lef<?php if($act == 'OldJobList'):?> m<?php endif;?>"><a class="back-none<?php if($act == 'OldJobList'):?> m<?php endif;?>" href='/Home/Company/SendJob/act/lastjoblist.html'>往期发布</a></li>
+                </ul>
+                <div class="add-resume<?php if($act == 'CurrectJobList' || $act == 'OldJobList'):?> undis<?php endif;?>">
+                    <div class="public upload-resume" style="display:block;position:relative">
+                        <h3>职位基本信息</h3>
+                        <ul>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">职位名称</em>
+                                <input type='hidden' value='<?php echo $arJob[id] ?>' id="jobid">
+                                <input placeholder="请输入职位名称&nbsp 如：UI设计师" class="input dis-block dis-inlin fl-lef" type="text" name = "jobtitle" id = "title" value="<?php echo $arJob['title']?>">
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">行业类别</em>
+                                <span style="position: relative;" class="dis-block dis-inlin fl-lef record-set-span cheack">
+                                    <input class="xuanze_val" name="strycate" type="hidden" value='<?php echo $arJob[strycate]?>'/>
+                                    <input class="dis-inlin dis-block fl-lef xuanze record-set-input text" type="text" name='xuanze_val' value='<?php echo $arJob[strycatedata];?>'/>
+                                    <b class="xuanze"></b>
+                                    <div class="tuanchu1 pa libao undis" id='xuanze_window' >
+                                        <div class="anniu tar">
+                                            <span class="fwb fs14 fl fcf">行业类别：</span>
+                                            &nbsp;&nbsp;<a class="qued" href="javascript:;">[确定]</a>
+                                            &nbsp;&nbsp;<a class="qux" href="javascript:;">[取消]</a>
+                                        </div>
+                                        <?php foreach($arStrycate as $strycateList):?>
+                                        <dl>
+                                            <dt><b><?php echo $strycateList['cascname']; ?></b></dt>
+                                            <dd>
+                                                <div style="float:none"><span class="fwb"><?php echo $strycateList['cascname']; ?></span></div>
+                                                <?php foreach($strycateList['casclist'] as $cateSon):?>
+                                                <div><input type="radio" value="<?php echo $cateSon['id']; ?>"  name="zwm_val"/><span><?php echo $cateSon['cascname']; ?></span></div>	
+                                                <?php endforeach;?>    
+                                                <div class="queding clear tac">
+                                                    <a href="javascript:;" class="xiaoshi fwb fs12 jz">确定</a>
+                                                </div>
+                                            </dd>
+                                            <dd class="clear"></dd>
+                                        </dl>
+                                        <?php endforeach;?>                      
+                                        <div class="clear"></div>
+                                    </div>
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">职位类别</em>
+                                <span class="dis-block dis-inlin fl-lef record-set-span  cheack" style="position:relative">
+                                    <input class="zw_xuanze_val" name="Jobcate" type="hidden" value="<?php echo $arJob[Jobcate]?>"/>
+                                    <input class="dis-inlin dis-block fl-lef record-set-input zw_xuanze text" type="text" name='zw_xuanze_val' value="<?php echo $arJob[Jobcatedata]?>"/>
+                                    <b class="zw_xuanze"></b>
+                                    <div class="tuanchu2 pa libao" style="display:none" id='zw_xuanze_window'>
+                                        <div class="anniu tar"><span class="fwb fs14 fl fcf">职位名称：</span>&nbsp;&nbsp;<a class="qued" href="javascript:;">[确定]</a>&nbsp;&nbsp;<a class="qux" href="javascript:;">[取消]</a></div>
+                                        <?php foreach($arJobcate as $JobcateList):?>
+                                        <dl>
+                                            <dt><b><?php echo $JobcateList['cascname']; ?></b></dt>
+                                            <dd style="display:none">
+                                                <div style="float:none"><span class="fwb"><?php echo $JobcateList['cascname']; ?></span></div>
+                                                <?php foreach($JobcateList['casclist'] as $cateSon):?>
+                                                <div><input type="radio" value="<?php echo $cateSon['id']; ?>" name="zwt_val"/><span><?php echo $cateSon['cascname']; ?></span></div>	
+                                                <?php endforeach;?> 
+                                                <div class="queding clear tac">
+                                                    <a href="javascript:;" class="xiaoshi fwb fs12 jz">确定</a>
+                                                </div>
+                                            </dd>
+                                            <dd class="clear"></dd>
+                                        </dl>
+                                        <?php endforeach;?> 
+                                        <div class="clear"></div>
+                                    </div>
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">工作地点</em>
+                                <span class="dis-block dis-inlin fl-lef record-set-span xuanze_span  cheack" style="position:relative">
+                                    <!--原为
+                                    <input class="dq_xuanze_val" name="area" type="hidden" value="<?php echo $userinfo['area']; ?>"/>
+                                    <input class="dis-inlin dis-block fl-lef record-set-input dq_xuanze text" type="text" value="<?php echo $userinfo['area_data']; ?>" name='dq_xuanze_val'/>
+                                    -->
+                                    <input class="dq_xuanze_val" name="area" type="hidden" value="<?php echo $arJob['jobplace']; ?>"/>
+                                    <input class="dis-inlin dis-block fl-lef record-set-input dq_xuanze text" type="text" value="<?php echo $arJob['jobplacedata']; ?>" name='dq_xuanze_val'/>
+                                    <b class="dq_xuanze"></b>
+
+                                    <div class="tuanchu3 pa libao" style="display:none"  id='dq_xuanze_window'>
+                                        <div class="anniu tar"><span class="fwb fs14 fl fcf">地区名称：</span><a class="qued" href="javascript:;">[确定]</a>&nbsp;&nbsp;<a class="qux" href="javascript:;">[取消]</a></div>
+                                        <?php foreach($arArea as $AreaList):?>
+                                        <dl>
+                                            <dt><b><?php echo $AreaList['cascname']; ?></b></dt>
+                                            <dd>
+                                                <div style="float:none"><span class="fwb"><?php echo $AreaList['cascname']; ?></span></div>
+                                                <?php foreach($AreaList['casclist'] as $cateSon):?>
+                                                <div><input type="radio" name="area_val" value="<?php echo $cateSon['id']; ?>" /><span><?php echo $cateSon['cascname']; ?></span></div>	
+                                                <?php endforeach;?> 								
+                                                <div class="queding clear tac">
+                                                    <a href="javascript:;" class="xiaoshi fwb fs12 jz">确定</a>
+                                                </div>
+                                            </dd>
+                                            <dd class="clear"></dd>
+                                        </dl>
+                                        <?php endforeach;?> 
+                                        <div class="clear"></div>
+
+                                    </div>
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none"> 招聘人数</em>
+                                <input placeholder="请输入您要招聘的人数数量" class="input dis-block dis-inlin fl-lef" type="text" name = "jobemploy" id = "employ" value="<?php echo $arJob['employ']?>">
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">月薪待遇</em>
+                                <span class="dis-block dis-inlin fl-lef">
+
+                                    <select onchange="treatmentChange()"  class="down-menu1" style="width:195px;top:38px;left:-197px;display:none;"  name = "jobtreatment" id = "treatment">
+                                        <option value="0" tar="0">请选择此岗位的职位月薪</option>
+                                        <volist name="jobInfo[1]['config_list']" id="arConfigList">
+                                            <option value="{$arConfigList['datavalue']}" tar="{$arConfigList['id']}" <?php if($arJob['treatment']==$arConfigList['datavalue']):?>selected="selected"<?php endif;?>>{$arConfigList['dataname']}</option>
+                                        </volist>										
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="clearfix" style="position:relative">
+                                <em class="dis-block dis-inlin fl-lef back-none">细分行业</em>
+                                <span style="position:relative" class="dis-block dis-inlin fl-lef record-set-span cheack" onclick="$('.tuanchu4').show();">
+                                    <input type="hidden"  name="match_industry" id="match_industry" class="dq_xuanze_val" value='<?php echo $arJob["match_industry"]?>'>
+                                    <input type="text" readonly="true" id="match_industry_val"  placeholder="择期望候选人上份工作的行业"  class="dis-inlin dis-block fl-lef record-set-input  text" value='<?php echo $xfhy[$arJob["match_industry"]]?>'>
+                                    <b class="xfhy_xuanze" onclick="$('.tuanchu4').show();"></b>
+
+                                </span>
+                                <div style="position:absolute;left:75px;top:38px;"  class="tuanchu4 pa libao undis" >
+                                    <div class="anniu tar">
+                                        <span class="fwb fs14 fl fcf">细分行业：</span>
+                                        </span><a class="qued" href="javascript:;">[确定]</a>&nbsp;&nbsp;<a class="qux" href="javascript:;">[取消]</a>
+                                    </div>
+                                    <?php foreach($xfhy as $key=>$val):?>
+                                    <dl><dt><b tag="<?php echo $key;?>"><?php echo $val;?></b></dt><dd class="clear"></dd></dl>
+                                    <?php endforeach;?>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">公司背景</em>
+                                <span class="dis-block dis-inlin fl-lef">
+
+                                    <select id="match_company" name = "match_company" class="down-menu3" style="width:195px;top:38px;left:-197px;display:none;"> 
+                                        <option value="请选择">请选择期望候选人互联网从业背景</option>
+                                        <option value="A" <?php if($arJob['match_company']=='A'):?>selected="selected"<?php endif;?>>一线公司 （BAT，即百度、阿里、腾讯）</option>
+                                        <option value="B" <?php if($arJob['match_company']=='B'):?>selected="selected"<?php endif;?>>二线公司 （BAT外的其它互联网上市公司）</option>
+                                        <option value="C" <?php if($arJob['match_company']=='C'):?>selected="selected"<?php endif;?>>三线公司 （C轮融资）</option>
+                                        <option value="D" <?php if($arJob['match_company']=='D'):?>selected="selected"<?php endif;?>>四线公司 （已融资）</option>
+                                        <option value="E" <?php if($arJob['match_company']=='E'):?>selected="selected"<?php endif;?>>其它公司 （包括自有资金）</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">汇报对象</em>
+                                <input placeholder="请输入此职位的汇报对象" class="input dis-block dis-inlin fl-lef" type="text" name="report_obj" value="<?php echo $arJob['report']?>">
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">下属人数</em>
+                                <input placeholder="请输入此职位的下属人数" class="input dis-block dis-inlin fl-lef" type="text"  name="report_number" value="<?php echo $arJob['report_number']?>">
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">截止时间</em>
+                                <input placeholder="截止时间" id="laydate1" class="input dis-block dis-inlin fl-lef" type="text" name="jobendtime"  readonly="true"  value="<?php if($arJob['endtime']):echo date('Y-m-d',$arJob['endtime']);endif;?>">
+                            </li>
+                        </ul>
+                        <h3 style="margin-top:30px;">职位要求</h3>
+                        <ul>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">学历要求</em>
+                                <span class="dis-block dis-inlin fl-lef">
+                                    <select name = "jobeducation" id = "education"  class="down-menu4" style="width:195px;top:38px;left:-197px;display:none;">
+                                        <option value="0">请选择对学历要求</option>
+                                        <volist name="jobInfo[3]['config_list']" id="arConfigList">
+                                            <option value="{$arConfigList['datavalue']}" <?php if($arJob['education']==$arConfigList['datavalue']):?>selected="selected"<?php endif;?>>{$arConfigList['dataname']}</option>
+                                        </volist>
+                                    </select>
+
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none"> 语言能力</em>
+                                <span class="dis-block dis-inlin fl-lef">
+                                    <select id="joblang" name="jobjoblang" class="down-menu5" style="width:195px;top:38px;left:-197px;display:none;">
+                                        <option value="0">请选择对语言能力的要求</option>
+                                        <volist name="ynData" id="yn">
+                                            <option value="{$yn['datavalue']}" <?php if($arJob['joblang']==$yn['datavalue']):?>selected="selected"<?php endif;?>>{$yn['dataname']}</option>
+                                        </volist>
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef back-none">工作经验</em>
+                                <span class="dis-block dis-inlin fl-lef">
+                                    <select class="down-menu6" style="width:195px;top:38px;left:-197px;display:none;" name = "jobexperience" id = "experience">
+                                        <option value="0" selected="selected">请选择对工作经验的要求</option>
+                                        <volist name="jobInfo[2]['config_list']" id="arConfigList">
+                                            <option value="{$arConfigList['datavalue']}" <?php if($arJob['experience']==$arConfigList['datavalue']):?>selected="selected"<?php endif;?> >{$arConfigList['dataname']}</option>
+                                        </volist>
+                                    </select>
+
+                                </span>
+                            </li>
+                        </ul>
+                        <h3 style="margin-top:30px;">工作职责</h3>
+                        <div class="recmd-reason">
+                            <textarea name = "jobeditor" id = "editor" style="width:576px;height:300px;margin-top:10px;margin-left: 70px;"><?php echo $arJob['workdesc']?></textarea>
+                        </div>
+                        <h3 style="margin-top:40px;">岗位要求</h3>
+                        <div class="recmd-reason">
+                            <textarea name = "jobeditor1" id = "editor1" style="width:576px;height:300px;margin-top:10px;margin-left: 70px;"><?php echo $arJob['content']?></textarea>
+                        </div>
+                        <h3 style="margin-top:30px;">其他</h3>
+                        <div class="qita">
+                            <input type='hidden' value="<?php echo $arJob['meth']; ?>" id='old_meth'>
+                            <input type='hidden' value="<?php echo $arJob['email']; ?>" id='old_email'>
+                            <input type='hidden' value="<?php echo $arJob['mobile']; ?>" id='old_mobile'>
+                            <p>本职位管理员联系方式
+                                <input class="radio" type="radio" id = "meth" name = "jobmeth" checked value="1" onclick="clickDefault('default')">
+                                <label for="wo">请使用默认联系方式</label>
+                                <input class="radio"  type="radio" name = "jobmeth" value="2" id = "meth" <?php if($arJob[meth]==2):?>  checked <?php endif;?> onclick="clickDefault('write')">
+                                <label for="wo">请使用其他联系方式</label></p>
+                            <div class="myinput-box clearfix undis" id="defaults" <?php if($arJob[meth]==2):?>  style="display:block;" <?php endif;?>>
+                                <label for="">联系人：</label>
+                                <input type="text" class="text" placeholder="输入联系人姓名" name = "jobemail" id = "email" value="<?php echo $arJob['email']; ?>">
+                                <label for="">手机：</label>
+                                <input type="text" class="text"  placeholder="输入手机号"  name = "jobmobile" id = "mobile" value="<?php echo $arJob['mobile']; ?>">
+                            </div>
+                            <div class="zpzif clearfix">
+                                <em>招聘资费：</em>
+                                <span class="zf-text"><input type="text"  name = "jobTariffed" id = "tariff" size="5" value='<?php if($arJob["Tariff"]){echo $arJob["Tariff"]/100;}?>'><b>00</b></span>
+                                <i>元</i>
+                                <i id = "money"></i>
+                            </div>
+                        </div>
+                        <p style="margin-left:103px;margin-top:20px;" class="error undis send-job-error">错误</p>
+                        <button class="btn btn1" onclick="checkSendJob()">保存</button>
+                    </div>
+                </div>
+                <div class="add-resume track-state<?php if($act != 'CurrectJobList'):?> undis<?php endif;?>">
+                    <div class="con"> 
+                        <div class="titl">正在招聘列表</div>
+                        <?php if(!empty($_SESSION['fitCount'])): ?>
+                        <div class="clearfix ero ts" style="display:block;margin-bottom: 10px;">
+
+                            <b class="fl-lef dis-block dis-inlin" style="margin-left:0px;">温馨提示：</b>
+                            <span class="fl-lef dis-block dis-inlin clearfix">
+                                <i class="fl-lef dis-block dis-inlin"></i>
+                                <span id="fitjobCount" class="fl-lef dis-block dis-inlin" style="width:590px;">您成功发布了<?php echo $_SESSION['jobname'] ;$_SESSION['jobname'] =null;?>职位，现有<b style='color:#f99e07;'><?php echo $_SESSION['fitCount'];$_SESSION['fitCount']=null;?></b>个匹配的候选人。</span>
+                            </span>
+                        </div>
+                        <?php endif;?>
+                        <?php if($arCurrectList['jobList']):?>
+                        <table style="width:689px;" class="data_list"> 
+                            <tbody> 
+                                <tr class="t"> 
+                                    <th>序号</th> 
+                                    <th>职位名称</th> 
+                                    <th>招聘费</th> 
+                                    <th>状态</th> 
+                                    <th>推荐人数</th> 
+                                    <th>截止日期</th> 
+                                    <th>操作<b class="dis-block"></b></th> 
+                                </tr> 
+                                <tr style="border:none;height:10px!important;">
+                                    <td style="border:none;height:10px!important;"></td>
+                                </tr> 
+                                <?php foreach($arCurrectList['jobList'] as $key=>$jobInfo):?>
+                                <tr> 
+                                    <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;"><?php echo $jobInfo['sort_id']?></td> 
+                                    <td class="wh168 wk"><a href="__URL__/viewSendJob/id/<?php echo $jobInfo['id'];?>.html" class="ml-10"><?php echo $jobInfo['title']?></td> 
+                                    <td class="wh80 wk table-text-left"><?php echo $jobInfo['Tariff']?> <span class='mr-10'><img src="/Public/img/company-img/icon2.png" class="cur_point" alt="增加推荐费" title='增加推荐费' onclick="addTariff({$jobInfo['id']}, {$jobInfo['Tariff']})"></span></td> 
+                                    <td class="wh124 wk table-text-left position-name" style="position:relative"><?php echo $jobInfo['status']?> </td> 
+                                    <td class="wh47 wk hover-hand" tid="729"><?php if($ischecked == "true"):?><a href="/Home/Company/ResumeList/id/<?php echo $jobInfo['id']?>.html"><?php echo $jobInfo['total']?></a><?php else:?><?php echo $jobInfo['total'];?><?php endif;?></td> 
+                                    <td class="wh95 wk table-text-left"><?php echo $jobInfo['endtime']?></td> 
+                                    <!--<td class="wh102 wk"><img src="/Public/img/company-img/icon3.png" class="cur_point" title="删除职位" onclick="deleteJob({$jobInfo['id']})"></td>--> 
+                                    <td class="wh162 wk" style="padding-left:20px;">
+                                        
+                                        <a style="line-height: 40px;margin-left:10px;" class="dis-inlin dis-block fl-lef" <?php if($jobInfo['checkinfo']==="false"):?> href="/Home/Company/SendJob/act/setResume/id/<?php echo $jobInfo['id'];?>.html"<?php else:?>href="javascript:alert('该职位已通过审核，不能再修改。');"<?php endif;?>><span class="edit dis-inlin hover-hand"></span><em>编辑</em></a>
+                                        
+                                        <a style="line-height: 40px;" class="dis-inlin dis-block fl-left removeResume" href="javascript:" onclick="deleteJob({$jobInfo['id']})" ><span class="delete dis-inlin hover-hand" ></span><em>删除</em></a>
+                                    </td>
+                                </tr>  
+                                <?php endforeach;?>
+                            </tbody> 
+                        </table> 
+                        <?php echo $arCurrectList['page'];?>
+
+                        <?php else:?>
+                        <table style="width:689px;" class="data_list"> 
+                            <tbody> 
+                                <tr class="t"> 
+                                    <th>序号</th> 
+                                    <th>职位名称</th> 
+                                    <th>招聘费</th> 
+                                    <th>状态</th> 
+                                    <th>推荐人数</th> 
+                                    <th>截止日期</th> 
+                                    <th>操作<b class="dis-block"></b></th> 
+                                </tr> 
+                                <tr style="border:none;height:10px!important;">
+                                    <td style="border:none;height:10px!important;"></td>
+                                </tr> 
+                                <tr> 
+                                    <td  class="wk" colspan="7"  style="border-left: 1px solid #b3b3b3;"><b>暂无记录</b></td>
+                                </tr>
+                            </tbody> 
+                        </table> 
+                        <?php endif;?>
+
+                    </div>  
+                </div>
+
+                <div class="add-resume track-state<?php if($act != 'OldJobList'):?> undis<?php endif;?>">
+                    <div class="con"> 
+                        <div class="titl">往期招聘列表</div>
+                        <?php if($arOldList['jobList']):?>
+                        <table style="width:689px;" class="data_list"> 
+                            <tbody> 
+                                <tr class="t"> 
+                                    <th>序号</th> 
+                                    <th>职位名称</th> 
+                                    <th>招聘费</th> 
+                                    <th>状态</th> 
+                                    <th>推荐人数</th> 
+                                    <th>截止日期</th> 
+                                </tr> 
+                                <tr style="border:none;height:10px!important;">
+                                    <td style="border:none;height:10px!important;"></td>
+                                </tr> 
+                                <?php foreach($arOldList['jobList'] as $key=>$jobInfo):?>
+                                <tr> 
+                                    <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;"><?php echo $jobInfo['sort_id']?></td> 
+                                    <td class="wh168 wk table-text-left"><span class="ml-10"><?php echo $jobInfo['title']?></span></td> 
+                                    <td class="wh80 wk table-text-left"><?php echo $jobInfo['Tariff']?> </td> 
+                                    <td class="wh124 wk table-text-left position-name" style="position:relative"><?php echo $jobInfo['status']?> </td> 
+                                    <td class="wh47 wk hover-hand"><?php echo $jobInfo['total'];?></a></td> 
+                                    <td class="wh95 wk table-text-left"><?php echo $jobInfo['endtime']?></td> 
+                                </tr>  
+                                <?php endforeach;?>
+                            </tbody> 
+                        </table> 
+                        <?php echo $arOldList['page'];?>
+
+                        <?php else:?>
+                        <table style="width:689px;" class="data_list"> 
+                            <tbody> 
+                                <tr class="t"> 
+                                    <th>序号</th> 
+                                    <th>职位名称</th> 
+                                    <th>招聘费</th> 
+                                    <th>状态</th> 
+                                    <th>推荐人数</th> 
+                                    <th>截止日期</th> 
+                                    <th>操作<b class="dis-block"></b></th> 
+                                </tr> 
+                                <tr style="border:none;height:10px!important;">
+                                    <td style="border:none;height:10px!important;"></td>
+                                </tr> 
+                                <tr> 
+                                    <td  class="wk" colspan="7"  style="border-left: 1px solid #b3b3b3;"><b>暂无记录</b></td>
+                                </tr>
+                            </tbody> 
+                        </table> 
+                        <?php endif;?>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="0" id="deleteid"/>
+    <div class="popup_ft" id="addTariffWind">
+        <h3>增加推荐费</h3>
+        <a class="close cur_point"></a>
+        <ul>
+            <li class="clearfix" style="padding-left:25px;"><span>推荐费：</span>
+                <input type="hidden" id="jobid">
+                <span style="border:1px #ccc solid;border-radius:5px;padding:0 5px;"> <input  style="border:none;text-align: right;"  type="text" id="TariffValue"  onkeyup="value = value.replace(/[^\d]/g, '')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"><em>00</em></span><div style="padding-top:4px">&nbsp;&nbsp;元</div></li>
+            <li class="clearfix" style="margin-top:20px;"><span style="color: #2380b8">小提示：</span><em class="emc">增加推荐费，可以刺激推荐人推荐的兴趣及动力，
+                    缩短招聘周期。推荐费只可以上调，不可以下调。
+                </em></li>
+            <li class="clearfix"><button class="cur_point" id="confAddTriff">确认</button></li>
+        </ul>
+    </div>
+
+    <div class="qd-qx-alert Pop-up">
+        <p>确定删除此候选人记录吗？</p>
+        <div>
+            <span class="qd btn hover-hand m" onclick="goDelete()">确定</span>
+            <span class="qx btn hover-hand" onclick="$('.Pop-up').slideUp(); $('.mask').hide();">取消</span>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+    <script>
+                var ue = UE.getEditor('editor');
+                var ue2 = UE.getEditor('editor1');
+                var maxDate = new Date().getFullYear() + "-" + (new Date().getMonth() + 2) + "-" + new Date().getDate();
+                laydate({
+                elem: '#laydate1',
+                        format: 'YYYY-MM-DD',
+                        festival: true, //显示节日
+                        min: laydate.now(), //-1代表昨天，-2代表前天，以此类推
+                        max: maxDate, //+1代表明天，+2代表后天，以此类推
+                        choose: function(datas) { //选择日期完毕的回调
+                        //  alert('得到：' + datas);
+                        }
+                });
+                $(function(){
+                $(".tuanchu4 b").click(function(o){
+                $("#match_industry").val($(this).attr("tag"));
+                        $("#match_industry_val").val($(this).text());
+                        $(".tuanchu4").hide();
+                });
+                })
+    </script>
+</body>
+
+</html>

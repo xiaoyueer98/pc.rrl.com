@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>推荐列表-人人猎</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+        <style>
+            .Pop-up {position: fixed;top: 50%;left: 50%;display: none;margin-left: -177px;width: 354px;height: 174px;z-index:100;height: -87px; margin-top:-88px;background: url(__ROOT__/Public/img/dle_altBg.png) no-repeat;}
+            .Pop-up div  textarea{ display: block;width: 200px;height: 40px;}
+            .Pop-up  div{display: block;width: 200px;height: 40px;margin-left: 80px;margin-bottom: 10px;}
+            .Pop-up h3 {margin-top: 45px;color: #2380b8;text-align: center;font-size: 14px;margin-bottom: 10px;}
+            .Pop-up .btnR {margin-left: 66px;width: 80px;height: 30px;border: 0;border-radius: 5px;background: #1a628e;color: #fff;}
+            .Pop-up h3 {margin-top: 45px;color: #2380B8; text-align: center; font-size: 14px;}
+            .PersData .recom2 h3 { margin-bottom: 38px;padding: 0px;border: 0px none; font-size: 18px;}
+            .Pop-up .btnL,.Pop-up .btnR { margin-left: 66px; width: 80px; height: 30px; border: 0px none;border-radius: 5px;background: none repeat scroll 0% 0% #1A628E;color: #FFF;}
+        </style>
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+        <div class="dx_page" style="display:block">
+            <div class="con">
+                <p>亲爱的<input type="text" style="width:50px" value="XXXX" id="bt_name">同学，我们诚挚邀请你于<input type="text" style="width:50px" value="XXXX" id="msdate">和我们<input type="text" value="<?php echo ($jobInfo['comname']); ?>" id="gs">面试，公司地点：<input type="text" value="<?php echo ($jobInfo['jobplace']); ?>" id="address">乘车路线<input type="text" value="XXXX" id="lx">，联系人<input type="text" value="<?php echo ($jobInfo['cnname']); ?>" id="lxr">，联系电话<input type="text" value="<?php echo ($jobInfo['telephone']); ?>" id="hm">。请勿迟到。 </p>
+                <input type="hidden" id="mobile">
+                <input class="fs" type="button" value="发送">
+                <span class="qx">取消</span>
+            </div>
+        </div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="recom1 data recom2">
+                <div class="recom1_tp">
+                    <h3>推荐记录</h3>
+                    <p class="ts"><em>招聘职位：</em>{$jobInfo['title']}　　招聘资费：{$jobInfo['Tariff']} 元</p>
+                    <div class="tab tck">
+                        <table  border="1" class="tdclick">
+                            <tr class="zzzp">
+                                <th>序号</th>
+                                <th>被推荐人</th>
+                                <th>推荐人</th>
+                                <th>在职状态</th>
+                                <th>可面试时间</th>
+                                <th>面试状态</th>
+                                <th>付款信息</th>
+                                <th>操作</th>
+                            </tr>
+                            <volist name="arRecordList['list']" id="arRecordInfo">
+                                <tr class="bg">
+                                    <td>{$arRecordInfo['sort_id']}</td>
+                                    <if condition="$isViewReuse eq 1">
+                                    <td><a href="__URL__/viewResume/id/{$arRecordInfo['id']}/jid/{$arRecordInfo['j_id']}/btid/{$arRecordInfo['bt_id']}.html">{$arRecordInfo['btName']}</a></td>
+                                    </if>
+                                    <if condition="$isViewReuse eq 0">
+                                        <td>{$arRecordInfo['btName']}</td>
+                                    </if>
+                                    <td>{$arRecordInfo['tName']}</td>
+                                    <td>{$arRecordInfo['stage']}</td>
+                                    <td>{$arRecordInfo['audstartdate']}</td>
+                                    <td>
+
+                                        <select style='width:85px' <if condition="$arRecordInfo['audstart_status'] eq 6">disabled</if> onchange="changeAudreasonList('{$arRecordInfo[audstart]}',$(this).val(), {$arRecordInfo['id']},{$arRecordInfo['audstart_status']})">
+                                            <volist name="arAudreasonList" id="arAudreasonInfo" >
+                                                <option value='{$arAudreasonInfo[datavalue]}' <if condition="$arAudreasonInfo[dataname] eq $arRecordInfo['audstart']">selected="selected"</if>>{$arAudreasonInfo[dataname]}</option>
+                                            </volist>
+                                        </select>
+
+                                    </td>
+                                    <td>{$arRecordInfo['sink']}</td>
+                                    <td class="fsdx" btname="{$arRecordInfo['btName']}" mobile="{$arRecordInfo['mobile']}" jl_id=""><span class="sp2"><img src="__ROOT__/Public/img/xf.png" alt="" title="面试通知"></span></td>
+                                </tr>
+                            </volist>
+                        </table>
+
+
+                    </div>
+                    {$arRecordList.page}
+
+                </div>
+
+
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <div class="Pop-up" id="sendStatus">
+        <input type="hidden" id="del">
+        <h3>确定修改此面试人的面试状态吗？</h3>
+        <div style="display:none" id="reason"><textarea placeholder="请输入拒绝理由" id="rea"></textarea></div>
+        <input type="hidden" id="reasonid">
+        <input type="hidden" id="statused">
+        <input type="button" class="btnL delconfirm" value="确认" >
+        <input type="button" class="btnR qxconfirm" value="取消">
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+<script type="text/javascript">
+
+    function changeAudreasonList(tex, audreason, rid, audstart) {
+
+        // 1 未审核 2 不面试 3 面试预约 4 面试不通过 5面试通过 6 已入职 7 已离职 8审核不通过
+        if (audstart == 3 && (audreason == 1 || audreason == 2)) {
+            sys_window("此人已经面试预约，不能为" + tex + "状态");
+            return false;
+        }
+        if (audstart == 5 && (audreason == 1 || audreason == 2 || audreason == 3 || audreason == 4)) {
+            sys_window("此人已经面试通过，不能为" + tex + "状态");
+            return false;
+        }
+        if (audreason == 2 || audreason == 4 || audreason == 7) {
+
+            $("#reason").show();
+        } else {
+            $("#reason").hide();
+        }
+
+        $("#reasonid").val(rid);
+        $("#statused").val(audreason);
+        $(".mask").show();
+        $("#sendStatus").show();
+    }
+    $(".delconfirm").click(function() {
+        var reasonid = $("#reasonid").val();
+        var statused = $("#statused").val();
+        var content = $("#rea").val();
+        if (statused == 2 || statused == 4 || statused == 7) {
+            if (!content) {
+                sys_window("请选择拒绝理由！");
+                return false;
+            }
+        }
+        $.post("/Home/Company/updateUserStatus.html", {
+            'reasonid': reasonid,
+            'statused': statused,
+            'content': content
+        }, function(data) {
+            window.location.reload();
+        }, "json")
+    });
+
+    $(".qxconfirm").click(function() {
+        $(".mask").hide();
+        $("#sendStatus").hide();
+    });
+
+    $(document).ready(function() {
+        $('.fsdx').on('click', function() {
+            $("#bt_name").val($(this).attr("btname"));
+            $("#mobile").val($(this).attr("mobile"));
+            $('.mask').show();
+            $('.dx_page').slideDown();
+        });
+        $(".fs").click(function() {
+            var bt_name = $("#bt_name").val();
+            var mobile = $("#mobile").val();
+            var msdate = $("#msdate").val();
+            var gs = $("#gs").val();
+            var address = $("#address").val();
+            var lx = $("#lx").val();
+            var lxr = $("#lxr").val();
+            var hm = $("#hm").val();
+            if (!mobile) {
+                sys_window("面试人没有留手机号码,您可以查看是否有邮箱填写或者联系我们的工作人员！");
+                return false;
+            }
+            if (!bt_name || bt_name == "XXXX") {
+                sys_window("面试人不能为空");
+                return false;
+            }
+
+            if (!msdate || msdate == "XXXX") {
+                sys_window("面试时间不能为空！");
+                return false;
+            }
+            if (!address) {
+                sys_window("公司地点不能为空！");
+                return false;
+            }
+            var msgContent = "亲爱的" + bt_name + "同学，我们诚挚邀请你" + msdate + "和我们面试，公司地点" + address;
+            if (lx != "XXXX" && !lx) {
+                msgContent += "乘车路线" + lx;
+            }
+            if (lxr != "XXXX" && !lxr) {
+                msgContent += "，联系人" + lxr;
+            }
+
+            if (hm != "XXXX" || !hm) {
+                msgContent += "，联系号码" + hm;
+            }
+            msgContent += "。请勿迟到。";
+            $.post("/Home/Company/sendMessage.html", {
+                'msgcontent': msgContent,
+                'mobile': mobile
+            }, function(data) {
+                if (data.code == "200") {
+                    sys_window("发送成功!");
+                    $('.mask').hide();
+                    $('.dx_page').hide();
+                } else {
+
+                    sys_window(data.msg);
+                }
+            }, "json")
+        });
+        $('.qx').on('click', function() {
+            $('.mask').hide();
+            $('.dx_page').slideUp();
+        });
+
+        /*$('.fsdx').on('click',function(){
+         $('.mask').show();
+         $('.dx_page').show();
+         })*/
+
+        $('.fsdx').on('mouseenter', function() {
+            $(this).css({'cursor': 'pointer'});
+        })
+    })
+
+
+</script>
+</html>

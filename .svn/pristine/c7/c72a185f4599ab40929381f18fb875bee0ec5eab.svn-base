@@ -1,0 +1,12 @@
+<div id="" class="denglu">
+	<a class="Close"></a>
+	<h3></h3>
+	<ul class="jcid">
+		<li class="frt">Robin您好！</li>
+		<li><p>系统检测到你有另外一个相同的用于<b>推荐人</b>登录的用户ID</p></li>
+		<li><p>请你下次使用以下ID登录<b>推荐人页面</b></p></li>
+		<li><div>TJRobin</div></li>
+		<li><div><input type="checkbox"><em>我以知晓，不再弹出此页面</em></div></li>
+		<li><div><input type="button" class="btn" value="我知道了"></div></li>
+	</ul>
+</div>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>人人猎-私人订制工作机会</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <div class="mask" style="display:none;"></div>
+    <div class="alt-srdz" style="display:none">
+        <div class="alr-head">
+            <img src="/Public/img/alt-head.png" alt="">
+            <a href="javascript:void(0);" class="clos" id="close"></a>
+        </div>
+        <div class="con-text">
+            <p>您成功完成了工作机会——私人订制，请您在设定的联系时间内，保持手机畅通，一旦有合适的工作机会，您的私人求职顾问将会与您联络。</p>
+        </div>
+        <div class="btn-z" style="width:168px;">
+            <span class="my-btn2 m fl-lef" id="ok_btn">确定</span>
+        </div>
+    </div>
+    <body style="background:#ffffff">
+    <include file="Public:newHeader"/>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <div class="wrap yjfk">
+        <div class="yjfk-banner"><img src="/Public/img/rcmd-img/fk-banner.png" alt=""></div>
+        <div class="content-t" style="position:relative">
+            <h3>人人猎————最可靠的私人求职顾问</h3>
+            <p class="text1">若你是年薪10万元以上的中高端人才，若你想收入更高、发展前程更好。若你希望你足不出户就有“高大上”的工作机会找上门。你最可靠的私人求职顾问--人人猎，帮你<b>“私人订制”</b>。人人猎,让与你匹配的工作机会轻松找到你。</p>
+            <p>1.你只需将你正在看更好工作机会的计划，通过在线填写“订制卡片”告诉人人猎的资深顾问。</p>
+            <p>2.人人猎免费帮你寻找与你最匹配的工作机会，并安排靠谱的面试机会。</p>
+            <p>3.你无需接听骚扰电话、无需一次次向各企业重述你的个人信息，你只需参加2-3个靠谱的面试，从中选择最 适合你的优质工作机会。</p>
+            <p>4.你成功入职后还可以领取面试车补<b>1000</b>元。想想都很美吧！人人猎实现你的高薪工作梦，还给你提供面试车补。</p>
+            <p>马上参与， 请填写<b>工作机会私人订制卡片</b>，靠谱的工作机会就会自动找上门！</p>             
+            <div style="margin-top:30px;position:absolute;right:-71px;top:257px">
+                <div class="jiathis_style_24x24" id="shareAction" style="padding: 8px;width: 297px;">
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_weixin"></a>
+                    <a class="jiathis_button_tsina"></a>
+
+                    <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a class="jiathis_button_cqq"></a>
+                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" style="padding:0px!important;  margin-right: -2px;" target="_blank"></a>
+                    <a class="jiathis_counter_style" style="margin-right: 35px;"></a>
+                </div>
+            </div>
+            <div class="content-b">
+                <div class="yjfk-header">
+                    <span class="fl-lef dis-block">工作机会私人订制卡片</span>
+                    <div class="fl-rig clearfix">
+
+                        <b class="dis-block fl-lef">温馨提示：</b>
+                        <em class="clearfix dis-block fl-lef"><i></i><label class="fl-lef dis-block">人人猎会对您的个人信息进行保密，绝不会非法透露给第三方</label></em>
+                    </div>
+                </div>
+                <div class="yjfk-con clearfix" style="margin-bottom:10px;">
+                    <div class="fl-lef clearfix"><span class="fl-lef"><i>*</i>姓&nbsp名：</span><input placeholder="输入真实姓名,系统会对个人信息保密" class="input1" type="text" id="name"></div>
+                    <div class="fl-rig clearfix"><span class="fl-lef"><i>*</i>手机号码：</span><input placeholder="请输入手机号码" class="input1" type="text" id="mobile"></div>
+                </div>
+                <div class="yjfk-con clearfix" style="margin-top:10px;">
+                    <div class="fl-lef clearfix"><span class="fl-lef"><i>*</i>方便联系的时间</span><input placeholder="如：随时、周六日、其他指定时间" class="input1" type="text" id="able_time"></div>
+                    <div class="fl-rig clearfix"><span class="fl-lef"><i>*</i>验证码：</span><input placeholder="请输入验证码" class="input1 wh140" type="text" id="verify"><label id="getcode">获取验证码</label></div>
+                </div>
+                <div class="yjfk-con clearfix" style="margin-top:10px;">
+                    <div class="fl-lef clearfix"><span class="fl-lef"><i>*</i>求职意愿：</span><input placeholder="输入职位名称"  class="input1 wh808" type="text" id="want"></div>
+                </div>
+                <div class="clearfix ero" id="bankError" style="display: none;">
+                    <b class="fl-lef dis-block dis-inlin" style="margin-left:20px;">错误提示:</b>
+                    <span class="fl-lef dis-block dis-inlin clearfix" >
+                        <i class="fl-lef dis-block dis-inlin"></i>
+                        <span class="fl-lef dis-block dis-inlin" id="error"></span>
+                    </span>
+                </div>
+            </div>
+            <button class="my-btn" id="btn">完成订制</button>
+        </div>
+
+        <include file="Public:newFooter"/>
+        <!--    <div class="return-index">
+                <span></span>
+                <i style="opacity: 0;"></i>
+                <a href="/" style="display: none;">返回首页</a>
+            </div>
+            <div class="return-index scrol-top">
+                <span></span>
+                <i style="opacity: 0;"></i>
+                <a href="javascript:void(0);" style="display: none;">返回顶部</a>
+            </div>-->
+        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+
+
+                var wait = 60;
+
+                function time(o) {
+
+                    if (wait == 0) {
+                        o.innerHTML = "获取验证码";
+                        o.removeAttribute("disabled", false);
+                        $('#getcode').css("background", "#206daf");
+                        wait = 60;
+                    } else {
+                        o.setAttribute("disabled", true);
+                        o.innerHTML = "(" + wait + ")重新发送";
+                        wait--;
+                        setTimeout(function () {
+                            time(o)
+                        },
+                                1000)
+                    }
+                }
+                $('#getcode').click(function () {
+
+                    this.disabled = true;
+
+                    var o = this;
+                    var mobile = $("#mobile").val();
+                    if ($.trim(mobile) == "") {
+                        $("#mobile").focus();
+                        $("#error").text("请填写手机号码");
+                        $("#bankError").show();
+                        this.disabled = false;
+                        return;
+                    }
+                    $('#getcode').css("background", "#b4b4b4");
+                    $.post("/Home/Customized/send_msg", {
+                        mobile: mobile
+                    }, function (data) {
+                        if (data.code != "200") {
+                            $('#getcode')[0].disabled = false;
+                            $('#getcode').css("background", "#206daf");
+                            $("#error").text(data.msg);
+                            $("#bankError").show();
+                            return;
+                        } else {
+                            time(o);
+                        }
+                    }, "json");
+
+                })
+
+                //点击完成定制按钮
+                $('#btn').click(function () {
+
+                    this.disabled = true;
+                    var name = $.trim($("#name").val());
+                    var mobile = $.trim($("#mobile").val());
+                    var able_time = $("#able_time").val();
+                    var want = $("#want").val();
+                    var verify = $.trim($("#verify").val());
+                    if (name == "") {
+                        $("#error").text("请填写姓名");
+                        $("#bankError").show();
+                        this.disabled = false;
+                        return;
+                    }
+                    if (mobile == "") {
+                        $("#error").text("请填写手机号码");
+                        $("#bankError").show();
+                        this.disabled = false;
+                        return;
+                    }
+                    if (verify == "") {
+                        $("#error").text("请填写验证码");
+                        $("#bankError").show();
+                        this.disabled = false;
+                        return;
+                    }
+                    if (able_time == "") {
+                        $("#error").text("请填写方便联系时间");
+                        $("#bankError").show();
+                        this.disabled = false;
+                        return;
+                    }
+                    if (want == "") {
+                        $("#error").text("请填写求职意愿");
+                        $("#bankError").show();
+                        this.disabled = false;
+                        return;
+                    }
+                    $.post("/Home/Customized/info_save", {
+                        name: name,
+                        mobile: mobile,
+                        verify: verify,
+                        able_time: able_time,
+                        want: want
+
+                    }, function (data) {
+                        if (data.code != "200") {
+                            $('#btn')[0].disabled = false;
+                            $("#error").text(data.msg);
+                            $("#bankError").show();
+                            return;
+                        } else {
+                            $(".mask").show();
+                            $(".alt-srdz").show();
+
+                        }
+                    }, "json");
+
+
+                })
+                //点击取消
+                $('#close,#ok_btn').click(function () {
+
+                    $(".mask").hide();
+                    $(".alt-srdz").hide();
+                    location.reload();
+                })
+
+
+            })
+
+        </script>
+
+        <script type="text/javascript">
+            var url = "http://www.renrenlie.com//Home/Customized/index.html";
+            var jiathis_config = {
+                url: url,
+                title: "人人猎-私人订制工作机会",
+                summary: "职场牛人都在人人猎",
+                pic: "__ROOT__/Public/img/logo.png"
+            }
+        </script> 
+        <script src="http://v2.jiathis.com/code/jiathis_r.js?move=0"></script> 
+
+    </body>
+</html>

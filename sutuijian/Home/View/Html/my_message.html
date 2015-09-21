@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>消息中心-人人猎</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.ui.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicsdon.ico" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/smoothness/jquery.ui.css" type="text/css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/style.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="myNews">
+                <h3>我的消息</h3>
+                <?php if($job['news']){
+                foreach($newsList as $job){
+
+                ?>
+                <div class="NewsFrame">
+                    <span><img src="__ROOT__/Public/img/qiyeicon.png" alt=""></span>
+                    <div>
+                        <i><img src="__ROOT__/Public/img/asa.png" alt=""></i>
+                        <p><?php echo $job['news'];?></p>
+                        <ul>
+                            <li><?php echo $job['time'];?></li>
+                            <li><a href=""><?php echo $job['type'];?></a></li>
+                            <!--	<li class="dle"><img src="__ROOT__/Public/img/dle.png" alt=""></li>  -->
+                        </ul>
+                    </div>
+                </div>
+
+                <?php  }}else{?>
+                <div >
+                    <br><br>
+                    <span style="margin-left: 40%;width: 200px;height: 200px"><img src="__ROOT__/Public/img/wanning.png">
+                    <br>
+                    <center>您没有任何系统消息哦，赶快发布招聘吧！
+                        </center>
+                    </span>
+                    
+
+                </div>
+
+                <?php }?>
+
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+</html>

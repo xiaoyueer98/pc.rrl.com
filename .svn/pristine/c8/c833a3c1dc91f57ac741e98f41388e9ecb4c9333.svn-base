@@ -1,0 +1,21 @@
+User-agent: * 
+Disallow: /Public/ 
+Disallow: /ThinkPHP/ 
+Disallow: /Uploads/ 
+Disallow: /ad/ 
+Disallow: /bb/
+Disallow: /css/ 
+Disallow: /images/
+Disallow: /qq/
+Disallow: /uploadify/
+Disallow: /weibophpsdk/
+Disallow: /weixin/
+Disallow: /sutuijian/Common/
+Disallow: /sutuijian/Home/Api/
+Disallow: /sutuijian/Home/Common/
+Disallow: /sutuijian/Home/Controller/
+Disallow: /sutuijian/Home/Logic/
+Disallow: /sutuijian/Home/Model/
+Disallow: /sutuijian/Runtime/
+
+Sitemap: http://www.renrenlie.com/sitemaps.xml

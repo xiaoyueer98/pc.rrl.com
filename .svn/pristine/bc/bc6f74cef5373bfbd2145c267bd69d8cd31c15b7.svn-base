@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{font-family: '微软雅黑';}
+		html,body{
+			width: 100%;
+			height: 100%;
+			background:#7a7373
+		}
+		div{
+			margin:0 auto;
+			margin-top:100px;
+			color:#fffdfd;
+			font-size:26px;
+			width:510px;
+		}
+		span{
+			font-size:36px;color:#fed547;
+			margin:0 10px;
+		}
+	</style>
+</head>
+<body style="">
+	<div style="">人人猎<span>3</span>月<span>9</span>日正式上线，敬请关注！</div>
+</body>
+</html>

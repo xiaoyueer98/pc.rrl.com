@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="/Public/img/favicon.ico" type="image/ico">
+
+        <title>跟踪状态-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+
+        <link rel="stylesheet" type="text/css" href="/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="/Public/css/new-recommends.css">
+        <script type="text/javascript" src="/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="/Public/js/record-common.js"></script>
+    </head>
+    <body>
+        <div class="mask" id="mask"></div>
+    <div class="al-header">
+    <div class="wrap">
+        <div class="al-logo dis-inlin"><a href="/"><img src="/Public/img/new-index/al-logo.png" alt=""></a></div>
+        <div class="al-nav dis-inlin fl-lef">
+            <ul>
+                <li class="dis-inlin fl-lef indx-li"><a  href="/Home/Index/index.html">首页</a></li>
+                <li class="dis-inlin fl-lef"><a  href="/Home/Index/search.html">职位</a></li>
+                <li class="dis-inlin fl-lef"><a  href="/Home/Index/anli.html">案例</a></li>
+                <li class="dis-inlin fl-lef"><a href="/Home/Active/salon_show.html">活动</a></li>
+            </ul>
+        </div>
+        <div class="al-right dis-inlin fl-rig" id="my-account">
+            <div class="mydiv clearfix" id="my-account2"><span class="m-user dis-block dis-inlin fl-lef">fenghuihui</span><span class="dis-block dis-inlin fl-rig account-jt"></span></div>
+            <dl class="mydl">
+                <dt class="fl-lef dis-inlin">
+                <span class="head" style="display: block">
+                </span>
+                <!-- <span class="btn">更换头像<input type="file" class="sc"></span> -->
+                </dt>
+                <dd class="fl-lef dis-inlin" id="my-data">
+                    <a class="a1 m fl-lef dis-inlin" href="/Home/Login/userinfo.html"><img src="/Public/img/new-index/a1.png" alt="">完善资料</a>
+                    <a class="a2 fl-lef dis-inlin" href="/Home/Login/JobSearch.html"><img src="/Public/img/new-index/a2.png" alt="">推荐职位</a>
+                    <a class="a3 fl-lef dis-inlin" href="/Home/Login/Recording.html"><img src="/Public/img/new-index/a3.png" alt="">跟踪状态</a>
+                    <a class="a4 fl-lef dis-inlin" href="/Home/Login/DetailsFunds.html"><img src="/Public/img/new-index/a4.png" alt="">查看收益</a> 
+                    <a class="a5 fl-lef dis-inlin" href="/Home/Login/Recommended.html"><img src="/Public/img/new-index/a5.png" alt="">简历库</a>
+                    <a class="a6 fl-lef dis-inlin" href="/Home/Login/logout.html"><img src="/Public/img/new-index/a6.png" alt="">退出登录</a>
+                </dd>
+            </dl>
+        </div>
+        
+    </div>	
+</div>
+
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>推荐人用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <div class="m2-l fl-lef">
+			    <a href='/Home/Login/userinfo.html'>
+			        <div class="odiv hover-hand ">
+			            <span>1</span>
+			            <h6 class="tit1">完善资料
+			                                <em class="m"></em>
+			                            </h6>
+			            <p class="tx">完成之后可以推荐候选人</p>
+			        </div>
+			    </a>
+			    <a href='/Home/Login/Recommended.html'>
+			        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+			        <div class="odiv hover-hand ">
+			            <span>2</span>
+			            <h6 class="tit2">维护候选人
+			                        <em class="m"></em>
+			                        </h6>
+			            <p class="jlk">(简历库)</p>
+			            <p class="tx">上传优质简历，坐等分钱</p>
+			        </div>
+			    </a>
+			    <a href='/Home/Login/JobSearch.html'>
+			        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+			        <div class="odiv hover-hand ">
+			            <span>3</span>
+			            <h6 class="tit3">推荐职位
+			                        <em class="m"></em>
+			                       </h6>
+			            <p class="tx">查看职位，再推荐候选人</p>
+			        </div>
+			    </a>
+			    <a href='/Home/Login/Recording.html'>
+			        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+			        <div class="odiv hover-hand m">
+			            <span>4</span>
+			            <h6 class="tit4 m">跟踪状态
+			                        <em class="m"></em>
+			                        </h6>
+			            <p class="tx m">时时关注候选人求职状态</p>
+			        </div>
+			    </a>
+
+			    <a href='/Home/Login/DetailsFunds.html'>
+			        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+			        <div class="odiv hover-hand ">
+			            <span>5</span>
+			            <h6 class="tit5">查看收益
+			                        <em class="m"></em>
+			                        </h6>
+			            <p class="tx">候选人入职后便得收益</p>
+			        </div>
+			    </a>
+			</div>
+            <div class="m2-r fl-rig">
+                <ul class="nav nav2">
+                    <li class="m dis-block dis-inlin fl-lef"><a class="m" href='/Home/Login/Recording.html'>正在推荐</a></li>
+                    <li class="dis-block dis-inlin fl-lef"><a  href='/Home/Login/Recorded.html'>历史推荐</a></li>
+                </ul>
+                <div class="recommending track-state" style="display:block">
+                    <div class="con"  >
+                        <table style="width:689px;" class="data_list">
+                            <thead style="margin-bottom:10px;">
+                                <tr class="t">
+                                    <th>序号</th>
+                                    <th>姓名</th>
+                                    <th>推荐公司</th>
+                                    <th>推荐职位</th>
+                                    <th>推荐进度</th>
+                                    <th>可面试时间</th>
+                                    <th>推荐费（元）</th>
+                                    <th>总招聘人数</th>
+                                </tr>
+                            </thead>
+                        	<tbody>
+	                            <tr>
+	                                <td class="wh47 wk">1</td>
+	                                <td class="wh85 wk table-text-left">李志蕊</td>
+	                                <td class="wh152 wk table-text-left"><a href="/Home/Index/EnterIndex/comid/402.html">北京易途科技有限公司</a></td>
+	                                <td class="wh96 wk table-text-left position-name" style="position:relative"><a href="/Home/Index/EnterIndex2/comid/402/jobid/572.html">ＰＨＰ开发工程师</a><img src="__ROOT__/images/ntice3.png" class="img-btn" alt=""></td>
+	                                <td class="wk shenhe hover-hand">
+	                                    审核未通过                                        <a href="javascript:;" style="position: absolute;top:0px;right: 3px" onclick="showDisMsg('测试')">
+	                                </td>
+	                                <td class="wh96 wk table-text-left">20215.012</td>
+	                                <td class="wh112 wk">4000</td>
+	                                <td class="wh112 wk">1</td>
+	                            </tr>
+                            	<tbody class="state">
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt">
+                            				<b></b><i class="m"></i>
+                            			</td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt">
+                            				<b></b><i class="m"></i>
+                            			</td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt">
+                            				<b></b><i class="m"></i>
+                            			</td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt">
+                            				<b></b><i class="m"></i>
+                            			</td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            	</tbody> 	
+                                <tbody class="state2">
+                                    <tr>
+                                        <td colspan="8">
+                                            <textarea placeholder="请输入您对该职业的评价（小提示：人人猎平台会对您的个人信息保密，请合理做出评价。）" placeholder="" name="personal" id="audstartdate" tabindex="13"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8"><span class="fbpl hover-hand my-btn">发表评论</span></td>
+                                    </tr>
+                                </tbody>    
+	                            <tr>
+	                                <td class="wh47 wk">1</td>
+	                                <td class="wh85 wk table-text-left">李志蕊</td>
+	                                <td class="wh152 wk table-text-left"><a href="/Home/Index/EnterIndex/comid/402.html">北京易途科技有限公司</a></td>
+	                                <td class="wh96 wk table-text-left position-name" style="position:relative">
+                                        <a href="/Home/Index/EnterIndex2/comid/402/jobid/572.html">ＰＨＰ开发工程师</a>
+                                        <img src="__ROOT__/images/ntice3.png" class="img-btn" alt="">
+                                    </td>
+	                                <td class="wh124 wk shenhe hover-hand">
+	                                    审核未通过                                        <a href="javascript:;" style="position: absolute;top:0px;right: 3px">
+	                                </td>
+	                                <td class="wh96 wk table-text-left">20215.012</td>
+	                                <td class="wh112 wk">4000</td>
+	                                <td class="wh112 wk">1</td>
+	                            </tr>
+                            	<tbody class="state">
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt">
+                            				<b></b><i class="m"></i>
+                            			</td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            		<tr>
+                            			<td colspan="1"></td>
+                            			<td class="wh168 wk" colspan="2">2015-06-15 11:47</td>
+                            			<td class="prompt"><b></b><i></i></td>
+                            			<td class="wh220 wk" colspan="4">成功上传简历</td>
+                            		</tr>
+                            	</tbody>
+                                <tbody class="state2">
+                                    <tr>
+                                        <td colspan="8">
+                                            <textarea placeholder="请输入您对该职业的评价（小提示：人人猎平台会对您的个人信息保密，请合理做出评价。）" placeholder="" name="personal" id="audstartdate" tabindex="13"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8"><span class="fbpl hover-hand my-btn">发表评论</span></td>
+                                    </tr>
+                                </tbody>  
+                            </tbody>
+                        </table>
+                        <div class='inner clearfix'><ul class="clearfix dis-inlin fl-rig dis-block">    <div class="total dis-block dis-inlin fl-lef">共1页</div></ul></div>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="al-footer">
+    <div class="wrap">
+        <ul class="con clearfix">
+            <li class="clearfix myli li1 fl-lef dis-inlin"><img src="/Public/img/new-index/foter-logo.png" alt=""></li>
+            <li class="clearfix myli li2 fl-lef dis-inlin">
+                <ul>
+                    <li><a href="/Home/Public/aboutus.html">关于我们</a></li>
+                    <li><a href="/Home/Public/yhxy.html">用户协议</a></li>
+                    <li><a href="/Home/Public/yhys.html">用户隐私</a></li>
+                    <li><a href="/Home/Public/contactus.html">联系我们</a></li>
+                    <li><a href="/Home/Public/joinus.html">加入我们</a></li>
+                </ul>
+            </li>
+            <li class="clearfix myli li3 fl-lef dis-inlin">
+                <img src="/Public/img/new-index/pic3.png" alt="">
+                <span>友情链接</span>
+            </li>
+            <li class="clearfix myli li4 fl-lef dis-inlin">
+                        <ul>
+                                <li  class="fl-lef"><a href="http://2015com.com" target="_blank">来了</a></li>
+                                <li  class="fl-lef"><a href="http://www.e3job.com/" target="_blank">E商人才网</a></li>
+                                <li  class="fl-lef"><a href="http://www.0579job.com/" target="_blank">千里马人才网</a></li>
+                                <li  class="fl-lef"><a href="http://www.1epoch.com/" target="_blank">青岛logo设计</a></li>
+                                <li  class="fl-lef"><a href="http://www.qidong.zp300.cn/" target="_blank">启东人才网</a></li>
+                                <li  class="fl-lef"><a href="http://bj.yi.xbaixing.com" target="_blank">北京一站通</a></li>
+                                <li  class="fl-lef"><a href="http://zhengyun.cc/" target="_blank">郑云工作室</a></li>
+                                <li  class="fl-lef"><a href="http://www.5niubi.com/" target="_blank">一折网</a></li>
+                                <li  class="fl-lef"><a href="http://www.jdaaa.com/" target="_blank">京东精选</a></li>
+                                <li  class="fl-lef"><a href="http://www.bcty365.com/" target="_blank">B5教程网</a></li>
+                                <li  class="fl-lef"><a href="http://www.shsixun.com/" target="_blank">思讯通</a></li>
+                                <li  class="fl-lef"><a href="http://www.1yhlg.com" target="_blank">1元欢乐购</a></li>
+                                <li  class="fl-lef"><a href="http://xinyu.caihao.com" target="_blank">新余招聘网</a></li>
+                                <li  class="fl-lef"><a href="http://www.1531679540.com/" target="_blank">聚来宝</a></li>
+                                <li  class="fl-lef"><a href="http://www.zbs888.com" target="_blank">品牌策划</a></li>
+                            </ul>
+                        </li>
+            <li class="clearfix myli li5 fl-lef dis-inlin">
+                <p>4006-685-596</p>
+                <p>010-57188076</p>
+                <p>010-57230694</p>
+            </li>
+        </ul>
+        <div class="border"></div>
+        <p>人人猎 京ICP备14040265号-1<span style="margin-left:10px;" id='cnzz_stat_icon_1254515209'>&nbsp;&nbsp;&nbsp;&nbsp;<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                            document.write(unescape("%3Cspan id='cnzz_stat_icon_1254515209'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254515209%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span></p>
+    </div>
+</div>
+<div class="popup_ft reward" id="sys_window">
+    <h3>温馨提示</h3>
+    <a class="close cur_point"></a>
+    <dl>
+        <dt id="sys_content">恭喜您！</dt>
+        <dd><input type="hidden" id="locationHref"><button id="comWind" class="cur_point">确认</button></dd>
+    </dl>
+</div>
+    <script>
+        function showDisMsg(msg) {
+            sys_window(msg);
+        }
+        $(".m2-l>div").click(function() {
+            $(this).addClass("m");
+            $(this).find("h6").addClass("m");
+            $(this).find("p").addClass("m");
+            $(this).siblings().removeClass("m");
+            $(this).siblings().find("h6").removeClass("m");
+            $(this).siblings().find("p").removeClass("m");
+        });
+        $(".position-name .img-btn").click(function(){
+            if($(this).hasClass("current")){
+                $(this).parent().parent().parent().next().next().hide().siblings(".state2").hide();
+                $(this).removeClass("current")
+            }else{
+                $(this).parent().parent().parent().next().next().show().siblings(".state2").hide();
+                $(this).addClass("current")
+            };
+        })
+        $(".track-state table tr .shenhe").click(function(){
+			if($(this).hasClass("current")){
+				$(this).parent().parent().next().hide().siblings(".state").hide();
+				$(this).removeClass("current")
+			}else{
+				$(this).parent().parent().next().show().siblings(".state").hide();
+				$(this).addClass("current")
+			};
+		});
+
+        /* 当鼠标移到表格上是，当前一行背景变色 */
+        $(document).ready(function(){
+            $(".data_list tr td").mouseover(function(){
+                $(this).parent().find("td").css("background-color","#dad7d7");
+            });
+        })
+      /* 当鼠标在表格上移动时，离开的那一行背景恢复 */
+      $(document).ready(function(){
+            $(".data_list tr td").mouseout(function(){
+                $(this).parent().find("td").css("background-color","#f0f0f0");
+            });
+      })
+      
+      $(document).ready(function(){
+            var color="#f0f0f0"
+            $(".data_list tr:odd td").css("background-color",color);  //改变偶数行背景色
+            /* 把背景色保存到属性中 */
+            $(".data_list tr:odd").attr("bg",color);
+            $(".data_list tr:even").attr("bg","#fff");
+      })
+    </script>
+</body>
+
+</html>

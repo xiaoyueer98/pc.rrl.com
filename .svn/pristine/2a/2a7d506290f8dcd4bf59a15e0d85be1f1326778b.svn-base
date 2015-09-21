@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>沙龙活动展示</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/salon.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <body style="background:#cdedfd">
+    <span id="top" name="top"></span>
+    <div class="mask" id="mask"></div> 
+        <include file="Public:zhuce"/>
+        <include file="Public:denglu"/>
+    <include file="Public:newHeader" />
+    <div class="show-header">
+        <div class="content" style="width:1000px;">
+            <!--<img class="rotation" src="/Public/img/activity-img/top-roation.png" alt="">-->
+            <img class="r-img" src="/Public/img/activity-img/show-header-r.png" alt="">
+            <img class="head-title" src="/Public/img/activity-img/head-title.png" alt="" style="top:80px;">
+            <h3 style="top:290px;">最新<i>预告</i></h3>
+            <?php if($isActive){?>
+            <ul style="top:380px;">
+                <li>1.时间：<?php echo $arSalon['activetime']?>。</li>
+                <li>2.标题：<?php echo $arSalon['activename']?>。</li>
+                <li>3.主题：<?php echo $arSalon['theme']?>。</li>
+                <li>4.地址：海淀区西二旗辉煌国际2号楼2206。</li>
+                <li>5.电话：010-57188076</li>
+            </ul>
+            <?php }else{?>
+            <ul style='padding-bottom:0;top:380px;'>
+                <li>1.时间：待定。</li>
+                <li>2.标题：待定。</li>
+                <li>3.地址：海淀区西二旗辉煌国际2号楼2206。</li>
+                <li>4.电话：010-57188076</li>
+            </ul>
+            <?php }?>
+
+            <?php if($isActive):?>
+            <span class="btn hover-hand" onclick="location.href = '/Home/Active/new_sign_up'" style="top:575px;"></span>
+            <?php endif;?>
+        </div>
+    </div>
+
+    <div class="mywrap">
+        <div class="wrap">
+            <div class="salon-show clearfix">
+                <h2><img src="/Public/img/activity-img/title-salon.png" alt=""></h2>
+                <volist name='arSalonActive' id='vo'>
+                    <div <if condition="$vo.picurl eq ''"> style="display:none;" </if>>
+                        <h3><a href='/Home/Active/salon_detail/id/{$vo[id]}' style='color:white;'>{$vo['activename1']}<span>{$vo['activename2']}</span><b>{$vo['activename3']}</b></a></h3>
+                        <div class="myimg">
+                            <a href='/Home/Active/salon_detail/id/{$vo[id]}'><img src="{$vo['picurl']}" alt="" style='width:100%;height:100%;'></a>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </div>
+    <div class="return-index">
+        <span></span>
+        <i></i>
+        <a href="/">返回首页</a>
+    </div>
+    <div class="return-index scrol-top">
+        <span></span>
+        <i></i>
+        <a href="javascript:void(0);">返回顶部</a>
+    </div>
+    <include file="Public:newFooter"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".return-index").hover(function () {
+                $(this).find("i").css({"opacity": "0.5"});
+                $(this).find("a").show();
+            }, function () {
+                $(this).find("i").css({"opacity": "0"});
+                $(this).find("a").hide();
+            })
+            $(".scrol-top").click(function () {
+                $('html,body').animate({
+                    'scrollTop': 0
+                }, 200)
+            })
+        });
+    </script>
+</body>
+</html>

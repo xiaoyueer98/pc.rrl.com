@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>联系我们-人人猎</title>
+     <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+    <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+    <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+    <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+</head>
+<body>
+	<!-- 遮罩层 -->
+	<div class="mask" id="mask"></div>
+	<include file="Public:zzwc"/>
+	<include file="Public:zzyz"/>
+	<include file="Public:zhuce"/>
+	<include file="Public:denglu"/>
+	<include file="Public:gsjs"/>
+	<include file="Public:Right"/>
+	<div class="center">
+		<include file="Public:centerTop"/>
+		<div class="lxwm">
+			<h2>联系我们</h2>
+			<div class="c clearfix">
+				<ul>
+					<h3>联系QQ</h3>
+					<li class="clearfix"><em>人人猎官方群：</em><span>391438289</span></li>
+					<li class="clearfix"><em>人人猎客服群：</em><span>415742764</span></li>
+					<li class="clearfix"><em>人人猎HR猎头群：</em><span>215082507</span></li>
+					<h3>用户建议</h3>
+					<li class="clearfix"><em>suggestion@renrenlie.com</em></li>
+					<h3>业务合作</h3>
+					<li class="clearfix"><em>friend@renrenlie.com</em></li>
+				</ul>
+				<ul>
+					<h3>技术QQ群</h3>
+					<li class="clearfix"><em>Android群</em><i>：</i><span>227231209</span></li>
+					<li class="clearfix"><em>php群</em><i>：</i><span>434127977</span></li>
+					<li class="clearfix"><em>ios群</em><i>：</i><span>422877348</span></li>
+					<li style="margin-top:20px;" class="clearfix"><em>pm群</em><i>：</i><span>188499425</span></li>
+					<li class="clearfix"><em>前端群</em><i>：</i><span>432563432</span></li>
+					<li class="clearfix"><em>java</em><i>：</i><span>422804023</span></li>
+				</ul>
+			</div>
+			<div class="f clearfix">
+				<div class="l">客服热线</div>
+				<div class="r">
+					<h3>010&nbsp;-&nbsp;57188076 &nbsp;&nbsp;400 - 668 - 5596</h3>
+					<p>服务时间：8：00-18：00</p>
+				</div>
+			</div>
+		</div>
+		<include file="Public:centerFooter"/>
+	</div>
+	<include file="Public:fiexdTop"/>
+</body>
+
+</html>

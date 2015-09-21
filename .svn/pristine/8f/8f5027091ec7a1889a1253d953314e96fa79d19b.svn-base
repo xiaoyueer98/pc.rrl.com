@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>人人猎</title>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.form.js"></script> 
+        <script type="text/javascript" src="__ROOT__/Public/js/company.js"></script> 
+        <script type="text/javascript" src="__ROOT__/Public/js/jqueryupload.js"></script> 
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.ui.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/index.js"></script>
+        <link rel="stylesheet" href="__ROOT__/Public/css/smoothness/jquery.ui.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="/Public/css/uploadify.css">
+        <script type="text/javascript" charset="utf-8" src="/Public/js/jquery.uploadify-3.1.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="cn cn1 Infor EnterInfor Ent1" <?php  if($sIsNewCompay == "2"){ echo  'style="display:none;"';}?>>
+                 <form action="{:U('Company/saveCompanyBaseInfo')}" id="submitBaseInfo"  name= "submitBaseInfo" method = 'post'   onsubmit = "return checkCompanyBaseInfo();" enctype="multipart/form-data">
+                    <div class="cn_tp">
+                        <h3>基本信息</h3>
+                        <dl class="clearfix">
+                            <dt>
+                            <ul>
+                                <li><em>公司名称 : </em><span><input type="text" id="cpname" name="cpname" ></span></li>
+                                <volist name="arConfigInfo" id="arConfig">
+                                    <li><em>{$arConfig['groupname']} : </em>
+                                        <select id="{$arConfig['groupsign']}" name="{$arConfig['groupsign']}">
+                                            <option value="请选择">请选择</option>
+                                            <volist name="arConfig['config_list']" id="arConfigList">
+                                                <option value="{$arConfigList['datavalue']}" >{$arConfigList['dataname']}</option>
+                                            </volist>    
+                                        </select>
+                                    </li>
+                                </volist>
+                                <li><em>成立日期 : </em><input type="text" name="date" readonly="readonly" class="text" id="date" /></li>
+                                <li><em>公司网址 : </em><span><input type="text" id="webname" name="webname" ></span></li>
+                                <li class="lasty zhizhao">上传营业执照</li><a href='/Public/人人猎招聘方-合同.docx'><b id="fanben" style="position: relative;left: 214px; font-weight: normal;top: 8px;color: #2380b8;cursor: pointer;">(下载合同范本)</b></a>
+                                <input type='hidden' value='1' id='lupdateNUm'>
+                                <input type='hidden'  id='lUrl' name="licence" value='{$arCompanyInfo[licence]}'>
+                                <script type="text/javascript">
+                                    var img_id_upload = new Array();//初始化数组，存储已经上传的图片名
+                                    var i = 0;//初始化数组下标
+                                    var uploadLimit = 1;
+                                    var buttonName1 = "<?php if($resumeInfo[updateFile]){ echo '重新上传简历';}else{echo '上传营业执照';}?>";
+                                    $(function() {
+                                        $('#file_upload').uploadify({
+                                            'auto': true, //关闭自动上传
+                                            'removeTimeout': 600, //文件队列上传完成1秒后删除
+                                            'swf': '/Public/css/uploadify.swf',
+                                            'uploader': '/Home/Index/uploadifyLicence.html',
+                                            'method': 'post', //方法，服务端可以用$_POST数组获取数据
+                                            'buttonText': buttonName1, //设置按钮文本
+                                            'multi': true, //允许同时上传多张图片
+                                            'uploadLimit': uploadLimit, //一次最多只允许上传10张图片
+                                            'fileTypeDesc': '请选择 JPG,PNF,PDF文件', //只允许上传图像
+                                            'fileTypeExts': '*.PNG;*.png;*.JPG; *.jpg; *.pdf;*.PDF;*.JPEG;*.jpeg', //限制允许上传的图片后缀
+                                            'fileSizeLimit': '10MB', //限制上传的图片大小
+                                            'onUploadSuccess': function(file, data, response) { //每次成功上传后执行的回调函数，从服务端返回数据到前端
+
+                                                if (data == "no") {
+                                                    $("#lupdateNUm").val(parseInt($("#lupdateNUm").val()) + 1);
+                                                    var uploadLimit = $("#lupdateNUm").val();
+                                                    //在这此处处理...
+                                                    //通过uploadify的settings方式重置上传限制数量
+                                                    $('#file_upload').uploadify('settings', 'uploadLimit', uploadLimit);
+                                                } else {
+                                                    $("#lUrl").val(data);
+                                                    $(".Close4").hide();
+                                                    $("#secord").hide();
+                                                    $("#secord2 ").show();
+                                                }
+
+                                            }
+                                        });
+                                    });
+                                </script>
+
+
+                                <div id='ldiv' >
+                                    <li style="margin-top:-15px;"><em>公司合同 : </em></li>
+                                    <input type='hidden'  id='contract' name="contract" value='{$arCompanyInfo[contract]}'>
+                                    <script type="text/javascript">
+                                        var img_id_upload = new Array();//初始化数组，存储已经上传的图片名
+                                        var i = 0;//初始化数组下标
+                                        var uploadLimit = 1;
+                                        var buttonName = "<?php if($resumeInfo[updateFile]){ echo '上传公司合同';}else{echo '上传公司合同';}?>";
+                                        $(function() {
+                                            $('#file_upload2').uploadify({
+                                                'auto': true, //关闭自动上传
+                                                'removeTimeout': 600, //文件队列上传完成1秒后删除
+                                                'swf': '/Public/css/uploadify.swf',
+                                                'uploader': '/Home/Index/uploadifyLicence.html',
+                                                'method': 'post', //方法，服务端可以用$_POST数组获取数据
+                                                'buttonText': buttonName, //设置按钮文本
+                                                'multi': true, //允许同时上传多张图片
+                                                'uploadLimit': uploadLimit, //一次最多只允许上传10张图片
+                                                'fileTypeDesc': '请选择 zip文件', //只允许上传图像
+                                                'fileTypeExts': '*.zip', //限制允许上传的图片后缀
+                                                'fileSizeLimit': '10MB', //限制上传的图片大小
+                                                'onUploadSuccess': function(file, data, response) { //每次成功上传后执行的回调函数，从服务端返回数据到前端
+                                                    if (data == "no") {
+                                                        $("#lupdateNUm").val(parseInt($("#lupdateNUm").val()) + 1);
+                                                        var uploadLimit = $("#lupdateNUm").val();
+                                                        //在这此处处理...
+                                                        //通过uploadify的settings方式重置上传限制数量
+                                                        $('#file_upload').uploadify('settings', 'uploadLimit', uploadLimit);
+                                                    } else {
+                                                        $("#contract").val(data);
+                                                        $(".Close4").hide();
+                                                        $("#thrih").hide();
+                                                        $("#thrih2 ").show();
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                    <p style="margin-left: 82px;">(签订合同以后，才可以发布职位，招不到人不收费。)</p>
+                                </div>
+                                <li class="lasty hetong" style="position: relative;top: -48px;left: 0px;">上传合同</li>
+
+                                <li class="clearfix" style="height:120px;display: none" id='ldiv2'>
+                                    <em style="width:77px;float:left;display:block;height:10px">营业执照 : </em>
+                                    <span style="width:118px;height:94px;display:block;border:1px #cccccc solid;float:left;border-radius:5px" ><img id='lisrc' style='width:100%;height:100%' src='{$arCompanyInfo[licence]}'></span>
+                                    <b style="padding-top: 71px;display: block;float:left;font-weight: normal;">(营业执照审核通过后不可更改。)</b>
+                                </li>
+
+                                <li class="clearfix" style="height:120px;display: none" id='ldiv3'>
+                                    <em style="width:77px;float:left;display:block;height:10px">网站合同 : </em>
+                                    <span style="display:block;float:left;border-radius:5px"><a id="cisrc" href="{$arCompanyInfo[contract]}">我的合同</a> <b style="display: block; font-weight: normal;" id="hetongworing">(合同审核通过后不可更改。)</b></span>
+                                   
+                                </li>
+                                <li><p class="error2" style="margin-left:10px;display: none" >sdf </p></li>
+
+                            </ul>
+                            </dt>
+                            <dd>
+
+                                <!--  <input class="EntLogo" type="file" id="comlogo" name="comlogo">> -->
+                                <span>支持:JPG,PNG,GIF,大小不超过1M</span>
+                                <div id="preview" style="height:100%;width: 100%;padding: 0px;display: none">   
+                                    <img id="imghead"  width=100% height=100% border=0 src='{$arCompanyInfo[comlogo]}'>   
+                                </div>   
+                                <input type="file" class="EntLogo"  name="comlogo" onchange="previewImage(this)" />     
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="cn_btm">
+                        <input class="Enterbc cur_point" type="submit" value="保存">
+                    </div>
+                    <input type="hidden" id="isnew" value="yes" name="isnew">
+                </form>
+            </div>
+            <div class="cn cn1 Infor EnterInfor Ent2" <?php  if($sIsNewCompay == "1"){ echo  'style="display:none;"';}?> >
+                 <div class="cn_tp">
+                    <h3>基本信息</h3>
+                    <dl class="clearfix">
+                        <dt>
+                        <ul>
+                            <li><em>公司名称: </em><span id="cpnamed">{$arCompanyInfo['cpname']}</span></li>
+                            <li><em>公司性质: </em><span id="naturedata">{$arCompanyInfo['naturedata']}</span></li>
+                            <li><em>公司规模: </em><span id="scaledata">{$arCompanyInfo['scaledata']}</span></li>
+                            <li><em>公司阶段: </em><span id="stagedata">{$arCompanyInfo['stagedata']}</span></li>
+                            <li><em>成立日期: </em><span id="brightregdata">{$arCompanyInfo['brightregdata']}</span></li>
+                            <li><em>公司网址: </em><span id="webnamedata">{$arCompanyInfo['webname']}</span></li>
+
+                            
+                            <li class="clearfix" style="height:120px;line-height:21px;<?php if(!$arCompanyInfo['licence'])echo 'display:none';?>" id="l1">
+                                <em style="width:77px;float:left;display:block;height:10px">营业执照:</em>
+                                <span style="width:118px;height:94px;display:block;border:1px #cccccc solid;float:left;border-radius:5px">
+                                    <img src='<?php echo $arCompanyInfo[licence];?>' style="width:118px;height:94px;"/>
+                                </span>
+                                <b style="padding-top: 71px;display: block;float:left;font-weight: normal;"></b>
+                                <b><span style="font-weight:bold;">注：</span><br/>点击修改按钮可重新上传营业执照；营业执照审核通过后不可再改。</b>
+                            </li>
+                            <li class="clearfix" <?php if($arCompanyInfo['licence'])echo "style='display:none'";?>  id="l2">
+                                <em style="width:77px;float:left;display:block;height:10px">营业执照:</em>
+                                未上传
+                            </li>
+
+
+                          
+                            <li class="clearfix" style="height:120px;line-height:21px;<?php if(!$arCompanyInfo['contract'])echo 'display:none';?>" id="l3">
+                                <em style="width:77px;float:left;display:inline-block;height:20px">网站合同:</em>
+                                <span style="display:inline-block;float:left;border-radius:5px;width:330px;">
+                                    <a style="display:inline-block;float:left;" href='<?php echo $arCompanyInfo[contract];?>'  id="yhetong"/> 我的合同</a>
+                                <b style="display:inline-block;float:left;width:220px;font-size:12px;margin-left:10px;"><span style="font-weight:bold;">注：</span><br/>点击修改按钮可重新上传合同；合同审核通过后不可再改。</b>
+                                </span>
+                               
+                                  </li>
+                              
+                            <li class="clearfix" <?php if($arCompanyInfo['contract'])echo "style='display:none'";?>  id="l4">
+                                <em style="width:77px;float:left;display:block;height:10px">网站合同:</em>
+                                未上传
+                                  </li>
+                          
+
+                          
+
+                        </ul>
+                        </dt>
+                        <dd>
+                            <span>支持:JPG,PNG,GIF,大小不超过1M</span>
+                            <img src="{$arCompanyInfo['comlogo']}" alt="公司logo" id="loginfoss">
+                        </dd>
+                    </dl>
+                </div>
+                <div class="cn_btm">
+                    <input class="Enterxg cur_point" type="button" value="修改">
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="username" value="{$arCompanyInfo[username]}">
+
+        <include file="Public:centerFooter"/>
+    </div>
+    <div class="scjl_tc scjl_tc2">
+        <h3>上传营业执照</h3>
+        <a class="Close4"></a>
+        <div style="display:block" id='secord'>
+            <div class="button_sc">
+                <span>选择上传营业执照</span>
+                <input type="file" name="file_upload" id="file_upload" class="sc_jl"/>
+            </div>
+            <div class="wjgs" style="margin-top:67px;">
+
+                支持JPG、PNG、JPEG、PDF格式文件<br>文件大小需小于10M
+            </div>
+        </div>
+        <div class="jlsc_cg" style="display:none" id='secord2'>
+            <h4>营业执照上传成功</h4>
+            <p></p>
+            <button>确定</button>
+        </div>
+    </div>
+
+    <div class="scjl_tc scjl_tc3">
+        <h3>上传合同</h3>
+        <a class="Close4"></a>
+        <div style="display:block" id="thrih">
+            <div class="button_sc">
+                <span>选择上传合同</span>
+                <input type="file" name="file_upload2" id="file_upload2" class="sc_jl"/>
+            </div>
+            <div class="wjgs" style="margin-top:67px;">
+                请把扫描文件压缩至zip后上传<br>文件大小需小于10M
+            </div>
+        </div>
+        <div class="jlsc_cg" style="display:none" id="thrih2">
+            <h4>合同上传成功</h4>
+            <p></p>
+            <button>确定</button>
+        </div>
+    </div>
+    <include file="Public:fiexdTop"/>
+    <script type="text/javascript">
+
+        $(function() {
+            $("#secord2 button").click(function() {
+                // $("#fanben").hide()
+                $(".scjl_tc2").slideUp();
+                $(".zhizhao").hide();
+                $(".mask").hide();
+                //  $("#ldiv").hide()
+                $("#lisrc").attr("src", $("#lUrl").val());
+                $("#ldiv2").show();
+            });
+            $("#thrih2 button").click(function() {
+                $(".hetong").hide();
+                $("#fanben").hide()
+                $(".scjl_tc3").slideUp();
+               // $(".zhizhao").hide();
+                $(".mask").hide();
+                $("#ldiv").hide()
+                $("#cisrc").attr("href", $("#contract").val());
+                $("#hetongworing").hide();
+                $("#ldiv3").show();
+            });
+        })
+
+        $('.EntLogo').on('mouseenter',function(){
+            $('.PersData .cn1 .cn_tp dl dd span').show();
+        });
+
+        $('.EntLogo').on('mouseleave',function(){
+            $('.PersData .cn1 .cn_tp dl dd span').hide();
+        });
+        $('.PersData .cn1 .cn_tp dl dd').on('mouseenter',function(){
+            $('.PersData .cn1 .cn_tp dl dd span').show();
+        })
+        $('.PersData .cn1 .cn_tp dl dd').on('mouseleave',function(){
+            $('.PersData .cn1 .cn_tp dl dd span').hide();
+        })
+        $('.zhizhao').on('click', function() {
+            $('.scjl_tc2').slideDown();
+            $('.mask').show();
+        })
+        $('.hetong').on('click', function() {
+            $('.scjl_tc3').slideDown();
+            $('.mask').show();
+        })
+        //图片上传预览    IE是用了滤镜。   
+        function previewImage(file)
+        {
+            var MAXWIDTH = "100%";
+            var MAXHEIGHT = "100%";
+            var div = document.getElementById('preview');
+            if (file.files && file.files[0])
+            {
+                div.innerHTML = '<img id=imghead>';
+                var img = document.getElementById('imghead');
+                img.onload = function() {
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    img.width = rect.width;
+                    img.height = rect.height;
+                    //                 img.style.marginLeft = rect.left+'px';   
+                    img.style.marginTop = rect.top + 'px';
+                }
+                var reader = new FileReader();
+                reader.onload = function(evt) {
+                    img.src = evt.target.result;
+                }
+                reader.readAsDataURL(file.files[0]);
+            }
+            else //兼容IE   
+            {
+                var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                file.select();
+                var src = document.selection.createRange().text;
+                div.innerHTML = '<img id=imghead>';
+                var img = document.getElementById('imghead');
+                img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
+                div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+            }
+            $("#preview").show();
+        }
+        function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+            var param = {top: 0, left: 0, width: width, height: height};
+            if (width > maxWidth || height > maxHeight)
+            {
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+
+                if (rateWidth > rateHeight)
+                {
+                    param.width = maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                } else
+                {
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    </script>
+</body>
+
+</html>

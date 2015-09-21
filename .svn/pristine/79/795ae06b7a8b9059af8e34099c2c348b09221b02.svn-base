@@ -1,0 +1,115 @@
+<?php
+
+/*
+ * ְCompanyModel
+ */
+
+namespace Home\Model;
+
+use Think\Model;
+
+class CompanyModel extends Model {
+        /*
+         * 获取公司信息详情
+         * @param  
+         * @return array
+         */
+
+        public function get_detail($id) {
+                $return_data = $this->table('stj_company com')
+                        ->field('*')
+                        ->where('checkinfo="true" and com.id=' . $id)
+                        ->find();
+
+                //echo $this ->table( 'stj_company com' )->getLastSql();
+                //var_dump($result_data);
+                //得到 公司性质 信息
+                $naturedata = getCascData('nature', $return_data['nature'], "信息不明");
+                $return_data['naturedata'] = $naturedata;
+
+                //得到 公司阶段 数据
+
+                $stagedata = getCascData('stage', $return_data['stage'], "信息不明");
+                $return_data['stagedata'] = $stagedata;
+
+
+                //得到 公司规模 信息
+
+                $scaledata = getCascData('scale', $return_data['scale'], "信息不明");
+                $return_data['scaledata'] = $scaledata;
+
+
+                //echo $this ->getLastSql();
+                return $return_data;
+        }
+
+        /*
+         * 获取职位详情
+         * @param  
+         * @return array
+         */
+
+        public function get_hot_job($id) {
+                $sql = "select * from stj_job where stj_job.employ>(select count(*) from stj_record where stj_record.j_id = stj_job.id and audstart=6) and checkinfo='true' and endtime>unix_timestamp(now()) and is_deleted=0 and cpid={$id} order by orderid ASC,checktime DESC, starttime DESC";
+                $return_data = $this->table('stj_job job')->query($sql);
+
+                //得到岗位名称信息
+                foreach ($return_data as $k => $v) {
+
+                        $com_sql = "select com.cpname,com.id cpid from stj_company com where  com.id=" . $v['cpid']; //关联公司信息
+                        $cas_sql = "select cas.cascname from stj_casclist cas where cas.id=" . $v['jobplace']; //关联casclist
+
+                        $return_data_com = $this->table('stj_company com')->query($com_sql);
+                        //echo"<pre>";var_dump($return_data_com);echo"</pre>";
+                        $return_data_cas = $this->table('stj_casclist cas')->query($cas_sql);
+                        //echo"<pre>";var_dump($return_data_cas);echo"</pre>";
+
+                        foreach ($return_data_com[0] as $k1 => $v1) {
+                                $return_data[$k][$k1] = $v1;
+                        }
+                        foreach ($return_data_cas[0] as $k1 => $v1) {
+                                $return_data[$k][$k1] = $v1;
+                        }
+                        
+                        //发布时间
+                        $return_data[$k]['starttime']     = (($return_data[$k]['checktime'] != 0) ? date('Y-m-d', $return_data[$k]['checktime']) : date('Y-m-d', $return_data[$k]['starttime']));
+                        //得到 职位名称 数据
+                        if (empty($return_data[$k]['title'])) {
+
+                                $return_data[$k]['title'] = getCascList($return_data[$k]['Jobcate'], "信息不明");
+                        }
+                        //招聘资费处理
+                        if ($return_data[$k]['Tariff'] > 10) {
+
+                                $return_data[$k]['Tariff'] = floor($return_data[$k]['Tariff'] * 0.8 / 100) * 100;
+                        } else {
+                                $return_data[$k]['Tariff'] = floor($return_data[$k]['treatment'] * $return_data[$k]['Tariff'] * 12 * 0.8 / 100) * 100;
+                        }
+                        //得到 薪资待遇 数据
+
+                        $treatmentdata                    = getCascData('treatment', $return_data[$k]['treatment'], "信息不明");
+                        $arTreatmentdata                  = explode("-", str_replace("元", "", $treatmentdata));
+                        $return_data[$k]['treatmentdata'] = ($arTreatmentdata[0] / 1000) . "K-" . ($arTreatmentdata[1] / 1000) . "K";
+
+                        //得到 工作经验 数据
+
+                        $experiencedata = getCascData('experience', $return_data[$k]['experience'], "信息不明");
+                        $return_data[$k]['experiencedata'] = $experiencedata;
+
+                        //得到 学历要求 数据
+
+                        $educationdata = getCascData('education', $return_data[$k]['education'], "无要求");
+                        $return_data[$k]['educationdata'] = $educationdata;
+                        //得到推荐人数
+                        $recommended_sql = "select count(*) as num from stj_record where stj_record.j_id = {$v['id']}";
+                        $recommendedArr = $this->table('stj_record')->query($recommended_sql);
+                        $return_data[$k]['recommendednum'] = $recommendedArr[0]['num'];
+
+                        //echo "<pre>";var_dump($return_data);echo"</pre>";
+                }
+                return $return_data;
+        }
+
+}
+
+?>

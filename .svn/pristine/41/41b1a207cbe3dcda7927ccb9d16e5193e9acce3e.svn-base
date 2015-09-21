@@ -1,0 +1,80 @@
+/* 代码整理：懒人之家 lanrenzhijia.com */
+.select {
+	float:left;
+	padding:20px;
+}
+/*------------------ selectDark -----------------*/
+
+.selectDark {
+	background: url("../images/darkBackground.jpg") no-repeat top left;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	float: left;
+	background: #fff;
+}
+.selectDark .passiveSelect, .selectDark .activeSelect {
+	height: 36px;
+	padding-left: 10px;
+	line-height: 34px;
+	width: 354px;
+	outline: medium;
+	border: none;
+	display: inline;
+	display: block;
+	float: left;
+	background:url(../img/darkactive.jpg) no-repeat top right;
+	background-size: 34px 36px;
+}
+/*.down-menu {
+	background:url(../img/darkactive.jpg) no-repeat top right;
+	color:#00aeef;
+}*/
+.selectDark ul {
+	padding:0;
+	margin:0;
+	background:#fff;
+	list-style:none;
+	max-height:200px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	cursor:pointer;
+	width:363px;
+	border:1px #a0a0a0 solid;
+}
+.selectDark li {
+	padding:0;
+	margin:0;
+	font-weight:normal;
+	padding:2px 0 2px 12px;
+	color:#aeaeae;
+	padding: 0!important;
+	margin:0!important;
+	
+}
+.selectDark ul li span{
+	padding:0 10px;
+	height: 36px!important;
+	line-height: 35px;
+	float: left;
+	border:none!important;
+	outline: medium;
+}
+.selectDark ul li span:hover{
+	background: #e5e5e5;
+	outline: medium;
+}
+/*.selectDark .first {
+	padding-top:10px;
+	background:url("../images/darkFirst.jpg") no-repeat top left;
+}
+.selectDark .last {
+	padding-bottom:10px;
+	background:url("../images/darkLast.jpg") no-repeat bottom left;
+}*/
+.selectDark li:hover {
+	color:#00aeef;
+}
+.selectDark .selected {
+	color:#000;
+}
+/**/

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+	<title>维护候选人简历</title>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/lanrenzhijia.css">
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$(".mySelect3").styleSelect({styleClass: "selectFruits",optionsWidth: 1,speed: 'fast'});
+		$(".down-menu").styleSelect({styleClass: "selectDark"});
+	});
+	</script>
+</head>
+<body>
+	<include file="Public:newHeader"/>
+	<div class="wrap">
+		<div class="ms1 clearfix">
+			<div class="m1-l fl-lef">
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+				<span>推荐人用户中心</span>
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+			</div>
+			<div class="m1-r fl-rig">
+				<span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+				<div class="search dis-inlin fl-lef">
+					<input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+					<span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+						<img src="/Public/img/new-index/position-btn.png" alt="">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="ms2 clearfix">
+			<div class="m2-l fl-lef">
+				<div class="odiv hover-hand">
+					<span>1</span>
+					<h6 class="tit1">完善资料<em></em></h6>
+					<p class="tx m">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv m hover-hand">
+					<span>2</span>
+					<h6 class="tit2 m">维护候选人<em class="m"></em></h6>
+					<p class="jlk m">(简历库)</p>
+					<p class="tx m">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>3</span>
+					<h6 class="tit3">推荐职位<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>4</span>
+					<h6 class="tit4">跟踪状态<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>5</span>
+					<h6 class="tit5">查看收益<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+			</div>
+			<div class="m2-r fl-rig">
+				<ul class="nav nav2">
+					<li class="m first dis-block dis-inlin fl-lef"><a class="m">候选人列表</a></li>
+					<li class="dis-block dis-inlin fl-lef"><a>添加被推荐人简历</a></li>
+				</ul>
+				<div class="mg-candidate" style="display:block;padding-top:25px">
+					<h3>
+						<span class="dis-block dis-inlin fl-lef">候选人</span>
+						<input type="text">
+						<button>搜索</button>
+						<em class="dis-block dis-inlin fl-rig">
+							<img class="dis-inlin dis-block fl-lef" src="/Public/img/rcmd-img/icon4.png" alt="">
+							<i class="dis-inlin dis-block fl-lef">上传候选人简历</i>
+						</em>
+					</h3>
+					<div class="mytable">
+						<table>
+							<tbody>
+								<tr class="t">
+									<th>序号</th>
+									<th>姓名</th>
+									<th>性别</th>
+									<th>在职状态</th>
+									<th>手机</th>
+									<th>上传时间</th>
+									<th>操作</th>
+								</tr>
+								<tr>
+									<td class="wh54 wk">1</td>
+									<td class="wh78 wk">cisFrancisF</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">考虑换工作在职考</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">2</td>
+									<td class="wh78 wk">cisFrancisF</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">考虑换工作在职考</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">3</td>
+									<td class="wh78 wk">cisFrancisF</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">考虑换工作在职考</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">4</td>
+									<td class="wh78 wk">cisFrancisF</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">考虑换工作在职考</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">5</td>
+									<td class="wh78 wk">cisFrancisF</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">考虑换工作在职考</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">6</td>
+									<td class="wh78 wk">cisFrancisF</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">7</td>
+									<td class="wh78 wk">rancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">8</td>
+									<td class="wh78 wk">rancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">9</td>
+									<td class="wh78 wk">rancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+								<tr>
+									<td class="wh54 wk">10</td>
+									<td class="wh78 wk">rancisrancisrancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+
+
+
+
+
+
+								<tr>
+									<td class="wh54 wk">11</td>
+									<td class="wh78 wk">cisFrancisF</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk"12</td>
+									<td class="wh78 wk">rancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">13</td>
+									<td class="wh78 wk">rancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+								<tr>
+									<td class="wh54 wk">14</td>
+									<td class="wh78 wk">rancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+								<tr>
+									<td class="wh54 wk">15</td>
+									<td class="wh78 wk">rancisrancisrancis</td>
+									<td class="wh64 wk">男</td>
+									<td class="wh122 wk">作在职考虑换工作作在职考虑换工作</td>
+									<td class="wh95 wk">18500521769</td>
+									<td class="wh102 wk">2015-5-25</td>
+									<td class="wh162 wk">
+										<span class="edit dis-inlin hover-hand"></span>
+										<span class="delete dis-inlin hover-hand"></span>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+						<div class="inner clearfix">
+							<div class="form clearfix dis-inlin fl-rig dis-block">
+								<span class="text dis-block dis-inlin fl-lef">跳转到第</span>
+								<input class="input dis-block dis-inlin fl-lef" type="text">
+								<span class="text dis-block dis-inlin fl-lef">页</span>
+								<span class="btn dis-block dis-inlin fl-lef">确定</span>
+							</div>
+							<ul class="clearfix dis-inlin fl-rig dis-block">
+								<li class="prev dis-block dis-inlin fl-lef">|<</li>
+								<li class="itme active dis-block dis-inlin fl-lef"><a class="active" href="">1</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">2</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">3</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">4</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">5</a></li>
+								<li class="next dis-block dis-inlin fl-lef">>|</li>
+								<div class="total dis-block dis-inlin fl-lef">共100页，</div>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="add-resume" style="display:none">
+					<ul class="nav3 clearfix">
+						<li class="m dis-block dis-inlin fl-lef hover-hand">上传简历模式</li>
+						<li class="dis-block dis-inlin fl-lef hover-hand">在线简历模式</li>
+					</ul>
+					<div class="public upload-resume" style="display:block;position:relative">
+						<h3>个人信息</h3>
+						<ul>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名</em>
+								<input placeholder="请输入真实姓名" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别</em>
+								<label class="m dis-block dis-inlin fl-lef"></label>
+								<b class="dis-block dis-inlin fl-lef">男</b>
+								<label class="dis-block dis-inlin fl-lef"></label>
+								<b class="dis-block dis-inlin fl-lef">女</b>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">年&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp龄</em>
+								<input placeholder="请输入年龄" style="width:96px;" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱</em>
+								<input placeholder="请输入邮箱号码" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">Q&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspQ</em>
+								<input placeholder="请输入真qq号码" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">联系电话</em>
+								<input placeholder="请输入手机号" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">在职状态</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">公司背景</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">众聘系</option>
+										<option  value="hippopotamus">阿里系</option>
+										<option  value="aligator">腾讯系</option>
+										<option  value="aligator">360系</option>
+										<option  value="aligator">小米系</option>
+										<option  class="last" value="giraf">百度系</option>
+									</select>
+								</span>
+							</li>
+							
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp历</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">本科</option>
+										<option  value="hippopotamus">大专</option>
+										<option  value="aligator">小学</option>
+										<option  value="aligator">幼儿园</option>
+										<option  value="aligator">初中</option>
+										<option  class="last" value="giraf">特教班</option>
+									</select>
+								</span>
+								
+							</li>
+
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">期望薪资</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">15K-50K</option>
+										<option  value="hippopotamus">1000K-5000k</option>
+										<option  value="aligator">10W-100W</option>
+										<option  value="aligator">1000W-5000W</option>
+										<option  value="aligator">10K-30K</option>
+										<option  class="last" value="giraf">500K-5000k</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">现居地址</em>
+								<input placeholder="输入你的现居住地址" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+						</ul>
+						<h3>附件简历</h3>
+						<div class="resume-annex">
+							<dl class="clearfix">
+								<dt class="dis-block dis-inlin fl-lef">
+									<img src="/Public/img/rcmd-img/load-resume-icon.png" alt="">
+								</dt>
+								<dd class="dis-block dis-inlin fl-lef">请上传您的简历</dd>
+							</dl>
+							<input type="file">
+						</div>
+						<h3>推荐理由</h3>
+						<div class="recmd-reason">
+							<textarea placeholder="" name="personal" id="audstartdate"></textarea>
+						</div>
+						<dl class="photo">
+							<dt></dt>
+							<dd>上传照片</dd>
+							<input class="hover-hand" type="file">
+						</dl>
+						<p style="margin-left:103px;margin-top:20px;" class="error">错误</p>
+						<button class="btn btn1">保存</button>
+					</div>
+					<div class="public" style="display:none;position:relative">
+						<h3>个人信息</h3>
+						<ul>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名</em>
+								<input placeholder="请输入真实姓名" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别</em>
+								<label class="m dis-block dis-inlin fl-lef"></label>
+								<b class="dis-block dis-inlin fl-lef">男</b>
+								<label class="dis-block dis-inlin fl-lef"></label>
+								<b class="dis-block dis-inlin fl-lef">女</b>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">年&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp龄</em>
+								<input placeholder="请输入年龄" style="width:96px;" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱</em>
+								<input placeholder="请输入邮箱号码" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">Q&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspQ</em>
+								<input placeholder="请输入真qq号码" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">联系电话</em>
+								<input placeholder="请输入手机号" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">在职状态</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">公司背景</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">众聘系</option>
+										<option  value="hippopotamus">阿里系</option>
+										<option  value="aligator">腾讯系</option>
+										<option  value="aligator">360系</option>
+										<option  value="aligator">小米系</option>
+										<option  class="last" value="giraf">百度系</option>
+									</select>
+								</span>
+							</li>
+							
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp历</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">本科</option>
+										<option  value="hippopotamus">大专</option>
+										<option  value="aligator">小学</option>
+										<option  value="aligator">幼儿园</option>
+										<option  value="aligator">初中</option>
+										<option  class="last" value="giraf">特教班</option>
+									</select>
+								</span>
+								
+							</li>
+
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">期望薪资</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">15K-50K</option>
+										<option  value="hippopotamus">1000K-5000k</option>
+										<option  value="aligator">10W-100W</option>
+										<option  value="aligator">1000W-5000W</option>
+										<option  value="aligator">10K-30K</option>
+										<option  class="last" value="giraf">500K-5000k</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef">现居地址</em>
+								<input placeholder="输入你的现居住地址" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+						</ul>
+						<dl class="photo">
+							<dt></dt>
+							<dd>上传照片</dd>
+							<input class="hover-hand" type="file">
+						</dl>
+						<p class="error" style="margin-left:134px;margin-top:10px;">错误</p>
+						<div style="width:100%;height:20px;margin-top:20px; background:#f5f5f5;"></div>
+						<div class="odiv">
+							<h3 class="drop-down">
+								<em>教育经历</em>
+								<b class="hover-hand"></b>
+							</h3>
+							<div class="con clearfix">
+								<ul class="clearfix mg-tp20">
+									<li class="clearfix">
+										<!-- <em class="dis-block dis-inlin fl-lef ht16 le-ht">学校名称</em> -->
+										<textarea class="wh364 ht178 textarea" placeholder="请输入自我介绍" name="personal" id=""></textarea>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div style="width:100%;height:20px;margin-top:20px; background:#f5f5f5;"></div>
+						<div class="odiv">
+							<h3 class="drop-down">
+								<em>工作经历</em>
+								<b class="hover-hand"></b>
+							</h3>
+							<div class="con clearfix">
+								<ul class="clearfix mg-tp20">
+									<li class="clearfix">
+										<!-- <em class="dis-block dis-inlin fl-lef ht16 le-ht">学校名称</em> -->
+										<textarea class="wh364 ht178 textarea" placeholder="请输入自我介绍" name="personal" id=""></textarea>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div style="width:100%;height:20px;margin-top:20px; background:#f5f5f5;"></div>
+						<div class="odiv">
+							<h3 class="drop-down back-none">
+								<em>资格证书</em>
+								<b class="hover-hand"></b>
+							</h3>
+							<div class="con clearfix">
+								<ul class="clearfix mg-tp20">
+									<li class="clearfix">
+										<!-- <em class="dis-block dis-inlin fl-lef ht16 le-ht">学校名称</em> -->
+										<textarea class="wh364 ht178 textarea" placeholder="请输入自我介绍" name="personal" id=""></textarea>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div style="width:100%;height:20px;margin-top:20px; background:#f5f5f5;"></div>
+						<div class="odiv">
+							<h3 class="drop-down back-none">
+								<em>推荐理由</em>
+								<b class="hover-hand"></b>
+							</h3>
+							<div class="con clearfix">
+								<ul class="clearfix mg-tp20">
+									<li class="clearfix">
+										<!-- <em class="dis-block dis-inlin fl-lef ht16 le-ht">学校名称</em> -->
+										<textarea class="wh364 ht178 textarea" placeholder="请输入自我介绍" name="personal" id=""></textarea>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<button class="btn btn2">保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public:newFooter"/>
+	<script>
+		$(".m2-l>div").click(function(){
+			$(this).addClass("m");
+			$(this).find("h6").addClass("m");
+			$(this).find("p").addClass("m");
+			$(this).siblings().removeClass("m")
+			$(this).siblings().find("h6").removeClass("m");
+			$(this).siblings().find("p").removeClass("m");
+		});
+		var index;
+		var list = $(".m2-r .nav li");
+		var divs = $(".m2-r>div");
+		list.on("click",function(){
+			that = $(this);
+			index = that.index();
+			that.addClass("m").siblings().removeClass("m");
+			$(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+			divs.eq(index).show().siblings("div").hide();
+		});
+
+		var list2 = $(".m2-r .nav3 li");
+		var divs2 = $(".add-resume>div");
+		list2.on("click",function(){
+			that = $(this);
+			index = that.index();
+			that.addClass("m").siblings().removeClass("m");
+			$(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+			divs2.eq(index).show().siblings("div").hide();
+		});
+		$(".public ul li label").click(function(){
+			$(this).addClass("m").siblings("label").removeClass("m")
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>私人定制</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <div class="mask" style="display:none;"></div>
+    <div class="alt-srdz">
+        <div class="alr-head">
+            <img src="/Public/img/alt-head.png" alt="">
+            <a href="javascript:void(0);" class="clos"></a>
+        </div>
+        <div class="con-text">
+            <p>您成功完成了工作机会——私人订制，请您在设定的联系时间内，保持手机畅通，一旦有合适的工作机会，您的私人求职顾问将会与您联络。</p>
+        </div>
+        <div class="btn-z">
+            <span class="my-btn2 m fl-lef">确定</span>
+            <span class="my-btn2 fl-lef">取消</span>
+        </div>
+    </div>
+    <body style="background:#ffffff">
+    <include file="Public:newHeader"/>
+    <div class="wrap yjfk">
+        <div class="yjfk-banner"><img src="/Public/img/rcmd-img/fk-banner.png" alt=""></div>
+        <div class="content-t">
+            <h3>人人猎————最可靠的私人求职顾问</h3>
+            <p class="text1">若你是年薪10万以上的中高端人才；若你想收入更高、发展前程更好；若你希望你足不出户就有“高大上”工作机会找上门。你最可靠的私人求职顾问--人人猎，帮你“<b>私人订制</b>”。人人猎让匹配的工作机会找到你变得非常轻松。</p>
+            <p>1、你只需将你正在看更好工作机会的计划，通过在线填写“订制卡片”告诉人人猎的资深顾问。</p>
+            <p>2、人人猎免费帮你寻找与你最匹配的工作机会，并安排靠谱的面试机会；</p>
+            <p>3、你无需接听骚扰电话、无需一次次向各企业重述你的个人信息，你只需参加2-3个靠谱的面试，从中选择最        适合你的优质工作机会。</p>
+            <p>4、你成功入职后还可以领取面试车补<b>1000</b>元。想想都很美吧！人人猎实现你的高薪工作梦，还给你提供面试车补。</p>
+            <p>马上参与， 请填写<b>工作机会私人订制卡片</b>，靠谱的工作机会就会自动找上门！</p>
+        </div>
+        <div class="content-b">
+            <div class="yjfk-header">
+                <span class="fl-lef dis-block">工作机会私人订制卡片</span>
+                <div class="fl-rig clearfix">
+
+                    <b class="dis-block fl-lef">温馨提示：</b>
+                    <em class="clearfix dis-block fl-lef"><i></i><label class="fl-lef dis-block">人人猎会对您的个人信息进行保密，绝不会非法透露给第三方</label></em>
+                </div>
+            </div>
+            <div class="yjfk-con clearfix" style="margin-bottom:10px;">
+                <div class="fl-lef clearfix"><span class="fl-lef"><i>*</i>姓&nbsp名：</span><input placeholder="输入真实姓名,系统会对个人信息保密" class="input1" type="text"></div>
+                <div class="fl-rig clearfix"><span class="fl-lef"><i>*</i>手机号码：</span><input placeholder="请输入手机号码" class="input1" type="text"></div>
+            </div>
+            <div class="yjfk-con clearfix" style="margin-top:10px;">
+                <div class="fl-lef clearfix"><span class="fl-lef"><i>*</i>方便联系的时间</span><input placeholder="请输入方便与您联系的时间 如：随时、周六日、其他指定时间" class="input1" type="text"></div>
+                <div class="fl-rig clearfix"><span class="fl-lef"><i>*</i>验证码：</span><input placeholder="请输入验证码" class="input1 wh140" type="text"><label>获取验证码</label></div>
+            </div>
+            <div class="yjfk-con clearfix" style="margin-top:10px;">
+                <div class="fl-lef clearfix"><span class="fl-lef"><i>*</i>求职意愿：</span><input placeholder="输入职位名称"  class="input1 wh808" type="text"></div>
+            </div>
+        </div>
+        <span class="my-btn">完成定制</span>
+    </div>
+
+    <include file="Public:newFooter"/>
+    <div class="return-index">
+        <span></span>
+        <i style="opacity: 0;"></i>
+        <a href="/" style="display: none;">返回首页</a>
+    </div>
+    <div class="return-index scrol-top">
+        <span></span>
+        <i style="opacity: 0;"></i>
+        <a href="javascript:void(0);" style="display: none;">返回顶部</a>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          
+        })
+    </script>
+</body>
+</html>

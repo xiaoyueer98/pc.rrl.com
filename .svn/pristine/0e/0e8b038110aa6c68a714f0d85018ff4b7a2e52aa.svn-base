@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>推荐职位</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <body style="background:#f3f2ee">
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="links">
+            <div class="title">
+                <span class="dis-block fl-lef">Links</span>
+                <em class="dis-block fl-lef">友情链接</em>
+            </div>
+            <ul class="clearfix">
+                <li class="fl-lef"><a href="">北京众聘科技有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘限公司</a></li>
+                <li class="fl-lef"><a href="">北京众公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技有限公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技有公司</a></li>
+                <li class="fl-lef"><a href="">北京众聘科技有公司</a></li>
+
+            </ul>
+            <div class="btn-con clearfix">
+                <span class="btn m">访问首页</span>
+                <span class="btn">高级搜索</span>
+            </div>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+</body>
+</html>

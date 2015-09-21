@@ -1,0 +1,257 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: '微软雅黑'
+	}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	-ms-touch-action: none;
+	max-width: 650px;
+	min-width: 320px;
+}
+
+body,ul,li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+        list-style: none
+}
+
+body {
+	font-size: 12px;
+	font-family: ubuntu, helvetica, arial;
+	overflow: hidden; /* this is important to prevent the whole page to bounce */
+	background: #f4f4f4;
+	max-width: 650px;
+	min-width: 320px;
+}
+
+.mask{
+	position: fixed;
+	z-index: 3;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .7;
+	filter: alpha(opacity=70);
+}
+.tjcg{
+	width: 300px;
+	height: 200px;
+	padding:10px 0;
+	background: #ffffff;
+	box-shadow: 1px 1px 10px #2c2b2b;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left:-150px;
+	margin-top: -90px;
+	z-index: 4;
+	border-radius: 15px;
+}
+.tjcg dl{
+	margin:0 auto;
+	width: 260px;
+}
+.tjcg dl dt{
+	width:80px;
+	margin:0 auto;
+}
+.tjcg dl dt img{
+	width: 100%;
+}
+
+.tjcg dl dd{
+	text-align: center;
+	color: #2380b8;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.tjcg dl dd button{
+	width: 110px;
+	height: 30px;
+	background: #2380b8;
+	border-radius: 5px;
+	border:none;
+	color: #ffffff;
+	margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+.sccg{
+	width: 300px;
+	height: 200px;
+	padding:10px 0;
+	background: #ffffff;
+	box-shadow: 1px 1px 10px #2c2b2b;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left:-150px;
+	margin-top: -90px;
+	z-index: 4;
+	display: none;
+	border-radius: 15px;
+}
+.sccg dl{
+	margin:0 auto;
+	width: 260px;
+}
+.sccg dl dt{
+	width:80px;
+	margin:0 auto;
+}
+.sccg dl dt img{
+	width: 100%;
+}
+
+.sccg dl dd{
+	text-align: center;
+	color: #2380b8;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.sccg dl dd button{
+	width: 110px;
+	height: 30px;
+	background: #2380b8;
+	border-radius: 5px;
+	border:none;
+	color: #ffffff;
+	margin-top:10px;
+}
+
+
+
+.header{
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	background: #206daf;
+	padding: 0;
+	color: #eee;
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;	
+}
+
+
+.footer{ background: #283645; padding: 8px; padding-top: 12px;}
+.ftitle{ font-size: 16px; color: #fff;}
+.ftel{ font-size: 12px;color: #b9b9b9;}
+.wapper{
+	position: absolute;
+	top: 44px;
+	bottom: 49px;
+	width: 100%;
+	
+}
+.wapper .iscroll{
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	height: auto;
+}
+.wapper ul{
+	background: #ffffff;
+	padding:10px;
+	width: 100%;
+}
+.wapper li.first_li{
+	width: 100%;
+	border-bottom:1px #9f9f9f solid;
+}
+.wapper textarea{
+	width: 100%;
+	height: 74px;
+	display: block;
+	border: none;
+	background: #ffffff;
+	resize:none;
+	overflow: hidden;
+	outline: medium;
+	font-size: 14px;
+	line-height: 20px
+}
+.wapper li.myli_2{
+	padding:10px 0;
+	border-bottom:1px #9f9f9f solid;
+}
+.wapper li.myli_2 span{
+	display: block;
+	color: #2380b8;
+	font-size: 14px;
+	line-height: 20px
+}
+.wapper li.myli_2 p{
+	display: block;
+	color: #2380b8;
+	font-size: 14px;
+	line-height: 20px
+}
+.wapper li.last_li{
+	height: 58px;
+	padding: 15px 20px;
+}
+
+.wapper li.last_li button.btn_qr{
+	width: 113px;
+	height: 27px;
+	background: #2380b8;
+	color: #ffffff;
+	font-size: 14px;
+	border: none;
+	outline: medium;
+	float: left;
+	margin-right:30px;
+	border-radius: 5px;
+}
+.wapper li.last_li button.btn_qx{
+	width: 111px;
+	height: 25px;
+	background: #ffffff;
+	color: #2380b8;
+	font-size: 14px;
+	border: none;
+	outline: medium;
+	border-radius: 5px;
+	float: right;
+	border:2px #2380b8 solid;
+}

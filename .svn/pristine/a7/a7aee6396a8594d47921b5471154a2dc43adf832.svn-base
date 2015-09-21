@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>职位详情-<?php echo trim($jobInfo['title']);?>-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/focuspic2.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-index.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-company-common.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/window.js"></script>
+    </head>
+    <body>
+
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:shalong"/>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="post-datel clearfix">
+            <div class="public-t">
+                <div class="t-head">
+                    <div class="con">
+                        <div class="l dis-inlin dis-block fl-lef">
+                            <h2><?php echo $jobInfo['title'];?></h2>
+                            <p><?php echo $comInfo['cpname'];?></p>
+                        </div>
+                        <div class="r dis-inlin dis-block fl-rig">
+
+
+
+                            <?php if(empty($clectInfo)):?>
+                            <?php if($username && $flag !=1):?>
+                            <span class="hover-hand collection<?php if(!empty($clectInfo)):?> m<?php endif;?>" id="colloctJob" jid="<?php echo $jobInfo[id];?>"></span>
+                            <?php endif;?>
+                            <?php else:?>
+                            <span class="hover-hand collection m"></span>
+                            <?php endif;?>
+                        </div>
+                    </div>
+                </div>
+                <div class="contant clearfix">
+                    <div class="l dis-inlin fl-lef">
+                        <h3 class="clearfix">
+                            <em class="dis-block dis-inlin fl-lef"><?php echo $jobInfo['treatment'];?> </em>
+                            <span class="dis-block dis-inlin fl-rig">候选人成功入职，你即得奖励 ￥<?php echo $jobInfo['Tariff'];?></span>
+                        </h3>
+                        <ul style="width:530px;">
+                            <li class="li1">
+                                <span>招聘人数：<?php echo $jobInfo['employ'];?></span>
+                               
+                                <span><?php echo $jobInfo['jobplace'];?></span>
+                                <span><?php echo $jobInfo['education'];?></span>
+                                <span class="last-span"><?php echo $jobInfo['experience'];?> </span>
+                            </li>
+                            <?php if($comInfo['address']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">办公地址：</em><span class="dis-block dis-inlin fl-lef"><?php echo $comInfo['address'];?></span></li>
+                            <?php endif;?>
+                            <?php if($comInfo['webname']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</em><span class="dis-block dis-inlin fl-lef"><?php echo $comInfo['webname'];?></span></li>
+                            <?php endif;?>
+                            <?php if($comInfo['stage']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">融资阶段：</em><span class="dis-block dis-inlin fl-lef"><?php echo $comInfo['stage'];?></span></li>
+                            <?php endif;?>
+                            <?php if($jobInfo['starttime']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">发布时间：</em><span class="dis-block dis-inlin fl-lef"><?php echo $jobInfo['starttime'];?></span></li>
+                            <?php endif;?>
+                            <?php if($jobInfo['endtime']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">截止日期：</em><span class="dis-block dis-inlin fl-lef"><?php echo $jobInfo['endtime'];?></span></li>
+                            <?php endif;?>
+                            <li class="clearfix last-li">
+                                <?php if($jobBright):?>
+                                <?php foreach($jobBright as $brightInfo):?>
+                                <?php if($brightInfo):?>
+                                <span><?php echo $brightInfo;?></span>
+                                <?php endif;?>
+                                <?php endforeach;?>
+                                <?php endif;?>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="public-c clearfix">
+                <ul class="nav clearfix">
+                    <li class="hover-hand fl-lef dis-inlin m" id='jobInfoBtn'>职位信息</li>
+                    <li class="hover-hand fl-lef dis-inlin" id='comInfoBtn'>公司简介</li>
+
+                </ul>
+            </div>
+            <div class="public-f">
+                <div class="cont"  id='jobInfo'>
+                    <h3>岗位职责</h3>
+                    <ul>
+                        <li>
+                            <?php echo $jobInfo['workdesc'];?>
+                        </li>
+                    </ul>
+                    <h3>任职要求</h3>
+                    <ul>
+                        <li><?php echo $jobInfo['content'];?></li>
+                    </ul>
+                    <?php if($jobInfo['softlytip']):?>
+                    <div class="wxts">
+                        <span class='tips'>职位温馨提示</span>
+                        <?php echo $jobInfo['softlytip'];?>
+                    </div>
+                    <?php endif;?>
+                    <?php if($comInfo['remark']):?>
+                    <h3>补充说明</h3>
+                    <ul>
+                        <li>  <?php echo $comInfo['remark'];?></li>
+                    </ul>
+                    <?php endif;?>
+
+                </div>
+                <div class="cont undis" id='companyInfo'>
+                    <?php if($comInfo['intro']):?>
+                    <h3>公司介绍</h3>
+                    <ul>
+                        <li>
+                            <?php echo $comInfo['intro'];?>
+                        </li>
+                    </ul>
+                    <?php endif;?>
+                    <?php if($comInfo['bright']):?>
+                    <h3>公司亮点</h3>
+                    <ul>
+                        <li>
+                            <?php echo $comInfo['bright'];?>
+                        </li>
+                    </ul>
+                    <?php endif;?>
+                    <?php if($comInfo['remark']):?>
+                    <h3>补充说明</h3>
+                    <ul>
+                        <li>
+                            <?php echo $comInfo['remark'];?>
+                        </li>
+                    </ul>
+                    <?php endif;?>
+                </div>
+                <a href="/Home/Company/SendJob/act/joblist.html"><span class="record-btn hover-hand">返回职位列表</span></a>
+
+            </div>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+    <script type="text/javascript">
+
+
+        $("#jobInfoBtn").click(function() {
+            $(this).addClass("m");
+            $("#comInfoBtn").removeClass("m");
+            $("#jobInfo").show();
+            $("#companyInfo").hide();
+
+        });
+        $("#comInfoBtn").click(function() {
+            $(this).addClass("m");
+            $("#jobInfoBtn").removeClass("m");
+            $("#companyInfo").show();
+            $("#jobInfo").hide();
+
+        });
+
+    </script>
+</body>
+</html>

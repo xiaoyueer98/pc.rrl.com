@@ -1,0 +1,462 @@
+html,body{
+	width: 100%;
+	height: 100%;
+}
+*{
+	font-family: '微软雅黑'；
+}
+.clearfix:after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+    content: " ";
+    font-size: 0;
+}
+
+
+button{
+	outline: medium;
+}
+a{
+	text-decoration:none;
+}
+
+#container{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -mz-box;
+	display: -o-box;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-mz-box-orient: vertical;
+	-o-box-orient: vertical;
+	height: 100%;
+	width: 100%;
+	margin:0 auto;
+}
+button{
+	outline: medium;
+}
+input{
+	 outline: none;
+	 outline: medium;
+}
+ul,li{list-style: none;}
+header{
+	width: 100%;
+	height: 44px;
+	background: #206daf;
+	color: #ffffff;
+	font-size: 16px;
+	text-align: center;
+	line-height: 44px;
+	position: relative;
+}
+header .leftarw{
+	display: block;
+	position: absolute;
+	top: 14px;
+	left: 10px;
+	width: 54px;
+	height: 16px;
+	background: url(/Public/images/webchat/leftarw.png) no-repeat left center;
+	background-size:10px 100%;
+	font-size: 12px;
+	line-height: 16px;
+}
+section{
+	background: #ffffff;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-mz-box-flex: 1;
+	-o-box-flex: 1;
+	
+	overflow: hidden;
+	//position: relative;
+	display: -webkit-box;
+	max-width: 960px;
+	margin:0 auto;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-mz-box-pack: center;
+	-o-box-pack: center;
+	overflow: hidden;
+}
+section .scroll{
+	width: 100%;
+	position: absolute;
+}
+section .center{
+	height: 277px;
+	margin-top:20px;
+	width: 94%;
+	border:1px #dddddd solid;
+	border-radius: 5px;
+	margin:30px auto;
+
+}
+section .center ul{
+	width: 100%;
+	padding:20px 0px 45px 0px;
+}
+section .center ul li{width: 100%;}
+section .center ul li span{
+	width:90%;
+	font-size: 16px;
+	height: 25px;
+	line-height: 25px;
+	margin:0 auto;
+	display: block;
+}
+section .center ul li .btn_zh{
+	width:90%;
+	font-size: 16px;
+	height: 35px;
+	line-height: 25px;
+	margin:0 auto;
+	display: block;
+	border:none;
+	background: #206daf;
+	color:#ffffff;
+	border-radius: 5px;
+	margin-top:35px;
+}
+section .center ul li .btn_yz{
+	width:130px;
+	font-size: 14px;
+	height: 35px;
+	line-height: 25px;
+	position: absolute;
+	right: 5%;
+	display: block;
+	border:none;
+	background: #206daf;
+	color:#ffffff;
+	border-radius: 5px;
+	margin-top:5px;
+}
+section .center ul li .txt{
+	height: 33px;
+	border-radius: 5px;
+	padding:0;
+	border:1px #dddddd solid;
+	width: 90%;
+	margin: 0 auto;
+	display: block;
+	padding-left:10px;
+	
+}
+footer {
+	//height: 44px;
+	width: 100%;
+	/* background: url(../images/dibu.png) no-repeat;
+	background-size: cover;
+	position: relative; */
+	background: #000000;
+}
+
+/* ----------------landpage------------------- */
+
+.lend{
+	max-width: 100%;
+	height: 100%;
+	margin:0 auto;
+	background: url(/Public/images/webchat/wechat_bg.jpg) no-repeat;
+	background-size:cover;
+	/*position: relative;*/
+	overflow: hidden;
+}
+.lend_scroll{
+	width: 100%;
+	position: absolute;
+}
+.logo{
+	width: 55%;
+	margin:0 auto;
+	margin-top:27%;
+}
+.logo img{
+	width: 100%;
+}
+.ms{
+	width: 100%;
+	margin:0 auto;
+	margin-top:30px;
+	
+}
+.ms ul{
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -mz-box;
+	display: -o-box;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-mz-box-align: center;
+	-o-box-align: center;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-mz-box-orient: vertical;
+	-o-box-orient: vertical;
+}
+.ms ul li{
+	width: 78%;
+}
+.ms ul li span{
+	width: 60px;
+	text-align: right;
+	display: block;
+	margin-right:-15px;
+	color: #5c5e5f;
+	font-size: 12px;
+	float: right;
+	margin-left:10px;
+	cursor:pointer;
+}
+a{
+	text-decoration:none;
+}
+.ms .lebd_tx{
+	width: 100%;
+	height: 30px;
+	border: #000 solid 1px;
+	opacity: 0.5;
+	outline: none;
+	-webkit-appearance: none;
+	color: #fff;
+	margin-bottom:15px;
+	border-radius:5px;
+	box-shadow: 0px 1px 1px #fff;
+	padding-left:30px;
+	margin-left:-15px;
+}
+.ms .lebd_tx2{
+	outline: none;
+	color: #fff;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	background: #1190f1;
+	text-align: center;
+	width: 100%;
+	height: 30px;
+	display: block;
+	line-height: 30px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: -15px;
+	margin-top: 15px;
+}
+.ms .username{
+	background: #000 url(/Public/images/webchat/land_user.png) no-repeat 10px center;
+	background-size: 14px 14px;
+}
+.ms .password{
+	background: #000 url(/Public/images/webchat/ladn_pasow.png) no-repeat 10px center;
+	background-size: 10px 14px;
+}
+
+
+
+/*-------------------redpackage---------------------*/
+.mack{
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .7;
+	filter: alpha(opacity=70);
+	z-index: 0;
+}
+.waper{
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	display: -webkit-box;
+	-webkit-box-pack:center;
+	-mz-box-pack:center;
+	-o-box-pack:center;
+	-moz-box-pack:center;
+	-webkit-box-align:center;
+	-o-box-align:center;
+	-mz-box-align:center;
+	-moz-box-align:center;
+
+}
+.redpckag{
+	width: 274px;
+	height: 424px;
+}
+.redpckag img{
+	width: 100%;
+}
+.redpckag a.btn{
+	width: 135px;
+	height: 44px;
+	background: #f4e823;
+	line-height: 44px;
+	text-align: center;
+	text-shadow:1px 1px 1px #454343;
+	font-size: 20px;
+	color: #ff0737;
+	font-weight: bold;
+	display: block;
+	position: relative;
+	top: -95px;
+	left: 50%;
+	margin-left: -67px;
+	border-radius:5px;
+}
+.redpckag h3.titl{
+	width: 100%;
+	text-align: center;
+	font-size: 38px;
+	height: 38px;
+	font-weight: bold;
+	color: #f84034;
+}
+.redpckag .end{
+	width: 138px;
+	height: 177px;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+.redpckag .end span{
+	position: relative;
+	left: 50%;
+	margin-left: -26px;
+	top: -67px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #f5e000;
+}
+.redpckag a.btn2{
+	width: 200px;
+	height: 44px;
+	background: #f4e823;
+	line-height: 44px;
+	text-align: center;
+	text-shadow:1px 1px 1px #454343;
+	font-size: 20px;
+	color: #ff0737;
+	font-weight: bold;
+	display: block;
+	position: relative;
+	top: 25px;
+	left: 50%;
+	margin-left: -100px;
+	border-radius:5px;
+}
+
+/* ---------------关注------------- */
+.er{
+	width: 100%;
+}
+.er h3{
+	width: 130px;
+	height: 43px;
+	margin: 0 auto;
+	background: url(/Public/images/webchat/icon1.png) no-repeat left center;
+	background-size: 48px 43px;
+	color: #b22c1d;
+	padding-left: 50px;
+	line-height: 43px;
+	margin-top: 45px;
+}
+.er>div{
+	width: 148px;
+	height: 148px;
+	margin: 25px auto;
+}
+.er>div img{
+	width: 100%;
+}
+.er>h4{
+	width: 100%;
+	text-align: center;
+	line-height: 23px;
+	color: #333333;
+}
+.er>h4 b{
+	color: #b63729;
+}
+.er button{
+	width: 275px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top:20px;
+	background: #206daf;
+	color: #fff;
+	text-align: center;
+	font-style: 16px;
+	border: none;
+	display: block;
+	border-radius: 5px;
+}
+
+
+.er2{
+	width: 100%;
+}
+.er2 h3{
+	width: 130px;
+	height: 43px;
+	margin: 0 auto;
+	background: url(/Public/images/webchat/icon1.png) no-repeat left center;
+	background-size: 48px 43px;
+	color: #b22c1d;
+	padding-left: 50px;
+	line-height: 43px;
+	margin-top: 45px;
+	margin-bottom:20px;
+}
+.er2>div{
+	width: 148px;
+	margin: 25px auto;
+}
+.er2>div img{
+	width: 100%;
+}
+.er2>h4{
+	line-height: 23px;
+	color: #333333;
+	width: 85%;
+	margin:0 auto;
+	word-wrap:break-word;
+}
+.er2>h4 b{
+	color: #b63729;
+}
+.er2 p{
+	width:80%;
+	line-height: 15px;
+	font-size: 12px;
+	margin:0 auto;
+	padding:10px 10px;
+	border:1px #ccc dashed;
+	margin-top: 10px;
+	word-wrap:break-word;
+}
+.er2 b{
+	color: #206daf;
+	font-size: 12px;
+	width: 82%;
+	padding:10px;
+	padding-left:0;
+	display: block;
+	margin:0 auto;
+}
+.er2 button{
+	width: 275px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top:20px;
+	background: #206daf;
+	color: #fff;
+	text-align: center;
+	font-style: 16px;
+	border: none;
+	display: block;
+	border-radius: 5px;
+}

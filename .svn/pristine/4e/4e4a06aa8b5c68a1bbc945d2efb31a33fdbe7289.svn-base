@@ -1,0 +1,177 @@
+<?php
+
+namespace Home\Controller;
+
+use Think\Controller;
+
+/**
+ * 关于我们等 类文件 
+ * 
+ * @author      sunyue<1551058861@qq.com> 
+ * @since       1.0 
+ */
+class PublicController extends Controller {
+
+    public function __construct() {
+
+        parent::__construct();
+        $linkArr = M("friendlink")->where("status=0")->order("orderid desc,id asc")->select();
+        $this->assign("linkArr", $linkArr);
+    }
+
+    /**
+     * 关于我们  
+     * 
+     * @access public 
+     * @since 1.0 
+     */
+    function aboutus() {
+
+        $this->assign("cur", "aboutus");
+        $this->display("About/aboutus");
+    }
+
+    /**
+     * 用户协议  
+     * 
+     * @access public 
+     * @since 1.0 
+     */
+    function yhxy() {
+
+        $this->assign("cur", "yhxy");
+        $this->display("About/yhxy");
+    }
+
+    /**
+     * 用户协议2  
+     * 
+     * @access public 
+     * @since 1.0 
+     */
+    function yhxy2() {
+
+        $this->assign("cur", "yhxy2");
+        $this->display("About/yhxy2");
+    }
+
+    /**
+     * 用户隐私
+     * 
+     * @access public 
+     * @since 1.0 
+     */
+    function yhys() {
+
+        $this->assign("cur", "yhys");
+        $this->display("About/yhys");
+    }
+
+    /**
+     * 用户联系
+     * 
+     * @access public 
+     * @since 1.0 
+     */
+    function contactus() {
+
+        $this->assign("cur", "contactus");
+        $this->display("About/contactus");
+    }
+
+    /**
+     * 加入我们
+     * 
+     * @access public 
+     * @since 1.0 
+     */
+    function joinus() {
+        $arJob = M("joinus")->where("is_deleted=0")->order("orderid desc,id desc")->select();
+
+        $this->assign("arJob", $arJob);
+        $this->assign("cur", "joinus");
+        $this->display("About/joinus");
+    }
+
+    /**
+     * 加入我们-详情页面
+     * 
+     * @access public 
+     * @since 1.0 
+     */
+    function joinus_detail() {
+        $id = $_GET['id'];
+        if (empty($id)) {
+            header("location:/Home/Public/joinus");
+            die;
+        }
+        $arJoin = M("joinus")->where("is_deleted=0 and id=$id")->find();
+
+        if (empty($arJoin)) {
+            header("location:/Home/Public/joinus");
+            die;
+        }
+        $deac = $share['description'] = "[renrenlie.com] 人人猎直招" . $arJoin[title] . "职位" . $arJoin[employ] . "人,月薪:" . $arJoin['treatment'] . "。";
+        $share = array("url" => "http://www.renrenlie.com/Home/Joinus/joinus_detai?id=" . $arJoin['id'], "title" => $arJoin['title'], "description" => $deac);
+        $this->assign("share", $share);
+        $this->assign("cur", "joinus");
+        $this->assign("arJoin", $arJoin);
+        $this->display("About/joinus_detail");
+    }
+
+    /*
+     * 友情链接详情页面
+     */
+
+    function friend_link() {
+        $linkArr = M("friendlink")->where("status=0")->order("orderid desc,id asc")->select();
+        $this->assign("linkArr", $linkArr);
+        $this->display("friendLink");
+    }
+
+    /*
+     * qa
+     */
+
+    function qa() {
+        $arQAlist1 = M("qa")->where("type=1 and status=1")->order("orderid desc,id asc")->select();
+        $arQAlist2 = M("qa")->where("type=2 and status=1")->order("orderid desc,id asc")->select();
+        $this->assign("cur", "qa");
+        $this->assign("arQAlist1", $arQAlist1);
+        $this->assign("arQAlist2", $arQAlist2);
+        $this->display("qa");
+    }
+
+    /*
+     * 意见反馈
+     */
+
+    public function feedback() {
+        $this->display("feedback");
+    }
+
+    /*
+     * 添加意见反馈
+     */
+
+    public function addfeedback() {
+       
+        $feedbackInfo = array();
+        $feedbackInfo['contacter'] = trim($_POST['fkusername']);
+        $feedbackInfo['mobile'] = trim($_POST['fkmobile']);
+        $feedbackInfo['email'] = trim($_POST['fkemail']);
+        $feedbackInfo['content'] = trim($_POST['fkcontent']);
+        $feedbackInfo['created_at'] = $feedbackInfo['updated_at'] = time();
+   
+        if (empty($_SESSION['add_feedback']) || (time() - $_SESSION['add_feedback']) > 5 * 60) {
+            M("feedback")->add($feedbackInfo);
+            $_SESSION['add_feedback'] = time();
+            echo json_encode(array("code" => 200, "msg" => "感谢您的宝贵意见或者建议！"));
+            exit();
+        } else {
+            echo json_encode(array("code" => 500, "msg" => "您刚提交宝贵意见或者建议，请坐下歇会！"));
+            exit();
+        }
+    }
+
+}

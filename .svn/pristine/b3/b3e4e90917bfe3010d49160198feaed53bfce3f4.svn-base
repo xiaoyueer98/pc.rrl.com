@@ -1,0 +1,121 @@
+CREATE TABLE `stj_qrcodefrom` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `activeid` int(5) NOT NULL  default '0' COMMENT'活动id',
+  `activename` varchar(50) DEFAULT NULL default '0' COMMENT '活动名称',
+  `username` varchar(50) NOT NULL default '0' COMMENT '用户唯一标识',
+  `demo` varchar(256) DEFAULT NULL COMMENT '备注',
+  `type` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '0网页浏览，1微信关注，2微信浏览',
+  `created_at` int(11) DEFAULT NULL COMMENT '添加时间',
+  `updated_at` int(11) DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='通过扫码进入的用户记录'
+
+insert  into stj_active values(8,'车套扫码进入微信','北京众聘科技有限公司','车套扫码进入微信','qrcodewx','2015-05-25 00:00:00','2015-12-31 23:59:59',1,UNIX_TIMESTAMP(),UNIX_TIMESTAMP());
+
+
+alter table stj_active add `picurl` varchar(100) NOT NULL default '' comment'活动图片';
+-----------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `stj_salon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `activeid` int(11) NOT NULL COMMENT '活动id',
+  `activename` varchar(50) NOT NULL COMMENT '活动名称',
+  `category` varchar(100) DEFAULT ''  COMMENT '活动类别',
+  `name` varchar(50) NOT NULL DEFAULT ''  COMMENT '姓名',
+  `company` varchar(255) NOT NULL DEFAULT ''  COMMENT '公司',
+  `jobposition` varchar(255) NOT NULL DEFAULT '' COMMENT '职位',
+  `mobile` varchar(20) NOT NULL COMMENT '手机',
+  `qq` varchar(20) NOT NULL COMMENT 'QQ号码',
+  `weixin` varchar(20) NOT NULL COMMENT 'weixin号码',
+  `topic`  text COMMENT '感兴趣的话题',
+  `advice` text COMMENT '建议',
+  `signip` varchar(20) NOT NULL default '' COMMENT '报名IP',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '1正常 2删除',
+  `created_at` int(11) DEFAULT NULL COMMENT '添加时间',
+  `updated_at` int(11) DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='参加沙龙人员信息表'
+------------------------------------------------------------------------------------------------------------------
+alter table stj_record add remindtime  int(11) not null  default '0' comment'短信提醒时间';
+-------------------------------------------------------------------------------------------------------------------
+alter table stj_salon add username varchar(50) NOT NULL default '' COMMENT '用户名' after id;
+alter table stj_active add theme  varchar(255) not null  default ''  comment  '沙龙活动主题' after content;
+alter table stj_active modify  `content` text NOT NULL COMMENT '内容简要';
+-------------------------------------------------------------------------------------------------------------------
+alter table  stj_resume  add   teleresult  char(255)  not null  default ''  comment '沟通结果';  
+alter table  stj_resume  add   teletime   int (11) not null default 0 comment '沟通日期';
+-------------------------------------------------------------------------------------------------------------------
+alter  table stj_resume  add   telestatus  tinyint(3) not null  default '1'  comment '1未联系2跟进中3废简历';
+-------------------------------------------------------------------------------------------------------------------
+alter table  stj_match_list  add   teleresult  char(255)  not null  default ''  comment '沟通结果';  
+alter table  stj_match_list  add   teletime   int (11) not null default 0 comment '沟通日期';
+alter  table stj_match_list  add   telestatus  tinyint(3) not null  default '1'  comment '1未联系2跟进中3废简历';
+
+___________________________________________
+insert into stj_admingroup values(5,'行业专家','行业专家','true');
+
+alter table stj_admin add `keywords` text COMMENT '关键词id串以|分割' ;
+alter table stj_admin add `jobs` text COMMENT '职位id串以|分割' ;
+
+alter table  stj_job  add   expertid  smallint(5) unsigned NOT NULL default '0' COMMENT '所属行业专家id';
+alter table  stj_keyword_group  add   expertid  smallint(5) unsigned NOT NULL default '0' COMMENT '所属行业专家id' after keyword_group;
+------------------------------------------------------------------------------------------------------
+CREATE TABLE `stj_joinus` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '招聘信息id',
+  `title` varchar(100) NOT NULL  COMMENT '职位名称',
+  `email` varchar(80) NOT NULL COMMENT '邮件地址',
+  `employ` smallint(5) unsigned NOT NULL COMMENT '招聘人数',
+  `treatment` varchar(30) NOT NULL COMMENT '工资待遇',
+  `department` varchar(30) NOT NULL default'' COMMENT '所属部门',
+  `workplace` varchar(80) NOT NULL  default'' COMMENT '工作地点',
+  `workdesc` mediumtext NOT NULL COMMENT '岗位职责',
+  `content` mediumtext NOT NULL COMMENT '任职资格',
+  `experience` mediumtext NOT NULL default'' COMMENT '工作经验',
+  `education` varchar(80) NOT NULL default'' COMMENT'学历要求',
+  `orderid` mediumint(8) unsigned NOT NULL COMMENT '排列排序',
+  `status` tinyint(3) NOT NULL DEFAULT '0' COMMENT '职位状态0一般1热招',
+  `is_deleted` varchar(100) NOT NULL DEFAULT '0' COMMENT '删除状态，0未删，1已删除',
+  `created_at` int(11) DEFAULT NULL COMMENT '添加时间',
+  `updated_at` int(11) DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='加入我们招聘职位';
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————
+alter table stj_company  add  frombd  smallint(5) unsigned NOT NULL default '0' COMMENT '企业所属的管理员id';
+alter table stj_company  add  fromcomment  text  not null ; 
+---------------------------------------------------
+CREATE TABLE `stj_feedback` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `contacter` varchar(50) NOT NULL DEFAULT '' COMMENT '联系人',
+  `mobile` varchar(12) NOT NULL DEFAULT '' COMMENT '联系电话',
+  `email` varchar(50) NOT NULL DEFAULT '' COMMENT '邮件',
+  `img` varchar(200) NOT NULL DEFAULT '' COMMENT '图片地址',
+  `content` text  COMMENT '内容',
+  `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '0未处理，1已处理',
+  `created_at` int(11) DEFAULT NULL COMMENT '添加时间',
+  `updated_at` int(11) DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='意见反馈表';
+-------------------------------------------------------------------------------------------------------
+alter table stj_member  add  jobtype  tinyint(2)   not null default '0' comment '岗位 1HR2技术3其他';
+__________
+CREATE TABLE `stj_customized` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '姓名',
+  `mobile` varchar(20) NOT NULL COMMENT '手机',
+  `uid` int(10) unsigned NOT NULL  DEFAULT '0' COMMENT '用户memberID',
+  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `jobwant` varchar(255) NOT NULL DEFAULT '' COMMENT '应征职位',
+  `contact_time` varchar(255) NOT NULL DEFAULT '' COMMENT '可以联系的时间',
+  `teleresult` char(255) NOT NULL DEFAULT '' COMMENT '沟通结果',
+  `telestatus` tinyint(3) NOT NULL DEFAULT '1' COMMENT '1未联系2跟进中3已停止',
+  `created_at` int(11) DEFAULT NULL COMMENT '添加时间',
+  `updated_at` int(11) DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='私人定制人员表';
+
+alter table stj_customized  add   resume_id   int(10) unsigned NOT NULL  default '0' comment "关联简历id" after  telestatus;
+alter table stj_resume  modify `type` tinyint(3) DEFAULT '2' COMMENT '简历库添加，1从职位添加的简历，2个人中心点击的简历上传,3后台私人定制添加';
+
+insert into stj_admingroup  values(6,'市场B端管理员','市场B端管理员',true);

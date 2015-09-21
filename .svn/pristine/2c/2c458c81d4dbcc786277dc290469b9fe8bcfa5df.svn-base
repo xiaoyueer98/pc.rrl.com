@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <title>被推荐人</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <script type="text/javascript" src="__ROOT__/Public/js/iscroll.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <link rel="stylesheet" href="__ROOT__/Public/css/webchat/jin_2.css"/>
+        <script type="text/javascript">
+            var jobid = "{$jobid}";
+            var myScroll,
+                    pullDownEl, pullDownOffset,
+                    pullUpEl, pullUpOffset,
+                    generatedCount = 0;
+
+            /**
+             * 初始化iScroll控件
+             */
+            function ajx(page, number) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/Webchat/get_resume_list',
+                    data: 'page=' + page + '&number=' + number + "&jobid=" + jobid,
+                    dataType: 'json',
+                    success: function (data) {
+                        
+                        if (data.count == 0) {
+                            if ($.trim($("#thelist2").html()) == "") {
+                                $('#thelist2').append('<div class="resultjobs clearfix" style="font-size:14px;text-align:center;line-height:50px;color:#b4b4b4;">您还没有可推荐的人！</div>');
+                            }
+                            $('#pullUp').hide();
+                            return;
+                        }
+                        
+                        var data = eval(data['result']);
+                        for (var i = 0; i < data.length; i++) {
+                            var str = "";
+                            if (data[i].deadline == 1) {
+                                str =
+                                        '<div class="con clearfix">'
+                                        + '<div class="left"><span class="mo"></span></div>'
+                                        + '<div class="cen">'
+                                        + '<p class="p1">'
+                                        + '<span class="p1_sp">' + data[i].username + '</span>'
+                                        + '</p>'
+                                        + '<p class="p2">'
+                                        + '<span class="spa1">北京</span>'
+                                        + '<span class="spa1">' + data[i].mobile
+                                        + '</p>'
+                                        + '</div>'
+                                        + '<div class="right">'
+
+                                        + '<p class="p2">' + data[i].statedata + '</p>'
+                                        + '</div>'
+                                        + '</div>';
+                            } else {
+                                var n = (page - 1) * number + i;
+                                str =
+                                        '<div class="con clearfix" onclick="change(' + n + ')">'
+                                        + '<div class="left"><span class="select mo" id="mo' + n + '"><input type="hidden" value="' + data[i].id + '" id="resumeid"></span></div>'
+                                        + '<div class="cen">'
+                                        + '<p class="p1">'
+                                        + '<span class="p1_sp">' + data[i].username + '</span>'
+                                        + '</p>'
+                                        + '<p class="p2">'
+                                        + '<span class="spa1">北京</span>'
+                                        + '<span class="spa1">' + data[i].mobile + '</span>'
+                                        + '</p>'
+                                        + '</div>'
+                                        + '<div class="right">'
+
+                                        + '<p class="p2">' + data[i].statedata + '</p>'
+                                        + '</div>'
+                                        + '</div>';
+
+                            }
+                            $('#thelist2').append(str)
+                        }
+                    }
+                });
+            }
+            function pullUpAction() {
+                setTimeout(function () {
+                    var el, li, i;
+                    el = document.getElementById('thelist');
+                    myScroll.refresh();
+                }, 1000);
+            }
+            function pullUpAction2() {
+                setTimeout(function () {
+                    ajx(1, 10);
+                    myScroll.refresh();
+                }, 1000);
+            }
+            pullUpAction2()
+            var num = 1;
+            function loaded() {
+                pullDownEl = document.getElementById('pullDown');
+                pullDownOffset = pullDownEl.offsetHeight;
+                pullUpEl = document.getElementById('pullUp');
+                pullUpOffset = pullUpEl.offsetHeight;
+
+                myScroll = new iScroll('wrapper', {
+                    scrollbarClass: 'myScrollbar', /* 重要样式 */
+                    useTransition: false, /* 此属性不知用意，本人从true改为false */
+                    topOffset: pullDownOffset,
+                    onRefresh: function () {
+                        if (pullDownEl.className.match('loading')) {
+                            pullDownEl.className = '';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                        } else if (pullUpEl.className.match('loading')) {
+                            pullUpEl.className = '';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                        }
+                    },
+                    onScrollMove: function () {
+                        if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                            pullDownEl.className = 'flip';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+                            this.minScrollY = 0;
+                        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+                            pullDownEl.className = '';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                            this.minScrollY = -pullDownOffset;
+                        } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                            pullUpEl.className = 'flip';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                            this.maxScrollY = this.maxScrollY;
+                        } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                            pullUpEl.className = '';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                            this.maxScrollY = pullUpOffset;
+                        }
+                    },
+                    onScrollEnd: function () {
+                        ++num;
+                        if (pullDownEl.className.match('flip')) {
+//                            pullDownEl.className = 'loading';
+//                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';
+//                            pullDownAction(); // Execute custom function (ajax call?)
+                        } else if (pullUpEl.className.match('flip')) {
+                            pullUpEl.className = 'loading';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+                            pullUpAction(); // Execute custom function (ajax call?)
+                            ajx(num, 10)
+                        }
+                    }
+                });
+
+
+
+                setTimeout(function () {
+                    document.getElementById('wrapper').style.left = '0';
+                }, 800);
+            }
+            //初始化绑定iScroll控件
+            document.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+            }, false);
+            document.addEventListener('DOMContentLoaded', loaded, false);
+        </script>
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <div id="scroller">
+                <div id="pullDown" style="display:none">
+                    <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                </div>
+                <div id="thelist">
+                    <div id="thelist2">
+
+
+
+                    </div>
+                    <input type="hidden" value="{$jobid}" id="jobid">
+                </div>
+                <div id="pullUp">
+                    <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                </div>
+            </div>
+        </div>
+
+    <div style=" background: #283645; padding: 8px; padding-top: 12px;height:30px;position: fixed; left: 0px; bottom: 0px; z-index: 110; margin-bottom: 0px;width:100%;"><button type="button" class="logininput inputsubmit" id="btn"  disabled="disabled" style="background-color:#ccc;position: absolute;left:50%;margin-left:-60px;height: 30px;width: 120px;border-radius:5px;color:#ffffff;"/>立即推荐</button></div>
+    <!--引入尾部元素结束-->
+    <include file="Webchat:like_alert"/>
+    <include file="Webchat:statistics">
+    <script type="text/javascript">
+       
+        $.post("/Home/Webchat/checkSelectUser", {
+            'jid': jobid,
+        }, function (data) {
+
+            if (data < 10) {
+                $("#btn")[0].style.backgroundColor = "#1190f1";
+                $("#btn")[0].disabled = false;
+            }
+        }, "text");
+        function  change(k) {
+            //alert(k);
+            $(".select").each(function (i) {
+                $(this)[0].className = "select mo";
+            })
+            $("#mo" + k)[0].className = "select mo_se";
+            //alert($("#mo" + k)[0].className);
+
+        }
+        $("#btn").click(function () {
+            var jid = $(".mo_se").find("#resumeid").val();
+            if (typeof (jid) == "undefined") {
+                like_alert("请选择被推荐人");
+                return;
+            }
+            location.href = "/Home/Webchat/resume_time/jobid/" + jobid + "/jid/" + jid;
+        })
+    </script>
+
+</body>
+</html>

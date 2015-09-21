@@ -1,0 +1,39 @@
+@import "reset.css";
+
+body{
+    background-color:#f5f5f5;
+}
+.focus {width: 1309px;height: 518px;overflow: hidden;margin: 0 auto;overflow: hidden;position: relative;}
+.focusPic {width: 1309px;height: 1600px;position: absolute;}
+.focusNav {position: absolute;right: 45%;bottom: 6px;}
+.focusNav li {float: left;width: 16px;height: 16px;border-radius: 16px;border: 1px solid #fff;text-align: center;line-height: 20px;margin-right: 10px;cursor:pointer;}
+.focusNav li.hover {border: none;background-color: #fff;border-radius: 20px; width: 20px;height: 20px;}
+.login-b form{position: relative;}
+.login-b form label{width: 60px;margin-left: 5%}
+.login-b input{height: 40px;width: 74%;border: none;border-radius: 3px;margin-top: 10px;}
+.login-c p{color: #999999;}
+.login-c p a{color: #999999;}
+#b1{background: #fff }
+#b2{background: #fff}
+#b3{background: #fff}
+#b4{background: #fff}
+#jz{width: 12px;outline: none;height: 12px;}
+#jz label{margin-top: 12px;
+    float: left;}
+#jz2{width: 12px;outline: none;height: 12px;}
+#jz2 label{margin-top: 12px;
+    float: left;}
+#busub{margin-left: 30%;}
+#busub2{margin-left: 30%;}
+.login-c{margin-top: 5px; width: 90%;margin-left: 5%;height: 30%;}
+.login-c input{cursor: pointer;width: 100px;height: 40px;border: none;font-size: 20px;font-family: "微软雅黑";color: #fff;margin-top: 3%; border-radius: 3px;margin-left:10%;}
+.login-high{background-color: #fff;font-weight: bold;color: #0066bb;}
+.login{ width: 330px;height: 350px;background-color: #f4f4f4; opacity: 0.95;position: absolute;top: 60px;right: 165px;}
+#tabNav{width: 100%; font-size: 16px;height: 38px;line-height: 38px;}
+#tabNav li{ cursor: pointer; font-family: "微软雅黑"; width: 50%; text-align: center; height: 38px;display: block; float: left;}
+.login-d{width: 90%;margin-top: 3%;margin-left: 5%;}
+.login-d p{margin-bottom: 3%; color: #999999;}
+.login-d img{margin-right: 5%;}
+#log{ overflow: hidden;height: 318px;position: relative;}
+#tabcontent{height: 318px;}
+#view{position: absolute;height: 638px; overflow: hidden;}

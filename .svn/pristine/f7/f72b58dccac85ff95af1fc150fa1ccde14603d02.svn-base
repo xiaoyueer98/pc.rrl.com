@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>Q&A-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/focuspic2.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-index.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/window.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/denglu.js"></script>
+    </head>
+        <div class="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <body style="background:#ffffff">
+    <include file="Public:newHeader"/>
+    <div class="wrap new-qa">
+        <div class="content">
+            <h3>常见问题</h3>
+            <div class="btn-cont clearfix nav-btn"><span class="my-btn2 m fl-lef">我是推荐人</span><span class="my-btn2 fl-lef hr-btn">我是企业HR</span></div>
+            <div class="ms">
+                <div class="list">
+                    <?php foreach($arQAlist1 as $qaInfo):?>
+                    <dl>
+                        <dt class="clearfix"><span class="qa-icon"></span><em><?php echo $qaInfo['question'];?></em></dt>
+                        <dd class="clearfix"><span class="qa-icon"></span><div class="qa-content"><?php echo $qaInfo['answer'];?></div></dd>
+                    </dl>
+                    <?php endforeach;?>
+                    
+                </div>
+                <div class="list" style="display:none;">
+                    <?php foreach($arQAlist2 as $qaInfo):?>
+                    <dl>
+                        <dt class="clearfix"><span></span><em><?php echo $qaInfo['question'];?></em></dt>
+                        <dd class="clearfix"><span class="qa-icon"></span><div  class="qa-content"><?php echo $qaInfo['answer'];?></div></dd>
+                    </dl>
+                    <?php endforeach;?>
+                </div>
+                
+            </div>
+            <center>
+            <div style="margin-top:30px;">
+               
+                    <div class="jiathis_style_24x24" id="shareAction" style="padding: 8px;width: 297px;">
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_tsina"></a>
+
+                        <a class="jiathis_button_tqq"></a>
+                        <a class="jiathis_button_renren"></a>
+                        <a class="jiathis_button_cqq"></a>
+                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" style="padding:0px!important;  margin-right: -2px;" target="_blank"></a>
+                        <a class="jiathis_counter_style" style="margin-right: 35px;"></a>
+                    </div>
+                </div>
+        </div>
+        </center>
+    </div>
+    <include file="Public:newFooter"/>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var index;
+            var list = $(".nav-btn span");
+            var divs = $(".ms>.list");
+            list.on("click",function(){
+                that = $(this);
+                index = that.index();
+                that.addClass("m").siblings().removeClass("m");
+                $(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+                divs.eq(index).show().siblings("div").hide();
+            });
+        })
+    </script>
+    <script type="text/javascript">
+            var url = "<?php echo $domain.$share['pcurl']?>";
+            var jiathis_config = {
+                url: url,
+                title: "<?php echo $share['title']?>",
+                summary: "<?php echo $share['desc']?>",
+                pic: "<?php echo $share['img']?>"
+            }
+        </script> 
+        <script src="http://v2.jiathis.com/code/jiathis_r.js?move=0"></script> 
+</body>
+</html>

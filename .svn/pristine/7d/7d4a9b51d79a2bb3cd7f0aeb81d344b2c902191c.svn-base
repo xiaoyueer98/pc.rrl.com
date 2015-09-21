@@ -1,0 +1,25 @@
+.help-introduct{margin-top:30px;width:700px;height:626px;background:#fff}
+.help-introduct p{color:#314356;text-indent:2em;letter-spacing:1px;font-weight:500;font-size:18px;font-family:'微软雅黑';line-height:35px}
+.help-introduct-content{padding:25px 20px;height:540px;background:url(../img/help/rig-content-icon.png) right 10px top 10px no-repeat}
+.help-introduct-content i.title{padding-right:4px;font-weight:700;font-size:22px}
+.help-introduct-content i{font-weight:700;font-size:18px}
+.seven-dey{background:url(../img/help/7.png) no-repeat}
+.end-content{background:url(../img/help/rrl-logo.png) right 70px top 205px no-repeat}
+.help-contactus{margin-top:30px;width:700px;height:720px;background:#fff}
+.help-contactus .help-contactus-head{width:660px;height:108px;background:url(../img/help/rig-head-bg.png) left 20px top 20px no-repeat}
+.ch-left{float:left;width:300px}
+.ch-middle{float:left;width:130px}
+.ch-right{float:left;width:180px}
+.line-title{display:block;padding-top:30px;padding-left:95px;color:#fff;font-weight:700;font-size:28px}
+.line-time{display:block;padding-top:5px;padding-left:95px;color:#fff;font-size:12px}
+.telephone1,.telephone2{font-weight:700;display:block;color:#fff;font-size:18px}
+.telephone1{margin-top:33px;margin-left:0px;height:16px}
+.telephone2{margin-top:10px;padding-right:15px}
+.contactus-content{position:relative;height:700px;background:url(../img/help/rig-content-icon.png) right 10px top 10px no-repeat}
+.help-contactus-content{width:500px;color:#314356}
+.group-content span{margin-left:20px;font-weight:700;font-size:20px}
+.group-content ul{margin-top:10px;margin-bottom:20px}
+.group-content ul li{line-height:26px}
+.group-content ul li em{font-size:18px}
+.group-content ul li em:first-child{margin-left:50px}
+.contactus-logo{position:absolute;right:87px;bottom:83px;float:right;width:152px;height:60px;background:url(../img/help/rrl-logo.png) no-repeat;background-size:100% 100%}

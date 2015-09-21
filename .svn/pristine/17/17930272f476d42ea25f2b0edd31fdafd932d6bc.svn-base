@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>资金明细-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.ui.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicsdon.ico" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/smoothness/jquery.ui.css" type="text/css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/style.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="recom1 data recom2">
+                <div class="recom1_tp">
+                    <h3>资金明细</h3>
+                    <ul style="border:none;">
+                        <li class="prevli"><em>余额：</em><span><b id="amount">{$userAccount['account']}</b></span><i  class="cur_point" id="enchashmentDetail">提现</i></li>
+                        <ul id="enchashmentDetailDiv" style="display: none">
+                            <li class="chlidli"><em>提取现金:</em><span><input type="text" id="moneyInput" style="margin-left: 10px;width:50px" maxlength="8"></span><button class="bt cur_point" id="confirmEnchashmentDetailBon">确定</button><button class="cur_point" id="conEnchashmentDetailBon">取消</button></li>
+                            <li class="chlidli chlidli2"><em>提示：</em>
+                                <span id="errorContent">取出的金额在2个工作日内到账</span>
+                                <span style="margin-left:40px">每次扣除手续费5元</span>
+                            </li>
+                        </ul>
+                    </ul>
+                    <div class="tab tck">
+                        <table  border="1">
+                            <tr>
+                                <th>序号</th>
+                                <th>事项</th>
+                                <th>发生金额(元)</th>
+                                <th>余额(元)</th>
+                                <th>日期</th>
+                            </tr>
+                            <volist name="arAccountList" id="accountInfo">
+                                <tr>
+                                    <td>{$accountInfo['sort_id']}</td>
+                                    <td>{$accountInfo['comment']}</td>
+                                    <td>{$accountInfo['incr']}</tb>
+                                <if condition="$accountInfo['from'] eq 'enchashmentask'">
+                                    <td>--</td>
+                                    <else/>
+                                    <td>{$accountInfo['account']}</td>
+                                </if>
+
+                                <td>{$accountInfo['updated_at']}</td>
+                                </tr>
+                            </volist>
+                        </table>
+                    </div>
+                    {$page}
+                </div>
+                <div class="recoml_btm">
+                </div>
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <input type="text" name="isFinsh" value="{$isFinishBank}" id="isFinsh">
+    <div class="popup_ft reward" id="remind_member_window" <?php if($userAccountInfo['remind_member'] !=1 && $isFinishBank=1){?>style="display: block"<?php }?>>
+         <h3>温馨提示</h3>
+        <a class="close cur_point" id="remind_member_close"></a>
+        <div style="margin-top:8px;">
+            <p style="font-size:18px;margin-left:50px">请确认下列收款账号信息</p>
+            <p style="font-size:16px;margin-left:50px;margin-top:18px;">收款银行：{$userAccountInfo['bankname']}</p>
+            <p style="font-size:16px;margin-left:50px;margin-top:18px;">收款账号：{$userAccountInfo['banknumber']}</p>
+            <dl>
+                <dd style="margin-top: 22px"><input type="hidden" id="remind_member"><button id="com_remind_member" class="cur_point">确认</button></dd>
+            </dl>
+        </div>
+    </div>
+    <include file="Public:fiexdTop"/>
+
+    <script>
+        $(function() {
+
+            //判断是否已经填充了卡号，如果没有填充则去填充
+            var isFinsh = $("#isFinsh").val();
+            if (isFinsh != 1) {
+                $("#remind_member_window").hide();
+                sys_window("请完善收款账号！", "/Home/Login/ReceivAccount.html")
+                return false;
+            }
+            //判断是否已经确认过收款账号信息
+            if ($("#remind_member_window").css("display") == "block") {
+                $(".mask").show();
+            }
+            $("#remind_member_close").click(function() {
+                $(".mask").hide();
+                $("#remind_member_window").hide();
+            });
+            $("#com_remind_member").click(function() {
+                $.post("__URL__/RemindMember.html", {}, function(data) {
+                   // location.href = location.href;
+                    $(".mask").hide();
+                    $("#remind_member_window").hide();
+                }, "json")
+            });
+            $("#confirmEnchashmentDetailBon").attr("disabled", false);
+            $("#enchashmentDetail").click(function() {
+                $("#enchashmentDetailDiv").show();
+            });
+            $("#conEnchashmentDetailBon").click(function() {
+                $("#moneyInput").val("");
+                $("#enchashmentDetailDiv").hide();
+            });
+
+
+            /*JQuery 限制文本框只能输入数字和小数点*/
+            $("#moneyInput").keyup(function() {
+                $(this).val($(this).val().replace(/[^0-9.]/g, ''));
+            }).bind("paste", function() {  //CTR+V事件处理    
+                $(this).val($(this).val().replace(/[^0-9.]/g, ''));
+            }).css("ime-mode", "disabled"); //CSS设置输入法不可用    
+            $("#confirmEnchashmentDetailBon").click(function() {
+                var moneyInput = $("#moneyInput").val();
+                var amount = $("#amount").html();
+                if (parseInt(moneyInput) > parseInt(amount)) {
+                    $("#moneyInput").focus();
+                    sys_window("当前资金账户余额不足，或已有提款记录！");
+                    return false;
+                }
+                if (moneyInput < 6) {
+                    $("#moneyInput").focus();
+                    sys_window("每次提取限额不能少于5元！");
+                    return false;
+                }
+                var tmpMoney = moneyInput - 5;
+                if (confirm("您提取的金额为" + moneyInput + "元,需要扣除手续费5元，届时您的到款金额为" + tmpMoney + "元。")) {
+                    $("#confirmEnchashmentDetailBon").attr("disabled", "disabled");
+                    var url = "{$share['url']}";
+                    $.post("__URL__/EnchashmentDetail.html", {
+                        'moneyInput': moneyInput
+                    }, function(data) {
+                        $("#confirmEnchashmentDetailBon").attr("disabled", false);
+                        if (data.code != "200") {
+
+                            sys_window(data.msg);
+                        } else {
+                            sys_window("提现申请成功！", "/Home/Login/DetailsFunds.html");
+                            //$("#moneyInput").val("");
+                            //$("#enchashmentDetailDiv").hide();
+                        }
+                    }, "json")
+                }
+
+
+            });
+        })
+
+    </script>
+</body>
+</html>

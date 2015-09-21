@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<script type="text/javascript" src="/Public/js/webchat/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="/Public/js/webchat/iscroll.js"></script>
+	<link rel="stylesheet"  href="/Public/css/webchat/reset.css">
+	<link rel="stylesheet"  href="/Public/css/webchat/wechat.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script type="text/javascript">
+            document.addEventListener("touchmove", function (e) {
+                e.preventDefault();
+            }, false);
+            $(document).ready(function (e) {
+                var myScroll = new IScroll('#wamp', {mouseWheel: true, click: false});
+            })
+        </script>
+</head>
+<body>
+<include file="Webchat:like_alert"/>
+<div id="container">
+        <!--<header><div class="leftarw">返回</div>忘记密码</header>-->
+	<section id="wamp">
+		<div class="scroll">
+			<div class="center">
+				<ul>
+                                        <input type="hidden" value="{$mobile}" id="mobile">
+					<li><span>用户名</span></li>
+					<li><input class="txt" type="text" id="username"></li>
+					<li><span>密码</span></li>
+					<li><input class="txt" type="password" id="password"></li>
+					<li><button class="btn_zh" id="reg_btn">完成注册</button></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<footer></footer>
+</div>
+    <script type="text/javascript">
+    $("#reg_btn").click(function () {
+
+            $("#reg_btn")[0].disabled = true;
+            var mobile = $("#mobile").val();
+            var password = $("#password").val();
+            var username = $("#username").val();
+            
+            if (!username || !/^[\@A-Za-z0-9\_]{3,16}$/.test(username) || username.indexOf("qq_") === 0 || username.indexOf("sina_") === 0 || username.indexOf("wx_") === 0 || username.indexOf("renren_") === 0) {
+                $("#reg_btn")[0].disabled = false;
+                like_alert("用户名由3-16位字母、下划线、数字组成!");
+                return;
+            } else if (!password || !/^[\@A-Za-z0-9\_]{6,15}$/.test(password)) {
+                $("#reg_btn")[0].disabled = false;
+                like_alert("请输入6-15位字母,数字,下划线!");
+                return;
+            } else {
+                
+                $.post("/Home/Webchatreg/reg_save", {
+                    'mobile': mobile,
+                    'username': username,
+                    'password': password
+                }, function (data) {
+
+                    if (data.code != "200") {
+                        $("#reg_btn")[0].disabled = false;
+                        like_alert(data.msg);
+                        return;
+                    }else{
+                        //lo_like_alert("注册成功","/Home/Webchat/new_job");
+                        location.href="/Home/Webchatreg/reg_success";
+                    }
+                }, "json");
+
+            }
+    })
+    </script>
+</body>
+</html>

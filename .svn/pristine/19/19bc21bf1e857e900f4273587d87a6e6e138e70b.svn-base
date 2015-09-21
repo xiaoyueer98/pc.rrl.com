@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <title>被推荐人</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="full-screen" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script type="text/javascript" src="__ROOT__/Public/js/iscroll.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="__ROOT__/Public/css/webchat/jin_ 2.css"/>
+ <script type="text/javascript">
+var myScroll,
+    pullDownEl, pullDownOffset,
+    pullUpEl, pullUpOffset,
+    generatedCount = 0;
+
+/**
+ * 初始化iScroll控件
+ */
+  function ajx( page, number ){
+            $.ajax({
+                type:'POST',
+                url:'/Home/Webchatpush/get_newjob_list',
+                data:'page='+1+'&number='+10,
+                dataType : 'json',
+                success:function(data){
+                    data = eval(data['result']);
+                    for(var i=0;i<data.length;i++){
+                        // alert(data[i]);
+                        var srt2 = '<div class="con clearfix"><div class="left"><span class="mo"></span></div><div class="cen"><p class="p1"><span class="p1_sp">'+data[i].title+'</span><em>'+data[i].title+'</em></p><p class="p2"><span class="spa1">北京</span><span class="spa1">5年</span><span class="spa1">18500521769</span></p></div><div class="right"><a href=""><p class="p1">本科</p></a><a href=""><p class="p2">'+data[i].title+'</p></a></div></div>'
+                         var srt1 = '<div class="con clearfix"><div class="left"><span class="mo"></span></div><div class="cen"><p class="p1"><span class="p1_sp">'+data[i].title+'</span></p><p class="p1"><em>'+data[i].title+'</em></p><p class="p2"><span class="spa1">'+data[i].title+'</span><span class="spa1">'+data[i].title+'</span><span class="spa1">18500521769</span></p></div><div class="right"><a href=""><p class="p1"></p></a><a href=""><p class="p1">'+data[i].title+'</p></a><a href=""><p class="p2">'+data[i].title+'</p></a></div></div>';
+                        $('#thelist2').append(srt1)
+                    }
+            }
+        });
+        }
+function pullUpAction () {
+    setTimeout(function () { 
+        var el, li, i;
+        el = document.getElementById('thelist');
+        myScroll.refresh();
+    }, 1000);
+}
+function pullUpAction2 () {
+    setTimeout(function () {   
+       ajx(1,10)
+        myScroll.refresh();
+    }, 1000); 
+}
+pullUpAction2()
+var  num =1;
+function loaded() {
+    pullDownEl = document.getElementById('pullDown');
+    pullDownOffset = pullDownEl.offsetHeight;
+    pullUpEl = document.getElementById('pullUp');   
+    pullUpOffset = pullUpEl.offsetHeight;
+    
+    myScroll = new iScroll('wrapper', {
+        scrollbarClass: 'myScrollbar', /* 重要样式 */
+        useTransition: false, /* 此属性不知用意，本人从true改为false */
+        topOffset: pullDownOffset,
+        onRefresh: function () {
+            if (pullDownEl.className.match('loading')) {
+                pullDownEl.className = '';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+            } else if (pullUpEl.className.match('loading')) {
+                pullUpEl.className = '';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+            }
+        },
+        onScrollMove: function () {
+            if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                pullDownEl.className = 'flip';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+                this.minScrollY = 0;
+            } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+                pullDownEl.className = '';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                this.minScrollY = -pullDownOffset;
+            } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                pullUpEl.className = 'flip';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                this.maxScrollY = this.maxScrollY;
+            } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                pullUpEl.className = '';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                this.maxScrollY = pullUpOffset;
+            }
+        },
+        onScrollEnd: function () {
+            ++num;
+            if (pullDownEl.className.match('flip')) {
+                pullDownEl.className = 'loading';
+                pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';                
+                pullDownAction(); // Execute custom function (ajax call?)
+            } else if (pullUpEl.className.match('flip')) {
+                pullUpEl.className = 'loading';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';                
+                pullUpAction(); // Execute custom function (ajax call?)
+                ajx(num,10)
+            }
+        }
+    });
+    
+
+       
+    setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+}
+//初始化绑定iScroll控件
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('DOMContentLoaded', loaded, false); 
+    </script>
+</head>
+<body>
+<!--<div id="header">
+    <span href="../db.html#page2">被推荐人</span>
+    <a href="">返回</a>
+</div>-->
+<div id="wrapper">
+    <div id="scroller">
+        <div id="pullDown" style="display:none">
+            <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+        </div>
+        <div id="thelist">
+            <div id="thelist2">
+                <div class="con clearfix">
+                    <div class="left"><span class="mo"></span></div>
+                    <div class="cen">
+                        <p class="p1">
+                            <span class="p1_sp">冯辉</span>
+                        </p>
+                        <p class="p1 clearfix">
+                            <em>CTO运营总监</em>
+                        </p>
+                        <p class="p2">
+                            <span class="spa1">北京</span>
+                           <!--  <span class="spa1">5年</span> -->
+                            <span class="spa1">18500521769</span>
+                        </p>
+                    </div>
+                    <div class="right">
+                       
+                        <a href=""><p class="p1">本科</p></a>
+                         <a href=""><p class="p1"></p></a>
+                        <a href=""><p class="p2">在职2周内到岗</p></a>
+                    </div>
+                </div>
+
+                <div class="con clearfix">
+                    <div class="left"><span class=""></span></div>
+                    <div class="cen">
+                        <p class="p1">
+                            <span class="p1_sp">冯辉</span>
+                        </p>
+                        <p class="p1">
+                            <em>CTO运营总监</em>
+                        </p>
+                        <p class="p2">
+                            <span class="spa1">北京</span>
+                            <!-- <span class="spa1">5年</span> -->
+                            <span class="spa1">18500521769</span>
+                        </p>
+                    </div>
+                    <div class="right">
+                       
+                        <a href=""><p class="p1">本科</p></a>
+                         <a href=""><p class="p1"></p></a>
+                        <a href=""><p class="p2">在职2周内到岗</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pullUp">
+            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <p>人人猎</p>
+    <p><span>TE：4006-685-596</span><span>京ICP备14040265号-1 </span></p>
+</div>
+
+</body>
+</html>

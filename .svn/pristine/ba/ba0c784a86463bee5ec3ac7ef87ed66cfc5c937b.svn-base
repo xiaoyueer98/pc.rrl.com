@@ -1,0 +1,64 @@
+<?php
+if(!empty($_GET['jobid'])){
+    
+    $arJob = M("job")->where("id=".$_GET['jobid'])->find();
+
+    if(empty($arJob)){
+        header("location:/Home/Webchatnew/job_list");
+        die;
+    }
+    if(empty($arJob['title'])){
+        $arJob['title'] =  getCascList($arJob['Jobcate'], "信息不明");
+    }
+    $jobname = $arJob['title'];
+}
+if(!empty($_GET['jid'])){
+    $arResume = M("resume")->where("id=".$_GET['jid'])->find();
+    if(empty($arResume)){
+        header("location:/Home/Webchatnew/job_list");
+        die;
+    }
+    $resumename = $arResume['username'];
+}
+?>
+
+<ul class="rcmd-steps">
+    <li class="fl-lef m1">
+        <b class="m">第一步</b>
+        <span class="m">选择要推荐的职位</span>
+        <em style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 8em;padding-left:3px;"><?php if(!empty($jobname)){echo $jobname;}?></em>
+    </li>
+    <li class="fl-lef">
+        <b>第二步</b>
+        <span>选择推荐候选人</span>
+        <em><?php if(!empty($resumename)){echo $resumename;}?></em>
+    </li>
+    <li class="fl-lef last">
+        <b>第三步</b>
+        <span>确认推荐</span>
+    </li>
+</ul>
+<include  file='Webchatnew:statistics' />
+<script>
+   
+    if(location.href.indexOf("job_list")!="-1" || location.href.indexOf("job_detail")!="-1"){
+//        $(".rcmd-steps li")[0].className="fl-lef m";
+//        $(".rcmd-steps li")[1].className="fl-lef";
+//        $(".rcmd-steps li")[2].className="fl-lef last";
+    }else if(location.href.indexOf("push_resume")!="-1"){
+        $(".rcmd-steps li")[1].className="fl-lef m";
+        $(".rcmd-steps li b")[1].className="m";
+        $(".rcmd-steps li span")[1].className="m";
+    }else{
+        $(".rcmd-steps li")[1].className="fl-lef m";
+        $(".rcmd-steps li b")[1].className="m";
+        $(".rcmd-steps li span")[1].className="m";
+        
+        $(".rcmd-steps li")[2].className="fl-lef last m";
+        $(".rcmd-steps li b")[2].className="m";
+        $(".rcmd-steps li span")[2].className="m";
+    }
+</script>
+
+
+

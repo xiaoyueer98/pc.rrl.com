@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+	<title>推荐职位</title>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+    <link rel="stylesheet" href="__ROOT__/Public/css/join-us.css">
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect2.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+</head>
+<body>
+	<include file="Public:newHeader"/>
+	<div class="rrl-jianjie clearfix">
+		<div class="left">
+			<div class="content">
+				<ul>
+					<li class="li1 m"><a class="m" href="">关于我们</a></li>
+					<li class="li2"><a href="">用户协议</a></li>
+					<li class="li3"><a href="">用户隐私</a></li>
+					<li class="li4"><a href="">联系我们</a></li>
+					<li class="li5"><a href="">加入我们</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="right">
+			<div class="r-conter" style="margin-top:0;">
+				<div class="jrwm-title"><img src="/Public/img/join-us-img/jrwo-title.png" alt=""></div>
+				<div class="xq clearfix">
+					<ul class="clearfix fl-lef">
+						<li class="clearfix">
+							<em class="dis-inlin fl-lef dis-block">职&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp位：</em>
+							<span class="dis-inlin fl-lef dis-block">线上新媒体推广</span>
+						</li>
+						<li class="clearfix">
+							<em class="dis-inlin fl-lef dis-block">汇报对象：</em>
+							<span class="dis-inlin fl-lef dis-block">线上新媒体推广</span>
+						</li>
+					</ul>
+
+					<ul class="clearfix fl-lef r">
+						<li class="clearfix">
+							<em class="dis-inlin fl-lef dis-block">所属部门：</em>
+							<span class="dis-inlin fl-lef dis-block">线上新媒体推广</span>
+						</li>
+						<li class="clearfix">
+							<em class="dis-inlin fl-lef dis-block">下属人数：</em>
+							<span class="dis-inlin fl-lef dis-block">线上新媒体推广</span>
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+					<h6>岗位职责：</h6>
+					<b>职责</b>
+					<div class="text-con wk">
+						十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实
+					</div>
+
+					<h6>任职资格：</h6>
+					<b>要求</b>
+					<div class="text-con wk">
+						十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实十大范德萨范德萨发大水范德萨发生地方打是事实是事实是事实是事实是事实是事实是事实是事实
+					</div>
+
+					<ul class="clearfix fl-lef">
+						<li class="clearfix">
+							<em class="dis-inlin fl-lef dis-block" style="width:120px;">接收邮箱地址：</em>
+							<span class="dis-inlin fl-lef dis-block" style="width:500px;font-size:12px;line-height:23px;">fenghui@163.com</span>
+						</li>
+						<li class="clearfix">
+							<em class="dis-inlin fl-lef dis-block" style="width:80px;">公司地址：</em>
+							<span class="dis-inlin fl-lef dis-block" style="width:500px;font-size:12px;line-height:23px;">线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广线上新媒体推广</span>
+						</li>
+					</ul>
+					<div class="clearfix">
+						<div class="jiathis_style_24x24 fl-rig" id="shareAction" style="padding: 8px;width: 235px;">
+                            <a class="jiathis_button_qzone" title="分享到QQ空间"><span class="jiathis_txt jtico jtico_qzone"></span></a>
+                            <a class="jiathis_button_weixin" title="分享到微信"><span class="jiathis_txt jtico jtico_weixin"></span></a>
+                            <a class="jiathis_button_tsina" title="分享到新浪微博"><span class="jiathis_txt jtico jtico_tsina"></span></a>
+
+                            <a class="jiathis_button_tqq" title="分享到腾讯微博"><span class="jiathis_txt jtico jtico_tqq"></span></a>
+                            <a class="jiathis_button_renren" title="分享到人人网"><span class="jiathis_txt jtico jtico_renren"></span></a>
+                            <a class="jiathis_button_cqq" title="分享到QQ好友"><span class="jiathis_txt jtico jtico_cqq"></span></a>
+                            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" style="padding:0px!important;  margin-right: -2px;" target="_blank"></a>
+                            <a class="jiathis_counter_style"><span class="jiathis_button_expanded jiathis_counter jiathis_bubble_style" id="jiathis_counter_39" title="累计分享0次">0</span></a>
+                        </div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<include file="Public:newFooter"/>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/plugin.client.js" charset="utf-8"></script>
+</body>
+
+</html>

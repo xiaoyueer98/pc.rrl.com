@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>友情链接-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <body style="background:#f3f2ee">
+        <div class="mask" id="mask"></div> 
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="links">
+            <div class="title">
+                <span class="dis-block fl-lef">Links</span>
+                <em class="dis-block fl-lef">友情链接</em>
+            </div>
+            <ul class="clearfix">
+                <?php foreach($linkArr as $v):?>
+                <li class="fl-lef"><a href="<?php echo $v['linkurl']?>" target='_blank'><?php echo $v['webname']?></a></li>
+                <?php endforeach;?>
+
+
+            </ul>
+            <div class="btn-con clearfix">
+                <span class="btn m"><a href='/'  style='color:#fff;'>访问首页</a></span>
+                <span class="btn"><a href='/Home/Index/search.html'  style='color:#979797;'>高级搜索</a></span>
+            </div>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+</body>
+</html>

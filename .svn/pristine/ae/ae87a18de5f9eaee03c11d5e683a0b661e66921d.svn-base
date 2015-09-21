@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>被推荐人列表</title>
+        <link rel="stylesheet" href="/Public/css/webchat/base.css" />
+        <link rel="stylesheet" href="/Public/css/webchat/jin_.css" />
+        <style>
+                    .fanye{}
+                    .clearfix{}
+                    .fanye p{text-align: center;height:50px;line-height: 50px;font-size:20px;margin-top:20px;}
+                    .fanye ul{margin:auto;text-align:center;margin-bottom:30px;}
+                    .fanye li{display:inline;height:50px;line-height: 50px;font-size:20px;margin-left:20px;}
+
+        </style>
+    </head>
+    <body>
+<!--    <nav id="mod-nav" class="mod-nav" style="position: static;">
+        <div class="nav-con clearfix">
+            <a href="javascript:;" class="nav-back" style="display: inline; -webkit-transform-origin: 0px 0px 0px; opacity: 1; -webkit-transform: scale(1, 1);"><span class="icon">A</span>返回</a>   
+            <h1><span class="page-title">被推荐人列表</span></h1>
+        </div>
+    </nav>-->
+    <div class="searchResult" style="margin-bottom:30px;">
+        <volist name="result" id="vo"  key="k" empty="$empty">  
+        <if condition = "$vo.deadline eq 1">    
+        <div class="resultjobs clearfix">
+            <div>
+                <div class="left select res" id="res{$k}"><input type="hidden" value="{$vo.id}" id="resumeid"></div>
+                <div class="job_title">
+                    <div class="left"style="width:55%"><h3 class="colorhei">{$vo.username}</h3></div>
+                </div>
+                <div class="jobsInfo">
+                    <p style="width:55%">{$vo.statedata}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ytuijian"></span></p>
+                </div>
+            </div>
+        </div>
+        <else />
+        <div class="resultjobs clearfix" >
+            <div  onclick="change({$k})">
+                <div class="left select res" id="res{$k}"><input type="hidden" value="{$vo.id}" id="resumeid"></div>
+                <div class="job_title">
+                    <div class="left"style="width:55%"><h3 class="colorhei">{$vo.username}</h3></div>
+                </div>
+                <div class="jobsInfo">
+                    <p style="width:55%">{$vo.statedata} </p>
+                </div>
+            </div>
+        </div>
+        </if>
+        </volist>
+        
+        <div>{$pageStr}</div>
+        <input type="hidden" value="{$jobid}" id="jobid">
+        <button type="button" class="logininput inputsubmit" id="btn"  disabled="disabled" style="background-color:#ccc;margin-left:-88px;"/>立即推荐</button>
+        <div class="resultjobs clearfix" style="height: 50px;border-bottom:none;"></div>
+        </div>
+        <!--引入尾部元素开始-->
+        <include file="Webchat:footer"/>
+        <!--引入尾部元素结束-->
+        <script type="text/javascript" src="/Public/js/jquery.js"></script>
+        <include file="Webchat:like_alert"/>
+        <script type="text/javascript">
+                var jobid = $("#jobid").val();                
+                $.post("/Home/Webchat/checkSelectUser",{
+                        'jid':jobid,
+                },function (data){
+                    
+                        if(data < 10 &&  "{$emp}"!=1){
+                              $("#btn")[0].style.backgroundColor="#1190f1";
+                              $("#btn")[0].disabled = false;
+                        }
+                },"text");
+                function  change(k){
+                        
+                        $(".res").each(function(i){
+                                $(this)[0].className = "left select res";
+                        })
+                        $("#res"+k)[0].className = "left select res isselect";
+
+                }
+                $("#btn").click(function(){
+                        var jid = $(".isselect").find("#resumeid").val();
+                        if(typeof(jid)=="undefined"){
+                                like_alert("请选择被推荐人");
+                                return;
+                        }
+                        location.href="/Home/Webchat/resume_time/jobid/"+jobid+"/jid/"+jid;
+                })
+        </script>
+    </body>
+</html>

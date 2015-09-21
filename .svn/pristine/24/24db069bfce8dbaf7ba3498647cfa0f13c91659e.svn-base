@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>人人猎</title>
+        <link rel="stylesheet"  href="/Public/css/webchatnew/reset.css">  
+        <link rel="stylesheet"  href="/Public/css/webchatnew/from_wap.css">  
+        <script type="text/javascript" src="/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/Public/js/iscroll.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+        <style>
+            .mask1{
+                position: fixed;
+                z-index: 3;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                opacity: .7;
+                filter: alpha(opacity=70);
+            }  
+        </style>
+    </head>
+    <body>
+    <include file="Webchatnew:like_alert"/> 
+    <div class="mask1" style='display:none'></div>
+    <div class="wx">温馨提示：请在PC端上传附件简历 <i></i></div>
+    <div class="set_wrapper" id="re_wrapper" style="padding-top:20px;">
+        <div id="scroller">
+            <div id="pullDown" style="display:none">
+                <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <div class="con_modify thelist jl" id="thelist" style="background:#efefef;">
+                <ul style="padding-top:10px;background:#ffffff">
+                    <h3>基本设置</h3>
+                    <form action="/Home/Webchatnew/text" method="post" id="form">
+                        <li class="clearfix"><span>姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</span><em>{$data.username}</em><input type="text" name='username' value="{$data.username}"></li>
+                        <li class="clearfix"><span>性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：</span>
+
+                        <if condition="$data.sex eq 1 ">
+                            <span style="width:20px;" class="sp">男</span><label class="nan m" id='nan'></label>
+                            <span style="width:20px;" class="sp">女</span><label class="nan" id='nv'></label>
+                            <input type='hidden' value='1' name='sex' id="sex">
+                            <else />
+                            <span class="sp">男</span><label class="nan" id='nan'></label>
+                            <span class="sp">女</span><label class="nan m" id='nv'></label>
+                            <input type='hidden' value='0' name='sex' id="sex">
+                        </if>
+                        </li>
+
+                        <li class="clearfix"><span>年&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp龄：</span><em>{$data.age}</em><input type="text" name='age' value="{$data.age}"></li>
+                        <li class="clearfix"><span>邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱：</span><em>{$data.email}</em><input type="text" name='email' value="{$data.email}"></li>
+                        <li class="clearfix"><span>Q&nbspQ号码：</span><em>{$data.qqnum}</em><input type="text" name='qqnum' value="{$data.qqnum}"></li>
+
+                        <li class="clearfix">
+                            <span>在职状态：</span>
+                            <!--<em></em>-->
+                            <select  name="state"  id="statesel" <!--style="display:none;"-->>
+                                     <php>foreach($stateArr as $k => $v){</php>
+                                <if condition="$v.datavalue eq $data.state ">
+                                    <option value="{$v.datavalue}" selected='selected'>{$v.dataname}</option>
+                                    <else />
+                                    <option value="{$v.datavalue}">{$v.dataname}</option>
+                                </if>
+                                <php>}</php>
+                            </select>
+                        </li>
+                        <li class="clearfix"><span>联系电话：</span><em>{$data.mobile}</em><input type="text" name='mobile' value='{$data.mobile}'></li>
+                </ul>	
+                <ul style="margin-top:10px;background:#ffffff">
+                    <li class="clearfix"><span>期望职位：</span><em><if condition="$data.keyword eq ''"><label style='color:#909090;'>请填写关键词，如php、java、前端等</label><else />{$data.keyword}</if></em><input type="text" name='keyword' value="{$data.keyword}"></li>
+                    <li id="personal"><span>自我评价：</span>{$data.personal}<input type="hidden" name='personal' value='{$data.personal}'></li>
+                    <li id="edu"><span>教育经历：</span>{$data.edu}<input type="hidden" name='edu' value='{$data.edu}'></li>
+                    <li id="exper"><span>工作经验：</span>{$data.exper}<input type="hidden"  name="exper" value='{$data.exper}'></li>
+                    <li id="zige"><span>资格证书：</span>{$data.zige}<input type="hidden"  name="zige" value='{$data.zige}'></li>
+                    <li id="because"><span>推荐理由：</span>{$data.because}<input type="hidden"  name="because" value='{$data.because}'></li>
+
+
+                    <input type="hidden" value="" name="type"/>
+                    <input type="hidden" value="" name="desc"/>
+                </ul>	
+                </form>
+                <ul>
+                    <li style="padding:0;padding-bottom:10px;border:none;"><button class="modify" id='savebtn'>保存</button></li>
+                </ul>
+            </div>
+            <div id="pullUp" style="display:none;">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+
+        </div>
+    </div>
+    <!--上传成功提示有几个职位与之匹配提示框-->
+   
+    <div style="display:none;" id="tip_kuang">
+        <div class="tanchu">
+            <dl>
+                <dd id="success_title">简历上传成功，现有<b style="color:red;" id="jobcount">&nbsp;8&nbsp;</b>个职位跟该候选人匹配</dd>
+                <dd>
+                    <a href="/Home/Webchatnew/job_list"><button id="go" style="font-size: 14px;width: 100px;">去看看</button></a>
+                    <a href="/Home/Webchatnew/upresume_info">
+                        <button id="no" style="margin-right:15px;width: 100px;background: #ffffff;color: #2380b8;font-size: 14px;border: none;outline: medium;border-radius: 5px;float: right;border: 2px #2380b8 solid;">返回</button>
+                    </a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <script>
+
+       
+        $("#nan").click(function () {
+
+            if (this.className == "nan m") {
+
+                $("#sex").val("0");
+                $("#nv")[0].className = "nan m";
+                this.className = "nan";
+            }
+        })
+        $("#nv").click(function () {
+
+            if (this.className == "nan m") {
+
+                $("#sex").val("1");
+                $("#nan")[0].className = "nan m";
+                this.className = "nan";
+
+            }
+        })
+        $("#savebtn").click(function () {
+
+            $("#savebtn")[0].disabled = true;
+            var username = $('[name="username"]').val();
+            var sex = $('[name="sex"]').val();
+            var age = $('[name="age"]').val();
+            var email = $('[name="email"]').val();
+            var qqnum = $('[name="qqnum"]').val();
+            var state = $('[name="state"]').val();
+            var mobile = $('[name="mobile"]').val();
+            var personal = $('[name="personal"]').val();
+            var edu = $('[name="edu"]').val();
+            var exper = $('[name="exper"]').val();
+            var zige = $('[name="zige"]').val();
+            var because = $('[name="because"]').val();
+            var keyword = $('[name="keyword"]').val();
+           
+            if (username == "" || age == "" || email == "" || qqnum == "" || mobile == "" || personal == "" || edu == "" || exper == "" || zige == "" || because == "" || keyword == "") {
+                like_alert("请完善简历信息");
+                $("#savebtn")[0].disabled = false;
+                return;
+            }
+            if (isNaN(age)) {
+                like_alert("请输入正确的年龄");
+                $("#savebtn")[0].disabled = false;
+                return;
+            }
+            if ($.trim(email).length<6 || $.trim(email).indexOf("@")===-1 || $.trim(email).indexOf(".com")===-1) {
+                like_alert("请输入正确的邮箱");
+                $("#savebtn")[0].disabled = false;
+                return;
+            }
+            if (isNaN(qqnum) || qqnum.length < 6) {
+                like_alert("请输入正确的qq号码");
+                $("#savebtn")[0].disabled = false;
+                return;
+            }
+            var reg = /^1[0-9]{10}$/;
+            if (!reg.test(mobile)) {
+                like_alert("请输入正确的手机号码");
+                $("#savebtn")[0].disabled = false;
+                return;
+            }
+
+
+            $.post("/Home/Webchatnew/add_resume_save", {
+                'username': username,
+                'sex': sex,
+                'age': age,
+                'email': email,
+                'qqnum': qqnum,
+                'state': state,
+                'mobile': mobile,
+                'personal': personal,
+                'edu': edu,
+                'exper': exper,
+                'zige': zige,
+                'because': because,
+                'keyword': keyword
+            }, function (data) {
+
+                if (data.code == "200") {
+                    $('[name="username"]').val("");
+                    $('[name="sex"]').val("0");
+                    $('[name="age"]').val("");
+                    $('[name="email"]').val("");
+                    $('[name="qqnum"]').val("");
+                    $('[name="state"]').val("");
+                    $('[name="mobile"]').val("");
+                    $('[name="personal"]').val("");
+                    $('[name="edu"]').val("");
+                    $('[name="exper"]').val("");
+                    $('[name="zige"]').val("");
+                    $('[name="because"]').val("");
+                    $('[name="keyword"]').val("");
+                    //re_like_alert(data.msg);
+
+                    lo_like_alert("简历添加成功", "/Home/Webchatnew/job_list");
+                } else if (data.code == "300") {
+                    $('[name="username"]').val("");
+                    $('[name="sex"]').val("0");
+                    $('[name="age"]').val("");
+                    $('[name="email"]').val("");
+                    $('[name="qqnum"]').val("");
+                    $('[name="state"]').val("");
+                    $('[name="mobile"]').val("");
+                    $('[name="personal"]').val("");
+                    $('[name="edu"]').val("");
+                    $('[name="exper"]').val("");
+                    $('[name="zige"]').val("");
+                    $('[name="because"]').val("");
+                    $('[name="keyword"]').val("");
+
+                    var pos = data.msg.indexOf(",");
+                    var jobcount = data.msg.substr(0, pos);
+                    $("#jobcount").text(jobcount);
+                    $(".mask1").show();
+                    $("#tip_kuang").show();
+                } else {
+                    like_alert(data.msg);
+                    $("#savebtn")[0].disabled = false;
+                    return;
+                }
+            }, "json");
+        })
+
+        $('.jl ul li em').on('click', function () {
+            $(this).hide();
+            $(this).nextAll().show();
+        })
+
+        $("#personal").click(function () {
+
+            to_text("personal", "自我评价");
+        })
+        $("#edu").click(function () {
+
+            to_text("edu", "教育经历");
+        })
+        $("#exper").click(function () {
+
+            to_text("exper", "工作经验");
+        })
+        $("#zige").click(function () {
+
+            to_text("zige", "资格证书");
+        })
+        $("#because").click(function () {
+
+            to_text("because", "推荐理由");
+        })
+
+
+        function  to_text(type, desc) {
+
+            $("[name='type']").val(type);
+            $("[name='desc']").val(desc);
+            $("#form")[0].submit();
+
+        }
+
+
+        $(".wx i").click(function(){
+            $(this).parent().hide();
+            $("#re_wrapper").css({"padding-top":"0px"})
+        })
+
+        $("input").click(function(){
+                if(document.activeElement.tagName == 'INPUT'){
+                    $(".wx").css({'position': 'absolute','top':'0'}); 
+                } else if(document.activeElement.tagName !== 'INPUT'){  
+                    $(".wx").css('position', 'fixed');
+                }
+            })
+    </script>
+</body>
+</html>

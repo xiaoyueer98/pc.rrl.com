@@ -1,0 +1,33 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我们</title>
+    <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+    <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+    <link rel="stylesheet"  href="/Public/css/webchatnew/reset.css">  
+    <link rel="stylesheet"  href="/Public/css/webchatnew/from_wap.css">  
+    <script type="text/javascript" src="/Public/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/Public/js/iscroll.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+</head>
+<body>
+	<div class="about-us">
+		<div class="div-img">
+			<img src="/Public/img/about-head.png" alt="">
+		</div>
+		<div class="div-img">
+			<img src="/Public/img/about-banner.png" alt="">
+		</div>
+		<p><b>人人猎</b> 是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在<i>7</i>天内搞定招聘需求、<b>招到</b>靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到<b>匹配</b>的工作。</p>
+		<p><b>人人猎</b> 核心团队由来自百度、搜狐等知名互联网公司的互联网资深人士，及有10多年猎头从业经验的人才招聘行业专家组成。</p>
+		<p><b>人人猎</b> 成立之初，相继获得知名投资人的种子资金和天使轮投资。人人猎以“简单、诚实、可靠”为企业理念，以“避免互联网创业企业长久招不到靠谱的人而受损失，帮助候选人加入最匹配的团队，<b>让猎头和HR等推荐人的每个面试都有现金回报</b>”为宗旨，以追求“极佳效果和服务”为始终如一的目标。</p>
+		<div class="div-img">
+			<img src="/Public/img/about-foot.png" alt="">
+		</div>
+	</div>
+</body>
+</html>

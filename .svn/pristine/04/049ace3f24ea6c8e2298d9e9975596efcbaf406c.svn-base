@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+    <head>
+        <meta charset="UTF-8">
+        <title>加入我们-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <meta property="qc:admins" content="150127217762562564156375" />
+        <meta property="wb:webmaster" content="b6b76a15352cdde2" />
+        <meta name="alexaVerifyID" content="VB4cVOEzvCsBEyKXNC4PQDYyV34"/>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+     
+  
+    <div class="center">
+       
+        <div class="joinus joinus2">
+            <ul>
+                <h3>任职资格：</h3>
+                <li>你说我是PPT小能手我不爱听，</li>
+                <li>敢说我文案有问题我和你拼命；</li>
+                <li>品牌都是瞎，公关都是渣，</li>
+                <li>活动落地飞奔蹭蹭蹭我一个顶三；</li>
+                <li>有人模仿我的点，</li>
+                <li>有人偷吃我的面，</li>
+                <li>呵呵，只有灵光的脑子最能变现；</li>
+                <h3 style="margin-bottom:0;height:15px;overflow:hidden;">&nbsp</h3>
+                <li>预算在手，天下我有！</li>
+                <li>人人猎热血传奇时代，等你来！</li>
+                <h3 style="margin-top:50px">工作地点：</h3>
+                <li>北京西二旗，临近地铁站，随时等你来。</li>
+                <h3 style="margin-top:50px">接收简历：</h3>
+                <li>hr@renrenlie.com。</li>
+                <li><center>
+                    <!-- JiaThis Button BEGIN -->
+                    <!--  <b><img src="__ROOT__/Public/img/jt_up.png" alt=""></b> -->
+                    <div class="jiathis_style_24x24" id="shareAction" style="margin-left: 150px">
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_tqq"></a>
+                        <a class="jiathis_button_renren"></a>
+                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" style="padding:0px!important;  margin-right: -2px;" target="_blank"></a>
+                        <a class="jiathis_counter_style" style="margin-right: 35px;"></a>
+                    </div>
+
+                    <!-- JiaThis Button END -->
+                </center>
+                </li>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+            </ul>
+        </div>
+      
+    </div>
+  
+<script >
+    var jiathis_config = {
+        imageWidth: 26,
+        marginTop: 150,
+        url: "http://www.renrenlie.com/Home/Index/jobresponsibilities2.html",
+        title: "加入我们-人人猎",
+        summary: "人人猎由曾在百度、搜狐等知名互联网公司工作的资深互联网人士成立，已获2轮融资。目前已有近千家北京地区互联网公司入驻、近2万推荐人，绝大部分职位发布后一周内发出offer，是中国首家真正用互联网思维解决招聘瓶颈的知名招聘平台。",
+        pic: "__ROOT__/Public/img/logo.png"
+    }
+
+</script> 
+</body>
+
+</html>

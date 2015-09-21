@@ -1,0 +1,76 @@
+<div class="m2-l fl-lef">
+    <a href='/Home/Login/userinfo.html'>
+        <div class="odiv hover-hand <?php if($first_class == 1):?><?php echo 'm';?><?php endif;?>">
+            <span>1</span>
+            <h6 class="tit1<?php if($first_class == 1):?> m<?php endif;?>">完善资料
+                <?php if($leftNavCompleted['userinfo_completed'] === true):?>
+                <em class="m"></em>
+                <?php endif;?>
+            </h6>
+            <p class="tx<?php if($first_class == 1):?> m<?php endif;?>">完成之后可以推荐候选人</p>
+        </div>
+    </a>
+    <a href='/Home/Login/Recommended.html'>
+        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+        <div class="odiv odiv2 hover-hand <?php if($first_class == 2):?><?php echo 'm';?><?php endif;?>">
+            <span>2</span>
+            <h6 class="tit2<?php if($first_class == 2):?> m<?php endif;?>">维护候选人
+            <?php if($leftNavCompleted['resume_completed'] === true):?>
+            <em class="m"></em>
+            <?php endif;?>
+            </h6>
+            <p class="jlk<?php if($first_class == 2):?> m<?php endif;?>">(简历库)</p>
+            <p class="tx<?php if($first_class == 2):?> m<?php endif;?>">上传优质简历，坐等收钱</p>
+            <a href="/Home/Login/Recommended/act/addResume.html" class="j"></a>
+        </div>
+
+    </a>
+    <a href='/Home/Login/JobSearch.html'>
+        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+        <div class="odiv hover-hand <?php if($first_class == 3):?><?php echo 'm';?><?php endif;?>">
+            <span>3</span>
+            <h6 class="tit3<?php if($first_class == 3):?> m<?php endif;?>">推荐职位
+            <?php if($leftNavCompleted['record_completed'] === true):?>
+            <em class="m"></em>
+            <?php endif;?>
+           </h6>
+            <p class="tx<?php if($first_class == 3):?> m<?php endif;?>">查看职位，再推荐候选人</p>
+        </div>
+    </a>
+    <a href='/Home/Login/Recording.html'>
+        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+        <div class="odiv hover-hand <?php if($first_class == 4):?><?php echo 'm';?><?php endif;?>">
+            <span>4</span>
+            <h6 class="tit4<?php if($first_class == 4):?> m<?php endif;?>">跟踪状态
+            <?php if($leftNavCompleted['record_completed'] === true):?>
+            <em class="m"></em>
+            <?php endif;?>
+            </h6>
+            <p class="tx<?php if($first_class == 4):?> m<?php endif;?>">时时关注候选人面试状态</p>
+        </div>
+    </a>
+
+    <a href='/Home/Login/DetailsFunds.html'>
+        <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+        <div class="odiv hover-hand <?php if($first_class == 5):?><?php echo 'm';?><?php endif;?>">
+            <span>5</span>
+            <h6 class="tit5<?php if($first_class == 5):?> m<?php endif;?>">查看收益
+            <?php if($leftNavCompleted['money_completed'] === true):?>
+            <em class="m"></em>
+            <?php endif;?>
+            </h6>
+            <p class="tx<?php if($first_class == 5):?> m<?php endif;?>">候选人入职后便得收益</p>
+        </div>
+    </a>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function(e){
+        $(".m2-l .odiv2").on("mouseenter",function(){
+           $(this).find(".j").show();
+        });
+        $(".m2-l .odiv2").on("mouseleave",function(){
+            $(this).find(".j").hide();
+        });
+    })
+</script>

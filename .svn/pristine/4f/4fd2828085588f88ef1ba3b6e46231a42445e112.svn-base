@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>资金明细-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.ui.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/index.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicsdon.ico" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/smoothness/jquery.ui.css" type="text/css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/style.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="ra">
+                <div class="ra_top">
+                    <h3>收款账号</h3>
+                    <div class="ra-cn">
+                        <div class="content" id="content1" style="display:none;">
+                            <h4>我的账号</h4>
+                            <form action="" method="">
+                                <dl>
+                                    <dt><img src="__ROOT__/Public/img/ra_icon.png" alt=""></dt>
+                                    <dd>
+                                        <p><em>收款银行：</em><input type="text" id="bankname" value="{$info['bankname']}"></p>
+                                        <p><em>收款账号：</em><input type="text" value="{$info['banknumber']}" id="banknumber"  onkeyup="value = value.replace(/[^\d]/g, '')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" maxlength="19"></p>
+                                    </dd>
+                                </dl>
+                                <input type="button" class="btn_xg cur_point" id="btn_xg2" value="保存" onclick="addbackinfo()">
+                            </form>
+                        </div>
+                        <div class="content" id="content2">
+                            <h4>我的账号</h4>
+                            <dl>
+                                <dt><img src="__ROOT__/Public/img/ra_icon.png" alt=""></dt>
+                                <dd>
+                                    <p><em>收款银行：</em><span id="rbankname">{$info['bankname']}</span></p>
+                                    <p><em>收款账号：</em><span id="rbanknumber">{$info['banknumber']}</span></p>
+                                </dd>
+
+                            </dl>
+                            <input type="button" class="btn_xg cur_point" id="btn_xg1" value="修改">
+                        </div>
+                    </div>
+                </div>
+                <div class="recoml_btm">
+                </div>
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+<script type="text/javascript">
+    function addbackinfo()
+    {
+        var bankname = $("#bankname").val();
+        var banknumber = $("#banknumber").val();
+        if (!bankname) {
+            sys_window("请输入收款银行！");
+            return false;
+        } else if (!banknumber) {
+            sys_window("请输入收款账号！");
+            return false;
+        }
+        $.ajax({
+            url: "__URL__/addbackinfo",
+            type: "post",
+            data: {"bankname": bankname, "banknumber": banknumber},
+            success: function(backmsg)
+            {
+                if (backmsg == "ok")
+                {
+                    window.location.reload();
+                }
+            }
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成功注册</title>
+	<script type="text/javascript" src="/Public/js/webchat/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="/Public/js/webchat/iscroll.js"></script>
+	<link rel="stylesheet"  href="/Public/css/webchat/reset.css">
+	<link rel="stylesheet"  href="/Public/css/webchat/wechat.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<script type="text/javascript">
+		document.addEventListener("touchmove",function(e){
+			e.preventDefault();
+		},false);
+		$( document ).ready(function(e){
+			var myScroll = new IScroll('#wamp', { mouseWheel: true, click: true });
+		})
+	</script>
+</head>
+<body>
+<div id="container">
+	
+	<section id="wamp">
+		<div class="scroll">
+			<div class="er">
+				<h3>恭喜你注册成功</h3>
+				<div><img src="/Public/images/webchat/erweima_img.png" alt=""></div>
+				<h4>注册并关注人人猎</h4>
+				<h4>赢取<b>红包</b>机会</h4>
+				<button><a href="/Home/Redpackage/redpackage" style="color:#fff">立即领取</button>
+			</div>
+		</div>
+	</section>
+	<footer></footer>
+        
+</div>
+<include file="Webchat:statistics">
+</body>
+</html>

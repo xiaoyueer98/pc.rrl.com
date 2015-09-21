@@ -1,0 +1,69 @@
+@import "reset.css";
+
+
+.header{width: 100%; background-color:#f5f5f5;}
+.logo{float: left;}
+.logo img {padding-top: 5px;}
+.bt{line-height: 72px;float: right;}
+.bt a{cursor: pointer;color: #999999;display: block;float: left;margin-right: 20px;}
+.top{width: 1002px;height: 80px;margin:  0 auto;background-color: #f5f5f5;}
+
+#hhService{width: 74px;height: 160px;background-color: #f2f2f2;border: 1px solid #d4d4d4;}
+#hhService ul li{ height: 80px;text-align: center;cursor: pointer;}
+
+#hhService ul li img{vertical-align: middle;  padding-top: 12px;}
+.qqjt{width: 240px;height: 180px;background-color: #f5f5f5;position: absolute;right: 89px;top:20px;border: 1px solid #e1e1e1;display: none;}
+.qqjt h3{height: 110px;line-height: 50px;font-size: 16px;font-family:"微软雅黑"; font-weight: bold; text-align: justify; padding-left: 10px;}
+.qqjt h3 a{display: block; margin-bottom:5px;width: 102px;height: 24px;float: right; padding-right: 50px;}
+.qqjt h2{height: 38px;line-height: 38px;font-size: 16px;font-family: "微软雅黑";font-weight:bold; text-align: justify;padding-left: 10px;border-top: 1px solid #e1e1e1;}
+.qqjt h4{text-align: justify;padding-left: 10px;font-family: "微软雅黑"; font-size: 16px;}
+.qqjt i{
+    border-top: 10px solid transparent;
+    border-left: 15px solid #f5f5f5;
+    border-bottom: 10px solid transparent;
+    display: block;
+    position: absolute;
+    right: -15px;
+    top: 10px;
+    z-index: 999;
+}
+.qqjt b{
+    display: block;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #e1e1e1;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    right: -16px;
+    top: 10px;
+    z-index: 1;
+}
+.bohao{width: 240px;height: 100px;background-color: #f5f5f5;position: absolute;right: 89px;top:80px;border: 1px solid #e1e1e1;display: none;}
+.bohao h3{height: 38px;line-height: 40px;font-size: 16px;font-family:"微软雅黑";font-weight: bold; text-align: justify; padding-left: 10px;}
+.bohao h2{height: 38px;line-height: 38px;font-size: 16px;font-weight: bold; text-align: justify;padding-left: 10px;border-top: 1px solid #e1e1e1;}
+.bohao p{ padding-left: 20px;line-height: 24px; font-family: "微软雅黑";font-size: 14px}
+.bohao h4{text-align: justify;padding-left: 10px;font-family: "微软雅黑";font-size: 14px;}
+.bohao h3 span{color: #ffaa00; font-weight: normal;}
+.bohao i{
+    border-top: 10px solid transparent;
+    border-left: 15px solid #f5f5f5;
+    border-bottom: 10px solid transparent;
+    display: block;
+    position: absolute;
+    right: -15px;
+    top: 10px;
+    z-index: 999;
+}
+.bohao b{
+    display: block;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #e1e1e1;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    right: -16px;
+    top: 10px;
+    z-index: 1;
+}
+
+.yincangli{
+    display: block;
+}

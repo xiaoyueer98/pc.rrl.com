@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>人人猎-用户中心</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/lanrenzhijia2.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-company-common.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".mySelect3").styleSelect({styleClass: "selectFruits", optionsWidth: 1, speed: 'fast'});
+                $(".down-menu").styleSelect({styleClass: "selectDark"});
+            });
+        </script>
+    </head>
+    <body>
+    <include file="Public:newHeader"/>
+
+    <div class="wrap">
+        
+        <div class="ms2 clearfix" style="background:#fff;">
+
+            <div class="m2-l fl-lef">
+				<div class="login-neitv m" style="padding:0;height: 80px;padding-top: 10px;padding-left: 5px;margin-bottom:10px">
+					<span class="img img-l m"></span>
+					<span class="con m">推荐人用户中心</span>
+					<span class="img m"></span>
+				</div>
+				<include file="Public:company_menu_left"/>
+			</div>
+            <div class="m2-r fl-rig">
+                <div class="rcmd-login">
+                    <div class="head">
+                        <dl>
+                            <dt class="dis-inlin dis-block fl-lef">
+                            <?php if($cuserinfo['thumlogo']):?>
+                            <img src="<?php echo $cuserinfo['thumlogo']?>" alt="">
+                            <?php else:?>
+                            <img src="/Public/img/rcmd-img/tx.png" alt="">
+                            <?php endif;?>
+                            </dt>
+                            <dd class="dis-inlin dis-block fl-lef">
+                                <div class="clearfix"><span class="dis-inlin dis-block fl-lef">用户名：</span><em class="dis-inlin dis-block fl-lef"><?php echo $cuserinfo['username']?></em></div>
+                                <div class="clearfix"><span class="dis-inlin dis-block fl-lef">手&nbsp&nbsp&nbsp&nbsp机：</span><em class="dis-inlin dis-block fl-lef"><?php echo $cuserinfo['mobile']?></em></div>
+                                <div class="clearfix"><span class="dis-inlin dis-block fl-lef">邮&nbsp&nbsp&nbsp&nbsp箱：</span><em class="dis-inlin dis-block fl-lef"><?php echo $cuserinfo['email']?></em></div>
+                            </dd>
+                        </dl>
+                        <span class="date"><?php echo $regTime;?></span>
+                        <span class="date2">天</span>
+                    </div>
+                    <div class="rcmdlogin-con1" style='min-height: 0;'>
+                        <div class="t clearfix">
+                            <span class="dis-block dis-inlin fl-lef span1"></span>
+                            <em class="dis-block dis-inlin fl-lef">任务</em>
+                        </div>
+                        <ul style='list-style: decimal;margin-left:50px;'>
+                            <?php if($leftNavCompleted['userinfo_completed'] && $leftNavCompleted['contract_completed'] && $leftNavCompleted['job_completed'] && !$record_completed):?>
+                            <li>暂无任务；</li>
+                            <?php else:?>
+                            <?php if(!$leftNavCompleted['userinfo_completed']):?>
+                            <li><a href='/Home/Company/EnterpriseInformation.html' style='color:#000;'>企业基本资料需要完善，马上去完善吧；</a></li>
+                            <?php endif;?>
+                            <?php if(!$leftNavCompleted['contract_completed']):?>
+                            <li><a href='/Home/Company/SignContract.html' style='color:#000;'>还没有签订合同，马上去签订吧；</a></li>
+                            <?php endif;?>
+                            <?php if(!$leftNavCompleted['job_completed']):?>
+                            <li><a href='/Home/Company/SendJob.html' style='color:#000;'>您还没发布职位哦，赶快去发布吧；</a></li>
+                            <?php endif;?>
+                            <?php if($record_completed):?>
+                            <li><a href='/Home/Company/ResumeList.html' style='color:#000;'>查看候选人简历；</a></li>
+                            <?php endif;?>
+                            <?php endif;?>
+                        </ul>
+                    </div>
+
+                    <div class="rcmdlogin-con1">
+                        <div class="t clearfix">
+                            <span class="dis-block dis-inlin fl-lef span4"></span>
+                            <em class="dis-block dis-inlin fl-lef">人才</em>
+                        </div>
+                        <ul>
+                            <li class="clearfix"><span>1.候选人简历：</span><a href="/Home/Company/ResumeList.html"><b><?php echo $resumeCount?></b></a>份</li>
+                            <li class="clearfix"><span>2.发 布 职 位：</span><a href="/Home/Company/SendJob/act/joblist.html"><b><?php echo $jobCount?></b></a>个</li>
+                            <li class="clearfix"><span>3.累积支付费用：</span><a href="/Home/Company/toBePaid/act/oldPaid.html"><b><?php echo $sumFee;?></b></a>元</li>
+                            <li class="clearfix"><span>4.累积入职人数：</span><a href="/Home/Company/ResumeList.html"><b><?php echo $isSucCount;?></b></a>个</li>
+                        </ul>
+                    </div>
+
+                    <div class="rcmdlogin-con1">
+                        <div class="t clearfix">
+                            <span class="dis-block dis-inlin fl-lef span3"></span>
+                            <em class="dis-block dis-inlin fl-lef">进程</em>
+                        </div>
+                        <ul>
+                            <li class="clearfix"><span>1.新收到的候选人简历：</span><a href="/Home/Company/ResumeList.html"><b><?php echo $newRecordCount; ?></b></a>个</li>
+                            <li class="clearfix"><span>2.进入待付款状态的候选人：</span><a href="/Home/Company/toBePaid/act/newPaid.html"><b><?php echo $isSinkCount; ?></b></a>个</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+    <script type="text/javascript">
+        $(".step1 .input-list h3 .sousuo").click(function () {
+            $(".step1 .input-list h3 em").text("搜索要推荐的职位");
+            $(".job-list").show();
+            $(".track-state").hide();
+            if ($(this).hasClass("current")) {
+                $(".step1 .input-list .myul").slideUp();
+                $(".step1 .m-input").slideDown();
+                $(this).removeClass("current").removeClass("m");
+                $(".job-list").show();
+                $(".track-state").hide();
+            } else {
+                $(".step1 .input-list .myul").slideDown();
+                $(".step1 .m-input").slideUp();
+                $(this).addClass("current").addClass("m")
+            }
+            ;
+        });
+        $(".step1 .input-list h3 .position-ollection-btn").click(function () {
+            $(".step1 .m-input").hide();
+            $(".step1 .input-list .myul").hide();
+            $(".track-state").show();
+            $(".job-list").hide();
+            $(".step1 .input-list").css({"border": "none"});
+            $(".step1 .input-list h3 em").text("收藏的职位")
+        })
+        /* 当鼠标移到表格上是，当前一行背景变色 */
+        $(document).ready(function () {
+            $(".data_list tr td").mouseover(function () {
+                $(this).parent().find("td").css("background-color", "#eee");
+            });
+        })
+        /* 当鼠标在表格上移动时，离开的那一行背景恢复 */
+        $(document).ready(function () {
+            $(".data_list tr td").mouseout(function () {
+                var bgc = $(this).parent().attr("bg");
+                $(this).parent().find("td").css("background-color", bgc);
+            });
+        })
+        $(document).ready(function () {
+            var color = "#fafafa"
+            $(".data_list tr:odd td").css("background-color", color);  //改变偶数行背景色
+            /* 把背景色保存到属性中 */
+            $(".data_list tr:odd").attr("bg", color);
+            $(".data_list tr:even").attr("bg", "#fff");
+        })
+    </script>
+</body>
+
+</html>

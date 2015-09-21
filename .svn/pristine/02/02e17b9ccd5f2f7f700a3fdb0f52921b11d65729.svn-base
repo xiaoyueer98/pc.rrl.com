@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>跟踪状态-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/record-common.js"></script>
+    </head>
+    <body>
+        <div class="mask" id="mask"></div>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>推荐人用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:record_menu_left"/>
+            <div class="m2-r fl-rig">
+                <ul class="nav nav2">
+                    <li class="m dis-block dis-inlin fl-lef"><a class="m" href='/Home/Login/Recording.html'>正在推荐</a></li>
+                    <li class="dis-block dis-inlin fl-lef"><a  href='/Home/Login/Recorded.html'>历史推荐</a></li>
+                </ul>
+
+
+                <div class="recommending track-state" style="display:block">
+                    <div class="con"  <?php if(empty($arRecordList)):?>style='padding-bottom: 0px;border-bottom:none;'<?php endif;?>>
+                         <table style="width:689px;" class="data_list">
+                            <tbody>
+                                <tr class="t">
+                                    <th>序号</th>
+                                    <th class="header-name hover-hand <?php echo $orderw?>">姓名<span class="<?php echo $ordern?>" <?php if(empty($arRecordList)){echo " style='display:none'";}?>></span></th>
+                                    <th>推荐公司</th>
+                                    <th>推荐职位</th>
+                                    <th>推荐进度</th>
+                                    <th>可面试时间</th>
+                                    <th>推荐费（元）</th>
+                                    <th>总招聘人数</th>
+                                </tr>
+                                <tr  style='border:none;height:10px!important;'><td  style='border:none;height:10px!important;'></td></tr>
+                                <?php if(!empty($arRecordList)):?>
+                                <?php foreach($arRecordList as $arRecordInfo):?>
+                                <tr>
+                                    <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;"><?php echo $arRecordInfo['sort_id'];?></td>
+                                    <td class="wh85 wk table-text-left"><?php echo $arRecordInfo['username'];?></td>
+                                    <td class="wh152 wk table-text-left"><a href="/Home/Index/EnterIndex/comid/<?php echo $arRecordInfo['cpid'];?>.html"><?php echo $arRecordInfo['cpname'];?></a></td>
+                                    <td class="wh152 wk table-text-left position-name" style="position:relative">
+                                        <a href="/Home/Index/EnterIndex2/comid/<?php echo $arRecordInfo['cpid'];?>/jobid/<?php echo $arRecordInfo['j_id'];?>.html"><?php echo $arRecordInfo['Jobcate'];?></a>
+                                        <?php if(intval($arRecordInfo['audstart_status'])>3 && intval($arRecordInfo['audstart_status']) !=8):?>
+                                        <img src="__ROOT__/images/ntice3.png" class="img-btn hover-hand"  onclick="commentDiv('<?php echo $arRecordInfo[id];?>')">
+                                        <?php endif;?>
+                                    </td>
+                                    <?php if($arRecordInfo['notice_list']):?>
+                                    <td class="wh124 wk shenhed hover-hand" style="position:relative" tid="<?php echo $arRecordInfo['id'];?>" onclick="showDisMsg('<?php echo $arRecordInfo[disreason];?>')">
+                                        <?php echo $arRecordInfo['status'];?>
+                                        <img src="__ROOT__/images/ntice2.png" class="img-btn hover-hand" style='bottom: 2px;position: absolute;right: 2px;' onclick="commentDiv('<?php echo $arRecordInfo[id];?>')"/>
+                                    </td>
+                                    <?php else:?>
+                                    <td  class="wh124 wk"> <?php echo $arRecordInfo['status'];?></td>
+                                    <?php endif;?>
+                                    <td class="wh96 wk table-text-left"><?php echo $arRecordInfo['audstartdate'];?></td>
+                                    <td class="wh85 wk"><?php echo $arRecordInfo['Tariff'];?></td>
+                                    <td class="wh85 wk"><?php echo $arRecordInfo['employ'];?></td>
+                                </tr>
+                                <?php if($arRecordInfo['notice_list']):?>
+                            <tbody class="state" id="state_<?php echo $arRecordInfo['id'];?>">
+                                <?php foreach($arRecordInfo['notice_list'] as $key=>$noticeList):?>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td class="wh168 wk" colspan="2"><?php echo date("Y-m-d H:i",$noticeList['created_at']);?></td>
+                                    <td class="prompt">
+                                        <b></b><i <?php if($key ===0):?>class="m"<?php endif;?>></i>
+                                    </td>
+                                    <td class="wh220 wk" colspan="4"><?php echo $noticeList['content'];?></td>
+                                </tr>
+                                <?php endforeach;?>
+                            </tbody>
+                            <?php endif;?>
+                            <?php if(intval($arRecordInfo['audstart_status'])>3):?>
+                            <tbody class="state2" id="comment_<?php echo $arRecordInfo['id'];?>">
+                                <tr>
+                                    <td colspan="8">
+                                        <textarea id="content_<?php echo $arRecordInfo['id'];?>" placeholder="请输入您对该职位的评价（小提示：人人猎平台会对您的个人信息保密，请合理做出评价。）" placeholder="" name="personal" id="audstartdate" tabindex="13"><?php echo $arRecordInfo['comment'];?></textarea>
+                                    </td>
+                                </tr>
+                                <?php if(!$arRecordInfo['comment']):?>
+                                <tr>
+                                    <td colspan="8"><span class="fbpl hover-hand my-btn" onclick="comment('<?php echo $arRecordInfo[id]; ?>' )">发表评论</span></td>
+                                </tr>
+                                <?php endif;?>
+                            </tbody> 
+
+                            <?php endif;?>
+                            <tr  style='border:none;height:5px!important;'><td  style='border:none;height:5px!important;'></td></tr>
+                            <?php endforeach;?>
+                            <?php else:?>
+                            <tr >
+                                <td  class="wk" colspan="8" ><b>暂无记录</b></td>
+                            </tr>
+                            <?php endif;?>
+                            </tbody>
+                        </table>
+                        <?php echo $page;?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+    <script>
+        function showDisMsg(msg) {
+            // sys_window(msg);
+        }
+        $(function() {
+            $(".shenhed").click(function() {
+                var id = $(this).attr("tid");
+                $(".state").hide(100);
+                $(".state2").hide(100);
+
+                if ($("#state_" + id).css("display") == "none") {
+                    $("#state_" + id).show(100);
+                } else {
+                    $("#state_" + id).hide(100);
+                }
+            });
+        });
+        $(".header-name").click(function(){
+          
+             if($(this).hasClass("current")){
+                //倒序
+                location.href = "/Home/Login/Recording/order/desc.html";
+//                $(this).find("span").removeClass("m");
+//                $(this).removeClass("current");
+            }else{
+                //正序
+                location.href = "/Home/Login/Recording/order/asc.html"
+//                $(this).find("span").addClass("m");
+//                $(this).addClass("current");
+            };
+        });
+        function commentDiv(id) {
+            $(".state").hide(100);
+            $(".state2").hide(100);
+            if ($("#comment_" + id).css("display") == "none") {
+                $("#comment_" + id).show(100);
+            } else {
+                $("#comment_" + id).hide(100);
+            }
+
+        }
+        function comment(id) {
+            var content = $("#content_" + id).val();
+            if (!content) {
+                sys_window("请输入评论内容！");
+            }
+            if (content.length > 500) {
+                sys_window("请输入的评论内容过长！");
+            }
+            $.post("/Home/Login/comment.html", {'id': id, 'content': content}, function(data) {
+                sys_window(data.msg);
+            }, "json")
+        }
+        $(".m2-l>div").click(function() {
+            $(this).addClass("m");
+            $(this).find("h6").addClass("m");
+            $(this).find("p").addClass("m");
+            $(this).siblings().removeClass("m")
+            $(this).siblings().find("h6").removeClass("m");
+            $(this).siblings().find("p").removeClass("m");
+        });
+
+
+    </script>
+</body>
+
+</html>

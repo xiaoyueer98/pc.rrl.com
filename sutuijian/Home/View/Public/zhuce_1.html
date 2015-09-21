@@ -1,0 +1,216 @@
+<div id="conZhuce" class="zhuce">
+    <a class="Close"></a>
+    <h3></h3>
+    <dl>
+        <dt>
+        <ul class="nav clearfix">
+            <li class="navfirstLi mover3" id="tj"><input type="hidden" name="usertype" value="0"/>推荐人</li>
+            <li class="navlastLi" id="com">招聘企业</li>
+        </ul>
+        <ul class="InputUl">
+            <li><input class="zhuceUser" onblur="checkuser()" type="text" name="username" /><span>请输入用户名</span></li>
+            <li><input type="text" class="email eamilsss" id="email" name="email"/><span>请输入邮箱信息</span></li>
+            <li><input class="password1" type="password" name="password"/><span>请输入密码</span></li>
+            <li><input class="password2" style="margin-bottom:0px;" type="password"/><span>确认密码</span></li>
+            <p class="error"></p>
+        </ul>
+        <div class="yanzheng">
+            <input class="radio1" type="radio" name="xieyi" id="xieyaya">
+            <span>已阅读并接受人人猎网<a href="javascript:;" id="xieyisss">《用户协议和隐私条款》</a></span>
+        </div>
+        <input type="button" class="zhucequeren"  value="确认" id="zhucebutton" >
+        </dt>
+        <dd>
+            <div class="yd">
+                <span>已有账号</span>
+                <em id="denglu3">点此登录</em>
+            </div>
+            <p>使用联合账号登录</p>
+            <ul class="Sign" >
+                 <li><a href="{:U('login?type=qq')}"><img src="__ROOT__/Public/img/qq_icon.png"></a></li>
+                <!--<li><img src="__ROOT__/Public/img/qq2.png"></li>-->
+                <li><a href="{:U('login?type=sina')}"><img src="__ROOT__/Public/img/weibo.png"></a></li>
+                <li><a href="{:U('login?type=weixin')}"><img src="__ROOT__/Public/img/weixin.png"></a></li>
+                <!-- <li class="weixindl" style="cursor:hand;"><img src="__ROOT__/Public/img/weixin2.png"></li> -->
+                <li><a href="{:U('login?type=renren')}"><img src="__ROOT__/Public/img/renren.png"></a></li>
+            </ul>
+            <ul class="Grey" style="display:none">
+                <li><img src="__ROOT__/Public/img/qq2.png"></li>
+                <li><img src="__ROOT__/Public/img/Sina2.png"></li>
+                <li><img src="__ROOT__/Public/img/weixin2.png"></li>
+                <li><img src="__ROOT__/Public/img/renren2.png"></li>
+            </ul>
+        </dd>
+    </dl>
+</div>
+<script>
+    function checkuser()
+    {
+        var username = $(".zhuceUser").val();
+        if (username != "")
+        {
+            if (/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,24}$/.test(username)) {
+
+                $.ajax({
+                    type: "get",
+                    data: {"username": username},
+                    url: "__URL__/check",
+                    success: function(data)
+                    {
+                        if (data == "0")
+                        {
+                            $(".error").html("用户名已注册");
+                            $('.error').show();
+                            return true;
+                        }
+                        else if (data == "1")
+                        {
+                            $(".error").html("用户名可以使用");
+                            $('.error').show();
+                            return false;
+                        }
+                    }
+
+                });
+            }
+            else
+            {
+                $('.error').html('用户名格式不正确')
+                $('.error').show();
+                
+            }
+        }
+        else
+        {
+            $('.error').html('用户名非空')
+            $('.error').show();
+        }
+    }
+    $(function() {
+        $('#tj').on('click', function() {
+            $("#tj>input").val(0);
+
+        })
+
+        $('#com').on('click', function() {
+            $("#tj>input").val(1);
+        })
+        $("#zhucebutton").attr("disabled", false);
+        $("#email").blur(function() {
+            var email = $(".eamilsss").val();
+            var usertype = $("input[name='usertype']").val();
+            $.post("__URL__/checkemail", {
+                'eamil': email,
+                'usertype': usertype
+            }, function(data) {
+                if (data.code != 200) {
+                    $('.error').html(data.msg)
+                    $('.error').show();
+                    return false;
+                }
+            }, "json")
+        });
+
+        $("#xieyisss").click(function() {
+            var usertype = $("input[name='usertype']").val();
+
+            if (usertype == "1") {
+
+                location.href = "__URL__/zpfxy.html"
+            } else {
+
+                location.href = "__URL__/tjrxy.html"
+            }
+        });
+
+    })
+    $("#zhucebutton").click(function() {
+        var username = $("input[name='username']").val();
+        var email = $("input[name='email']").val();
+        var password = $("input[name='password']").val();
+        var repassword = $(".password2").val();
+        var xieyi = $("input[name='xieyi']").val();
+        var usertype = $("input[name='usertype']").val();
+        var dd = document.getElementById("xieyaya").checked;
+        var username = $(".zhuceUser").val();
+
+        if (/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,24}$/.test(username)) {
+
+                $.ajax({
+                    type: "get",
+                    data: {"username": username},
+                    url: "__URL__/check",
+                    success: function(data)
+                    {
+                        if (data == "0")
+                        {
+                            $(".error").html("用户名已注册");
+                            $('.error').show();
+                            return true;
+                        }
+                        else if (data == "1")
+                        {
+                            $(".error").html("用户名可以使用");
+                            $('.error').show();
+                            return false;
+                        }
+                    }
+
+                });
+            }else{
+                $(".zhuceUser").focus();
+                return false;
+            }
+        if (!username) {
+            $('.error').html('用户名不能为空！')
+            $('.error').show();
+            return false;
+        } else if (!email) {
+            $('.error').html('邮箱不能为空！')
+            $('.error').show();
+            return false;
+        } else if (!password) {
+            $('.error').html('密码不能为空！')
+            $('.error').show();
+            return false;
+        } else if (password != repassword) {
+            $('.error').html('两次输入的密码不一致！')
+            $('.error').show();
+           return false;
+        } 
+        if (dd == false) {
+            $('.error').html('请接受人人猎《用户协议和隐私条款》！')
+            $('.error').show();
+            return false;
+        }
+        $("#zhucebutton").attr("disabled", "disabled");
+        $.post("__URL__/checkemail", {
+            'eamil': email,
+            'usertype': usertype
+        }, function(data) {
+            if (data.code != 200) {
+                $("#zhucebutton").attr("disabled", false);
+                $('.error').html(data.msg)
+                $('.error').show();
+                return false;
+            } else {
+                $.post("__URL__/add", {
+                    'username': username,
+                    'email': email,
+                    'password': password,
+                    'usertype': usertype
+                }, function(data) {
+                    if (data.code == 200) {
+                        location.href = "__URL__/register&email=" + email;
+                        return false;
+                    } else {
+                        $("#zhucebutton").attr("disabled", false);
+                        $('.error').html(data.msg)
+                        $('.error').show();
+                        return false;
+                    }
+                }, "json")
+            }
+        }, "json")
+    });
+</script>

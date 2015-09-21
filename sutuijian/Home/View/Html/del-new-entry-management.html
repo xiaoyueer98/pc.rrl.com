@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+	<title>入职管理</title>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>			
+</head>
+<body>
+	<include file="Public:newHeader"/>
+	<div class="wrap" style="top:0;">
+		<div class="ms1 clearfix">
+			<div class="m1-l fl-lef">
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+				<span>推荐人用户中心</span>
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+			</div>
+			<div class="m1-r fl-rig">
+				<span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+				<div class="search dis-inlin fl-lef">
+					<input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+					<span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+						<img src="/Public/img/new-index/position-btn.png" alt="">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="ms2 clearfix">
+			<include file="Public:newLeft-company"/>
+			<div class="m2-r fl-rig">
+				<ul class="nav nav2">
+					<li class="m first dis-block dis-inlin fl-lef"><a class="m">进程跟踪</a></li>
+					<li class="first dis-block dis-inlin fl-lef"><a>待付账单</a></li>
+					<li class="first dis-block dis-inlin fl-lef"><a>付款记录</a></li>
+				</ul>
+				<div class="add-resume track-state" style="display:block">
+					<div class="con"> 
+						<div class="titl">正在招聘的职位</div>
+					    <table style="width:689px;" class="data_list"> 
+					    	<tbody> 
+							    <tr class="t"> 
+							    	<th>序号</th> 
+							      	<th>被推荐人</th> 
+							      	<th>推荐进度</th> 
+							      	<th>面试职位</th> 
+							      	<th>招聘费（元）</th> 
+							      	<th>总招聘人数</th> 
+							    </tr> 
+							    <tr style="border:none;height:10px!important;">
+							     	<td style="border:none;height:10px!important;"></td>
+							    </tr> 
+							    <tr> 
+							        <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;">1</td> 
+							     	<td class="wh77 wk table-text-left">李三</td> 
+							    	<td class="wh54 wk table-text-left"><img src="/Public/img/company-img/icon4.png" alt=""></td> 
+									<td class="wh294 wk table-text-left position-name" style="position:relative"> <a href="/Home/Index/EnterIndex2/comid/50/jobid/141.html">IOS高级工程师</a> </td> 
+									<td class="wh102 wk table-text-left">2000</td> 
+									<td class="wh102 wk">1</td> 
+							     </tr> 
+					    	</tbody>
+					    	<tbody class="state" id="state_729"> 
+								<tr> 
+									<td colspan="1"></td> 
+									<td class="wh168 wk" colspan="2">2015-06-11 10:38</td> 
+									<td class="prompt"> <b></b><i class="m"></i> </td> 
+									<td class="wh220 wk" colspan="4">您推荐给北京盈禾优仕科技有限公司职位的范德萨发候选人简历状态已被更新为审核不通过状态，请密切关注。</td> 
+								</tr> 
+								<tr> 
+									<td colspan="1"></td> 
+									<td class="wh168 wk" colspan="2">2015-06-11 10:38</td> 
+									<td class="prompt"> <b></b><i></i> </td> 
+									<td class="wh220 wk" colspan="4">您推荐给北京盈禾优仕科技有限公司职位的范德萨发候选人简历状态已被更新为面试通过状态，请密切关注。</td> 
+								</tr> 
+								<tr> 
+									<td colspan="1"></td> 
+									<td class="wh168 wk" colspan="2">2015-06-11 10:38</td> 
+									<td class="prompt"> <b></b><i></i> </td> 
+									<td class="wh220 wk" colspan="4">您推荐给北京盈禾优仕科技有限公司职位的范德萨发候选人简历状态已被更新为面试不通过状态，请密切关注。</td> 
+								</tr> 
+								<tr> 
+									<td colspan="1"></td> 
+									<td class="wh168 wk" colspan="2">2015-06-11 10:37</td> 
+									<td class="prompt"> <b></b><i></i> </td> 
+									<td class="wh220 wk" colspan="4">您推荐给北京盈禾优仕科技有限公司职位的范德萨发候选人简历状态已被更新为面试预约状态，请密切关注。</td> 
+								</tr> 
+								<tr> 
+									<td colspan="1"></td> 
+									<td class="wh168 wk" colspan="2">2015-06-10 21:57</td> 
+									<td class="prompt"> <b></b><i></i> </td> 
+									<td class="wh220 wk" colspan="4">您成功将范德萨发候选人推荐给北京盈禾优仕科技有限公司IOS高级工程师职位。</td> 
+								</tr> 
+					    	</tbody> 
+					    	<tbody class="state2" id="comment_729"> 
+								<tr> 
+									<td colspan="8"> <textarea id="audstartdate" placeholder="" name="personal" tabindex="13"></textarea> </td> 
+								</tr> 
+								<tr> 
+									<td colspan="8"><span class="fbpl hover-hand my-btn" onclick="comment('729' )">发表评论</span></td>
+								</tr> 
+					    	</tbody> 
+					    </table> 
+					    <div class="inner clearfix">
+						    <ul class="clearfix dis-inlin fl-rig dis-block"> 
+								<li class="itme active dis-block dis-inlin fl-lef"><a href="javascript:;" class="active">1</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a class="num" href="/index.php?s=/Home/Login/Recording/p/2.html">2</a></li> 
+								<li class="next dis-block dis-inlin fl-lef"><a class="next" href="/index.php?s=/Home/Login/Recording/p/2.html">&gt;|</a></li> 
+								<div class="total dis-block dis-inlin fl-lef">
+								共2页
+								</div>
+					    	</ul>
+					   </div> 
+					  </div>  
+				</div>
+
+				<div class="add-resume track-state" style="display:none">
+					<div class="con"> 
+						<div class="titl">待付账单</div>
+					    <table style="width:689px;" class="data_list"> 
+					    	<tbody> 
+							    <tr class="t"> 
+							    	<th>序号</th> 
+							      	<th>被推荐人</th> 
+							      	<th>推荐人</th> 
+							      	<th>面试职位</th> 
+							      	<th>招聘费（元）</th> 
+							      	<th>入职日期</th> 
+							    </tr> 
+							    <tr style="border:none;height:10px!important;">
+							     	<td style="border:none;height:10px!important;"></td>
+							    </tr>
+							    <tr> 
+							        <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;">1</td> 
+							     	<td class="wh113 wk table-text-left">李三</td> 
+							     	<td class="wh113 wk table-text-left">海宇</td> 
+							    	<td class="wh190 wk table-text-left">UI设计师</td> 
+									<td class="wh102 wk hover-hand" tid="729"> 2000</td> 
+									<td class="wh102 wk table-text-left">2015-06-15</td> 
+							     </tr>  
+							     <tr style="height:5px;"></tr>
+							     <tr> 
+							        <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;">1</td> 
+							     	<td class="wh113 wk table-text-left">李三</td> 
+							     	<td class="wh113 wk table-text-left">海宇</td> 
+							    	<td class="wh190 wk table-text-left">UI设计师</td> 
+									<td class="wh102 wk hover-hand" tid="729"> 2000</td> 
+									<td class="wh102 wk table-text-left">2015-06-15</td> 
+							     </tr> 
+					    	</tbody> 
+					    </table> 
+					    <div class="inner clearfix">
+					    <ul class="clearfix dis-inlin fl-rig dis-block"> 
+					     <li class="itme active dis-block dis-inlin fl-lef"><a href="javascript:;" class="active">1</a></li>
+					     <li class="itme dis-block dis-inlin fl-lef"><a class="num" href="/index.php?s=/Home/Login/Recording/p/2.html">2</a></li> 
+					     <li class="next dis-block dis-inlin fl-lef"><a class="next" href="/index.php?s=/Home/Login/Recording/p/2.html">&gt;|</a></li> 
+					     <div class="total dis-block dis-inlin fl-lef">
+					      共2页
+					     </div>
+					    </ul>
+					   </div> 
+					  </div>  
+				</div>
+
+				<div class="add-resume track-state" style="display:none">
+					<div class="con"> 
+						<div class="titl">待付账单</div>
+					    <table style="width:689px;" class="data_list"> 
+					    	<tbody> 
+							    <tr class="t"> 
+							    	<th>序号</th> 
+							      	<th>被推荐人</th> 
+							      	<th>推荐人</th> 
+							      	<th>在职状态</th> 
+							      	<th>面试职位</th> 
+							      	<th>面试状态</th> 
+							      	<th>招聘费（元）</th> 
+							      	<th>付款记录</th> 
+							    </tr> 
+							    <tr style="border:none;height:10px!important;">
+							     	<td style="border:none;height:10px!important;"></td>
+							    </tr>
+							    <tr> 
+							        <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;">1</td> 
+							     	<td class="wh77 wk table-text-left">李三</td> 
+							     	<td class="wh95 wk table-text-left">海宇</td> 
+							    	<td class="wh102 wk table-text-left">离职随时到岗</td> 
+									<td class="wh124 wk hover-hand" tid="729"> UI设计师</td> 
+									<td class="wh69 wk table-text-left">以入职</td> 
+									<td class="wh85 wk table-text-left">2000</td> 
+									<td class="wh69 wk table-text-left">未打款</td> 
+							     </tr>  
+							     <tr style="height:5px;"></tr> 
+					    	</tbody> 
+					    </table> 
+					    <div class="inner clearfix">
+					    <ul class="clearfix dis-inlin fl-rig dis-block"> 
+					     <li class="itme active dis-block dis-inlin fl-lef"><a href="javascript:;" class="active">1</a></li>
+					     <li class="itme dis-block dis-inlin fl-lef"><a class="num" href="/index.php?s=/Home/Login/Recording/p/2.html">2</a></li> 
+					     <li class="next dis-block dis-inlin fl-lef"><a class="next" href="/index.php?s=/Home/Login/Recording/p/2.html">&gt;|</a></li> 
+					     <div class="total dis-block dis-inlin fl-lef">
+					      共2页
+					     </div>
+					    </ul>
+					   </div> 
+					  </div>  
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public:newFooter"/>
+<script>
+	$(".m2-l>div").click(function(){
+		$(this).addClass("m");
+		$(this).find("h6").addClass("m");
+		$(this).find("p").addClass("m");
+		$(this).siblings().removeClass("m")
+		$(this).siblings().find("h6").removeClass("m");
+		$(this).siblings().find("p").removeClass("m");
+	});
+	var index;
+	var list = $(".m2-r .nav li");
+	var divs = $(".m2-r>div");
+	list.on("click",function(){
+		that = $(this);
+		index = that.index();
+		that.addClass("m").siblings().removeClass("m");
+		$(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+		divs.eq(index).show().siblings("div").hide();
+	});
+
+
+
+	var myspans = $(".add-resume .biaoqian .odiv .m span i");
+	myspans.click(function(){
+		$(this).parent().remove();
+		//alert(23)
+	})
+	var btn = $(".biaoqian .odiv .paset-btn");
+	btn.click(function(){
+		var myVal = $(this).prev().val();
+		 if (myVal.trim().length !== 0){
+		 	$(this).parent().prev().append("<span class='dis-block dis-inlin fl-lef hover-hand'>"+myVal+"<i></i></span>");
+		 }
+		var myspans = $(".add-resume .biaoqian .odiv .m span i");;
+		myspans.click(function(){
+			$(this).parent().remove();
+		})
+	})
+
+	$(".label-parent span").click(function(){
+		var text = $(this).text();
+		$(".add-resume .biaoqian .odiv .m").append("<span class='dis-block dis-inlin fl-lef hover-hand'>"+text+"<i></i></span>");
+
+
+		var myspans = $(".add-resume .biaoqian .odiv .m span i");;
+		myspans.click(function(){
+			$(this).parent().remove();
+		})
+	})
+
+	$(".biaoqian .odiv .confirm-btn").click(function(){
+
+		 var content = "";
+		 if($(".odiv .content .m span").size()>0){
+		 	$(".odiv .content .m span").each(function(){
+		 		content +='<span class="dis-block dis-inlin fl-lef">'+$(this).text()+'</span>';
+		 	});
+		 	content +='<a href="javascript:void(0)">编辑</a>';
+		 	$(".biaoqian p.mylabel").html(content);
+		 };
+		 $(".biaoqian .odiv").hide();
+		 $(".add-resume .biaoqian .mylabel a").click(function(){
+			$(".biaoqian .odiv").show();
+		 })
+	});
+	$(".biaoqian .odiv .top b").click(function(){
+		$(".biaoqian .odiv").hide();
+	});
+	$(".biaoqian .odiv .top b").click(function(){
+		$(".biaoqian .odiv").hide();
+	});
+
+	$(".biaoqian .odiv .cancel").click(function(){
+		$(".biaoqian .odiv").hide();
+	})
+	$(".add-resume .biaoqian .mylabel a").click(function(){
+		$(".biaoqian .odiv").show();
+	})
+
+</script>
+<script type="text/javascript">
+	!function(){
+		laydate.skin('yahui');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#demo'});//绑定元素
+	}();
+
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '3099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	var end = {
+	    elem: '#end',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	// laydate(start);
+	// laydate(end);
+	//自定义日期格式
+	laydate({
+	    elem: '#laydate1',
+	    format: 'YYYY年MM月DD日',
+	    festival: true, //显示节日
+	    choose: function(datas){ //选择日期完毕的回调
+	        alert('得到：'+datas);
+	    }
+	});
+	//日期范围限定在昨天到明天
+	laydate({
+	    elem: '#hello3',
+	    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+	});
+</script>
+   <script>
+        function showDisMsg(msg) {
+            // sys_window(msg);
+        }
+        $(function() {
+            $(".shenhed").click(function() {
+                var id = $(this).attr("tid");
+                $(".state").hide(100);
+                $(".state2").hide(100);
+
+                if ($("#state_" + id).css("display") == "none") {
+                    $("#state_" + id).show(100);
+                } else {
+                    $("#state_" + id).hide(100);
+                }
+            });
+        });
+        function commentDiv(id) {
+            $(".state").hide(100);
+            $(".state2").hide(100);
+            if ($("#comment_" + id).css("display") == "none") {
+                $("#comment_" + id).show(100);
+            } else {
+                $("#comment_" + id).hide(100);
+            }
+
+        }
+        function comment(id) {
+            var content = $("#content_" + id).val();
+            if (!content) {
+                sys_window("请输入评论内容！");
+            }
+            if (content.length > 500) {
+                sys_window("请输入的评论内容过长！");
+            }
+            $.post("/Home/Login/comment.html", {'id': id, 'content': content}, function(data) {
+                sys_window(data.msg);
+            }, "json")
+        }
+        $(".m2-l>div").click(function() {
+            $(this).addClass("m");
+            $(this).find("h6").addClass("m");
+            $(this).find("p").addClass("m");
+            $(this).siblings().removeClass("m")
+            $(this).siblings().find("h6").removeClass("m");
+            $(this).siblings().find("p").removeClass("m");
+        });
+
+    </script>
+</body>
+
+</html>

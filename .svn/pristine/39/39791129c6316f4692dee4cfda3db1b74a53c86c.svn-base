@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+    <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/lanrenzhijia2.css">
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect2.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".mySelect3").styleSelect({styleClass: "selectFruits",optionsWidth: 1,speed: 'fast'});
+			$(".down-menu").styleSelect({styleClass: "selectDark"});
+		});
+	</script>
+</head>
+<body>
+	<include file="Public:newHeader"/>
+
+	<div class="wrap">
+		<div class="ms2 clearfix">
+			
+			<div class="m2-l fl-lef">
+			<div class="m1-l" style="padding:0;height: 56px;padding-top: 10px;padding-left: 5px;">
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+				<span>推荐人用户中心</span>
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+			</div>
+				<div class="odiv hover-hand">
+					<span>1</span>
+					<h6 class="tit1">完善资料<em></em></h6>
+					<p class="tx m">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>2</span>
+					<h6 class="tit2">维护候选人<em></em></h6>
+					<p class="jlk">(简历库)</p>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv m hover-hand">
+					<span>3</span>
+					<h6 class="tit3 m">推荐职位<em class="m"></em></h6>
+					<p class="tx m">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>4</span>
+					<h6 class="tit4">跟踪状态<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>5</span>
+					<h6 class="tit5">查看收益<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+			</div>
+			<div class="m2-r fl-rig">
+				<div class="step1">
+					<div class="new-step2 clearfix">
+						<div class="st1">
+							<b class="m">1</b>
+							<span class="m">选择要推荐的职位：</span>
+							<em class="m">运维工程师</em>
+						</div>
+						<div class="st2 m">
+							<b class="m">2</b>
+							<span class="m">选择并推荐候选人 : </span>
+							<em class="m"></em>
+						</div>
+						<div class="st3">
+							<b class="">3</b>
+							<span class=""> 确认推荐：</span>
+							<em class=""></em>
+						</div>
+					</div>
+					<div style="background:#f5f5f5;width:100%;height:15px;margin-top:20px;"></div>
+					<div class="input-list clearfix">
+						<h3 class="clearfix">
+							<em class="fl-lef dis-inlin dis-block">搜索要推荐的职位</em>
+							<span class="fl-rig btn hover-hand dis-inlin dis-block position-ollection-btn">职位收藏夹</span>
+							<span class="fl-rig btn hover-hand dis-inlin dis-block sousuo">高级搜索</span>
+							
+						</h3>
+						<div class="m-input clearfix">
+							<input class="dis-inlin dis-block fl-lef" type="text">
+							<span class="dis-inlin dis-block fl-lef hover-hand"><b>搜索</b></span>
+						</div>
+						<ul class="clearfix myul" style="display:none">
+							<li class="clearfix dis-inlin fl-lef">
+								<em class="dis-block dis-inlin fl-lef">职位名称</em>
+								<input type="text">
+							</li>
+							<li class="clearfix dis-inlin fl-lef">
+								<em class="dis-block dis-inlin fl-lef">行业类别</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix dis-inlin fl-lef">
+								<em class="dis-block dis-inlin fl-lef">职位类别</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix dis-inlin fl-lef">
+								<em class="dis-block dis-inlin fl-lef">工作地点</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix dis-inlin fl-lef">
+								<em class="dis-block dis-inlin fl-lef">工资待遇</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix dis-inlin fl-lef">
+								<em class="dis-block dis-inlin fl-lef">发布时间</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<button>搜索</button>
+						</ul>
+						
+					</div>
+					<div style="background:#f5f5f5;width:100%;height:15px;margin-top:20px;"></div>
+					<div class="job-list">
+	                    <h3>搜索结果 </h3>
+						<div class="clearfix list">
+							<span class="np-logo dis-block dis-inlin fl-lef">
+								<img src="/Public/img/mdwx.png" alt="" width="50px" height="50px">
+							</span>
+							<ul class="r fl-rig">
+								<li class="clearfix li1">
+									<a href="/Home/Index/EnterIndex2/comid/355/jobid/cab05c59-4637-851f-f2f4-5551bc6f478b"><em class="dis-inlin dis-block fl-lef">IOS开发工程师</em></a>
+									<span class="adrs dis-inlin dis-block fl-lef">[朝阳区]</span>
+									<a href="/Home/Index/EnterIndex2/comid/355/jobid/cab05c59-4637-851f-f2f4-5551bc6f478b"><h6 class="dis-inlin dis-block fl-rig">阿里巴巴科技有限公司</h6></a>
+								</li>
+								<li class="clearfix li2">
+									<span class="dis-inlin dis-block fl-lef">月薪：</span>
+									<span class="dis-inlin dis-block fl-lef">20K-40K</span>
+									<span class="dis-inlin dis-block fl-lef">应届毕业生</span>
+									<span class="dis-inlin dis-block fl-lef">大专及以上</span>
+									<div class="fl-rig dis-inlin dis-block">
+						                <span class="c-r dis-inlin dis-block fl-lef">所属行业：</span>
+										<span class="ic dis-inlin dis-block fl-lef">社交</span>                                                                               
+										<span class="c-r dis-inlin dis-block fl-lef">公司性质：</span>
+										<span class="ic dis-inlin dis-block fl-lef">民营企业</span>
+										<span class="c-r dis-inlin dis-block fl-lef">规模：</span> 
+										<span class="ic dis-inlin dis-block fl-lef">0-50人</span>
+									</div>
+									
+								</li>
+								<li class="clearfix li3">
+									<em class="c3-l	dis-inlin dis-block fl-lef">候选人成功入职，你即得奖励  <i>￥8000</i></em>
+									<span class="c-r dis-inlin dis-block fl-rig">[2015-05-25]</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="clearfix list">
+							<span class="np-logo dis-block dis-inlin fl-lef">
+								<img src="/Public/img/mdwx.png" alt="" width="50px" height="50px">
+							</span>
+							<ul class="r fl-rig">
+								<li class="clearfix li1">
+									<a href="/Home/Index/EnterIndex2/comid/355/jobid/cab05c59-4637-851f-f2f4-5551bc6f478b"><em class="dis-inlin dis-block fl-lef">IOS开发工程师</em></a>
+									<span class="adrs dis-inlin dis-block fl-lef">[朝阳区]</span>
+									<a href="/Home/Index/EnterIndex2/comid/355/jobid/cab05c59-4637-851f-f2f4-5551bc6f478b"><h6 class="dis-inlin dis-block fl-rig">阿里巴巴科技有限公司</h6></a>
+								</li>
+								<li class="clearfix li2">
+									<span class="dis-inlin dis-block fl-lef">月薪：</span>
+									<span class="dis-inlin dis-block fl-lef">20K-40K</span>
+									<span class="dis-inlin dis-block fl-lef">应届毕业生</span>
+									<span class="dis-inlin dis-block fl-lef">大专及以上</span>
+									<div class="fl-rig dis-inlin dis-block">
+						                <span class="c-r dis-inlin dis-block fl-lef">所属行业：</span>
+										<span class="ic dis-inlin dis-block fl-lef">社交</span>                                                                               
+										<span class="c-r dis-inlin dis-block fl-lef">公司性质：</span>
+										<span class="ic dis-inlin dis-block fl-lef">民营企业</span>
+										<span class="c-r dis-inlin dis-block fl-lef">规模：</span> 
+										<span class="ic dis-inlin dis-block fl-lef">0-50人</span>
+									</div>
+									
+								</li>
+								<li class="clearfix li3">
+									<em class="c3-l	dis-inlin dis-block fl-lef">候选人成功入职，你即得奖励  <i>￥8000</i></em>
+									<span class="c-r dis-inlin dis-block fl-rig">[2015-05-25]</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="track-state" style="display:none">
+						<div class="con"> 
+						    <table style="width:689px;" class="data_list"> 
+						    	<tbody> 
+								    <tr class="t"> 
+								    	<th>序号</th> 
+								      	<th>职位</th> 
+								      	<th>所属公司</th> 
+								      	<th>招聘人数</th> 
+								      	<th>推荐人数</th> 
+								      	<th>推荐费（元）</th> 
+								      	<th>截止日期</th>
+								    </tr> 
+								    <tr> 
+								        <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;">1</td> 
+								     	<td class="wh113 wk table-text-left">高级ui设计师合sd适的话是的傻得很</td> 
+								    	<td class="wh113 wk table-text-left">北京众聘科技有限公司 <span><img src="/Public/img/company-img/icon2.png" alt=""></span></td> 
+										<td class="wh80 wk">1 </td> 
+										<td class="wh80 wk">2</td> 
+										<td class="wh90 wk hover-hand" tid="729"> 2000</td> 
+										<td class="wh95 wk table-text-left">2015-06-15</td> 
+								     </tr>  
+								     <tr style="height:5px;"></tr>
+								     <tr> 
+								        <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;">2</td> 
+								     	<td class="wh113 wk table-text-left">高级ui设计师合sd适的话是的傻得很</td> 
+								    	<td class="wh113 wk table-text-left">北京众聘科技有限公司 <span><img src="/Public/img/company-img/icon2.png" alt=""></span></td> 
+										<td class="wh80 wk">1 </td> 
+										<td class="wh80 wk">2</td> 
+										<td class="wh90 wk hover-hand" tid="729"> 2000</td> 
+										<td class="wh95 wk table-text-left">2015-06-15</td> 
+								     </tr>  
+						    	</tbody> 
+						    </table> 
+						    <div class="inner clearfix" style="margin-left:0px;width:668px;">
+							    <ul class="clearfix dis-inlin fl-rig dis-block"> 
+									<li class="itme active dis-block dis-inlin fl-lef"><a href="javascript:;" class="active">1</a></li>
+									<li class="itme dis-block dis-inlin fl-lef"><a class="num" href="/index.php?s=/Home/Login/Recording/p/2.html">2</a></li> 
+									<li class="next dis-block dis-inlin fl-lef"><a class="next" href="/index.php?s=/Home/Login/Recording/p/2.html">&gt;|</a></li> 
+									<div class="total dis-block dis-inlin fl-lef">
+									共2页
+									</div>
+							    </ul>
+						    </div>
+						</div>  
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public:newFooter"/>
+	<script type="text/javascript">
+			$(".step1 .input-list h3 .sousuo").click(function(){
+				$(".step1 .input-list h3 em").text("搜索要推荐的职位");
+				$(".job-list").show();
+				$(".track-state").hide();
+				if($(this).hasClass("current")){
+					$(".step1 .input-list .myul").slideUp();
+					$(".step1 .m-input").slideDown();
+					$(this).removeClass("current").removeClass("m");
+					$(".job-list").show();
+					$(".track-state").hide();
+				}else{
+					$(".step1 .input-list .myul").slideDown();
+					$(".step1 .m-input").slideUp();
+					$(this).addClass("current").addClass("m")
+				};
+			});
+			$(".step1 .input-list h3 .position-ollection-btn").click( function(){
+				$(".step1 .m-input").hide();
+				$(".step1 .input-list .myul").hide();
+				$(".track-state").show();
+				$(".job-list").hide();
+				$(".step1 .input-list").css({"border":"none"});
+				$(".step1 .input-list h3 em").text("收藏的职位")
+			})
+		  /* 当鼠标移到表格上是，当前一行背景变色 */
+            $(document).ready(function() {
+                $(".data_list tr td").mouseover(function() {
+                    $(this).parent().find("td").css("background-color", "#eee");
+                });
+            })
+            /* 当鼠标在表格上移动时，离开的那一行背景恢复 */
+            $(document).ready(function() {
+                $(".data_list tr td").mouseout(function() {
+                    var bgc = $(this).parent().attr("bg");
+                    $(this).parent().find("td").css("background-color", bgc);
+                });
+            })
+
+            $(document).ready(function() {
+                var color = "#fafafa"
+                $(".data_list tr:odd td").css("background-color", color);  //改变偶数行背景色
+                /* 把背景色保存到属性中 */
+                $(".data_list tr:odd").attr("bg", color);
+                $(".data_list tr:even").attr("bg", "#fff");
+            })
+	</script>
+</body>
+
+</html>

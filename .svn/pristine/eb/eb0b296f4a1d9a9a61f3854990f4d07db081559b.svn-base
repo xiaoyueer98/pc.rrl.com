@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>注册</title>
+        <link rel="stylesheet" href="/Public/css/webchat/base.css" />
+        <link rel="stylesheet" href="/Public/css/webchat/jin_.css" />
+        <style>
+            #yzm{
+                        width: 83px;
+                        height: 26px;
+                        background: #9ec7e0;
+                        color: #575656;
+                        line-height: 26px;
+                        font-size: 12px;
+                        font-weight: bold;
+                        border: none;
+                        border-radius: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="loginmain">
+        <form name="form" id="form" method="post" action="/Home/Webchatreg/regist.html">
+            <img src="/Public/images/webchat/loginlog.png"  width="60%" alt="" class="log" />
+            <input type="text" name="username" placeholder="请输入用户名" class="logininput inputbgname" />
+            <input type="password"  name="password" placeholder="请输入密码" class="logininput inputbpass"/>
+            <div>
+                <input type="password"  name="repassword" placeholder="请输再次输入密码" class="logininput inputbpass"  />
+            </div>
+            <div>
+                <input type="text"  name="mobile" placeholder="请输入手机号" class="logininput inputbpass" style="width:60%" id="mobile"/>
+                <input type="button" value="点击获取验证码" id="yzm">
+            </div>
+            <div>
+                <input type="text"  placeholder="请输入验证码" class="logininput inputbpass"  id="verify"/>
+                <input type="hidden" value="" id="code">
+            </div>
+            <input type="button" value="注 册" class="logininput inputsubmit newinputstyle" id="btn"/>
+        </form>
+        </div>
+        <script type="text/javascript" src="/Public/js/jquery.js"></script>
+        <script type="text/javascript">
+
+                       
+            $("#btn").click(function(){
+                        
+                        check();
+            })   
+            
+            
+           
+            function  check() {
+                        var username = $("input[name='username']").val();
+                        var password = $("input[name='password']").val();
+                        var repassword = $("input[name='repassword']").val();
+                        var mobile = $("input[name='mobile']").val();
+                        var verify = $("#verify").val();
+                        var error="";
+                        if (!username || !/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~\_]{6,24}$/.test(username) || username.indexOf("qq_") === 0 || username.indexOf("sina_") === 0 || username.indexOf("wx_") === 0 || username.indexOf("renren_") === 0) {
+                            alert("用户名不合法");
+                            return false;
+                        } else if (!password || !/^[\@A-Za-z0-9\_]{6,11}$/.test(password)) {
+                            alert('密码不合法');
+                            return false;
+                        } else if (password != repassword) {
+                            alert("两次输入的密码不一致!");
+                            return false;
+                        } else if(!verify){
+                            alert("请输入验证码!");
+                            return false;
+                        }else{
+                            if(verify == $("#code").val()){
+                                    $.post("/Home/Webchatreg/regist",{
+                                            'username':username,
+                                            'password':password,
+                                            'repassword':repassword,
+                                            'mobile':mobile
+                                    },function (data){alert(data);
+                                            if(data.code != "200"){
+                                                alert(data.msg);
+                                            }else{
+                                                location.href="/Home/Webchat/new_job.html";
+                                            }   
+                                    },"json"); 
+                            }else{
+                                    alert("验证码不正确");
+                                    return false;
+                            }
+                        }
+                        
+        } 
+        
+        var wait=60;
+        $("#yzm").disabled = false;   
+        function time(o) {
+            if (wait == 0) {
+                o.removeAttribute("disabled");           
+                o.value="获取验证码";
+                wait = 60;
+            } else {
+                o.setAttribute("disabled", true);
+                o.value="(" + wait + ")重新发送";
+                wait--;
+                setTimeout(function() {
+                    time(o)
+                },
+                1000)
+            }
+        }
+        $('#yzm').on( 'click',function(){
+
+            if(!/^[0-9]{11}$/.test($('#mobile').val()) || $('#mobile').val() == ''){
+                alert("手机号不合法");
+            }else{
+                
+                time(this);
+                var mobile = $("#mobile").val();
+                    $.post("/Home/Webchatreg/checkMobile",{
+                            'mobile':mobile
+                    },function (data){
+                            if(data.code != "200"){
+                                alert(data.msg);
+                            }else{
+                                $("#code").val(data.smg);
+                            }   
+                        },"json");
+            }
+
+        })
+        
+
+        </script>    
+    </body>
+</html>

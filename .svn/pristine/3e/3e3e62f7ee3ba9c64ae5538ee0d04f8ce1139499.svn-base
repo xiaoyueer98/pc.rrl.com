@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+	<title>维护候选人简历</title>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/lanrenzhijia.css">
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/laydate.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$(".mySelect3").styleSelect({styleClass: "selectFruits",optionsWidth: 1,speed: 'fast'});
+		$(".down-menu").styleSelect({styleClass: "selectDark"});
+	});
+	</script>
+	<style>
+		/* ----------日历样式定义------ */
+		.laydate_body .laydate_y {
+		  width: 180px;
+		}
+		.laydate_body .laydate_ym {
+		  height: 24px;
+		}
+		.laydate_body .laydate_choose {
+		  width: 20px;
+		  height: 24px;
+		}
+		.laydate_body .laydate_box {
+		  width: 364px;
+		}
+		.laydate_body .laydate_table {
+		  width: 350px;
+		}
+		.laydate_body .laydate_y input {
+		  width: 123px;
+		}
+		.laydate_body .laydate_y .laydate_yms {
+		  width: 180px;
+		}
+		.laydate_body .laydate_table td {
+		  width: 31px;
+		  height: 33px;
+		}
+		.laydate_body .laydate_table thead {
+		  height: 22px;
+		  line-height: 34px;
+		}
+		.laydate_body .laydate_bottom .laydate_btn {
+		  right: 9px;
+		}
+		.laydate_body .laydate_y .laydate_yms ul {
+		  height: 83px;
+		}
+		.laydate_body .laydate_ym .laydate_yms {
+		  height: 125px;
+		}
+		.laydate_body .laydate_m .laydate_yms {
+		  width: 160px;
+		  padding: 0;
+		}
+		.laydate_body .laydate_m input {
+		  width: 103px;
+		  margin-right: 15px;
+		}
+		.laydate_body .laydate_m {
+		  width: 160px;
+		}
+		.laydate_body .laydate_m .laydate_yms {
+		  width: 150px;
+		  padding: 0;
+		  padding-left: 10px;
+		}
+	</style>			
+</head>
+<body>
+	<include file="Public:newHeader"/>
+	<div class="wrap">
+		<div class="ms1 clearfix">
+			<div class="m1-l fl-lef">
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+				<span>推荐人用户中心</span>
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+			</div>
+			<div class="m1-r fl-rig">
+				<span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+				<div class="search dis-inlin fl-lef">
+					<input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+					<span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+						<img src="/Public/img/new-index/position-btn.png" alt="">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="ms2 clearfix">
+			<include file="Public:company_menu_left"/>
+			<div class="m2-r fl-rig">
+				<ul class="nav nav2">
+					<li class="m first dis-block dis-inlin fl-lef"><a class="m">基本信息</a></li>
+					<li class="first dis-block dis-inlin fl-lef"><a class="back-none">安全设置</a></li>
+				</ul>
+				<div class="add-resume" style="display:block">
+					<div class="public upload-resume" style="display:block;position:relative">
+						<h3>个人信息</h3>
+						<ul>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">公司名称</em>
+								<input placeholder="请输入公司名称" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">公司性质</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">公司规模</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">在职考虑换工作</option>
+										<option  value="hippopotamus">已离职</option>
+									</select>
+								</span>
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none"> 公司阶段</em>
+								<span class="dis-block dis-inlin fl-lef">
+									<select name="animals"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+										<option  class="first" value="">众聘系</option>
+										<option  value="hippopotamus">阿里系</option>
+										<option  value="aligator">腾讯系</option>
+										<option  value="aligator">360系</option>
+										<option  value="aligator">小米系</option>
+										<option  class="last" value="giraf">百度系</option>
+									</select>
+								</span>
+							</li>
+
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">成立日期</em>
+								<input placeholder="请输入成立日期" id="laydate1" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">公司网址</em>
+								<input placeholder="www.renrenlie.com" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+						</ul>
+						<h3 style="margin-top:40px;">营业执照</h3>
+						<ul class="icense">
+							<li class="clearfix myicense" style="position:relative">
+								<em class="dis-block dis-inlin fl-lef"></em>
+								<span class="myspan dis-inlin dis-block fl-lef">上传公司营业执照</span>
+								<input class="hover-hand" type="file">
+							</li>
+						</ul>
+						<h3 style="margin-top:40px;">公司简介</h3>
+						<div class="recmd-reason">
+							<textarea placeholder="" name="personal" id="audstartdate"></textarea>
+						</div>
+						<div class="biaoqian clearfix">
+							<h3 class="fl-lef dis-block dis-inlin">公司亮点</h3>
+							<p class="dis-inlin fl-lef mylabel">
+								<span class="dis-block dis-inlin fl-lef">年底双薪</span>
+								<span class="dis-block dis-inlin fl-lef">年底双薪</span>
+								<span class="dis-block dis-inlin fl-lef">年双薪</span>
+								<span class="dis-block dis-inlin fl-lef">年底双薪</span>
+								<span class="dis-block dis-inlin fl-lef">双薪</span>
+								<span class="dis-block dis-inlin fl-lef">年底双薪</span>
+								<span class="dis-block dis-inlin fl-lef">年底双薪</span>
+								<span class="dis-block dis-inlin fl-lef">年底双薪</span>
+								<a href="javascript:void(0)">编辑</a>
+							</p>
+							<div class="odiv dis-inlin fl-lef">
+								<div class="top">
+									<em class="dis-block dis-inlin fl-lef">公司亮点</em>
+									<b class="dis-block dis-inlin fl-rig hover-hand"></b>
+								</div>
+								<div class="content">
+									<p class="p1">已添加亮点<i>(最多可选择16个亮点)</i></p>
+									<div class="m clearfix">
+										<span>年底双薪<i class="hover-hand"></i></span>
+									</div>
+									<div class="clearfix">
+										<input class="dis-block dis-inlin fl-lef myinput" type="text">
+										<b class="dis-block dis-inlin fl-lef paset-btn hover-hand">粘贴</b>
+									</div>
+									<div class="mar-lef25 mar-top label-parent">
+										<h5>选择常用亮点</h5>
+										<span class="hover-hand">股票期权</span>
+										<span class="hover-hand">股票期权</span>
+										<span class="hover-hand">股票期权</span>
+										<span class="hover-hand">股票期权</span>
+										<span class="hover-hand">股票期权</span>
+										<span class="hover-hand">股票期权</span>
+										<span class="hover-hand">股票期权</span>
+
+										<span class="hover-hand">股票期权</span>
+										<span class="hover-hand">股票期权</span>
+									</div>
+									<b style="margin-left:25px;" class="confirm-btn dis-inlin paset-btn dis-block fl-lef hover-hand">确认</b>
+									<b class="cancel dis-inlin paset-btn dis-block fl-lef hover-hand">取消</b>
+								</div>
+							</div>
+						</div>
+						<h3 style="margin-top:40px;">联系我们</h3>
+						<ul>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">办公地址</em>
+								<input placeholder="请输入公司名称" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">联系人</em>
+								<input placeholder="请输入成立日期" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">座机</em>
+								<input placeholder="www.renrenlie.com" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">手机</em>
+								<input placeholder="请输入成立日期" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+							<li class="clearfix">
+								<em class="dis-block dis-inlin fl-lef back-none">邮箱</em>
+								<input placeholder="www.renrenlie.com" class="input dis-block dis-inlin fl-lef" type="text">
+							</li>
+						</ul>
+						<dl class="photo">
+							<dt></dt>
+							<dd>企业LOGO</dd>
+							<input class="hover-hand" type="file">
+						</dl>
+						<!-- <p style="margin-left:103px;margin-top:20px;" class="error">错误</p> -->
+						
+						<button class="btn btn1">保存</button>
+					</div>
+				</div>
+
+
+				<div class="change-pswd" style="display:block">
+					<h3>更改密码</h3>
+					<ul>
+						<li class="clearfix">
+							<em class="dis-inlin dis-block fl-lef">原始密码：</em>
+							<input placeholder="请输入原始密码" class="dis-inlin dis-block fl-lef" type="text">
+						</li>
+						<li class="clearfix">
+							<em class="dis-inlin dis-block fl-lef">新密码：</em>
+							<input placeholder="请输入新密码" class="dis-inlin dis-block fl-lef" type="text">
+						</li>
+						<li class="clearfix">
+							<em class="dis-inlin dis-block fl-lef">重复密码：</em>
+							<input placeholder="请再次输入新密码" class="dis-inlin dis-block fl-lef" type="text">
+						</li>
+					</ul>
+					<div class="clearfix ero" id="baseError" style="display:block;">
+                        <b class="fl-lef dis-block dis-inlin" style="margin-left:68px;">温馨提示:</b>
+                        <span class="fl-lef dis-block dis-inlin clearfix">
+                            <i class="fl-lef dis-block dis-inlin"></i>
+                            <span class="fl-lef dis-block dis-inlin">请输入您的真实姓名</span>
+                        </span>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public:newFooter"/>
+<script>
+	$(".m2-l>div").click(function(){
+		$(this).addClass("m");
+		$(this).find("h6").addClass("m");
+		$(this).find("p").addClass("m");
+		$(this).siblings().removeClass("m")
+		$(this).siblings().find("h6").removeClass("m");
+		$(this).siblings().find("p").removeClass("m");
+	});
+	var index;
+	var list = $(".m2-r .nav li");
+	var divs = $(".m2-r>div");
+	list.on("click",function(){
+		that = $(this);
+		index = that.index();
+		that.addClass("m").siblings().removeClass("m");
+		$(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+		divs.eq(index).show().siblings("div").hide();
+	});
+
+
+
+	var myspans = $(".add-resume .biaoqian .odiv .m span i");
+	myspans.click(function(){
+		$(this).parent().remove();
+		//alert(23)
+	})
+	var btn = $(".biaoqian .odiv .paset-btn");
+	btn.click(function(){
+		var myVal = $(this).prev().val();
+		 if (myVal.trim().length !== 0){
+		 	$(this).parent().prev().append("<span class='dis-block dis-inlin fl-lef hover-hand'>"+myVal+"<i></i></span>");
+		 }
+		var myspans = $(".add-resume .biaoqian .odiv .m span i");;
+		myspans.click(function(){
+			$(this).parent().remove();
+		})
+	})
+
+	$(".label-parent span").click(function(){
+		var text = $(this).text();
+		$(".add-resume .biaoqian .odiv .m").append("<span class='dis-block dis-inlin fl-lef hover-hand'>"+text+"<i></i></span>");
+
+
+		var myspans = $(".add-resume .biaoqian .odiv .m span i");;
+		myspans.click(function(){
+			$(this).parent().remove();
+		})
+	})
+
+	$(".biaoqian .odiv .confirm-btn").click(function(){
+
+		 var content = "";
+		 if($(".odiv .content .m span").size()>0){
+		 	$(".odiv .content .m span").each(function(){
+		 		content +='<span class="dis-block dis-inlin fl-lef">'+$(this).text()+'</span>';
+		 	});
+		 	content +='<a href="javascript:void(0)">编辑</a>';
+		 	$(".biaoqian p.mylabel").html(content);
+		 };
+		 $(".biaoqian .odiv").hide();
+		 $(".add-resume .biaoqian .mylabel a").click(function(){
+			$(".biaoqian .odiv").show();
+		 })
+	});
+	$(".biaoqian .odiv .top b").click(function(){
+		$(".biaoqian .odiv").hide();
+	});
+	$(".biaoqian .odiv .top b").click(function(){
+		$(".biaoqian .odiv").hide();
+	});
+
+	$(".biaoqian .odiv .cancel").click(function(){
+		$(".biaoqian .odiv").hide();
+	})
+	$(".add-resume .biaoqian .mylabel a").click(function(){
+		$(".biaoqian .odiv").show();
+	})
+
+</script>
+<script type="text/javascript">
+	!function(){
+		laydate.skin('yahui');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#demo'});//绑定元素
+	}();
+
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '3099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	var end = {
+	    elem: '#end',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	// laydate(start);
+	// laydate(end);
+	//自定义日期格式
+	laydate({
+	    elem: '#laydate1',
+	    format: 'YYYY年MM月DD日',
+	    festival: true, //显示节日
+	    choose: function(datas){ //选择日期完毕的回调
+	        alert('得到：'+datas);
+	    }
+	});
+	//日期范围限定在昨天到明天
+	laydate({
+	    elem: '#hello3',
+	    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+	});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+[ 2015-02-06T09:05:59+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001510s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020750s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.031539s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031840s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001177s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000908s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000736s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004293s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001087s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001235s ]
+
+[ 2015-02-06T09:06:01+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/qq.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001337s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001511s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000930s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001077s ]
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+
+[ 2015-02-06T09:07:10+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000906s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001058s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014463s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000734s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000968s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000563s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000791s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003478s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000882s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2015-02-06T09:07:13+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/sina.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001115s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001283s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000811s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000951s ]
+
+[ 2015-02-06T09:09:56+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014964s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015167s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000924s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001012s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000740s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004307s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001119s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001267s ]
+
+[ 2015-02-06T09:14:21+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001420s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014345s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014554s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000804s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000804s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000560s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000956s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003559s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001104s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001263s ]
+
+[ 2015-02-06T09:14:23+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/sina.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001182s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001357s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000842s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000988s ]
+
+[ 2015-02-06T09:15:04+08:00 ] 127.0.0.1 /bb/index.php?m=Index&a=callback
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000842s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000995s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.011761s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011967s ]
+INFO: [ view_filter ] --START--
+NOTIC: [8] Use of undefined constant APP_TMPL_PATH - assumed 'APP_TMPL_PATH' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Behavior\ContentReplaceBehavior.class.php 第 40 行.
+NOTIC: [8] Use of undefined constant APP_TMPL_PATH - assumed 'APP_TMPL_PATH' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Behavior\ContentReplaceBehavior.class.php 第 47 行.
+INFO: ContentReplace Behavior ::run [ RunTime:0.000948s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000863s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000601s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000893s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003742s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000923s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001075s ]
+
+[ 2015-02-06T09:15:21+08:00 ] 127.0.0.1 /bb/index.php?m=Index&a=callback&type=sina
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000919s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001075s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010185s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010400s ]
+INFO: [ view_filter ] --START--
+NOTIC: [8] Use of undefined constant APP_TMPL_PATH - assumed 'APP_TMPL_PATH' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Behavior\ContentReplaceBehavior.class.php 第 40 行.
+NOTIC: [8] Use of undefined constant APP_TMPL_PATH - assumed 'APP_TMPL_PATH' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Behavior\ContentReplaceBehavior.class.php 第 47 行.
+INFO: ContentReplace Behavior ::run [ RunTime:0.000902s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000689s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000517s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000843s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003371s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000845s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000994s ]
+
+[ 2015-02-06T09:17:20+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001141s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001306s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015046s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015247s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000799s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000819s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000586s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000943s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003567s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000967s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001109s ]
+
+[ 2015-02-06T09:17:45+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/sina.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001603s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001797s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000963s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001106s ]
+
+[ 2015-02-06T09:20:26+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/tencent.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001323s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001508s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001301s ]
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+
+[ 2015-02-06T09:20:29+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/sina.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001084s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001264s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001007s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001174s ]
+
+[ 2015-02-06T09:21:28+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001045s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015213s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015458s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000979s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000845s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000593s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000939s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003808s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001098s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001252s ]
+
+[ 2015-02-06T09:21:30+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/sina.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001077s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001253s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000823s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000990s ]
+
+[ 2015-02-06T09:22:08+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000835s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000995s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014706s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014921s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000755s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000766s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000551s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000924s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003457s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000910s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001056s ]
+
+[ 2015-02-06T09:22:09+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/sina.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001728s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001928s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001149s ]
+
+[ 2015-02-06T09:22:37+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001511s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014347s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014632s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000791s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000685s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000480s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000902s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003330s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001391s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001667s ]
+
+[ 2015-02-06T09:22:39+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/sina.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001245s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001416s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001053s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001225s ]
+
+[ 2015-02-06T09:27:29+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001081s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001239s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014012s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014212s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000865s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000937s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000739s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001108s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004112s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001245s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001428s ]
+
+[ 2015-02-06T09:27:31+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/renren.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001453s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001629s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000923s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001079s ]
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+
+[ 2015-02-06T09:28:27+08:00 ] 127.0.0.1 /bb/
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000857s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001009s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013493s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013679s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000713s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000677s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000459s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000805s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003041s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000851s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000989s ]
+
+[ 2015-02-06T09:28:28+08:00 ] 127.0.0.1 /bb/index.php/Index/login/type/renren.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001159s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001339s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001119s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001279s ]
+
+[ 2015-02-06T09:28:34+08:00 ] 127.0.0.1 /bb/index.php?m=Index&a=callback&type=renren&code=L763vC6WRj6cNa7X4PwtzVzh6JNuqNkb
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' E:\wamp\www\sutuijian1.1\bb\ThinkPHP\Lib\Core\App.class.php 第 61 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000834s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+ERR: 获取人人网用户信息失败：API1.0接口即将废弃，请使用最新API2.0接口
+

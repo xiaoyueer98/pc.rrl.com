@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>查看简历-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-company-common.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <body>
+    <include file="Public:company_menu_header"/>
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <a href="/Home/Company/index.html">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>企业用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+             </a>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:company_menu_left"/>
+            <div class="m2-r fl-rig">
+                <ul class="nav nav2">
+                    <li class="m first dis-block dis-inlin fl-lef"><a class="m">候选人简历</a></li>
+                </ul>
+                <div class="zaixian-jl" style="display:block">
+                    <h3>基本信息</h3>
+                    <div class="clearfix ms">
+                        <ul class="fl-lef first">
+
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef">姓名：</em>
+                                <span class="dis-block dis-inlin fl-lef">{$userinfo['username']}</span>
+                            </li>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef">性别：</em>
+                                <span class="dis-block dis-inlin fl-lef">{$userinfo['sex']}</span>
+                            </li>
+                            <?php if($userinfo['age']){?>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef">年龄：</em>
+                                <span class="dis-block dis-inlin fl-lef"><?php echo $userinfo['age'] ?></span>
+                            </li>
+                            <?php }?>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef">在职状态：</em>
+                                <span class="dis-block dis-inlin fl-lef">{$userinfo['stage']}</span>
+                            </li>
+                        </ul>
+                        <ul class="fl-lef">
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef">联系电话：</em>
+                                <span class="dis-block dis-inlin fl-lef">{$userinfo['mobile']}</span>
+                            </li>
+                             <?php if($userinfo['email']){?>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef">邮箱：</em>
+                                <span class="dis-block dis-inlin fl-lef"><?php echo $userinfo['email'] ?></span>
+                            </li>
+                            <?php }?>
+                            <?php if($userinfo['qqnum']){?>
+                            <li class="clearfix">
+                                <em class="dis-block dis-inlin fl-lef">QQ号码：</em>
+                                <span class="dis-block dis-inlin fl-lef"><?php echo $userinfo['qqnum'] ?></span>
+                            </li>
+                            <?php }?>
+
+                        </ul>
+                    </div>
+                    <?php if($userinfo['personal']){?>
+                    <div style="height:10px;width:100%;background:#f5f5f5;margin:10px 0;"></div>
+                    <h3 style="margin-top:25px;margin-bottom:10px;">自我评价</h3>
+                    <div class="clearfix" style="color: #727272;line-height: 23px;margin-top: 0;padding: 10px 20px 10px 10px;width: 600px;margin-left: 40px;">
+                        <div class="clearfix p1 wk"><?php echo $userinfo['personal']?></div>
+                    </div>
+
+                    <?php }?>
+                    <?php if($userinfo['education']){?>
+                    <div style="height:10px;width:100%;background:#f5f5f5;margin:10px 0;"></div>
+                    <h3 style="margin-top:25px;margin-bottom:10px;">教育经历</h3>
+                    <div class="clearfix" style="color: #727272;line-height: 23px;margin-top: 0;padding: 10px 20px 10px 10px;width: 600px;margin-left: 40px;">
+                        <div class="clearfix p1 wk"><?php echo $userinfo['education']?></div>
+                    </div>
+
+                    <?php }?>
+                    <?php if($userinfo['workexper']){?>
+                    <div style="height:10px;width:100%;background:#f5f5f5;margin:10px 0;"></div>
+                    <h3 style="margin-top:25px;margin-bottom:10px;">工作经历</h3>
+                    <div class="clearfix" style="color: #727272;line-height: 23px;margin-top: 0;padding: 10px 20px 10px 10px;width: 600px;margin-left: 40px;">
+                        <div class="clearfix p1 wk"><?php echo $userinfo['workexper']?></div>
+                    </div>
+
+                    <?php }?>
+                    <?php if($userinfo['uploadName']){?>
+                    <div style="height:10px;width:100%;background:#f5f5f5;margin:10px 0;"></div>
+                    <h3 style="margin-top:25px;margin-bottom:10px;">附件简历</h3>
+                    <div class="clearfix ms hover-hand">
+                        <div class="load-jl">
+                            <span class="dis-block"></span>
+                            <b><?php echo $userinfo['uploadName'];?></b>
+                            <em class="dis-block" style="display: none;"><a class="clearfix_img" href="<?php echo $userinfo['uploadUrl'] ?>">点击下载</a></em>
+                        </div>
+                    </div>    
+
+                    <?php }?>
+                    <?php if($userinfo['because']){?>
+                    <div style="height:10px;width:100%;background:#f5f5f5;margin:10px 0;"></div>
+                    <h3 style="margin-top:25px;margin-bottom:10px;">推荐理由</h3>
+                    <div class="clearfix" style="color: #727272;line-height: 23px;margin-top: 0;padding: 10px 20px 10px 10px;width: 600px;margin-left: 40px;">
+                        <div class="clearfix p1 wk"><?php echo $userinfo['because']?></div>
+                    </div>
+                    <?php }?>
+                    <div class="clearfix ms wk">
+
+                        <?php if(!$userinfo['uploadName']){?>
+                        <span class="my-btn hover-hand fl-lef" style="margin-left:135px;margin-top:20px;" id="export_reason">导出简历</span>
+                        <?php }?>
+
+
+                        <span class="my-btn hover-hand fl-lef btn" style="margin-left:30px;margin-top:20px;" onclick="history.back()">返回</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="{$id}" id="view_id">
+    <input type="hidden" value="{$jid}" id="view_jid">
+    <input type="hidden" value="{$btid}" id="view_btid">
+    <include file="Public:newFooter"/>
+    <script>
+
+
+        $(".load-jl").mouseenter(function() {
+            $(".load-jl em").show();
+        })
+        $(".load-jl").mouseleave(function() {
+            $(".load-jl em").hide();
+        })
+
+        $(function() {
+            $("#export_reason").click(function() {
+                var id = $("#view_id").val();
+                var jid = $("#view_jid").val();
+                var btid = $("#view_btid").val();
+                if (!id || !jid || !btid) {
+                    sys_wind("系统繁忙！");
+                    return false;
+                }
+                window.location.href = "/Home/Company/download/id/" + id + "/jid/" + jid + "/btid/" + btid + ".html"
+            });
+        })
+    </script>
+</body>
+
+</html>

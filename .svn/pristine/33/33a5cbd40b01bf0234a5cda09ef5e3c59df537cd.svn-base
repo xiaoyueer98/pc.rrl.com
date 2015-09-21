@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>推荐职位-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+         <script type="text/javascript" src="__ROOT__/Public/js/record-common.js"></script>
+    </head>
+    <body>
+
+        <div class="mask" id='mask' style="display: block"></div>
+    <include file="Public:newHeader"/>
+
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>推荐人用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:record_menu_left"/>
+            <div class="m2-r fl-rig">
+                <div class="recommend-candidates2" style="display:block">
+                    <div class="step">
+                        <div class="odiv1">
+                            <span class="sp1">第一步</span>
+                            <span>第二步</span>
+                            <span>第三步</span>
+                        </div>
+                        <div class="odiv2">
+                            <img src="/Public/img/rcmd-img/step4.png" alt="">
+                        </div>
+                        <div class="odiv3 clearfix">
+                            <div class="fl-lef m">
+                                <h5 class="m">选择要推荐的职位</h5>
+                                <b class="m dis-block dis-inlin">{$jobInfos['title']}</b>
+                            </div>
+                            <span class="spn dis-inlin dis-inlin fl-lef m">我要推荐</span>
+                            <div class="fl-lef m">
+                                <h5 class="m">选择并推荐候选人</h5>
+                                <b class="m dis-block dis-inlin">简历列表</b>
+                            </div>
+                            <span class="dis-inlin dis-inlin fl-lef m">立即推荐</span>
+                            <div class="fl-lef last-div m">
+                                <h5 class="m">确认推荐</h5>
+                                <b class="dis-block dis-inlin m">推荐成功</b>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="option-btn">
+
+                    </ul>
+
+                    <div class="table-list">
+                        <table class="data_list">
+                            <thead>
+                            <th>序号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>在职状态</th>
+                            <th>手机</th>
+                            <th>职位</th>
+
+                            </thead>
+                            <tbody>
+                            <volist name="resumelist" id="vo">
+                                <tr class="bg">
+                                    <td>{$vo.sort_order}</td>
+                                    <td>{$vo.username}</td>
+                                    <td><if condition="$vo.sex eq 1">女<else/>男</if></td>
+                                <td>{$vo.state}</td>
+                                <td>{$vo.mobile}</td>
+                                <td>{$vo.title}</td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="eject recomend-success">
+        <div class="content">
+            <div class="eject-t">
+                <div class="step">
+                    <div class="odiv1">
+                        <span class="sp1">第一步</span>
+                        <span>第二步</span>
+                        <span>第三步</span>
+                    </div>
+                    <div class="odiv2">
+                        <img src="/Public/img/rcmd-img/step4.png" alt="">
+                    </div>
+                    <div class="odiv3 clearfix">
+                        <div class="fl-lef m">
+                            <h5 class="m">选择要推荐的职位</h5>
+                            <b class="m dis-block dis-inlin">职位：{$jobInfos['title']}</b>
+                        </div>
+                        <span class="spn dis-inlin dis-inlin fl-lef m">我要推荐</span>
+                        <div class="fl-lef m">
+                            <h5 class="m">选择并推荐候选人</h5>
+                            <b class="m dis-block dis-inlin"><?php echo $resumeInfo['username'];?></b>
+                        </div>
+                        <span class="dis-inlin dis-inlin fl-lef m">立即推荐</span>
+                        <div class="fl-lef last-div m">
+                            <h5 class="m">确认推荐</h5>
+                            <b class="dis-block dis-inlin m">状态：推荐成功</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+                <span class="dis-inlin dis-block cg"><img src="/Public/img/rcmd-img/chenggong.png" alt=""></span>
+                <form action="__URL__/RecommendTheCandidate/comid/<?php echo $jobInfos['cpid'];?>/jobid/<?php echo $jobInfos['id'];?>.html" method="post"  id='continueRecordForm'>
+                   <span class="btn-l btn m hover-hand dis-block dis-inlin"  id="continueRecord">继续推荐</span>
+                </form>
+                <form style="width:108px;height:48px;float:left;margin-left:100px;" action="__URL__/JobSearch.html" method="post" id='otherRecordForm'>
+                    <input type="hidden" name="comid" value="<?php echo $jobInfos['cpid'];?>">
+                    <input type="hidden" name="jobid" value="<?php echo $jobInfos['id'];?>">
+                    <span class="btn-r btn hover-hand dis-block dis-inlin"   id="otherRecord">其他职位</span>
+                </form>	
+            
+        </div>	
+    </div>
+
+    <include file="Public:newFooter"/>
+    <script>
+        $(function(){
+            $("#continueRecord").click(function(){
+                $("#continueRecordForm").submit();
+            });
+            $("#otherRecord").click(function(){
+                $("#otherRecordForm").submit();
+            });
+        })
+    </script>
+</body>
+
+</html>

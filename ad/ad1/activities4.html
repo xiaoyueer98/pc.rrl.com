@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>人人猎</title>
+        <link rel="stylesheet" type="text/css" href="css/hd_style.css">
+        <link rel="stylesheet" type="text/css" href="css/resizer.css">
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    </head>
+    <body>
+        <div class="mask"></div>
+        <div class="erweima">
+            <a class="clos"></a>
+            <img src="hd_img/erweima_img.jpg" alt="">
+        </div>
+        <div class="wrapper" style="height:1150px;">
+            <div class="bg clearfix">
+                <img src="hd_img/hd5_01.jpg" alt="">
+                <img src="hd_img/hd5_02.jpg" alt="">
+                <img src="hd_img/hd5_03.jpg" alt="">
+                <img src="hd_img/hd5_04.jpg" alt="">
+                <img src="hd_img/hd5_05.jpg" alt="">
+            </div>
+            <a class="mscy_a"></a>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $( '.mscy_a' ).click(function(){
+                    $( '.mask' ).show();
+                    $( '.erweima' ).show();
+                });
+                $( '.clos' ).click(function(){
+                    $( '.mask' ).hide();
+                    $( '.erweima' ).hide();
+                })
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>我要推荐-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="hxrmssj" style="display: none;">
+        <div class="date"><label for="">候选人面试时间</label><input type="text" id="audstarttime"></div>
+        <p>（例如：3月5日全天或3月6日下午，3月5日-7日下午5点以后)</p>
+        <p class="p2">重要提示：<br>
+            向企业推荐候选人之前，必须同候选人进行沟通。一旦发现“盲目提交”（未经候选人同意即提交职位候选人）遭到客户投诉，人人猎有权终止您的猎头注册用户资格。</p>
+        <div class="botm">
+            <button class="bt1 querentuijian">确认推荐</button><button class="bt2 zaigoutongyixia">再沟通一下</button>
+        </div>
+    </div>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="recom1 data recom2">
+                <form action="__URL__/RecommendTheCandidate3" method="post" id='submitForm'>
+                    <input type="hidden" name="comid" value="<php>echo $_GET['comid'];</php>">
+                    <input type="hidden" name="position" value="<php>echo $_GET['position'];</php>">
+                    <input type="hidden" name="jobid" value="<php>echo $_GET['jobid'];</php>">
+                    <input type="hidden" name="audstarttime">
+                    <div class="recom1_tp">
+                        <h3>推荐候选人</h3>
+                        <div class="StepTips">
+                            <img src="__ROOT__/Public/img/ts.png" alt="">
+                        </div>
+                        <p class="ts2"><em style="float:left">{$jobInfo['title']}</em>
+                            
+                          
+                          
+                            <a id="ts2_a" href="/Home/login/ModifyRencom/addtype/1.html">
+                                <i><img src="/Public/img/pd_icon5.png" alt=""></i>
+                                <input type="button" id="ts2_input"  value="增加候选人"  class="button1 cur_point">
+                            </a>
+                           
+                        </p>
+                          
+                        <div class="tab tck">
+                            <table  border="1">
+                                <tr class="">
+                                    <th>序号</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>在职状态</th>
+                                    <th>手机</th>
+                                    <th>选择</th>
+                                </tr>
+                                <volist name="resumelist" id="vo">
+                                    <tr class="bg">
+                                        <td>{$vo.sort_id}</td>
+                                        <td>{$vo.username}</td>
+                                        <td><if condition="$vo.sex eq 1">女<else/>男</if></td>
+                                    <td>{$vo.state}</td>
+                                    <td>{$vo.mobile}</td>
+                                    <td><input type="Radio" name="id[]" id="id[]" value="{$vo.id}" class="checkbox {$vo.isRecord}" {$vo.isRecord}></td>
+                                    </tr>
+                                </volist>
+                            </table>
+                        </div>
+                        {$page}
+                    </div>
+                    <div class="recoml_btm">
+                        <input type="button" class="button1" value="立即推荐" onclick = "checkSelectInfo({$jobid});"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+    <input type="hidden" value="{$count}" id="bt_count">
+</body>
+<script type="text/javascript">
+    $(function(){
+         var bt_count =  $("#bt_count").val();
+         if(bt_count ==0){
+             sys_window("暂无候选人，请增加简历后再推荐该职位！","/Home/login/ModifyRencom/addtype/1.html");
+             return false;
+         }
+    })
+  
+    function checkSelectInfo(jid) {
+        var selectNum = 0;
+        $('input[name="id[]"]:checked').each(function() {
+            selectNum = selectNum + 1;
+        });
+        var isSelectNum = 0
+        $('.disabled').each(function() {
+            isSelectNum = isSelectNum + 1;
+        })
+        if (selectNum == 0) {
+            sys_window("请选择您要推荐的人");
+            return false;
+        }
+        if (selectNum > 3) {
+            sys_window("每次推荐的人员不能超过3个");
+            return false;
+        }
+        if (isSelectNum == 10) {
+            sys_window("每个企业发布的招聘，您只能推荐十个人哦");
+            return false;
+        }
+        $.post("/Home/Login/checkSelectUser.html", {
+            'jid': jid
+        }, function(data) {
+            if (data >= 10) {
+                sys_window("每个企业发布的招聘，您只能推荐十个人哦");
+            } else {
+                $("#mask").show();
+                $(".hxrmssj").show();
+            }
+        }, "json")
+
+
+    }
+
+    $(function() {
+        $(".zaigoutongyixia").click(function() {
+            $("#mask").hide();
+            $(".hxrmssj").hide();
+        });
+        $(".querentuijian").click(function() {
+            var audstarttime = $("#audstarttime").val();
+            if (!audstarttime) {
+                sys_window("请输入候选人面试时间");
+                return false;
+            } else {
+                $("input[name='audstarttime']").val(audstarttime);
+            }
+            $("#submitForm").submit();
+        });
+    })
+
+</script>
+</html>

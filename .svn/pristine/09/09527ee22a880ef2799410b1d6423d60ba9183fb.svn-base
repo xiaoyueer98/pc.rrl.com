@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>招聘方介绍-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zzwc"/>
+    <include file="Public:zzyz"/>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:gsjs"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="yhys">
+            <h2>招聘方介绍</h2>
+            <ul class="myul">
+                <ul class="findUl">
+                    <li class="title3">招聘方拥有广泛的推广渠道  -- 极速</li>
+                    <ul>
+                        <li>你的每个招聘需求都有1000+ 个潜在的推荐人可能推荐匹配的候选人 </li>
+                        <li>①别家公司的HR推荐已离职的前同事</li>
+                        <li>②猎头推荐为某一岗位寻访的其他候选人</li>
+                        <li>③社会人士推荐Ta的朋友和家人</li>
+                    </ul>
+                </ul>
+
+                <ul class="findUl">
+                    <li class="title3">招聘方的招聘总成本较低    --适价</li>
+                    <ul>
+                        <li><b>1.你可以用500元快速找到一名普通职员，成本比“普通招聘网站”还低</b></li>
+                        <li> 经统计，6-8份简历中会有一人参加面试，5名面试人中选择一人入职，3个月后该员工仍在岗的概率为90% [网站简历购买15元/份]</li>
+                        <li>招聘网站每名普通职员招聘成本 = 6 ×5 × 15 ÷ 90% = 500元</li>
+                        <li>比较： 人人猎的推荐人熟悉被推荐人，匹配度和留职率远高于下载简历式的招聘。</li>
+                    </ul>
+                </ul>
+
+                <ul class="findUl">
+                    <ul>
+                        <li><b>2.你仅需员工年薪的3-5%便可招到合适管理人员及核心员工</b></li>
+                        <li>经统计，猎头招聘管理人员或核心员工招聘周期往往会超过1个月，收取年薪20-30%的招聘费。</li>
+                        <li>比较： 费率大幅节省，且招聘速度更快。</li>
+                    </ul>
+                </ul>
+            </ul>
+
+
+            <ul class="myul">
+                <ul class="findUl">
+                    <ul>
+                        <li><b>3.批量招聘优势明显</b></li>
+                        <li>经咨询，猎头公司和招聘公司短期内批量招聘（如销售代表等职位）较难招齐</li>
+                        <li>经询价，普通岗位批量招聘单人成本为： 猎头3000元+  招聘公司 1500元+</li>
+                        <li>比较： 批量招聘成本更低、推荐源更广、速度更快</li>
+                    </ul>
+                </ul>
+            </ul>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+
+</html>

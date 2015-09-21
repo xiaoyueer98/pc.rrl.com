@@ -1,0 +1,43 @@
+<div class="pc-zhuce">
+    <a href="" class="close"></a>
+    <h3></h3>
+    <dl>
+        <dt>
+            <ul class="pc-nav">
+                <li class="nav1 mover3">推荐人</li>
+                <li class="nav2">招聘企业</li>
+            </ul>
+            <ul class="list">
+                <li><input type="text" class="username"><span>请输入用户名</span></li>
+                <li><input type="text" class="phone"><span>请输入手机号</span></li>
+                <li><input type="text" class="vfition"><span>请输入验证码</span><label class="vfit_btn1">获取验证码</label><label class="vfit_btn2"><i>60</i>秒后重新获取</label></li>
+                <li><input type="text" class="possword"><span>请输入密码</span></li>
+                <p class="">您输入的密码不合格</p>
+            </ul>
+            <div class="yanzheng">
+            <input class="radio1" type="radio" name="xieyi" id="xieyaya">
+                <span>已阅读并接受人人猎网<a href="javascript:;" id="xieyisss">《用户协议和隐私条款》</a></span>
+            </div>
+            <button>确认</button>
+        </dt>
+        <dd>
+            <div class="yd">
+                <span>已有账号</span>
+                <em id="denglu3">点此登录</em>
+            </div>
+            <p>使用联合账号登录</p>
+            <ul class="Sign" >
+                <li><a href="{:U('login?type=qq')}"><img src="__ROOT__/Public/img/qq_icon.png"></a></li>
+                <li><a href="{:U('login?type=sina')}"><img src="__ROOT__/Public/img/weibo.png"></a></li>
+                <li><a href="{:U('login?type=weixin')}"><img src="__ROOT__/Public/img/weixin.png"></a></li>
+                <li><a href="{:U('login?type=renren')}"><img src="__ROOT__/Public/img/renren.png"></a></li>
+            </ul>
+            <ul class="Grey" style="display:none">
+                <li><img src="__ROOT__/Public/img/qq2.png"></li>
+                <li><img src="__ROOT__/Public/img/Sina2.png"></li>
+                <li><img src="__ROOT__/Public/img/weixin2.png"></li>
+                <li><img src="__ROOT__/Public/img/renren2.png"></li>
+            </ul>
+        </dd>
+    </dl>
+</div>

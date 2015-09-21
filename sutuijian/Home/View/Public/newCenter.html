@@ -1,0 +1,222 @@
+<div class="wrapper">
+    <div class="wrap">
+        <div class="ms1">
+            <div class="con1 clearfix">
+                <span class="aa dis-inlin dis-block fl-lef">关键字</span>
+                <div class="dis-block dis-inlin post fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp JAVA &nbsp Android &nbsp IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+            <div class="con2 clearfix">
+                <span class="dis-inlin dis-block fl-lef">热门职位：</span>
+                <ul class="dis-inlin dis-block fl-lef">
+                    <li class="dis-inlin dis-block fl-lef"><a href="/Home/Index/search/position/产品经理.html">产品经理</a></li>
+                    <li class="dis-inlin dis-block fl-lef"><a href="/Home/Index/search/position/PHP工程师.html">PHP工程师</a></li>
+                    <li class="dis-inlin dis-block fl-lef"><a href="/Home/Index/search/position/IOS工程师.html">IOS工程师</a></li>
+                    <li class="dis-inlin dis-block fl-lef"><a href="/Home/Index/search/position/前端工程师.html">前端工程师</a></li>
+                    <li class="dis-inlin dis-block fl-lef"><a href="/Home/Index/search/position/运营总监.html">运营总监</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <div class="promo dis-inlin dis-block fl-lef">
+                <div class="promo-bd">
+                    <div style="position:absolute;left:-790px;">
+                        <div>
+                            <a href="/Home/Customized/index.html">
+                                <img src="/Public/img/new-index/nindexlb4.jpg">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <img src="/Public/img/new-index/al-banner.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <img src="/Public/img/new-index/nindexlb1.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <img src="/Public/img/new-index/nindexlb2.jpg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="promo-ft">
+                    <div id="J_PromoOpt" class="promo-opt">
+                        <a href="javascript:;" class="J_Prev prev">
+                            <i>
+                            </i>
+                        </a>
+                        <a href="javascript:;" class="J_Next next">
+                            <i>
+                            </i>
+                        </a>
+                    </div>
+                    <ul class="promo-nav">
+                        <li class="selected">
+                            <a href="javascript:void(0);">
+                                1
+                            </a>	
+                        </li>	
+                        <li>
+                            <a href="javascript:void(0);">
+                                2
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                3
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                4
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ms2-r dis-inlin dis-block fl-rig">
+                <a href="/Home/Customized/index.html" target='_blank'><img src="/Public/img/new-index/hd2.png" alt=""></a>
+                <a  href='/Home/Active/salon_show.html' target='_blank'><img src="/Public/img/new-index/shalong-hd.png" alt=""></a>
+                <a href="/Home/Upresume/index.html"><img src="/Public/img/new-index/hd3.png" alt=""></a>
+                 <!-- <a href="javascript:void(0);" class="hd3">
+                   <div id="marquee5">
+                       <ul>
+                           <?php foreach($arInventedData as $v){?>
+                           <li>
+                               <span><?php echo $v['title']?></span>
+                               
+                           </li>
+                           <?php }?>
+                         
+                          
+                       </ul>
+                   </div> 
+                                </a>  -->
+            </div>
+        </div>
+        <div class="ms3 clearfix">
+            <include file="Public:newLeft"/>
+            <div class="ms3-r fl-rig">
+                <ul class="nav">
+                    <li class="fl-lef href hover-hand">热门职位</li>
+                    <li class="fl-lef hover-hand">最新职位</li>
+                </ul>
+                <div class="con-public con-remen" style="display:block;margin-top: 1px;">
+                    <volist name="comp2" id="cp">
+                        <div class="clearfix list">
+                           <span class="np-logo dis-block dis-inlin fl-lef">
+                            <?php if($cp['type'] == 1):?>
+                             <img src="{$cp.thumlogo}" alt="" width="50px" height="50px">
+                            <?php else:?>
+                             <img src="/Public/img/company_logo/bmkh.png" alt="" width="50px" height="50px">
+                            <?php endif;?>
+                            </span>
+                            <ul class="r fl-rig">
+                                <li class="clearfix li1">
+                                    <a href="/Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}.html" target="_blank"><em class="dis-inlin dis-block fl-lef">{$cp.title}</em></a>
+                                    <span class="adrs dis-inlin dis-block fl-lef">[{$cp.jobplace}]</span>
+                                    <a href="/Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}.html" target="_blank"><h6 class="dis-inlin dis-block fl-rig">{$cp.cpname}</h6></a>
+                                </li>
+                                <li class="clearfix li2">
+                                    <span class="dis-inlin dis-block fl-lef">月薪：</span>
+                                    <span class="dis-inlin dis-block fl-lef">{$cp.treatment}</span>
+                                    <span class="dis-inlin dis-block fl-lef">{$cp.experience}</span>
+                                    <span class="dis-inlin dis-block fl-lef">{$cp.education}</span>
+                                    <div class="fl-rig dis-inlin dis-block">
+                                        <span class="c-r dis-inlin dis-block fl-lef">招聘人数：</span>
+                                        <span class="ic dis-inlin dis-block fl-lef" style="color: black;"><?php echo $cp['employ'];?></span>                                                                               
+                                        <span class="c-r dis-inlin dis-block fl-lef">推荐人数：</span>
+                                        <span class="ic dis-inlin dis-block fl-lef" style="color: red;font-weight: bold"><?php echo $cp['record_num'];?></span>
+
+                                    </div>
+
+                                    <div class="fl-rig dis-inlin dis-block">
+                                        <if condition="$cp.strycate != null">
+                                            <span class="c-r dis-inlin dis-block fl-lef">所属行业：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef">{$cp.strycate}</span>
+                                        </if>
+                                        <if condition="$cp.stage != null">
+                                            <span class="c-r dis-inlin dis-block fl-lef">融资阶段：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef">{$cp.stage}</span>
+                                        </if>
+                                        <if condition="$cp.scale != null">
+                                            <span class="c-r dis-inlin dis-block fl-lef">规模：</span> 
+                                            <span class="ic dis-inlin dis-block fl-lef">{$cp.scale}</span>
+                                        </if>
+                                    </div>
+
+                                </li>
+                                <li class="clearfix li3">
+                                    <em class="c3-l	dis-inlin dis-block fl-lef">候选人成功入职，你即得奖励  <i>￥{$cp.Tariff}</i></em>
+                                    <span class="c-r dis-inlin dis-block fl-rig">[{$cp.starttime}]</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </volist>
+                    <div class="clearfix"><span class="dis-block tsm" onclick="location.href = '/Home/Index/search.html'" style="cursor:pointer;">查看更多》</span></div>
+                </div>
+                <div class="con-public con-zuixin" style="display:none;margin-top:1px;">
+                    <volist name="comp" id="cp">
+                        <div class="clearfix list">
+                            <span class="np-logo dis-block dis-inlin fl-lef">
+                            <?php if($cp['type'] == 1):?>
+                             <img src="{$cp.thumlogo}" alt="" width="50px" height="50px">
+                            <?php else:?>
+                             <img src="/Public/img/company_logo/bmkh.png" alt="" width="50px" height="50px">
+                            <?php endif;?>
+                            </span>
+                            <ul class="r fl-rig">
+                                <li class="clearfix li1">
+                                    <a href="/Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}.html " target="_blank"><em class="dis-inlin dis-block fl-lef">{$cp.title}</em></a>
+                                    <span class="adrs dis-inlin dis-block fl-lef" style="background:none;">[{$cp.jobplace}]</span>
+                                    <a href="/Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}.html" target="_blank"><h6 class="dis-inlin dis-block fl-rig">{$cp.cpname}</h6></a>
+                                </li>
+                                <li class="clearfix li2">
+                                    <span class="dis-inlin dis-block fl-lef">月薪：</span>
+                                    <span class="dis-inlin dis-block fl-lef">{$cp.treatment}</span>
+                                    <span class="dis-inlin dis-block fl-lef">{$cp.experience}</span>
+                                    <span class="dis-inlin dis-block fl-lef">{$cp.education}</span>
+                                    <div class="fl-rig dis-inlin dis-block">
+                                        <span class="c-r dis-inlin dis-block fl-lef">招聘人数：</span>
+                                        <span class="ic dis-inlin dis-block fl-lef" style="color: black;"><?php echo $cp['employ'];?></span>                                                                               
+                                        <span class="c-r dis-inlin dis-block fl-lef">推荐人数：</span>
+                                        <span class="ic dis-inlin dis-block fl-lef" style="color: red;font-weight: bold"><?php echo $cp['record_num'];?></span>
+
+                                    </div>
+                                    <div class="fl-rig dis-inlin dis-block">
+                                        <if condition="$cp.strycate != null">
+                                            <span class="c-r dis-inlin dis-block fl-lef">所属行业：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef">{$cp.strycate}</span>
+                                        </if>
+                                        <if condition="$cp.stage != null">
+                                            <span class="c-r dis-inlin dis-block fl-lef">融资阶段：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef">{$cp.stage}</span>
+                                        </if>
+                                        <if condition="$cp.scale != null">
+                                            <span class="c-r dis-inlin dis-block fl-lef">规模：</span> 
+                                            <span class="ic dis-inlin dis-block fl-lef">{$cp.scale}</span>
+                                        </if>
+                                    </div>
+
+                                </li>
+                                <li class="clearfix li3">
+                                    <em class="c3-l	dis-inlin dis-block fl-lef">候选人成功入职，你即得奖励  <i>￥{$cp.Tariff}</i></em>
+                                    <span class="c-r dis-inlin dis-block fl-rig">[{$cp.starttime}]</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </volist>
+                    <div class="clearfix"><span class="dis-block tsm" onclick="location.href = '/Home/Index/search.html'" style="cursor:pointer;">查看更多》</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

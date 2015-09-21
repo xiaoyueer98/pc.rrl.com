@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>注册</title>
+        <link rel="stylesheet" href="style/base.css" />
+        <link rel="stylesheet" href="style/jin_.css" />
+    </head>
+    <body>
+        <div class="loginmain">
+        <form action="#">
+            <img src="style/images/loginlog.png"  width="60%" alt="" class="log" />
+            <input type="text" placeholder="请输入用户名" class="logininput inputbgname" />
+            <input type="password"  placeholder="请输入密码" class="logininput inputbpass"/>
+            <div>
+                <input type="txt"  placeholder="请输入验证码" class="logininput inputbpass" style="width:60%" />
+                <img src="ma.jpg" height="18" width="60" alt="" />
+            </div>
+            <input type="submit" value="注 册" class="logininput inputsubmit" />
+        </form>
+        </div>
+    </body>
+</html>

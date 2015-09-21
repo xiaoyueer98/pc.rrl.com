@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+	<title>签订合同</title>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+</head>
+<body>
+	<include file="Public:company_menu_header"/>
+	<div class="wrap">
+		<div class="ms1 clearfix">
+			<div class="m1-l fl-lef">
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+				<span>推荐人用户中心</span>
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+			</div>
+			<div class="m1-r fl-rig">
+				<span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+				<div class="search dis-inlin fl-lef">
+					<input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+					<span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+						<img src="/Public/img/new-index/position-btn.png" alt="">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="ms2 clearfix">
+			<div class="m2-l fl-lef">
+				<div class="odiv hover-hand m">
+					<span>1</span>
+					<h6 class="tit1 m">完善资料<em class="m"></em></h6>
+					<p class="tx m">方便推荐人了解公司及职位</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>2</span>
+					<h6 class="tit2">维护候选人<em></em></h6>
+					<p class="jlk">(简历库)</p>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>3</span>
+					<h6 class="tit3">推荐职位<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>4</span>
+					<h6 class="tit4">跟踪状态<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>5</span>
+					<h6 class="tit5">查看收益<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+			</div>
+			<div class="m2-r fl-rig">
+				<ul class="nav nav2">
+					<li class="m first dis-block dis-inlin fl-lef"><a class="m">签订合同</a></li>
+				</ul>
+				<div class="add-resume" style="display:block">
+					<div class="contract">
+						<h3>公司合同</h3>
+						<ul>
+							<li class="clearfix li1"> <p class="clearfix"><span>操作提示:</span>签订合同以后，才可以发布职位，招不到人不收费。<a href="">（点击下载合同范本）</a></p>
+							</li>
+							<li class="clearfix">
+								<em class="dis-inlin dis-block fl-lef back-none">上传合同</em>
+								<input class="dis-inlin dis-block fl-lef" type="text" >
+								<span class="scht-btn fl-lef">上传</span>
+							</li>
+							<li class="clearfix">
+								<em class="dis-inlin dis-block fl-lef back-none">合同状态</em>
+								<div>
+									<p>合同审核中</p>
+									<p>合同不合格，原因是......</p>
+									<p>合同已通过审核，通过审核后不能修改。</p>
+									<p class="error" style="line-height:20px!important">错误</p>
+								</div>
+							</li>
+						</ul>
+						<button class="my-btn">保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public:newFooter"/>
+<script>
+	$(".m2-l>div").click(function(){
+		$(this).addClass("m");
+		$(this).find("h6").addClass("m");
+		$(this).find("p").addClass("m");
+		$(this).siblings().removeClass("m")
+		$(this).siblings().find("h6").removeClass("m");
+		$(this).siblings().find("p").removeClass("m");
+	});
+	var index;
+	var list = $(".m2-r .nav li");
+	var divs = $(".m2-r>div");
+	list.on("click",function(){
+		that = $(this);
+		index = that.index();
+		that.addClass("m").siblings().removeClass("m");
+		$(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+		divs.eq(index).show().siblings("div").hide();
+	});
+
+</script>
+<script type="text/javascript">
+	!function(){
+		laydate.skin('yahui');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#demo'});//绑定元素
+	}();
+
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '3099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	var end = {
+	    elem: '#end',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	// laydate(start);
+	// laydate(end);
+	//自定义日期格式
+	laydate({
+	    elem: '#laydate1',
+	    format: 'YYYY年MM月DD日',
+	    festival: true, //显示节日
+	    choose: function(datas){ //选择日期完毕的回调
+	        alert('得到：'+datas);
+	    }
+	});
+	//日期范围限定在昨天到明天
+	laydate({
+	    elem: '#hello3',
+	    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+	});
+</script>
+</body>
+
+</html>

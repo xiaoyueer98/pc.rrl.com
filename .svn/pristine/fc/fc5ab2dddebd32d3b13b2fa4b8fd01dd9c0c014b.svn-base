@@ -1,0 +1,29 @@
+<iframe name="iframebox" src="" style="display:none" ></iframe>
+<form name="aspnetForm" method="post" action="__URL__/editAvatarAjax/id/{$id}" id="aspnetForm" target="iframebox"  enctype="multipart/form-data">
+<input name="btnSubmit" value="保存" class="btn_blue" type="submit" onclick="updataface()" />
+</form>
+<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+<!--
+	function updataface(){
+    $.ajax({
+            url: "__URL__/editAvatarAjax",
+            datatype: "json",
+            success: function (data) {
+                bb=eval('('+data+')');
+                alert(bb.Avatar);
+                $('#userfacebig').attr('src',bb.Avatar);
+                $('#userfacesmall').attr('src',bb.Avatar);
+            },
+            error: function(){
+                alert('加载头像失败');
+            }
+        })
+}
+function updataface(bb){
+    var imgsrc = "__IMG__"+"/Public/Uploads/s_"+bb;
+    $('#userfacebig').attr('src',imgsrc);
+    $('#userfacesmall').attr('src',imgsrc);
+}
+//-->
+</script>

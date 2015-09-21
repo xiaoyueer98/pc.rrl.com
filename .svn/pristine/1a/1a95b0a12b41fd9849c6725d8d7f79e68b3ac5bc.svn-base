@@ -1,0 +1,112 @@
+$(function () {
+    $("#denglubutton").attr("disabled", false);
+    $("#colosewindowd").click(function () {
+        $(".mask1").hide();
+        $(".mask").hide();
+        $(".cfid").hide();
+        $(".denglu").hide();
+        location.href = $("#hrefUrl").val();
+    })
+    $("#colosewindowds").click(function () {
+        $(".mask").hide();
+        $(".mask1").hide();
+        $(".cfid").hide();
+        $(".denglu").hide();
+        location.href = $("#hrefUrl").val();
+    })
+    $("#denglubutton").click(function () {
+
+        var username = $("input[name='usernamees']").val();
+        var password = $("input[name='passwordes']").val();
+        var remembeme = document.getElementById("remembeme").checked;
+
+        if (!username) {
+            $('.error2').html('用户名不能为空')
+            $('.error2').show();
+            return false;
+        } else if (!password) {
+            $('.error2').html('密码不能为空')
+            $('.error2').show();
+            return false;
+        }
+        var currentAction = $("#currentAction").val();
+
+        if (currentAction) {
+
+            var enterIndexComId = $("#enterIndexComId").val();
+            var enterIndexJobId = $("#enterIndexJobId").val();
+        } else {
+            currentAction = "";
+            enterIndexComId = 0;
+            enterIndexJobId = 0;
+        }
+
+        var url = "/Home/Index/userlogin"; //定义一个登陆地址，分别为用户名登陆地址和手机号登陆地址
+        if (/^((13[0-9])|147|(15[0-35-9])|180|182|(18[5-9]))[0-9]{8}$/.test(username)) {
+            url = "/Home/Index/mobilelogin";
+        }
+        $.post(url, {
+            'username': username,
+            'password': password,
+            'currentAction': currentAction,
+            'enterIndexComId': enterIndexComId,
+            'enterIndexJobId': enterIndexJobId,
+            'remembeme': remembeme
+        }, function (data) {
+
+            if (data.code == 200) {
+                location.href = data.msg;
+                return false;
+            } else if (data.code == 201) {
+                $("#helloname").html(username + "您好！");
+                $("#updatename").html("hr" + username);
+                $("#hrefUrl").val(data.msg);
+                $(".mask1").show();
+                $(".cfid").show();
+            } else {
+
+                $('.error2').html(data.msg)
+                $('.error2').show();
+                return false;
+            }
+        }, "json")
+    });
+
+    $("input[name='usernamees']").next().click(function () {
+        $(this).hide();
+        $("input[name='usernamees']").focus();
+    })
+
+    $("input[name='usernamees']").focus(function () {
+        $(this).next().hide();
+    })
+    $("input[name='usernamees']").blur(function () {
+        if ($(this).val() == "") {
+            $(this).next().show();
+        }
+    })
+    $("input[name='passwordes']").next().click(function () {
+        $(this).hide();
+        $("input[name='passwordes']").focus();
+    })
+
+    $("input[name='passwordes']").focus(function () {
+        $(this).next().hide();
+    })
+    $("input[name='passwordes']").blur(function () {
+        if ($(this).val() == "") {
+            $(this).next().show();
+        }
+    })
+
+})
+
+function DL_KeyDown(e)
+{
+    var a=e||window.event;
+    if (a.keyCode == 13)
+    {
+        $("#denglubutton").click();
+    }
+}
+    

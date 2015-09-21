@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>抢红包</title>
+        <script type="text/javascript" src="/Public/js/webchat/jquery-1.11.0.min.js"></script>
+        <link rel="stylesheet"  href="/Public/css/webchat/reset.css">
+        <link rel="stylesheet"  href="/Public/css/webchat/wechat.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+    </head>
+    <body>
+        <include file="Webchat:like_alert"/>
+        <div class="mack"></div>
+        <div class="waper">
+            <div class="redpckag">
+                <img src="/Public/images/webchat/redpackage.png">
+                <a class="btn"  id="getnow">马上打开></a>
+                <a class="btn"  id="getnow1" style="display:none;">马上打开></a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $('.btn').on('click', function () {
+                    $('.btn').css('background', '#d5c903');
+                });
+            })
+            $("#getnow").click(function () {
+                $("#getnow").css("display","none");
+                $("#getnow1").css("display","block");
+                $.post("/Home/Redpackage/get_redpackage", {}, function (data) {
+                    if (data.code == "200") {
+                        location.href = "/Home/Redpackage/redpackage_end/mo/"+data.msg;
+                    } else {
+                        lo_like_alert(data.msg,"/Home/Webchat/new_job");
+                    }
+                }, "json");
+            })
+        </script>
+        <include file="Webchat:statistics">
+    </body>
+</html>

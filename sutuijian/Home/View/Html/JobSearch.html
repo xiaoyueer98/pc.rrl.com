@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>职位搜索-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+        <!-- 注册弹出框 -->
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="gaojisosu">
+            <div class="sk">
+                <h3>职位高级搜索</h3>
+                <div class="cn">
+                    <ul>
+                        <li style="padding:0">
+                            <em>职位名称</em>
+                            <input type="text" name="title" id="title" value="<?php echo $_GET['position'];?>"/> 
+                            <em>行业类别:</em>
+
+                            <select name="industry" id="industry" class=""  style="width:140px">
+                                <option value="">请选择</option>
+                                <volist name="arIndustry" id="Industry">
+                                    <option value="{$Industry['id']}">{$Industry['cascname']}</option>
+                                </volist>
+                            </select>
+
+
+                            <em class="myem">职位类别:</em>
+
+                            <select name="position" id="positionss" class=""  style="width:140px">
+                                <option value="">请选择</option>
+                                <volist name="arPosition" id="Position">
+                                    <option value="{$Position['id']}" >{$Position['cascname']}</option>
+                                </volist>
+                            </select>
+
+                        </li>
+                        <li>
+                            <em>工作地点:</em>
+                            <select id="area" class=""  style="width:140px">
+                                <option value="">请选择</option>
+                                <volist name="workarea" id="DQ">
+                                    <option value="{$DQ['id']}">{$DQ['cascname']}</option>
+                                </volist>
+                            </select>
+
+                            <em> 工资待遇:</em>
+                            <select name='treatment' id="treatment"  style="width:175px">
+                                <option value=''>不限</option>
+                                <volist name="money" id="m">
+                                    <option value='{$m.datavalue}'>{$m.dataname}</option>
+                                </volist>
+                            </select>
+                            <em>发布时间：</em>
+                            <select name='puttime' id="puttime">
+                                <option value=''>请选择</option>
+                                <volist name="positime" id="pt">
+                                    <option value='{$pt.datavalue}'>{$pt.dataname}</option>
+                                </volist>
+                            </select>
+                            <!--
+                            <em>赏金：</em>
+                            <select name='Tariff' id="Tariff">
+                                <option value=''>请选择</option>
+                                <volist name="smoney" id="sm">
+                                    <option value='{$sm.datavalue}'>{$sm.dataname}</option>
+                                </volist>
+                            </select>
+                            
+                        </li>
+                      
+                        <li>
+                            <em>发布时间：</em>
+                            <select name='puttime' id="puttime">
+                                <option value=''>请选择</option>
+                                <volist name="positime" id="pt">
+                                    <option value='{$pt.datavalue}'>{$pt.dataname}</option>
+                                </volist>
+                            </select>
+                            -->
+                        </li>
+
+                        <li class="sosuoLi" >
+                            <span style="display: none">请输入行业类别</span><br>
+                            <input type="button" class="btn" value="搜索" onclick="search()">
+                        </li>
+
+
+                        <!--
+                        <?php if($isSearchCollect){?>
+                        <li class="gr"><em>保存为个人搜索器：</em>
+                            <input class="tex" type="text" value="给我起个名字吧" id='searchInput'>
+                            <input value="保存" class="btn cur_point" type="button" id="searchSave">
+                        </li>
+                        <?php }?>
+                        -->
+                    </ul>
+                </div>
+                <div class="SearchTag">
+                    <!-- 
+                  <ul class="LableUl">
+                      
+                      <li><span  id="newdesc" onclick="search(this)">最新</span></li>
+                      <li><span  id="newdesc" onclick="search(this)">薪资</span></li>
+                      <li><span  id="newdesc" onclick="search(this)">赏金</span></li>
+                   <li class="laseLabl">我的搜索标签</li> 
+                  </ul>
+                    -->
+                    <ul class="LableUl">
+                        <li style="background:none;padding-left:30px;"><em  >职位搜索</em></li>
+                    </ul>
+                    <ul class="listUl" style="padding-bottom:50px;">
+                        <volist name="comp" id="cp">
+                            <li class="clearfix">
+                                <em><img src="{$cp.thumlogo}" alt=""  width="50px" height="50px"></em>
+                                <div> 
+                                    <dt class="clearfix">
+                                    <span class="Position"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.title}</a><i></i></span>
+                                    <span class="EntprisName"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.cpname}</a></span>
+                                    <span class="Salary" style='color:#1b5d95'>￥{$cp.treatment}</span>
+                                    </dt>
+                                    <dd class="clearfix">
+                                        <span class="WorkAge"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.education}</a></span>
+                                        <span class="Education"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">{$cp.experience}</a></span>
+                                        <span class="Education"><a href="{:U('/')}Home/Index/EnterIndex2/comid/{$cp.cpid}/jobid/{$cp.guid}">更新于：{$cp.starttime}</a></span>
+                                        <span class="Place"><a href="javascript:;" style="color: #e84700">￥{$cp.Tariff}</a></span>
+                                    </dd>
+                                </div>
+                            </li>
+                        </volist>
+
+                        {$str}
+                        <input type="hidden" id="hid" value="1"/>
+                    </ul>
+
+
+
+                </div>
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+<script type="text/javascript">
+    $(function() {
+        document.onkeydown = function mykeyDown(e) {
+            //compatible IE and firefox because there is not event in firefox
+            e = e || event;
+            if (e.keyCode == 13) {
+                search();
+            }
+            return;
+        }
+        $("#searchInput").focus(function() {
+            if ($(this).val() == "给我起个名字吧") {
+                $(this).val("");
+            }
+        });
+        $("#searchInput").blur(function() {
+            if ($(this).val() == "") {
+                $(this).val("给我起个名字吧");
+            }
+        });
+        $("#searchSave").click(function() {
+            var searchInput = $("#searchInput").val();
+
+            if (!searchInput || searchInput == '给我起个名字吧') {
+                sys_window("请输入搜索器名称！");
+                return false;
+            }
+            var title = $("#title").val();
+            var industry = $("#industry option:selected").val();
+            var position = $("#positionss option:selected").val();
+            var area = $("#area").val();
+            var treatment = $("#treatment").val();
+            var puttime = $("#puttime").val();
+
+            if (!title && !industry && !position && !area && !puttime && !treatment) {
+                sys_window("您的搜索器一个标识都还没有哦！");
+                return false;
+            }
+            $.post("__URL__/saveSearchTools.html", {
+                'title': title,
+                'industry': industry,
+                'position': position,
+                'area': area,
+                'treatment': treatment,
+                'puttime': puttime,
+                'name': searchInput
+            }, function(data) {
+                if (data.code != 200) {
+                    sys_window(data.msg);
+                    return false;
+                } else {
+                    sys_window("添加成功");
+                }
+            }, "json")
+        });
+    })
+    function search(obj)
+    {
+        //var newdesc=$("#this").val();
+        var positionsstmp = $("#positionsstmp").val()
+        var position = $("#positionss option:selected").val();
+        var nowpage = $("#hid").val();
+        var industry = $("#industry option:selected").val();
+        var area = $("#area").val();
+        var treatment = $("#treatment").val();
+        // var Tariff = $("#Tariff").val();
+        var puttime = $("#puttime").val();
+        var title = $("#title").val();
+        // var newdesc=$(obj).text();
+
+        $.ajax({
+            url: "__URL__/searchs",
+            type: "post",
+            data: {"position": position, "industry": industry, "area": area, "treatment": treatment, "puttime": puttime, 'title': title},
+            url:"__URL__/searchs",
+                    success: function(msg)
+                    {
+                        $(".listUl").html(msg);
+                    }
+
+        });
+    }
+    function page(i) {
+
+        var positionsstmp = $("#positionsstmp").val()
+        var position = $("#positionss option:selected").val();
+        var nowpage = $("#hid").val();
+        var industry = $("#industry option:selected").val();
+        var area = $("#area").val();
+        var treatment = $("#treatment").val();
+        // var Tariff = $("#Tariff").val();
+        var puttime = $("#puttime").val();
+        var title = $("#title").val();
+        $.ajax({
+            url: "__URL__/page",
+            type: "post",
+            data: {'i': i, "position": position, "industry": industry, "area": area, "treatment": treatment, "puttime": puttime, 'title': title},
+            success: (function(mgsp) {
+                $(".listUl").html(mgsp);
+            })
+        });
+    }
+
+</script>
+<script type="text/javascript">
+
+
+    function changeHy(b, h) {
+        if (b !== "请选择") {
+            $.ajax({
+                type: "post",
+                data: {"id": b},
+                dataType: "json",
+                url: "__URL__/getData",
+                success: function(datas) {
+                    if (h == "strycate") {
+                        var html = "<option>不限</option>";
+                    } else if (h == "Jobcate") {
+                        var html = "<option>不限</option>";
+                    } else if (h == "jobplace") {
+                        var html = "<option>不限</option>";
+                    }
+                    for (var i = 0; i < datas.length; i++) {
+                        html += "<option value='" + datas[i].id + "'>" + datas[i].cascname + "</option>";
+                    }
+                    $("#" + h).html(html);
+                }
+
+            });
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>签订合同-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-company-common.js"></script>
+        <link rel="stylesheet" type="text/css" href="/Public/css/uploadify.css">
+        <link rel="stylesheet" type="text/css" href="/Public/css/company.css">
+        <script type="text/javascript" charset="utf-8" src="/Public/js/jquery.uploadify-3.1.js"></script>
+    </head>
+    <body>
+        <div class="mask" id="mask"></div>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <a href="/Home/Company/index.html">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>企业用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+            </a>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:company_menu_left"/>
+            <div class="m2-r fl-rig">
+                <ul class="nav nav2">
+                    <li class="m first dis-block dis-inlin fl-lef"><a class="m">签订合同</a></li>
+                </ul>
+                <div class="add-resume">
+                    <form action="/Home/Company/SaveSignContract.html" id="SignContractInfo"  name= "SignContractInfo" method = 'post' enctype="multipart/form-data">
+                        <div class="contract">
+                            <h3>公司合同</h3>
+                            <ul>
+                                <!-- <li class="clearfix li1"> <p class="clearfix"><span>操作提示:</span>签订合同以后，才可以发布职位，招不到人不收费。<a href="/Public/人人猎招聘方-合同.docx">（点击下载合同范本）</a></p>
+                                </li> -->
+
+                                <li class="clearfix ero" id="baseError" style="display:block;margin-left:0">
+                                    <b class="fl-lef dis-block dis-inlin" style="margin-left:12px;">温馨提示:</b>
+                                    <span class="fl-lef dis-block dis-inlin clearfix" style="height:auto;">
+                                        <i class="fl-lef dis-block dis-inlin"></i>
+                                        <span class="fl-lef dis-block dis-inlin clearfix"style="height:auto;width:354px;"><span>操作提示:</span>签订合同以后，才可以发布职位，招不到人不收费。<a href="/Public/人人猎招聘方-合同.docx">（点击下载合同范本）</a></span>
+                                    </span>
+                                </li>
+
+                                <?php if($arCompanyInfo['checkcontract'] != "1"):?>
+                                <li class="clearfix">
+                                    <em class="dis-inlin dis-block fl-lef back-none">上传合同</em>
+                                    <input class="dis-inlin dis-block fl-lef hetong cur_point" type="text" name="uploadFiletext" id="uploadFiletext">
+                                    <span class="scht-btn fl-lef hetong cur_point">上传</span>
+                                </li>
+                                <?php endif;?>
+                                <li class="clearfix">
+                                    <em class="dis-inlin dis-block fl-lef back-none">合同状态</em>
+                                    <div>
+                                        <?php if($arCompanyInfo['checkcontract'] == "1"):?>
+                                        <p>已审核通过</p>
+                                        <?php else:?>
+                                        <?php if($arCompanyInfo['contract']):?>
+                                        <p>正在审核中</p>
+                                        <?php endif;?>
+                                        <?php endif;?>
+                                        <?php if($arCompanyInfo['contract']):?>
+                                        <p>已成功上传合同</p>          
+                                        <?php else:?>
+                                        <p>未上传合同</p>
+                                        <?php endif;?>
+                                        <!-- <p class="error contract-error undis" style="line-height:20px!important">错误</p> -->
+                                        <div class="clearfix ero  contract-error" id="baseError" style="margin-left:0">
+                                            <b class="fl-lef dis-block dis-inlin" style="margin-left:0;">温馨提示:</b>
+                                            <span class="fl-lef dis-block dis-inlin clearfix" style="height:auto;">
+                                                <i class="fl-lef dis-block dis-inlin"></i>
+                                                <span class="fl-lef dis-block dis-inlin"style="height:auto;"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <?php if($arCompanyInfo['checkcontract'] != "1"):?>
+                            <?php if($arCompanyInfo['contract']):?>
+                            <input class="saveSignContract my-btn cur_point" type="button" value="修改">
+                            <?php else:?>
+                            <input class="saveSignContract my-btn cur_point" type="button" value="保存">
+                            <?php endif;?>
+                            <?php endif;?>
+                        </div>
+                        <div class="scjl_tc scjl_tc3">
+                            <h3>上传合同</h3>
+                            <a class="Close4"></a>
+                            <div style="display:block" id="thrih">
+                                <div class="button_sc">
+                                    <span>选择上传合同</span>
+                                    <input type="file" name="contract" id="file_upload2" class="sc_jl"/>
+                                </div>
+                                <div style="margin-top:67px;width:370px" class="wjgs">
+                                    <div class="clearfix ero" id="baseError" style="display:block;">
+                                        <b class="fl-lef dis-block dis-inlin" style="margin-left:0;">温馨提示:</b>
+                                        <span class="fl-lef dis-block dis-inlin clearfix" style="height:auto;">
+                                            <i class="fl-lef dis-block dis-inlin"></i>
+                                            <span class="fl-lef dis-block dis-inlin"style="height:auto;width:270px;">请把盖过章的合同文件，扫描后压缩成1个zip格式的文件上传。文件大小不能超过<b style="color: red">10</b>M。</span>
+                                        </span>
+                                    </div>
+                                   <!--  请把盖过章的合同文件，扫描后压缩成1个zip格式的文件上传。文件大小不能超过<b style="color: red">10</b>M。 -->
+                                </div>
+                            </div>
+                            <div class="jlsc_cg" style="display:none" id="thrih2">
+                                <h4>合同上传成功</h4>
+                                <p></p>
+                                <input class="htongSuccess my-btn" style="margin-top:100px;margin-left:20px" type="button" value="确定">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <include file="Public:newFooter"/>
+    <script>
+        $(".m2-l>div").click(function() {
+            $(this).addClass("m");
+            $(this).find("h6").addClass("m");
+            $(this).find("p").addClass("m");
+            $(this).siblings().removeClass("m")
+            $(this).siblings().find("h6").removeClass("m");
+            $(this).siblings().find("p").removeClass("m");
+        });
+        var index;
+        var list = $(".m2-r .nav li");
+        var divs = $(".m2-r>div");
+        list.click(function() {
+            that = $(this);
+            index = that.index();
+            that.addClass("m").siblings().removeClass("m");
+            $(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+            divs.eq(index).show().siblings("div").hide();
+        });
+
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $(".saveSignContract").click(function() {
+                var contract = $("#file_upload2").val();
+
+                if (!contract) {
+                    $(".contract-error span span").html("请选择您要上传的合同");
+                    $(".contract-error").show();
+                    return false;
+                }
+                $("#SignContractInfo").submit();
+            });
+        })
+        $(function() {
+            $(".Close4").click(function() {
+                $(".mask").hide();
+                $(".scjl_tc3").hide();
+            });
+        })
+        $("#thrih2 .htongSuccess").click(function() {
+            $("#fanben").hide()
+            $('.mask').hide();
+            $(".scjl_tc3").slideUp();
+        });
+        $('.hetong').click(function() {
+            $('.scjl_tc3').slideDown();
+            $('.mask').show();
+        })
+        var img_id_upload = new Array();//初始化数组，存储已经上传的图片名
+        var i = 0;//初始化数组下标
+        var uploadLimit = 1;
+        var buttonName = "上传公司合同";
+        $(function() {
+            $('#file_upload2').uploadify({
+                'auto': true, //关闭自动上传
+                'removeTimeout': 600, //文件队列上传完成1秒后删除
+                'swf': '/Public/css/uploadify.swf',
+                'uploader': '/Home/Index/uploadifyLicence.html',
+                'method': 'post', //方法，服务端可以用$_POST数组获取数据
+                'buttonText': buttonName, //设置按钮文本
+                'multi': true, //允许同时上传多张图片
+                'uploadLimit': uploadLimit, //一次最多只允许上传10张图片
+                'fileTypeDesc': '请选择 zip文件', //只允许上传图像
+                'fileTypeExts': '*.zip', //限制允许上传的图片后缀
+                'fileSizeLimit': '10MB', //限制上传的图片大小
+                'onUploadSuccess': function(file, data, response) { //每次成功上传后执行的回调函数，从服务端返回数据到前端
+                    if (data == "no") {
+                        $("#lupdateNUm").val(parseInt($("#lupdateNUm").val()) + 1);
+                        var uploadLimit = $("#lupdateNUm").val();
+                        //在这此处处理...
+                        //通过uploadify的settings方式重置上传限制数量
+                        $('#file_upload').uploadify('settings', 'uploadLimit', uploadLimit);
+                    } else {
+                        $("#file_upload2").val(data);
+                        $(".Close4").hide();
+                        $("#thrih").hide();
+                        $("#uploadFiletext").val(data);
+                        $("#thrih2 ").show();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

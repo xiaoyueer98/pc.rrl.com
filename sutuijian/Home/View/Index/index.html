@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>职场牛人都在人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <meta name="application-name" content="人人猎首页"/>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <meta property="qc:admins" content="150127217762562564156375" />
+        <meta property="wb:webmaster" content="b6b76a15352cdde2" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/jquery.fullPage.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-index.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-ui-1.10.3.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.fullPage.min.js"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-index.js"></script>
+        <style>
+            .regtd .recom li button.vft-btn{
+                width: 100px;
+                height: 26px;
+                float: right;
+                border: 1px #b5b5b5 solid;
+                display: block;
+                display: inline-block;
+                background: #dfdfdf;
+                font-size:10px;
+            }
+        </style>
+        <script>
+            $(function () {
+                $("#loginForm").keyup(function (e) {
+                    enterok(e, $("#denglubutton"))
+                })
+                $("#regForm").keyup(function (e) {
+                    enterok(e, $("#regbtn"))
+                })
+                function enterok(e, ob) {
+
+                    if (e.keyCode == "13") {
+                        //已经写好的点击按钮所执行的js方法
+                        //Fun_Submit();
+                        ob.click();   //服务器控件loginsubmit点击事件被触发
+                        return false;
+                    }
+
+                }
+            })
+        </script>
+
+    </head>
+    <body class="back-f0f0f0">
+        <div class="section" id="section0">
+            <div class="header">
+                <div class="container">
+                    <div class="l fl-lef"><a href="/"><img src="/Public/img/new-index/logo.png" alt=""></a></div>
+                    <div class="c fl-lef">
+                        <div class="c-t bor-radis">
+                            <input type="text" class="form-control bor-radis" id="search-keyword" placeholder="输入职位关键词：如 销售总监等">
+                            <label class="btn-search">搜索</label>
+                        </div>
+                        <ul class="clearfix">
+                            <h5>热门职位：</h5>
+                            <li><a href="/Home/Index/search/position/产品经理.html">产品经理</a></li>
+                            <li><a href="/Home/Index/search/position/PHP工程师.html">PHP工程师</a></li>
+                            <li><a href="/Home/Index/search/position/IOS工程师.html">IOS工程师</a></li>
+                            <li><a href="/Home/Index/search/position/前端工程师.html">前端工程师</a></li>
+                            <li><a href="/Home/Index/search/position/运营总监.html">运营总监</a></li>
+                        </ul>
+                    </div>
+                    <div class="r fl-rig">
+                        <p>4006-685-596</p>
+                        <p>010-57188076</p>
+                        <p>010-57230694</p>
+                    </div>	
+                    <div class="regtd regtd1" style="display:none">
+                        <img src="/Public/img/new-index/l_sanjiao.png" class="l-sanjiao" alt="">
+                        <img src="/Public/img/new-index/r_sanjiao.png" class="r-sanjiao" alt="">
+                        <h3>用户注册</h3>
+                        <ul class="recom" id="regForm">
+                            <div class="nv">
+                                <a id="rec-btn">推荐人</a>
+                                <a class="m" id="company">招聘企业</a>
+                            </div>
+                            <div id="my-div1">
+                                <input type="hidden"  name="usertype" value='0' />
+                                <span class="tishi ero" style="top:-4px;">您输入的用户名错误！</span>
+                                <li>
+                                    <input type="text" value="请输入4-16位字母,数字,下划线" default="请输入用户名" name="username">
+                                </li>
+                                <li>
+                                    <input type="text" value="请输入手机号" default="请输入手机号" name="mobile">
+                                </li>
+                                <li class="clearfix">
+                                    <input class="vft-code" type="text" value="请输入验证码" default="请输入验证码" name="vfition">
+                                    <button class="vft-btn" onclick="getcode('my-div1')" >获取验证码</button>
+                                </li>
+                                <li>
+                                    <input type="password"  name="possword" value=''   class="DLpassword" onblur="passwordBlur('my-div1');"/>
+                                    <span onclick="$(this).prevAll().focus();" style="display:block;padding-left: 13px;width: 160px;height: 22px;text-align: left;position:relative;top:-24px;color:#bcbcbc;font-size:14px;">请输入密码</span>
+
+                                </li>
+                                
+                            </div>
+                            <div id="my-div2">
+                                <input type="hidden"  name="usertype" value='1' />
+                                <span class="tishi ero" style="top:-6px;">您输入的用户名错误！</span>
+                                <li><input type="text" value="请输入用户名" default="请输入用户名" name="username"></li>
+                                <li><input type="text" value="请输入手机号" default="请输入手机号" name="mobile"></li>
+                                <li class="clearfix"><input class="vft-code" type="text" value="请输入验证码" default="请输入验证码" name="vfition"><button class="vft-btn" onclick="getcode('my-div2')">获取验证码</button></li>
+                                <li>
+                                    <input type="password"  name="possword" value=''  class="DLpassword" onblur="passwordBlur('my-div2');"/>
+                                    <span onclick="$(this).prevAll().focus();" style="display:block;padding-left: 13px;width: 160px;height: 22px;text-align: left;position:relative;top:-24px;color:#bcbcbc;font-size:14px;">请输入密码</span>
+                                </li>
+                                
+                            </div>
+
+                        </ul>
+                        <div class="radio-div clearfix"><input id="radio-recom" type="radio">
+                            <label for="radio-recom">已阅读并接受人人猎网
+                                <a href="/Home/Index/tjrxy.html" id="xieyi">《用户协议和隐私条款》</a>
+                            </label>
+                        </div>
+                        <div class="dm"><button class="mydm" id='regbtn'>确认</button></div>
+                        <div class="im mar-top">
+                            <p class="p1">已有帐号<a id="d">点击登录</a></p>
+                            <p class="p2 mar-top mar-bott">使用联合帐号登录</p>
+                            <ul class="mar-top1 clearfix">
+                                <li><a  href="{:U('login?type=qq')}"><img src="/Public/img/new-index/qq_pic.png" alt="人人网登录"></a></li>
+                                <li><a href="{:U('login?type=weixin')}"><img src="/Public/img/new-index/wx_pic.png" alt="微信登录"></a></li>
+                                <li><a href="{:U('login?type=sina')}"><img src="/Public/img/new-index/wb_pic.png" alt="微博登录"></a></li>
+                                <li><a href="{:U('login?type=renren')}"><img src="/Public/img/new-index/rr_pic.png" alt="人人登录"></a></li>
+                            </ul>
+                            <ul class="mar-top2 clearfix">
+                                <li><a><img src="/Public/img/new-index/1.png" alt=""></a></li>
+                                <li><a><img src="/Public/img/new-index/27.png" alt=""></a></li>
+                                <li><a><img src="/Public/img/new-index/3.png" alt=""></a></li>
+                                <li><a><img src="/Public/img/new-index/4.png" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>		
+                    <div class="regtd regtd2">
+                        <img src="/Public/img/new-index/l_sanjiao.png" class="l-sanjiao" alt="">
+                        <img src="/Public/img/new-index/r_sanjiao.png" class="r-sanjiao" alt="">
+                        <h3>登录</h3>
+                        <ul class="recom" style="padding-top:10px;" id="loginForm">
+
+                            <div id="my-div3">
+                            <span class="tishi ero">您输入的用户名错误！</span>
+                                <li style="height:40px;">
+                                    <?php if($_COOKIE['username']){?>
+                                    <input style="height:40px;" type="text"  name="usernamees" value="<?php echo $_COOKIE['username'];?>">
+                                    <?php }else{?>
+                                    <input type="text" value="请输入用户名/手机号" name="usernamees" default="请输入用户名/手机号" >
+                                    <?php }?>
+                                </li>
+                                <li style="height:40px;">
+                                    <?php if($_COOKIE['password']){?>
+                                    <input style="height:40px;" type="password"  name="possword" value='<?php echo $_COOKIE[password];?>'  style="position:static;" class="DLpassword" onblur="passwordBlur('my-div3');"/>
+                                    <span style="position:absolute;left:64px;top:119px;color:#bcbcbc;font-size:14px;"></span>
+                                    <?php }else{?>
+                                    <input type="password"  name="possword" value=''   class="DLpassword"  onblur="passwordBlur('my-div3');"/>
+                                    <span onclick="$(this).prevAll().focus();" style="display:block;padding-left: 13px;width: 160px;height: 22px;text-align: left;position:relative;top:-24px;color:#bcbcbc;font-size:14px;">请输入密码</span>
+                                    <?php }?>
+                                </li>
+                                <li class="remember-li clearfix"><span><input type="checkbox"  id="remembeme" <?php if($_COOKIE[username] && $_COOKIE[password]){ echo "checked";}?>><label for="remembeme">记住我</label></span><a href="/Home/Index/findpwd.html">忘记密码</a></li>
+                            </div>
+                            
+                            <div class="dm"><button class="mydm" id="denglubutton" onclick="loginbtn('my-div3');">确认</button></div>
+                        </ul>
+                        <div class="im mar-top" style="border:none;">
+                            <p class="p1">还没账号<a id="dd">点击注册</a></p>
+                            <p class="p2 mar-top mar-bott">使用联合帐号登录</p>
+                            <ul class="mar-top1 clearfix">
+                                <li><a  href="{:U('login?type=qq')}"><img src="/Public/img/new-index/qq_pic.png" alt="人人网登录"></a></li>
+                                <li><a href="{:U('login?type=weixin')}"><img src="/Public/img/new-index/wx_pic.png" alt="微信登录"></a></li>
+                                <li><a href="{:U('login?type=sina')}"><img src="/Public/img/new-index/wb_pic.png" alt="微博登录"></a></li>
+                                <li><a href="{:U('login?type=renren')}"><img src="/Public/img/new-index/rr_pic.png" alt="人人登录"></a></li>
+                            </ul>
+                        </div>
+                    </div>		
+                </div>
+            </div>
+            <div class="nav">
+                <div class="container">
+                    <ul>
+                        <li><a class="m" href="/">首页</a></li>
+                        <li><a href="/Home/Index/search.html">职位</a></li>
+                        <li><a href="#page5">案例</a></li>
+                        <li class="active-nav">
+                            <a href="http://www.renrenlie.com/Home/Active/salon_show.html">活动
+                            <img src="/Public/img/new-index/new.png" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="banner"><img src="/Public/img/new-index/banner.jpg" alt=""></div>
+            <div class="sec-btm back-f0f0f0">
+                <div class="con" id="menu">
+                    <button class="rcmd-btn fl-lef"><a href="#page2"></a></button>
+                    <div class="rrl-logo fl-lef"></div>
+                    <button class="ent-btn  fl-lef"><a href="#page2"></a></button>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <div class="sec-btm sec2">
+                <div class="con">
+                    <button class="rcmd-btn fl-lef"></button>
+                    <div class="rrl-logo fl-lef"></div>
+                    <button class="ent-btn  fl-lef"></button>
+                </div>
+            </div>
+            <img src="/Public/img/new-index/pic1.png" alt="" class="pic1">
+            <img src="/Public/img/new-index/text1_pic.png" class="text-pic" alt="">
+            <ul class="qiye qiye-tjr">
+                <li><a href="#page1"><img src="/Public/img/new-index/aa1 (5).png" alt=""></a></li>
+                <li><a href="#page1"><img src="/Public/img/new-index/aa1 (8).png" alt=""></a></li>
+                <li><a href="#page1"><img src="/Public/img/new-index/aa1 (6).png" alt=""></a></li>
+                <li><a href="#page1"><img src="/Public/img/new-index/aa1 (7).png" alt=""></a></li>
+            </ul>
+            <ul class="tjr qiye-tjr">
+                <li><a href="#page1" style="margin-right:-22px;"><img src="/Public/img/new-index/aa1 (1).png" alt=""></a></li>
+                <li style="margin-right:42px;"><a href="#page1"><img src="/Public/img/new-index/aa1 (2).png" alt=""></a></li>
+                <li><a href="#page1"><img src="/Public/img/new-index/aa1 (3).png" alt=""></a></li>
+                <li><a href="#page1"><img src="/Public/img/new-index/aa1 (4).png" alt=""></a></li>
+            </ul>
+            <img src="/Public/img/new-index/jian.png" class="jian" alt="">
+        </div>
+        <div class="section" id="section2">
+            <img src="/Public/img/new-index/jian.png" class="jian2" alt="">
+            <img src="/Public/img/new-index/section3_text.png" class="sec3-text" alt="">
+        </div>
+        <div class="section" id="section3">
+            <img src="/Public/img/new-index/section3_text.png" class="sec3-text2" alt="">
+            <div class="con">
+                <div class="sec4-left fl-lef">
+                    <img src="/Public/img/new-index/sec4_1.png" alt="">
+                    <span class="qiye"></span>
+                    <span class="tuijianren"></span>
+                </div>
+                <div class="sec4-right fl-rig" style="display:block">
+                    <a href=""><img src="/Public/img/new-index/jingzhun.png" class="jingzhun" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/dichenbeng.png" class="dichenbeng" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/ruzhidsj.png" class="ruzhidsj" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/kuaisu.png" class="kuaisu" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/zhijie.png" class="zhijie" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/youxiao.png" class="youxiao" alt=""></a>
+                </div>
+                <div class="sec4-right2 fl-rig" style="display:none">
+                    <a href=""><img src="/Public/img/new-index/lt1.png" class="lt1" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/lt2.png" class="lt2" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/lt3.png" class="lt3" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/lt4.png" class="lt4" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/lt5.png" class="lt5" alt=""></a>
+                    <a href=""><img src="/Public/img/new-index/lt6.png" class="lt6" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section4">
+            <img src="/Public/img/new-index/cgal_border.png" class="sec3-text2" alt="">
+            <img src="/Public/img/new-index/cgal_img.png" alt="" class="cgal-img">
+        </div>
+        <div class="section" id="section5">
+            <!-- <div class="cgal-half"><img src="/Public/img/new-index/cgal_img.png" alt="" class="cgal-img"></div> -->
+            <div class="footer-t">
+                <div class="cn">
+                    <div class="l">
+                        <dl class="fl-lef">
+                            <dt><img src="/Public/img/new-index/weixin.png" alt=""></dt>
+                            <dd id="rwm-btn"><img src="/Public/img/new-index/weixin_btn.png" alt="" class="wenxin-btn"></dd>
+                            <i id="index-ewm"><img src="/Public/img/new-index/erweima2.png" alt=""></i>
+                        </dl>
+                        <dl class="fl-rig">
+                            <dt><img src="/Public/img/new-index/xinlang.png" alt=""></dt>
+                            <dd class="xl"><span><wb:follow-button uid="5540068389" type="gray_1" width="67" height="24" ></wb:follow-button></span></dd>
+                        </dl>
+                    </div>
+                    <div class="r">
+                        <h3 class="text-al-lef" style="margin-top:10px">友情链接</h3>
+                        <php>if(empty($linkArr)){</php>
+                        <ul class="clearfix">
+                            <li><a href="http://www.e3job.com/" target="_Blank">E商人才网</a></li>
+                            <li><a href="http://www.0579job.com/" target="_Blank">千里马人才网</a></li>
+                            <li style="border:none"><a href="http://www.1epoch.com/" target="_Blank">青岛logo设计</a></li>
+                            <li><a href="http://www.qidong.zp300.cn/" target="_Blank">启东人才网</a></li>
+                            <li><a href="http://bj.yi.xbaixing.com" target="_Blank">北京一站通</a></li>
+                            <li style="border:none" class="endline"><a href="http://zhengyun.cc/" target="_Blank">郑云工作室</a></li>
+                            <li><a href="http://www.5niubi.com/" target="_Blank">一折网</a></li>
+                            <li><a href="http://www.jdaaa.com/" target="_Blank">京东精选</a></li>
+                            <li style="border:none"><a href="http://www.bcty365.com/" target="_Blank">B5教程网</a></li>
+                            <li><a href="http://www.shsixun.com/" target="_Blank">思讯通</a></li>
+                        </ul>
+                        <php>}else{</php>
+                        <ul class="clearfix">
+                            <?php foreach($linkArr as $k=>$v) :$k=$k+1;?>
+                            <li <?php if($k>0 && $k%3 == 0):?>style="border:none"<?php endif;?>><a href="{$v['linkurl']}" target="_blank">{$v['webname']}</a></li>
+                            <?php endforeach;?>
+                            <!-- <li class="last-li"><a href="">更多>></a></li> -->
+                        </ul>
+                        <php>}</php>
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer-b">
+                <div class="ft-logo">
+                    <ul class="clearfix">
+                        <li class="back-none"><a href="/Home/Public/aboutus.html">关于我们</a></li>
+                        <li><a href="/Home/Public/yhxy.html">注册协议 </a></li>
+                        <li><a href="/Home/Public/yhys.html"> 用户隐私</a></li>
+                    </ul>
+                    <p>人人猎 京ICP备14040265号-1 <span id='cnzz_stat_icon_1254515209'>&nbsp;&nbsp;&nbsp;&nbsp;<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254515209'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254515209%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span><div>
+
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="qq">
+            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1158321049&amp;site=qq&amp;menu=yes" target="_blank" title="欢迎登录人人猎网--人人都是猎头"><img src="/Public/img/new-index/qq.png" alt=""></a>
+        </div>
+        <a href="#page1" class="scrol-top"></a>
+    </body>
+</html>

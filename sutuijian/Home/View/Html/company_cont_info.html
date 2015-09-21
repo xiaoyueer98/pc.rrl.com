@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>企业资料-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="cn cn1 Infor EnterInfor conInfor1" <?php  if($sIsNewCompay == "2"){ echo  'style="display:none;"';}?>>
+                 <div class="cn_tp">
+                    <h3>联系方式</h3>
+                    <dl class="clearfix">
+                        <dt>
+                        <ul>
+                            <li><em>办公地址: </em><input type="text" id="address"></li>
+                            <li><em>联系人: </em><input type="text" id="cnname"></li>
+                            <li><em>座机: </em><input type="text" id="telephone"></li>
+                            <if condition="$arCompanyInfo[mobile]">
+                                <li><em>手机: </em><input type="text" id="mobile" value="{$arCompanyInfo['mobile']}" disabled="disabled"/>
+                                    <input class="Enterxg cur_point" type="button" value="修改" style="width: 80px;background: none repeat scroll 0 0 #2380b8;color: #fff;" id="change_telehone"></li>
+                            </if>
+                            <if condition="!$arCompanyInfo[mobile]">
+                                <li><em>手机: </em><input type="text" id="mobile" value="{$arCompanyInfo['mobile']}" />
+                                    <input class="Enterxg cur_point" type="button" value="手机验证" style="width: 80px;background: none repeat scroll 0 0 #2380b8;color: #fff;" id="ccheck_telehone"></li>
+                            </if>
+                            <li><em>邮箱: </em><input type="text" id="emails"></li>
+                            <li><p style="margin-left:45px;display:none;" class="error2"></p></li>
+                        </ul>
+                        </dt>
+                    </dl>
+                </div>
+                <div class="cn_btm">
+                    <input type="hidden" value="{$arCompanyInfo['mobile']}" id="mobilemobile">
+                    <input class="Enterbc conIn1 cur_point" type="button" value="保存" onclick="saveCont()">
+                </div>
+            </div>
+
+            <div class="cn cn1 Infor EnterInfor conInfor2"  <?php  if($sIsNewCompay == "1"){ echo  'style="display:none;"';}?>>
+                 <div class="cn_tp">
+                    <h3>联系方式</h3>
+                    <dl class="clearfix">
+                        <dt>
+                        <ul>
+                            <li><em>办公地址:</em><span id="addressed">{$arCompanyInfo['address']}</span></li>
+                            <li><em>联系人: </em><span id="cnnameed">{$arCompanyInfo['cnname']}</span></li>
+                            <li><em>座   机: </em><span  id="telephoneed">{$arCompanyInfo['telephone']}</span></li>
+                            <li><em>手   机: </em><span  id="mobileed">{$arCompanyInfo['mobile']}</span></li>
+                            <li><em>邮   箱: </em><span  id="emailed">{$arCompanyInfo['email']}</span></li>
+
+                        </ul>
+                        </dt>
+
+                    </dl>
+                </div>
+                <div class="cn_btm">
+                    <input class="Enterxg conIn2 cur_point" type="button" value="修改" onclick="updateiCont()">
+                </div>
+            </div>	
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+    <div id="change_telehone_step1" class="wjmima" style="display: none">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao">
+            <img src="__ROOT__/Public/img/replace_phone1.png" alt="">
+        </div>
+        <ul class="InputUl">
+            <li><em>更换手机号码：</em><i>{$arCompanyInfo['mobile']}</i></li>
+            <li><button class='btn'  id="change_telehone_code_step1">免费获取验证码</button><label class="vfit_btn2"  style="display: none" id="change_telehone_time_step1"><i>60</i>秒后重新获取</label></li>
+            <li><input type="text" style="width:107px;" id="change_telehone_ccode_step1"><input class="phone_btn" type="button" value="下一步" id="change_telehone_btn_step1"></li>
+            <li id="change_error" class="undis"><p style="padding-left: 21px"></p></li>
+        </ul>
+    </div>
+    <div id="change_telehone_step2" class="wjmima" style="display: none">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao">
+            <img src="__ROOT__/Public/img/replace_phone2.png" alt="">
+        </div>
+
+        <ul class="InputUl">
+            <li><em class="myem">新手机号码：</em><input class="myinput"  type="text" id="change_telehone_telephone_step2"><button class='btn' id="change_telehone_code_step2">获取短信验证码</button><label class="vfit_btn2"  style="display: none" id="change_telehone_time_step2"><i>60</i>秒后重新获取</label></li>
+
+            <li><em class="myem">输入验证码：</em><input type="text" style="width:109px;" id="change_telehone_ccode_step2"><input class="phone_btn" type="button" value="下一步"  id="change_telehone_btn_step2"></li>
+            <li id="change_error2"><p style="padding-left: 21px"></p></li>
+        </ul>
+
+    </div>
+    <div id="change_telehone_step3" class="wjmima" style="display: none">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao">
+            <img src="__ROOT__/Public/img/replace_phone3.png" alt="">
+        </div>
+        <ul class="InputUl">
+            <li><h4>恭喜您手机验证成功</h4></li>
+            <li><button class="end">完成</button></li>
+        </ul>
+    </div>
+    <div id="regtelephone" class="denglu yzsj" style="display:none">
+        <a class="Close"></a>
+        <h4>验证手机</h4>
+        <ul class="jcid">
+            <li><div id="telephoneCheck">您的手机号码是：</div></li>
+            <li  style="text-align: center;">
+                <button class='btn cur_point' id="getcheckCode" style="background: none repeat scroll 0 0 #2380b8;border: medium none;border-radius: 5px;color: #ffffff;font-size: 14px;font-weight: bold; height: 30px;width: 174px;text-align: center;">获取短信验证码</button><label class="vfit_btn2"  style="display: none" id="codetimes"><i>60</i>秒后重新获取</label>
+
+            </li>
+            <li><div><em>验证码：</em><input class="inpu1" type="text" id="code"><i class="error3" style="display:none;">不能为空</i></div></li>
+            <li><div><input type="button" class="butonqr cur_point" value="确认" id="checkbtn"></div></li>
+        </ul>
+        <input type="hidden" id="isFinshed">
+    </div>
+</body>
+<script type="text/javascript">
+    $(function() {
+        $("#ccheck_telehone").click(function() {
+            var mobile = $("#mobile").val();
+            if (!mobile) {
+                $("#mobile").focus();
+                $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+                $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("请输入手机号码！");
+                return false;
+            }
+            $(".mask").show();
+            $("#telephoneCheck").html("您的手机号码是：" + mobile);
+            $("#regtelephone").show();
+        });
+        $("#getcheckCode").click(function() {
+            var mobile = $("#mobile").val();
+            var hash = "<?php $_SESSION['cookie']=time();echo md5('rrl_'.$_SESSION['cookie']);?>";
+            $("#getcheckCode").attr("disabled", "disabled");
+            $.post("/Home/Company/checktelephonecode.html", {"mobile": mobile,'hash':hash}, function(data) {
+                if (data.code != "500") {
+                    time($("#getcheckCode"), $("#codetimes"));
+                } else {
+                    $(".error3").html(data.msg);
+                    $(".error3").show();
+                }
+            }, "json")
+        })
+        $("#checkbtn").click(function() {
+            var code = $("#code").val();
+            var mobile = $("#mobile").val();
+            if (!code) {
+                $(".error3").html("请输入校验码！");
+                $(".error3").show();
+                return false;
+            }
+            if (code.length != 6) {
+                $(".error3").html("验证码错误，请重新输入！");
+                $(".error3").show();
+                return false;
+            }
+            $.post("/Home/Company/changeTelephoneCheckStep3.html", {
+                'code': code,
+                'mobile': mobile
+            }, function(data) {
+                if (data.code != "500") {
+                    $("#mobile").val(mobile);
+                    $("#regtelephone").hide();
+                    $(".mask").hide();
+                    $("#isFinshed").val(1);
+                } else {
+                    // $("#change_telehone_code_step2").attr("disabled", false);
+                    $(".error3").html(data.msg);
+                    $(".error3").show();
+                }
+            }, "json")
+
+        });
+        $(".error2").hide();
+        $(".error3").hide();
+        $("#getcheckCode").attr("disabled", false);
+        $("#change_telehone_code_step2").attr("disabled", false);
+        $("#change_telehone_code_step1").attr("disabled", false);
+        $("#change_telehone_ccode_step1").val("");
+        $("#change_telehone_ccode_step2").val("");
+        $("#change_telehone_telephone_step2").val("");
+        $("#change_telehone_step3 .end").click(function() {
+            $("#mobile").val($("#change_telehone_telephone_step2").val());
+            $("#change_telehone_step3").hide();
+            $(".mask").hide();
+
+        })
+        //点击修改弹出修改手机号码第一步
+        $("#change_telehone").click(function() {
+            $("#change_telehone_step1").show();
+            $(".mask").show();
+        });
+        //第一步获取验证码
+        $("#change_telehone_code_step1").click(function() {
+            $("#change_telehone_code_step1").attr("disabled", "disabled");
+            $.post("/Home/Company/changeTelephoneStep1.html", {}, function(data) {
+                if (data.code != "500") {
+                    time($("#change_telehone_code_step1"), $("#change_telehone_time_step1"));
+
+                } else {
+                    $("#change_telehone_code_step1").attr("disabled", false);
+                    $("#change_telehone_step1 #change_error p").html(data.msg);
+                    $("#change_telehone_step1 #change_error").show();
+                }
+            }, "json")
+        });
+        //第二步获取验证码
+        $("#change_telehone_code_step2").click(function() {
+            var telephone = $("#change_telehone_telephone_step2").val();
+            var retelephone = $("#mobile").val();
+            var reg = /^1[3|4|5|8][0-9]\d{4,8}$/;
+            if (retelephone == telephone) {
+                $("#change_telehone_step2 #change_error2 p").html("新旧号码一致");
+                $("#change_telehone_step2 #change_error2").show();
+                $("#change_telehone_telephone_step2").focus();
+                return false;
+            }
+            if (!telephone) {
+                $("#change_telehone_step2 #change_error2 p").html("请输入手机号码");
+                $("#change_telehone_step2 #change_error2").show();
+                $("#change_telehone_telephone_step2").focus();
+                return false;
+            }
+            if (!reg.test(telephone))
+            {
+                $("#change_telehone_step2 #change_error2 p").html("请正确输入手机号码");
+                $("#change_telehone_step2 #change_error2").show();
+                $("#change_telehone_telephone_step2").focus();
+                return false;
+            }
+            $.post("/Home/Company/changeTelephoneStep2.html", {'telephone': telephone}, function(data) {
+                if (data.code != "500") {
+                    time($("#change_telehone_code_step2"), $("#change_telehone_time_step2"));
+
+                } else {
+                    $("#change_telehone_code_step2").attr("disabled", false);
+                    $("#change_telehone_step2 #change_error2 p").html(data.msg);
+                    $("#change_telehone_step2 #change_error2").show();
+                }
+            }, "json")
+        });
+        //第一步提交验证验证码
+        $("#change_telehone_btn_step1").click(function() {
+            var change_telehone_ccode_step1 = $("#change_telehone_ccode_step1").val();
+            if (change_telehone_ccode_step1.length != 6) {
+                $("#change_telehone_step1 #change_error p").html("验证码不正确，请重新输入");
+                $("#change_telehone_ccode_step1").focus();
+                $("#change_telehone_step1 #change_error").show();
+            } else {
+                $.post("/Home/Company/changeTelephoneCheckStep1.html", {
+                    'change_telehone_ccode_step1': change_telehone_ccode_step1
+                }, function(data) {
+                    if (data.code != "500") {
+                        $("#change_telehone_step2").show();
+                        $("#change_telehone_step1").hide();
+                    } else {
+                        $("#change_telehone_code_step1").attr("disabled", false);
+                        $("#change_telehone_step1 #change_error p").html(data.msg);
+                        $("#change_telehone_step1 #change_error").show();
+                    }
+                }, "json")
+            }
+        });
+        //第二步提交验证验证码
+        $("#change_telehone_btn_step2").click(function() {
+            var change_telehone_ccode_step2 = $("#change_telehone_ccode_step2").val();
+            var change_telehone_telephone_step2 = $("#change_telehone_telephone_step2").val();
+            if (change_telehone_ccode_step2.length != 6) {
+                $("#change_telehone_step2 #change_error2 p").html("验证码不正确，请重新输入");
+                $("#change_telehone_ccode_step2").focus();
+                $("#change_telehone_step2 #change_error").show();
+            } else {
+                $.post("/Home/Company/changeTelephoneCheckStep2.html", {
+                    'change_telehone_ccode_step2': change_telehone_ccode_step2,
+                    'change_telehone_telephone_step2': change_telehone_telephone_step2
+                }, function(data) {
+                    if (data.code != "500") {
+                        $("#change_telehone_step3").show();
+                        $("#change_telehone_step2").hide();
+                    } else {
+                        $("#change_telehone_code_step2").attr("disabled", false);
+                        $("#change_telehone_step2 #change_error2 p").html(data.msg);
+                        $("#change_telehone_step2 #change_error2").show();
+                    }
+                }, "json")
+            }
+        });
+    })
+
+    var wait = 60;
+    function time(o, t) {
+        if (wait == 0) {
+
+            o.attr("disabled", false);
+            t.hide();
+            o.show();
+            wait = 60;
+        } else {
+            t.find("i").html(wait);
+            o.hide();
+            t.show();
+            wait--;
+            setTimeout(function() {
+                time(o, t)
+            },
+             1000)
+        }
+    }
+
+    function saveCont() {
+        var address = $("#address").val();
+        var cnname = $("#cnname").val();
+        var mobile = $("#mobile").val();
+        var email = $("#emails").val();
+        var telephone = $("#telephone").val();
+
+
+        if (!address) {
+            $("#address").focus();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("请输入公司地址！");
+            return false;
+        }
+        if (address.length > 100) {
+            $("#address").focus();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("公司地址输入过长！");
+            return false;
+        }
+        if (!cnname) {
+            $("#cnname").focus();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("请输入联系人！");
+            return false;
+        }
+        if (cnname.length > 50) {
+            $("#cnname").focus();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("联系人输入过长！");
+            return false;
+        }
+        var mobilemobile = $("#mobilemobile").val();
+        if (!mobilemobile) {
+            if (!mobile) {
+                $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+                $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("请输入手机号码！");
+                return false;
+            }
+            if ($("#isFinshed").val() != 1) {
+                $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+                $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("请验证您的手机号码！");
+                return false;
+            }
+        }
+        /*
+         if (!mobile) {
+         $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+         $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("请输入联系电话！");
+         return false;
+         }
+         */
+        if (!telephone) {
+            $("#telephone").focus();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("请输入座机！");
+            return false;
+        }
+        /*
+         if(!mobile && !telephone){
+         $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+         $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("座机和移动电话必须输入一个！");
+         return false;
+         }
+         
+         if (mobile) {
+         if (!mobile.match(/^((13[0-9])|(17[0-9])|(15[^4,\D])|(18[0-9]))\d{8}$/)) {
+         $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+         $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("手机号码格式不正确！");
+         return false;
+         }
+         }
+         */
+        if (!email.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) {
+            $("#emails").focus();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').show();
+            $('.PersData .cn1 .cn_tp dl dt ul li p.error2').html("邮箱格式不正确");
+            return false;
+        }
+
+        $.post("/Home/Company/saveCompanyCont.html", {
+            'address': address,
+            'cnname': cnname,
+            //   'mobile': mobile,
+            'email': email,
+            'telephone': telephone
+        }, function(data) {
+            if (data.code != "500") {
+                $("#addressed").html(data.address);
+                $("#cnnameed").html(data.cnname);
+                $("#mobileed").html(data.mobile);
+                $("#emailed").html(data.email);
+                $("#telephoneed").html(data.telephone);
+                $(".conInfor1").hide();
+                $(".conInfor2").show();
+            } else {
+                sys_window(data.msg);
+            }
+        }, "json")
+    }
+    function updateiCont() {
+        $.post("/Home/Company/getCompanyBaseInfo.html", {
+        }, function(data) {
+
+            $("#address").val(data.address);
+            $("#cnname").val(data.cnname);
+            $("#telephone").val(data.telephone);
+            $("#mobile").val(data.mobile);
+            $("#emails").val(data.email);
+            $(".conInfor1").show();
+            $(".conInfor2").hide();
+        }, "json")
+    }
+</script>
+</html>

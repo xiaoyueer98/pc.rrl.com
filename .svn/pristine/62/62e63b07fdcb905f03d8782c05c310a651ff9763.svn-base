@@ -1,0 +1,61 @@
+<?php if (!defined('THINK_PATH')) exit();?><ul class="listUl">	
+<?php if(is_array($comp)): $i = 0; $__LIST__ = $comp;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cp): $mod = ($i % 2 );++$i;?><li class="clearfix">
+	<em><img src="/Public/img/qiye_logo.png" alt=""></em>
+	<div> 
+		<dt class="clearfix">
+			<span class="Position"><a href="/index.php?s=/Home/Login/EnterIndex2&comid=<?php echo ($cp["id"]); ?>"><?php echo ($cp["cascname"]); ?></a><i></i></span>
+			<span class="EntprisName"><a href="/index.php?s=/Home/Login/EnterIndex2&comid=<?php echo ($cp["id"]); ?>"><?php echo ($cp["cpname"]); ?></a></span>
+			<span class="Salary"><i>￥</i><?php echo ($cp["dataname"]); ?></span>
+		</dt>
+		<dd class="clearfix">
+			<span class="WorkAge"><a href="/index.php?s=/Home/Login/EnterIndex2&comid=<?php echo ($cp["id"]); ?>"><?php echo ($cp["ccas"]); ?></a></span>
+			<span class="Education"><a href="/index.php?s=/Home/Login/EnterIndex2&comid=<?php echo ($cp["id"]); ?>"><?php echo ($cp["ccasc"]); ?></a></span>
+			<span class="Education"><a href="/index.php?s=/Home/Login/EnterIndex2&comid=<?php echo ($cp["id"]); ?>">更新于：<?php echo ($cp["starttime"]); ?></a></span>
+			<span class="Place"><a href="Artand">￥<?php echo ($cp["Tariff"]); ?></a></span>
+		</dd>
+	</div>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+<?php echo ($str); ?>
+<input type="hidden" id="hid" value="<?php echo ($nowpage); ?>"/>
+</ul>
+<script type="text/javascript">
+function search()
+{
+		
+		var position = $("#position").val();
+		var nowpage = $("#hid").val();
+		var industry = $("#industry").val();
+		var area = $("#area").val();
+		var treatment = $("#treatment").val();
+		var Tariff = $("#Tariff").val();
+		var puttime = $("#puttime").val();
+		$.ajax({
+			
+			url:"/index.php?s=/Home/Login/searchs",
+			type:"post",
+			data:{"position":position,"industry":industry,"area":area,"treatment":treatment,"Tariff":Tariff,"puttime":puttime,"nowpage":nowpage},
+			url:"/index.php?s=/Home/Login/searchs",
+			success:function(msg)
+			{
+				$(".listUl").html(msg);
+			}
+	
+		});
+}
+function page(i){
+		var position = $("#position").val();
+		var industry = $("#industry").val();
+		var area = $("#area").val();
+		var treatment = $("#treatment").val();
+		var Tariff = $("#Tariff").val();
+		var puttime = $("#puttime").val();
+		$.ajax({
+			url:"/index.php?s=/Home/Login/page",
+			type:"post",
+			data:{'i':i,"position":position,"industry":industry,"area":area,"treatment":treatment,"Tariff":Tariff,"puttime":puttime},
+			success:(function(mgsp){
+				$(".listUl").html(mgsp);
+			})
+		});
+	}
+</script>

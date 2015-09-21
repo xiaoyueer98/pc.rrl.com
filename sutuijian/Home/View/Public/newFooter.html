@@ -1,0 +1,71 @@
+<div class="al-footer">
+    <div class="wrap">
+        <ul class="con clearfix">
+            <li class="clearfix myli li1 fl-lef dis-inlin"><img src="/Public/img/new-index/foter-logo.png" alt=""></li>
+            <li class="clearfix myli li2 fl-lef dis-inlin">
+                <ul>
+                    <li><a href="/Home/Public/aboutus.html">关于我们</a></li>
+                    <li><a href="/Home/Public/yhxy.html">用户协议</a></li>
+                    <li><a href="/Home/Public/yhys.html">用户隐私</a></li>
+                    <li><a href="/Home/Public/contactus.html">联系我们</a></li>
+                    <li><a href="/Home/Public/joinus.html">加入我们</a></li>
+                    <li><a href="/Home/Public/feedback.html">意见反馈</a></li>
+                </ul>
+            </li>
+            <li class="clearfix myli li3 fl-lef dis-inlin">
+                <img src="/Public/img/new-index/pic3.png" alt="">
+                <span>友情链接</span>
+            </li>
+            <li class="clearfix myli li4 fl-lef dis-inlin">
+            <php>if(empty($linkArr)){</php>
+            <ul>
+                <li class="fl-lef"><a href="">北京一站通</a></li>
+                <li class="fl-lef"><a href="">郑云工作室</a></li>
+                <li class="fl-lef"><a href="">启东人才网</a></li>
+                <li class="fl-lef"><a href="">青岛logo设计</a></li>
+                <li class="fl-lef"><a href="">千里马人才网</a></li>
+                <li class="fl-lef"><a href="">E商人才网</a></li>
+                <li class="fl-lef"><a href="">北京一站通</a></li>
+                <li class="fl-lef"><a href="">来了</a></li>
+                <li class="fl-lef"><a href="">一折网</a></li>
+                <li class="fl-lef"><a href="">京东精选</a></li>
+                <li class="fl-lef"><a href="">B5教程网</a></li>
+                <li class="fl-lef"><a href="">郑云工作室</a></li>
+                <li class="fl-lef"><a href="">郑云工作室</a></li>
+                <li class="fl-lef"><a href="">郑云工作室</a></li>
+                <li class="fl-lef"><a href="">郑云工作室</a></li>
+            </ul>
+            <php>}else{</php>
+            <ul>
+                <?php 
+                if(count($linkArr)>17) $len=17; else $len=count($linkArr); 
+                for($k=0;$k<$len;$k++) :
+                ?>
+                <li  class="fl-lef"><a href="<?php echo $linkArr[$k]['linkurl']?>" target="_blank"><?php echo $linkArr[$k]['webname']?></a></li>
+                <?php endfor;?>
+                <if >
+                <?php if(count($linkArr)>17):?>
+                 <li class="fl-lef back-none"><a href="/Home/Public/friendLink.html">更多>></a></li> 
+                <?php endif;?>
+            </ul>
+            <php>}</php>
+            </li>
+            <li class="clearfix myli li5 fl-lef dis-inlin">
+                <p>4006-685-596</p>
+                <p>010-57188076</p>
+                <p>010-57230694</p>
+            </li>
+        </ul>
+        <div class="border"></div>
+        <p style="margin-top: 35px;">人人猎 京ICP备14040265号-1<span style="margin-left:10px;" id='cnzz_stat_icon_1254515209'>&nbsp;&nbsp;&nbsp;&nbsp;<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                            document.write(unescape("%3Cspan id='cnzz_stat_icon_1254515209'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254515209%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span></p>
+    </div>
+</div>
+<div class="popup_ft reward" id="sys_window">
+    <h3>温馨提示</h3>
+    <a class="close cur_point"></a>
+    <dl>
+        <dt id="sys_content">恭喜您！</dt>
+        <dd><input type="hidden" id="locationHref"><button id="comWind" class="cur_point">确认</button></dd>
+    </dl>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>我的账户</title>
+        <link rel="stylesheet" href="/Public/css/webchat/base.css" />
+        <link rel="stylesheet" href="/Public/css/webchat/jin_.css" />
+        <style>
+            .fanye{}
+            .clearfix{}
+            .fanye p{text-align: center;height:50px;line-height: 50px;font-size:20px;margin-top:20px;}
+            .fanye ul{margin:auto;text-align:center;margin-bottom:30px;}
+            .fanye li{display:inline;height:50px;line-height: 50px;font-size:20px;margin-left:20px;}
+
+        </style>
+    </head>
+    <body>
+        <!--    <nav id="mod-nav" class="mod-nav" style="position: static;">
+                <div class="nav-con clearfix">
+                    <a href="javascript:;" class="nav-back" style="display: inline; -webkit-transform-origin: 0px 0px 0px; opacity: 1; -webkit-transform: scale(1, 1);"><span class="icon">A</span>返回</a>   
+                    <h1><span class="page-title">我的账户</span></h1>
+                </div>
+            </nav>-->
+        <div class="searchResult" style="margin-bottom:100px;">
+
+            <volist name="result" id="vo"  key="k" empty="$empty">
+                <div class="resultjobs clearfix">
+                    <div class="job_title">
+                        <h3 class="colorhei">{$username}</h3><span><em class="zhizhao colorlan">{$vo.title}</em></span>
+                    </div>
+                    <div class="jobsInfo">
+                        <p>{$vo.comment} {$vo.created_at}</p>
+                    </div>  
+                    <div class="enterpriseMore ">
+                        <if condition="$vo.incr gt 0">+</if>{$vo.incr}
+                    </div> 
+                </div>
+            </volist>
+            <div>{$pageStr}</div>
+        </div>
+        <!--引入尾部元素开始-->
+    <include file="Webchat:footer"/>
+    <!--引入尾部元素结束-->
+</body>
+</html>

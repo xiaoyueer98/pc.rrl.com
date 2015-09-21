@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="cn" style="background:#7fc6e3">
+<head>
+    <title>被推荐人</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="full-screen" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script type="text/javascript" src="__ROOT__/Public/js/iscroll.js"></script>
+    <link rel="stylesheet" href="__ROOT__/Public/css/webchat/jin_2.css"/>
+    <script type="text/javascript">
+        var myScroll,
+            pullDownEl, pullDownOffset,
+            pullUpEl, pullUpOffset,
+            generatedCount = 0;
+
+        function loaded() {
+            pullDownEl = document.getElementById('pullDown');
+            pullDownOffset = pullDownEl.offsetHeight;
+            pullUpEl = document.getElementById('pullUp');   
+            pullUpOffset = pullUpEl.offsetHeight;
+            
+            myScroll = new iScroll('wrapper1', {
+                scrollbarClass: 'myScrollbar', /* 重要样式 */
+                useTransition: false, /* 此属性不知用意，本人从true改为false */
+                topOffset: pullDownOffset,
+                onRefresh: function () {
+                    if (pullDownEl.className.match('loading')) {
+                        pullDownEl.className = '';
+                        pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                    } else if (pullUpEl.className.match('loading')) {
+                        pullUpEl.className = '';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                    }
+                },
+                onScrollMove: function () {
+                    if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                        pullDownEl.className = 'flip';
+                        pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+                        this.minScrollY = 0;
+                    } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+                        pullDownEl.className = '';
+                        pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                        this.minScrollY = -pullDownOffset;
+                    } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                        pullUpEl.className = 'flip';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                        this.maxScrollY = this.maxScrollY;
+                    } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                        pullUpEl.className = '';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                        this.maxScrollY = pullUpOffset;
+                    }
+                },
+                onScrollEnd: function () {
+                    ++num;
+                    if (pullDownEl.className.match('flip')) {
+                        pullDownEl.className = 'loading';
+                        pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';                
+                        pullDownAction(); // Execute custom function (ajax call?)
+                    } else if (pullUpEl.className.match('flip')) {
+                        pullUpEl.className = 'loading';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';                
+                        pullUpAction(); // Execute custom function (ajax call?)
+                        ajx(num,10)
+                    }
+                }
+            });
+            
+
+               
+            setTimeout(function () { document.getElementById('wrapper1').style.left = '0'; }, 800);
+        }
+        //初始化绑定iScroll控件
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        document.addEventListener('DOMContentLoaded', loaded, false); 
+    </script>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .jrwmbg{
+            width: 100%;
+            height: 100%;
+            background-size:cover;
+        }
+    </style>
+</head>
+<body>
+<!--<div id="header">
+    <span href="../db.html#page2">被推荐人</span>
+    <a href="">返回</a>
+</div>-->
+<div class="jrwmbg">
+    <div id="wrapper1" style="height:100%;" >
+        <div id="scroller">
+            <div id="pullDown" style="display:none">
+                <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <div id="thelist" style="background:none">
+                <div id="thelist2" style="background:none" >
+                    <div class="cn2">
+                        <ul>
+                            <h3>任职资格：</h3>
+                            <li><p>你说我是PPT小能手我不爱听，<br>
+                                敢说我文案有问题我和你拼命；<br>
+                                品牌都是瞎，公关都是渣，<br>
+                                活动落地飞奔蹭蹭蹭我一个顶三；<br>
+                                有人模仿我的点，<br>
+                                有人偷吃我的面，<br>
+                                 
+                                呵呵，只有灵光的脑子最能变现；</p>
+                            </li>
+
+                            <li><p>预算在手，天下我有！<br>
+                                人人猎热血传奇时代，等你来！<br>
+                                </p>
+                            </li>
+                            <h3>工作地点：</h3>
+                            <li><p>北京西二旗，临近地铁站，随时等你来。</p>
+                            </li>
+
+                            <h3>接收简历：</h3>
+                            <li><p>hr@renrenlie.com</p>
+                            </li>
+                            <li><center>
+                                    <!-- JiaThis Button BEGIN -->
+                                    <!--  <b><img src="/Public/img/jt_up.png" alt=""></b> -->
+                                    <div class="jiathis_style_24x24" id="shareAction" style="margin-left: 10px">
+                                        <a class="jiathis_button_qzone" title="分享到QQ空间"><span class="jiathis_txt jtico jtico_qzone"></span></a>
+                                        <a class="jiathis_button_weixin" title="分享到微信"><span class="jiathis_txt jtico jtico_weixin"></span></a>
+                                        <a class="jiathis_button_tsina" title="分享到新浪微博"><span class="jiathis_txt jtico jtico_tsina"></span></a>
+                                        <a class="jiathis_button_tqq" title="分享到腾讯微博"><span class="jiathis_txt jtico jtico_tqq"></span></a>
+                                        <a class="jiathis_button_renren" title="分享到人人网"><span class="jiathis_txt jtico jtico_renren"></span></a>
+                                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" style="padding:0px!important;  margin-right: -2px;" target="_blank"></a>
+                                        <a class="jiathis_counter_style" style="margin-right: 35px;"><span class="jiathis_button_expanded jiathis_counter jiathis_bubble_style" id="jiathis_counter_147" title="累计分享0次">0</span></a>
+                                    </div>
+
+                                    <!-- JiaThis Button END -->
+                                </center>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="pullUp" style="display:none">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+    </div>    
+
+</div>
+<include file="Webchat:statistics">
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/plugin.client.js" charset="utf-8"></script>
+</body>
+</html>

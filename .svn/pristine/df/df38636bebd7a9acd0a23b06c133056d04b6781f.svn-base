@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>人人猎-私人订制工作机会</title>
+        <link rel="stylesheet"  href="/Public/css/webchatnew/reset.css">        
+        <script type="text/javascript" src="/Public/js/jquery-1.8.3.min.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <style>
+            .com-list input{
+                background: #dff1ff;
+            }
+            .srdz-banner{
+                width: 100%;
+            }
+            .srdz-banner img{
+                width: 100%;
+            }
+            .srdz-text{
+                width: 100%;
+            }
+            .srdz-text p{
+                width:90%;
+                margin:0 auto;
+                margin-bottom:10px;
+                line-height: 23px;
+                color: #314356;
+            }
+            .srdz-text p b{
+                color: #f99e07;
+                font-size: 14px;
+            }
+            .srdz-text .tx1{
+                text-indent: 20px;
+                margin-top:10px;
+            }
+            .srdz-head{
+                height: 25px;
+                border-bottom:2px #2281b9 solid;
+                line-height: 25px;
+                text-align: center;
+                font-size: 14px;
+                color: #979797
+            }
+            .srdz-alt .clos{
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background: url(/Public/images/webchatnew/cold.png);
+                background-size:15px 15px;
+                display: block;
+                left: 240px;
+                top: 5px;
+            }
+            .srdz-alt {
+                height: 160px;
+            }
+            .srdz-alt .srdz-con{
+                margin-top:10px;
+            }
+            .srdz-alt .srdz-con p{
+                width: 90%;
+                margin:0 auto;
+                color: #11598e;
+            }
+            .com-list{
+                margin-top: 10px;
+            }
+            .com-list .list{
+                height:35px;
+                width: 90%;
+                margin:0 auto; 
+            }
+            .com-list .list.m{
+                background: url(/Public/images/webchatnew/icon-r.png) no-repeat right;
+                background-size: 7px 12px;
+            }
+            .com-list .list em{
+                float: left;
+                display: block;
+                width: 65px;
+                line-height: 35px;
+                padding-left: 12px;
+            }
+            .com-list .list em.m{
+                background: url(/Public/images/webchatnew/icon3.png) no-repeat left center;
+                background-size: 5px 5px;
+            }
+            .com-list .list span{
+                float: left;
+                display: block;
+                line-height: 35px;
+
+                width: 70%;
+                height: 35px;
+                text-overflow:ellipsis; 
+                white-space:nowrap; 
+                *white-space:nowrap; 
+                overflow:hidden; 
+            }
+            .com-list .list span.wh{
+                width: 62%;
+            }
+            .com-list .list label#m-tre{
+                width: 12px;
+                height: 12px;
+                border:1px #c9c9c9 solid;
+                border-radius:15px;
+                display: block;
+                float: left;
+                margin-top: 9px;
+                margin-left: 10px;
+            }
+            .com-list .list label#m-tre.m{
+                background: #206daf
+            }
+            .com-list .list label.lb-input{
+                border: 1px #cccccc solid;
+                height: 20px;
+                border-radius: 5px;
+                margin-top: 5px;
+                padding-left: 5px;
+                width:131px;
+            }
+            .com-list .list label.lb-input input{
+                height: 20px;
+                margin:0;
+                width: 114px;
+                text-align: right;
+            }
+            .com-list .list label.lb-input i{
+                display: block;
+                height: 20px;
+                line-height: 20px;
+                float: left;
+            }
+            .com-list .list .yuan{
+                color: #5b5b5b;
+                width:20px;
+            }
+            .com-list .list span.cl2{
+                color: #3d638a;
+            }
+            .com-list .list input{
+                display: block;
+                float: left;
+                /*width: 70%;*/
+                height: 20px;
+                margin-top: 7px;
+                border:none;
+                line-height: 20px;
+            }
+            .com-list .list input.wh{
+                width: 60%;
+            }
+            .m-phone{
+                display: none;
+            }
+            .hqyzm{
+                float: right!important;
+                width: 115px!important;
+                height: 100%!important;
+                margin:0;
+                border-left: 1px #eeeeee solid;
+                text-align: center;
+                color: #646464;
+            }
+            .h3{
+                width: 90%;
+                margin:0 auto;
+                padding-left: 10px;
+                font-size: 16px;
+                color: #323232;
+                text-align: left;
+                border-left: 4px #2380b8 solid;
+            }
+            .btn{
+                width: 90%;
+                height: 30px;
+                border-radius: 5px;
+                background: #206daf;
+                text-align: center;
+                line-height: 30px;
+                color: #ffffff;
+                display: block;
+                margin:0 auto;
+                margin-top: 30px;
+                font-size: 14px;
+            }
+            .error{
+                position: fixed;
+                width: 100%;
+                background: #f99e07;
+                top: 0px;
+                text-align: center;
+                color: #ffffff;
+                padding:0 10px;
+                line-height: 23px;
+                z-index: 9999;
+                display: none;
+            }
+            .bd3{
+                border-bottom:1px #c9c9c9 solid;
+            }
+            .wh100{width:100px!important;}
+            .mask{
+                position: fixed;
+                z-index: 3;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                opacity: .7;
+                filter: alpha(opacity=70);
+            }
+            .com-alt{
+                width: 260px;
+                height: 160px;
+                background: #ffffff;
+                position: fixed;
+                left: 50%;
+                margin-left: -130px;
+                top: 50%;
+                margin-top: -70px;
+                z-index: 11;
+                overflow: hidden;
+                display: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="mask" style="display:none"></div>
+        <div class="com-alt srdz-alt" style="display:none">
+            <a href="javascript:void(0);" class="clos" id="close"></a>
+            <div class="srdz-head">
+                温馨提示
+            </div>
+            <div class="srdz-con">
+                <p>您成功完成了工作机会——私人订制，请您在设定的联系时间内，保持手机畅通，一旦有合适的工作机会，您的私人求职顾问将会与您联络。</p>
+            </div>
+            <span class="btn" style="margin-top:10px;" id="ok_btn">确定</span>
+        </div>
+
+        <p class="error"></p>
+        <div class="wrap">
+            <include file="Public:nav" />
+
+            <section class="content m-content1" style="padding-bottom:20px;display:block;margin-top:1px;">
+                <div class="srdz-banner"><a href="http://m.renrenlie.com"><img src="/Public/images/webchatnew/srdz-banner.png" alt=""></a></div>
+                <div class="srdz-text">
+                    <p class="clearfix"><a href="/Home/Webchatnew/qa"><span class="btn" style="margin-top:10px;width:100px;float:right">了解人人猎</span></a></p>
+                    <p class="tx1">若你是年薪10万元以上的中高端人才，若你想收入更高、发展前程更好。若你希望你足不出户就有“高大上”的工作机会找上门。你最可靠的私人求职顾问--人人猎，帮你<b>“私人订制”</b>。人人猎,让与你匹配的工作机会轻松找到你。</p>
+                    <p>1.你只需将你正在看更好工作机会的计划，通过在线填写“订制卡片”告诉人人猎的资深顾问。</p>
+                    <p>2.人人猎免费帮你寻找与你最匹配的工作机会，并安排靠谱的面试机会。</p>
+                    <p>3.你无需接听骚扰电话、无需一次次向各企业重述你的个人信息，你只需参加2-3个靠谱的面试，从中选择最 适合你的优质工作机会。</p>
+                    <p>4.你入职以后，除可以领取<b>几千、几万</b>的自荐奖金外，你还会额外得到面试车补<b>1000元</b>。想想都很美吧！人人猎实现你的高薪工作梦+大额奖金+高额面试车补。</p>
+                    <p>马上参与， 请填写<b>工作机会私人订制卡片</b>，靠谱的工作机会就会自动找上门！</p>
+                </div>
+                <div class="clearfix wxts" style="margin-top:15px;">
+                    <span>温馨提示：</span>
+                    <i></i>
+                    <em>人人猎会对您的个人信息进行严格保密，绝不会非法透露给第三方</em>
+                </div>
+                <div style="background:#dff1ff;padding:10px 0">
+                    <div>
+                        <span class="h3 dis-block">工作机会私人订制卡</span>
+                    </div>
+                    <div class="com-list">
+                        <div class="bd3">
+                            <div class="list clearfix"><em class="m">姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</em><input type="text" id="name" placeholder="输入真实姓名"></div>
+                        </div>
+                        <div class="bd3">
+                            <div class="list clearfix" id="com-size"><em class="m" style="width:60px;">手&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp机：</em><input  style="width:70px!important"  type="text" id="mobile" placeholder="请输入手机号码"><span class="hqyzm hqyzm2" id="getcode" style="border-left: 1px #c9c9c9  solid;">免费获取验证码</span></div>
+                        </div>
+                        <div class="bd3">
+                            <div class="list clearfix"><em class="m">验&nbsp&nbsp证&nbsp&nbsp码：</em><input type="text" id="verify"></div>
+                        </div>
+                        <div class="bd3">
+                            <div class="list clearfix"><em class="m wh100">方便联系的时间：</em><input class="wh-55" type="text" id="able_time" placeholder="如：随时、周六日等"></div>
+                        </div>
+                        <div class="bd3">
+                            <div class="list clearfix"><em class="m">求职意愿：</em><input type="text" id="want" placeholder="输入职位名称" ></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="btn" id="btn">完成订制</span>
+                </div>
+            </section>
+        </div>
+        <!--为微信分享提供参数开始-->
+        <input type='hidden' value='{$appId}' id='appId'>
+        <input type='hidden' value='{$timestamp}' id='timestamp'>
+        <input type='hidden' value='{$nonceStr}' id='nonceStr'>
+        <input type='hidden' value='{$signature}' id='signature'>
+        <script type="text/javascript">
+            var wait = 60;
+
+            function time(o) {
+
+                if (wait == 0) {
+                    o.innerHTML = "获取验证码";
+                    o.removeAttribute("disabled", false);
+                    //                $('#getcode').css("background", "#206daf");
+                    wait = 60;
+                } else {
+                    o.setAttribute("disabled", true);
+                    o.innerHTML = "(" + wait + ")重新发送";
+                    wait--;
+                    setTimeout(function () {
+                        time(o)
+                    },
+                            1000)
+                }
+            }
+            $(document).ready(function () {
+                $("input").click(function () {
+                    if (document.activeElement.tagName == 'INPUT') {
+                        $(".fixed").css({'position': 'absolute', 'top': '0'});
+                    } else if (document.activeElement.tagName !== 'INPUT') {
+                        $(".fixed").css('position', 'fixed');
+                    }
+                })
+                $("#nav").hide();
+
+                $('#getcode').click(function () {
+
+                    this.disabled = true;
+
+                    var o = this;
+                    var mobile = $("#mobile").val();
+                    if ($.trim(mobile) == "") {
+                        //                    $("#mobile").focus();
+                        show_error("请填写手机号码", 3);
+                        this.disabled = false;
+                        return;
+                    }
+                    //                $('#getcode').css("background", "#b4b4b4");
+                    $.post("/Home/Webchatcustomized/send_msg", {
+                        mobile: mobile
+                    }, function (data) {
+                        if (data.code != "200") {
+                            $('#getcode')[0].disabled = false;
+                            //                        $('#getcode').css("background", "#206daf");
+                            show_error(data.msg, 3);
+                            return;
+                        } else {
+                            time(o);
+                        }
+                    }, "json");
+
+                })
+
+                //点击完成定制按钮
+                $('#btn').click(function () {
+
+                    this.disabled = true;
+                    var name = $.trim($("#name").val());
+                    var mobile = $.trim($("#mobile").val());
+                    var able_time = $("#able_time").val();
+                    var want = $("#want").val();
+                    var verify = $.trim($("#verify").val());
+                    if (name == "") {
+
+                        show_error("请填写姓名", 3);
+                        this.disabled = false;
+                        return;
+                    }
+                    if (mobile == "") {
+                        show_error("请填写手机号码", 3);
+                        this.disabled = false;
+                        return;
+                    }
+                    if (verify == "") {
+                        show_error("请填写验证码", 3);
+                        this.disabled = false;
+                        return;
+                    }
+                    if (able_time == "") {
+
+                        show_error("请填写方便联系时间", 3);
+                        this.disabled = false;
+                        return;
+                    }
+                    if (want == "") {
+
+                        show_error("请填写求职意愿", 3);
+                        this.disabled = false;
+                        return;
+                    }
+                    $.post("/Home/Webchatcustomized/info_save", {
+                        name: name,
+                        mobile: mobile,
+                        verify: verify,
+                        able_time: able_time,
+                        want: want
+
+                    }, function (data) {
+                        if (data.code != "200") {
+                            $('#btn')[0].disabled = false;
+                            show_error(data.msg, 3);
+                            return;
+                        } else {
+                            $(".mask").show();
+                            $(".srdz-alt").show();
+
+                        }
+                    }, "json");
+
+
+                })
+                //点击取消
+                $('#close,#ok_btn').click(function () {
+
+                    $(".mask").hide();
+                    $(".srdz-alt").hide();
+                    location.reload();
+                })
+
+            })
+            function set_time(tip, wait) {
+                if (wait == 0) {
+
+                    $(".error").html("");
+                    $(".error").fadeOut();
+
+                } else {
+                    wait--;
+                    window.setTimeout("set_time('" + tip + "','" + wait + "')", 1000);
+                }
+            }
+            function  show_error(tip, wait) {
+                $(".error").html(tip);
+                $(".error").fadeIn();
+                set_time(tip, wait);
+            }
+            //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+            //获取分享的参数
+            var title = "<?php echo $share['title']?>";
+            var desc = "<?php echo $share['desc']?>";
+            var linkurl = "<?php echo $domain.$share['wxurl']?>";
+            var linkimg = "<?php echo $share['img']?>";
+
+        </script>
+        <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript" src="/Public/js/webchat/shares_all.js"></script>
+    <include  file='Webchatnew:statistics' />
+</body>
+</html>

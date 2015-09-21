@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>登录</title>
+        <link rel="stylesheet" href="/Public/css/webchat/base.css" />
+        <link rel="stylesheet" href="/Public/css/webchat/jin_.css" />
+    </head>
+    <body>
+        <div class="loginmain">
+        <form>
+            <img src="/Public/images/webchat/loginlog.png"  width="60%" alt="" class="log" />
+            <input type="text" name="username" placeholder="请输入用户名" class="logininput inputbgname" />
+            <input type="password" name="password" placeholder="请输入密码" class="logininput inputbpass"/>
+            <input type='hidden' value='{$gourl}' name='gourl'>
+            <!-- <a href="#" class="forget colorhui">忘记密码</a> -->
+            <input type="button" value="登 录" class="logininput inputsubmit newinputstyle" />
+            <a href="/Home/Webchatreg/reg.html" class="forget colorlan">注册账号</a>
+        </form>
+        </div>
+        <script type="text/javascript" src="/Public/js/jquery.js"></script>
+        <script type="text/javascript">
+            
+                var error = "";
+                function  checkIsEmpty(name,tip){
+                                
+                        var val = $("[name='"+name+"']").val();
+                        if(val == ""){
+                                error += tip+"不能为空\n";
+                                return false;
+                        }else{
+                                return true;
+                        }
+                                
+                }
+                function  checkIsLawful(name,tip){
+                                
+                        var val = $("[name='"+name+"']").val();
+                        if(val == ""){
+                                error += tip+"不能为空\n";
+                                return false;
+                        }else{
+                                return true;
+                        }
+                                
+                }
+                $(".inputsubmit").click(function(){
+                    
+                        var re1 = checkIsEmpty('username',"用户名");
+                        var re2 = checkIsEmpty('password',"密码");
+                        var username = $("[name='username']").val();
+                        var password = $("[name='password']").val();
+                        if(re1 && re2){
+                                var url = $("[name='gourl']").val();
+				$.ajax({
+
+                                        type:"post",
+                                        data:{"username":username,"password":password},
+                                        url:"/Home/Webchatlogin/judge_login",
+                                        dataType:"json",
+                                        success:function(data)
+                                        {       //alert(data.code);
+                                                if(data.code=="200")
+                                                {
+                                                     location.href= url;
+                                                }
+                                                else if(data.code=="500")
+                                                {
+                                                     alert(data.msg);
+                                                     error = "";
+                                                     return;
+                                                }else{
+                                                     alert("登陆异常");
+                                                     error = "";
+                                                     return;
+                                                }
+                                        }
+
+				})
+                        }else{
+                                alert(error);
+                                error = "";
+                                return;
+                        }
+                })
+        </script>
+    </body>
+</html>

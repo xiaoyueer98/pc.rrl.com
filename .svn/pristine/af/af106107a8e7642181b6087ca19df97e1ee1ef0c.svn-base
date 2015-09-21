@@ -1,0 +1,36 @@
+<?php
+
+namespace Home\Controller;
+
+use Think\Controller;
+
+/**
+ * 分享页面三端跳转相关 类文件 
+ * 
+ * @author      sunyue<1551058861@qq.com> 
+ * @since       1.0 
+ */
+class SharemodelController extends Controller {
+
+        
+        /**
+         * 得到分享相关信息  
+         * 
+         * @access public 
+         * @since 1.0 
+         */
+        function get_info($tag="") {
+                if($tag){
+                        $arShare = M("share_info")->where("tag='{$tag}' and status=1")->order("id desc")->find();
+                        if($arShare){
+                                return $arShare;
+                        }
+                }
+                return $arShare;
+        }
+
+        
+
+        
+
+}

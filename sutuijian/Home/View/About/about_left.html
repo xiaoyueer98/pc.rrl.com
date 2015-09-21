@@ -1,0 +1,52 @@
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+<!-- 遮罩层 -->
+
+<include file="Public:zhuce"/>
+<include file="Public:denglu"/>
+<div class="left">
+    <div class="content">
+        <ul>
+            <li class="li1 <?php if($cur == 'aboutus'){ echo  'm';}?> hover-hand"><a class="<?php if($cur == 'aboutus'){ echo  'm';}?>" href="/Home/Public/aboutus.html">关于我们</a></li>
+            <li class="li2 <?php if($cur == 'yhxy'){ echo  'm';}?> hover-hand"><a class="<?php if($cur == 'yhxy'){ echo  'm';}?>" href="/Home/Public/yhxy.html">用户协议</a></li>
+            <li class="li3 <?php if($cur == 'yhys'){ echo  'm';}?> hover-hand"><a class="<?php if($cur == 'yhys'){ echo  'm';}?>" href="/Home/Public/yhys.html">用户隐私</a></li>
+            <li class="li4 <?php if($cur == 'contactus'){ echo  'm';}?> hover-hand"><a class="<?php if($cur == 'contactus'){ echo  'm';}?>" href="/Home/Public/contactus.html">联系我们</a></li>
+            <li class="li5 <?php if($cur == 'joinus'){ echo  'm';}?> hover-hand"><a class="<?php if($cur == 'joinus'){ echo  'm';}?>" href="/Home/Public/joinus.html">加入我们</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(".dengluBtn,#denglu3").click(function () {
+        $(".mask").show();
+        $("#conZhuce").hide();
+        $(".denglu").show();
+    })
+
+    $("#dengluBtn2,#zhuce").click(function () {
+        $(".mask").show();
+        $(".denglu").hide();
+        $("#conZhuce").show();
+    })
+    $(".Close,.close").click(function () {
+        $(".mask").hide();
+        $("#conZhuce").hide();
+        $(".denglu").hide();
+        //location.href = $("#hrefUrl").val();
+    })
+    $("input[name='usernamees']").focus(function () {
+        $(this).next().hide();
+    })
+    $("input[name='usernamees']").blur(function () {
+        if ($(this).val() == "") {
+            $(this).next().show();
+        }
+    })
+    $("input[name='passwordes']").focus(function () {
+        $(this).next().hide();
+    })
+    $("input[name='passwordes']").blur(function () {
+        if ($(this).val() == "") {
+            $(this).next().show();
+        }
+    })
+
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+	<title>职场牛人都在人人猎</title>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/active.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="header">
+		<img src="/Public/img/activity-img/header-pic.png">
+	</div>
+	<div class="wrap">
+                <volist name="arSalonActive" id="vo"  key="k" >
+                    <div class="con"  <if condition="$vo.picurl eq ''"> style="display:none;" </if>>
+			<div class="m">
+				<div class="t">{$vo.activename}</div>
+				<div class="b">
+					<img src="{$vo.picurl}">
+				</div>
+				<span></span>
+			</div>
+		</div>
+                </volist>
+
+		
+	</div>
+</div>
+
+</body>
+</html>

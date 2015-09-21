@@ -1,0 +1,248 @@
+<div class="center">
+	<include file="Public:centerTop"/>
+	<div class="centerCon2">
+		<div class="mins1 clearfix">
+			<div class="promo">
+			    <div class="promo-bd">
+			        <div style="position:absolute;left:-610px;">
+			            <div>
+			                <ins style="display:inline-block;padding:0;margin:0;width:610px;height:280px;*zoom:1;*display:inline"
+			                id="tanxssp-outer-conmm_12852562_1778064_13670999">
+			                    <a href="#">
+			                        <img border="0" src="__ROOT__/Public/img/banner.png"
+			                        width="610px" height="280px">
+			                    </a>
+			                </ins>
+			                <a class="hide">
+			                </a>
+			            </div>
+			            <div>
+			                <ins style="display:inline-block;padding:0;margin:0;width:610px;height:280px;*zoom:1;*display:inline"
+			                id="tanxssp-outer-conmm_12852562_1778064_13674396">
+			                    <a href="#">
+			                        <img border="0" src="__ROOT__/Public/img/banner.png"
+			                        width="610px" height="280px">
+			                    </a>
+			                </ins>
+			                <a class="hide">
+			                </a>
+			            </div>
+			            <div>
+			                <a href="#">
+			                    <img border="0" src="__ROOT__/Public/img/banner.png"
+			                        width="610px" height="280px">
+			                </a>
+			            </div>
+			        </div>
+			    </div>
+			    <div class="promo-ft">
+			        <div id="J_PromoOpt" class="promo-opt">
+			            <a href="javascript:;" class="J_Prev prev">
+			                <i>
+			                </i>
+			            </a>
+			            <a href="javascript:;" class="J_Next next">
+			                <i>
+			                </i>
+			            </a>
+			        </div>
+			        <ul class="promo-nav">
+			            <li class="selected">
+			                <a href="javascript:void(0);">
+			                    1
+			                </a>
+			            </li>
+			            <li>
+			                <a href="javascript:void(0);">
+			                    2
+			                </a>
+			            </li>
+			            <li>
+			                <a href="javascript:void(0);">
+			                    3
+			                </a>
+			            </li>
+			        </ul>
+			    </div>
+			</div>
+			<div class="mins1Right">
+				<a href=""><img src="__ROOT__/Public/img/banner_1.png" alt=""></a>
+				<a href=""><img src="__ROOT__/Public/img/banner_2.png" alt=""></a>
+				<a href=""><img src="__ROOT__/Public/img/banner_3.png" alt=""></a>
+			</div>
+		</div>
+		<div class="mins2 clearfix">
+			<div class="mins2Left">
+				<h3>热招职位</h3>
+				<ul>
+					<volist name="comp" id="cp">
+					<li class="clearfix">
+						<em><a href="{:U('Login/EnterIndex')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">{$cp.cascname}</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">{$cp.cpname}</a></span>
+								<span class="Salary"><i>￥</i>{$cp.dataname}</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">{$cp.ccasc}</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">{$cp.ccas}</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">{$cp.casc}</a></span>
+							</dd>
+						</div>
+					</li>
+					</volist>
+
+					
+
+
+
+
+
+
+				</ul>
+				<span class="gengduo"><a href="">更多...</a></span>
+			</div>
+			<div class="mins2Right">
+				<h3>热招职位</h3>
+				<ul>
+					<li class="clearfix">
+						<em><a href="{:U('Index/search')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">交互设计师</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">Artand</a></span>
+								<span class="Salary"><i>￥</i>10,000-20,000</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">1-3年经验</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">本科生</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">北京</a></span>
+							</dd>
+						</div>
+					</li>
+
+					<li class="clearfix">
+						<em><a href="{:U('Login/EnterIndex')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">交互设计师</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">Artand</a></span>
+								<span class="Salary"><i>￥</i>10,000-20,000</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">1-3年经验</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">本科生</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">北京</a></span>
+							</dd>
+						</div>
+					</li>
+
+					<li class="clearfix">
+						<em><a href="{:U('Login/EnterIndex')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">交互设计师</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">Artand</a></span>
+								<span class="Salary"><i>￥</i>10,000-20,000</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">1-3年经验</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">本科生</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">北京</a></span>
+							</dd>
+						</div>
+					</li>
+
+					<li class="clearfix">
+						<em><a href="{:U('Login/EnterIndex')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">交互设计师</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">Artand</a></span>
+								<span class="Salary"><i>￥</i>10,000-20,000</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">1-3年经验</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">本科生</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">北京</a></span>
+							</dd>
+						</div>
+					</li>
+
+					<li class="clearfix">
+						<em><a href="{:U('Login/EnterIndex')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">交互设计师</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">Artand</a></span>
+								<span class="Salary"><i>￥</i>10,000-20,000</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">1-3年经验</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">本科生</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">北京</a></span>
+							</dd>
+						</div>
+					</li>
+
+					<li class="clearfix">
+						<em><a href="{:U('Login/EnterIndex')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">交互设计师</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">Artand</a></span>
+								<span class="Salary"><i>￥</i>10,000-20,000</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">1-3年经验</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">本科生</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">北京</a></span>
+							</dd>
+						</div>
+					</li>
+
+					<li class="clearfix">
+						<em><a href="{:U('Login/EnterIndex')}"><img src="__ROOT__/Public/img/qiye_logo.png" alt=""></a></em>
+						<div>
+							<dt class="clearfix">
+								<span class="Position"><a href="{:U('Index/search')}">交互设计师</a><i></i></span>
+								<span class="EntprisName"><a href="{:U('Login/EnterIndex')}">Artand</a></span>
+								<span class="Salary"><i>￥</i>10,000-20,000</span>
+							</dt>
+							<dd class="clearfix">
+								<span class="WorkAge"><a href="{:U('Login/EnterIndex2')}">1-3年经验</a></span>
+								<span class="Education"><a href="{:U('Login/EnterIndex2')}">本科生</a></span>
+								<span class="Place"><a href="{:U('Login/EnterIndex2')}">北京</a></span>
+							</dd>
+						</div>
+					</li>
+				</ul>
+				<span class="gengduo"><a href="">更多...</a></span>
+				<div class="guanzhu clearfix">
+					<h3>关注我们</h3>
+					<div class="clearfix">
+						<dl class="dl1">
+							<dt><img src="__ROOT__/Public/img/weixin.png" alt=""></dt>
+							<dd>
+								<b>扫码关注微信</b>
+								<span><img src="__ROOT__/Public/img/wein_icon.png" alt="">扫码添加</span>
+							</dd>
+							<i><img src="__ROOT__/Public/img/erweima2.png" alt=""></i>
+						</dl>
+
+						<dl class="dl2">
+							<dt><img src="__ROOT__/Public/img/xinlang.png" alt=""></dt>
+							<dd>
+								<b>关注新浪微博</b>
+								<span></span>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<include file="Public:centerFooter"/>
+</div>

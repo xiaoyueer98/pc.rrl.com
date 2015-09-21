@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>推荐职位</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <body style="background:#ffffff">
+    <include file="Public:newHeader"/>
+    <div class="wrap new-qa">
+        <div class="content">
+            <h3>常见问题</h3>
+            <div class="btn-cont clearfix nav-btn"><span class="my-btn2 m fl-lef">我是推荐人</span><span class="my-btn2 fl-lef hr-btn">我是企业HR</span></div>
+            <div class="ms">
+                <div class="list">
+                    <dl>
+                        <dt class="clearfix"><span></span><em>什么是人人猎什么是人人猎什么是人人</em></dt>
+                        <dd class="clearfix"><span></span><p>人人猎是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。</p></dd>
+                    </dl>
+
+                    <dl>
+                        <dt class="clearfix"><span></span><em>什么是人人猎什么是人人猎什么是人人</em></dt>
+                        <dd class="clearfix"><span></span><p>人人猎是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。</p></dd>
+                    </dl>
+                    <dl>
+                        <dt class="clearfix"><span></span><em>什么是人人猎什么是人人猎什么是人人</em></dt>
+                        <dd class="clearfix"><span></span><p>人人猎是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。</p></dd>
+                        <dd class="clearfix"><span class="sp-img"><img src="/Public/img/m404.jpg" alt=""></span></dd>
+                    </dl>
+                </div>
+                <div class="list" style="display:none;">
+                    <dl>
+                        <dt class="clearfix"><span></span><em>什么是人人猎什么是人人猎什么是人人</em></dt>
+                        <dd class="clearfix"><span></span><p>人人猎是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。</p></dd>
+                        <dd class="clearfix"><span class="sp-img"><img src="/Public/img/m404.jpg" alt=""></span></dd>
+                    </dl>
+
+                    <dl>
+                        <dt class="clearfix"><span></span><em>什么是人人猎什么是人人猎什么是人人</em></dt>
+                        <dd class="clearfix"><span></span><p>人人猎是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。</p></dd>
+                    </dl>
+
+                    <dl>
+                        <dt class="clearfix"><span></span><em>什么是人人猎什么是人人猎什么是人人</em></dt>
+                        <dd class="clearfix"><span></span><p>人人猎是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。</p></dd>
+                    </dl>
+
+                    <dl>
+                        <dt class="clearfix"><span></span><em>什么是人人猎什么是人人猎什么是人人</em></dt>
+                        <dd class="clearfix"><span></span><p>人人猎是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。</p></dd>
+                    </dl>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var index;
+            var list = $(".nav-btn span");
+            var divs = $(".ms>.list");
+            list.on("click",function(){
+                that = $(this);
+                index = that.index();
+                that.addClass("m").siblings().removeClass("m");
+                $(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+                divs.eq(index).show().siblings("div").hide();
+            });
+        })
+    </script>
+</body>
+</html>

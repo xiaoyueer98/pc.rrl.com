@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>联系我们-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/join-us.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/help.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <body>
+        <div class="mask" id="mask"></div>
+    <include file="Public:newHeader"/>
+    <div class="rrl-jianjie clearfix">
+        <include file="About:about_left"/>
+        <div class="right">
+            <h3><span>联系我们</span></h3>
+            <div class="help-contactus">
+                <div class="contactus-content">
+                    <div class="help-contactus-head">
+                        <div class="ch-left">
+                            <span class="line-title">客服热线</span><span class="line-time">服务时间：8：00-18:00</span></div>
+                        <div class="ch-middle"><span class="telephone1">推荐人用户</span><span class="telephone2">招聘企业用户</span></div>
+                        <div class="ch-right"><span class="telephone1">010-57188076</span><span class="telephone2">010-57230694</span></div>
+                    </div>
+                    <div class="help-contactus-content">
+                        <br/><br/>
+                        <div class="group-content">
+                            
+                            <span>官方QQ群</span>
+                            <ul>
+                                <li><em>人人猎官方群：</em><em>215082507</em></li></ul>
+                        </div>
+<!--                        <div class="group-content">
+                            <span>技术QQ群</span>
+                            <ul><li><em>Android群：</em><em>227231209</em></li>
+                                <li><em>php群：</em><em>434127977</em></li>
+                                <li><em>ios群：</em><em>422877348</em></li>
+                                <li><em>pm群：</em><em>188499425</em></li>
+                                <li><em>前端群：</em><em>432563432</em></li>
+                                <li><em>UI群：</em><em>426754949</em></li>
+                                <li><em>java群：</em><em>422804023</em></li>
+                            </ul>
+                        </div>-->
+                        <br/>
+                        <div class="group-content contactus-end-content">
+                            <span>用户建议</span>
+                            <ul><li><em>suggestion@renrenlie.com</em></li>
+                            </ul>  
+                        </div>
+                        <br/>
+                        <div class="group-content">
+                            <span>业务合作</span>
+                            <ul><li><em>friend@renrenlie.com</em></li>
+                            </ul>  
+                        </div>
+                        <br/>
+                        <div class="group-content">
+                            <span>投资人关系</span>
+                            <ul><li><em>ir@renrenlie.com</em></li>
+                            </ul>  
+                        </div>
+                    </div>
+                    <div class="contactus-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public:newFooter"/>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+<session-param>        
+    <param-name>TimeoutSecs</param-name>       
+    <param-value>1800</param-value> 
+</session-param> 

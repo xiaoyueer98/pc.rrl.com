@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>候选人面试时间</title>
+<script type="text/javascript" src="__ROOT__/Public/js/webchat/iscroll.js"></script>
+<script type="text/javascript" src="__ROOT__/Public/js/webchat/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/webchat/style.css">
+
+<script type="text/javascript">
+var myScroll;
+function loaded () {
+	myScroll = new IScroll('#wapper', { 
+		mouseWheel: true, 
+		click: false,
+		scrollbars: true,
+		mouseWheel: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale',
+		fadeScrollbars: true
+	});
+}
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+</script>
+</head>
+<body onload="loaded()">
+        <!--推荐成功弹框开始-->
+        <div style="display:none" id="alert_like">
+                <div class="mask"></div>
+                <div class="tjcg">
+                        <dl>
+                                <dt><img src="__ROOT__/Public/images/webchat/tj_cg.png" alt=""></dt>
+                                <dd>成功推荐了1个人才！</dd>
+                                <a href="/Home/Webchat/new_job"><dd class="btn"><button>返回职业列表</button></dd></a>
+                        </dl>
+                </div>
+        </div>
+        <!--推荐成功弹框结束-->
+	<div class="header">候选人面试时间</div>
+	<div id="wapper" class="wapper">
+		<div class="iscroll">
+			<ul>
+				<li  class="first_li">
+                                    <textarea placeholder="请输入候选人面试时间如:3月5日全天或3月6日下午或3月5日-7日下午5点以后" id="audstartdate"></textarea>
+                                    <input type="hidden" value="{$jobid}" id="j_id">
+                                    <input type="hidden" value="{$jid}" id="bt_id">
+                                </li>
+				<li class="myli_2">
+					<span>重要提示：</span>
+					<p>向企业推荐候选人之前，必须同候选人进行沟通。一旦发现“盲目提交”（未经候选人同意即提交职位候选人）遭到客户投诉，人人猎有权终止您的猎头注册用户资格。</p>
+				</li>
+				<li class="last_li"><button class="btn_qr" id="btn">确认推荐</button><button class="btn_qx">再沟通一下</button></li>
+			</ul>
+		</div>
+		
+	</div>
+	<!--引入尾部元素开始-->
+        <include file="Webchat:footer"/>
+        <!--引入尾部元素结束-->
+<script type="text/javascript" src="/Public/js/jquery.js"></script>
+<include file="Webchat:like_alert"/>
+<script type="text/javascript">
+        
+        $("#btn").click(function(){
+                var audstartdate = $("#audstartdate").val();
+                if($.trim(audstartdate) == ""){
+                    //alert("面试时间不能为空");
+                    like_alert("面试时间不能为空");
+                }else{
+                    $(this)[0].disabled= true;
+                    var j_id = $("#j_id").val();
+                    var bt_id = $("#bt_id").val();
+                    $.post("/Home/Webchat/record_save",{
+                                        'j_id':j_id,
+                                        'audstartdate':audstartdate,
+                                        'bt_id':bt_id
+                                },function (data){
+                                        if(data.code == "400"){
+                                            location.href = "/Home/Webchatlogin/login";
+                                        }else{
+                                            //alert(data.msg);
+                                            $("#alert_like").css("display","block");
+                                            $(".tjcg").css("display","block");
+                                        }   
+                                    },"json");
+                }
+        })
+        $(".btn_qx").click(function(){
+                var jobid = $("#j_id").val();
+                location.href="/Home/Webchat/job_detail/id/"+jobid;
+        })
+</script>
+</body>
+
+</html>

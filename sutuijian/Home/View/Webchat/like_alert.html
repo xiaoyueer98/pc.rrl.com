@@ -1,0 +1,94 @@
+<style>
+.mask{
+	position: fixed;
+	z-index: 3;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .7;
+	filter: alpha(opacity=70);
+}    
+.tanchu{
+	width: 300px;
+	height: 120px;
+	padding:10px 0;
+	background: #ffffff;
+	box-shadow: 1px 1px 10px #2c2b2b;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left:-150px;
+	margin-top: -90px;
+	z-index: 4;
+	border-radius: 15px;
+}
+.tanchu dl{
+	margin:0 auto;
+	width: 260px;
+	margin-top: 10px;
+}
+
+.tanchu dl dd{
+	text-align: center;
+	color: #2380b8;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.tanchu dl dd button{
+	width: 110px;
+	height: 30px;
+	background: #2380b8;
+	border-radius: 5px;
+	border:none;
+	color: #ffffff;
+	margin-top:10px;
+}    
+</style>
+<div style="display:none;" id="like_alert_kuang">
+<div class="mask"></div>
+<div class="tanchu">
+    <dl>
+        <dd id="alert_title"></dd>
+        <dd id="alert_ok"><button>确定</button></dd>
+    </dl>
+</div>
+</div>
+
+<script type="text/javascript">
+    
+    //调用这个方法的前提是，引入了jquery
+    function  like_alert(title){
+        
+        $("#alert_title").html(title);
+        $("#like_alert_kuang").css("display","block");
+        $("#alert_ok").click(function(){
+            $("#like_alert_kuang").css("display","none");
+        })
+    }
+    
+    function  re_like_alert(title){
+        
+        $("#alert_title").html(title);
+        $("#like_alert_kuang").css("display","block");
+        $("#alert_ok").click(function(){
+            $("#like_alert_kuang").css("display","none");
+            location.reload();
+        })
+       
+    }
+    
+    function  lo_like_alert(title,url){
+        
+        $("#alert_title").html(title);
+        $("#like_alert_kuang").css("display","block");
+        $("#alert_ok").click(function(){
+            $("#like_alert_kuang").css("display","none");
+            location.href=url;
+        })
+       
+    }
+    
+    
+</script>    

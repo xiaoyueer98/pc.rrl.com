@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>简历详情-人人猎</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+        <style>
+            .center .peoplerenm ul li p {padding-right:10px;float: left;display: inline-block;width: auto;height: auto;line-height: 34px;width: auto;word-break: break-all;}
+            .center .peoplerenm ul li.jlfj span {position: relative;top: -124px; opacity: 0;display: block;width: 131px;height: 131px; left: -10px;}
+        </style>
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData peoplerenm">
+
+            <form action="__URL__/btjadd" method="post" enctype="multipart/form-data">
+
+                <h3 class="til">被推荐人简历</h3>
+                <form action="__URL__/xinxi" method="post" >
+                    <div class="cn cn2 Self Self2">
+                        <div class="cn_tp" style="margin-top:0px;">
+                            <ul>
+                                <h4>基本信息</h4>
+                                <li style="height:40px;">
+                                    <p class="firstP" style="width:auto;margin-right:40px">
+                                        <em>姓名：</em>
+                                        <span>{$userinfo['username']}</span>
+                                    </p>
+
+                                    <p>
+                                        <i>性别：</i>
+                                        <label for="n">{$userinfo['sex']}</label>
+
+                                        <em class="lastEm">年龄：</em>
+                                        <span>{$userinfo['age']}</span>
+                                    </p>
+                                </li>
+                               <li style="height:40px;">
+                                    <p class="firstP" style="width:auto;margin-right:40px">
+                                        <em>在职状态：</em>
+                                        <span>{$userinfo['stage']}</span>
+                                    </p>
+
+                                    <p>
+                                        <em>联系电话：</em>
+                                        <span>{$userinfo['mobile']}</span>
+                                    </p>
+                                </li>
+                                <li style="height:40px;">
+                                    <p class="firstP"  style="width:auto;margin-right:40px">
+                                        <em>邮箱：</em>
+                                        <span>{$userinfo['email']}</span>
+                                    </p>
+                                    <?php if($userinfo['qqnum']){?>
+                                    <p>
+                                        <em>qq号码：</em>
+                                        <span><?php echo $userinfo['qqnum'] ?></span>
+                                    </p>
+                                    <?php }?>
+                                </li>
+                            </ul>
+                            <?php if($userinfo['personal']){?>
+                            <ul class="clearfix">
+                                <h4>自我评价</h4>
+                                <li class="clearfix" style="widows: 693px; padding-left:15px;height: auto; border-radius:8px; margin-top:18px;"><?php echo $userinfo['personal']?></li>
+                            </ul>
+                            <?php }?>
+                            <?php if($userinfo['education']){?>
+                            <ul class="clearfix">
+                                <h4>教育经历</h4>
+                                <li style="widows: 693px; padding-left:15px; height: auto; border-radius:8px; margin-top:18px; ">
+                                    <?php echo $userinfo['education']; ?>
+                                    <!--
+                                    <volist name="userinfo['educat_list']" id="educatInfo">
+                                    入学时间： {$educatInfo['starttime']} 
+                                    毕业时间： {$educatInfo['endtime']} 
+                                    毕业学校： {$educatInfo['schoolname']} 
+                                    专    业： {$educatInfo['profess']}  <br/>
+                                    </volist>
+                                    -->
+                                </li>
+                            </ul>
+                            <?php }?>
+                            <?php if($userinfo['workexper']){?>
+                            <ul class="clearfix">
+                                <h4>工作经历</h4>
+                                <li class="clearfix" style="widows: 693px; padding-left:15px;height: auto; border-radius:8px; margin-top:18px; "><?php echo $userinfo['workexper']?></li>
+                            </ul>
+                            <?php }?>
+                            
+                            <?php if($userinfo['uploadName']){?>
+                            <ul class="clearfix">
+                                <h4>附件简历</h4>
+                                <li class="jlfj"><a class="clearfix_img" href="<?php echo $userinfo['uploadUrl'] ?>"><?php echo $userinfo['uploadName'];?><span style="top:-110px;"><img src="__ROOT__/Public/img/tjrxx_xzjl.png" alt=""></span></a></li>
+                            </ul>
+                            <?php }?>
+                            <?php if($userinfo['because']){?>
+                            <ul class="clearfix" style="border:none">
+                                <h4>推荐理由</h4>
+                                 <li style="widows: 693px; padding-left:15px; height: auto; border-radius:8px; margin-top:18px; ">
+                                    
+                                     <?php echo $userinfo['because'];?>
+                                 </li>
+                            </ul>
+                            <?php }?>
+                        </div>
+                        <div class="cn_btm" >
+                           <center>
+                               <?php if(!$userinfo['uploadName']){?>
+                               <input class="btn bianji cur_point" style="display:inline-block;" type="button" value="导出简历" id="export_reason">
+                               <?php }?>
+                               <input class="btn bianji  cur_point"  style="display:inline-block;" type="button" value="返回" onclick="history.back()">
+                           </center>
+                        </div>
+                    </div>
+                </form>
+        <input type="hidden" value="{$id}" id="view_id">
+        <input type="hidden" value="{$jid}" id="view_jid">
+        <input type="hidden" value="{$btid}" id="view_btid">
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+    <script>
+        $(function(){
+            $("#export_reason").click(function(){
+                var id = $("#view_id").val();
+                var jid = $("#view_jid").val();
+                var btid = $("#view_btid").val();
+                if(!id || !jid || !btid){
+                    sys_wind("系统繁忙！");
+                    return false;
+                }
+                window.location.href = "/Home/Company/download/id/"+id+"/jid/"+jid+"/btid/"+btid+".html"
+            });
+        })
+     </script>
+</body>
+</html>
+
+
+   

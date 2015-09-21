@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no,email=no"/>
+        <meta name="full-screen" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>职位详情</title>
+        <link rel="stylesheet" href="__ROOT__/Public/css/webchat/base.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/webchat/jin_.css" />
+    </head>
+    <body>
+        <!--    <nav id="mod-nav" class="mod-nav" style="position: static;">
+                <div class="nav-con clearfix">
+                    <a href="javascript:;" class="nav-back" style="display: inline; -webkit-transform-origin: 0px 0px 0px; opacity: 1; -webkit-transform: scale(1, 1);"><span class="icon">A</span>返回</a>   
+                    <h1><span class="page-title">职位详情</span></h1>
+                </div>
+            </nav>-->
+        <div class="main" id="jobPost" style="position: static; min-height: 765px;margin-bottom: 100px;" >
+            <!-- content here-->
+            <div class="jobName">
+                <h2 class="colorlan">{$result.title}</h2>
+                <p>
+                    <span class="colorlan"><i>职位月薪：</i> {$result.treatmentdata}</span>
+                <if condition='$tag == 0'><em class="shoucang noshoucang" id='sc'></em><else /><em class="shoucang shoucang" id='sc'></em></if>
+                </p>
+            </div>
+            <div class="comWelfare">
+                <h2><a href="/Home/Webchatcompany/company_detail/id/{$result.cpid}/strycatedata/{$result.strycatedata}/Jobcatedata/{$result.Jobcatedata}"><b>{$result.cpname}</b><span><em class="icon">J</em></span></a></h2>
+                <div class="colorhui cb xingzhi">
+                    <span class="colorhei"><i class="colorhuihei" >融资阶段</i> {$result.stagedata}</span>
+                    <span class="colorhei" style="padding-left:2%"><i class="colorhuihei">性质</i> {$result.naturedata}</span>
+                </div>
+            </div>
+            <div class="basicInfo">
+                <ul>
+                    <if condition="$result.posttimedata eq ''"><else /><li><b>发布日期：</b><span>{$result.posttimedata}</span></li></if>
+                    <li><b>截止日期：</b><span>{$result.endtimedata}</span></li>
+                    <li><b>职位月薪：</b><span>{$result.treatmentdata}</span></li>
+                    <li><b style="color:#2380b8">推荐费：</b><span style='color:red;'>{$result.Tariff}元</span></li>
+                    <li><b>招聘人数：</b><span>{$result.employ}</span></li>
+                    <li><b>已推荐人数：</b><span style='color:red;'>{$result.recommendednum}</span></li>
+                    <li><b>工作经验：</b><span>{$result.experiencedata}</span></li>
+                    <li><b>学历要求：</b><span>{$result.educationdata}</span></li>
+                    <li><b>语言要求：</b><span>{$result.joblangdata}</span></li>
+                    <li><b>工作地点：</b><span>{$result.jobplacedata}</span></li>
+                    <if condition="$result.webname eq ''"><else />
+                        <li><b>网址：</b><span>{$result.webname}</span></li>
+                    </if>
+                    <li><b>地址：</b><span>{$result.address}</span></li>
+                </ul>
+            </div>
+            <div class="basicInfo">
+                <h2><span></span>基本信息</h2>
+                <ul>
+                    <li><b>所属行业</b><span>{$result.strycatedata}</span></li>
+                    <li><b>职位名称</b><span>{$result.Jobcatedata}</span></li>
+                    <li><b>企业性质</b><span>{$result.naturedata}</span></li>
+                    <li><b>企业规模</b><span>{$result.scaledata}</span></li>
+                </ul>
+            </div>
+
+            <div class="jobRequire">
+                <h2><span></span>岗位要求</h2>
+                <p>{$result.content}</p>
+            </div>
+
+            <!--            <div class="submitResumeNew" style="position: fixed; left: 0px; bottom: 0px; z-index: 110; margin-bottom: 0px;">
+                                     
+                        <a href="/Home/Webchat/push_resume/jobid/{$result.id}" class="delivery"  data-form="0" style="font-size:30px;">投递简历</a>
+                        
+                        </div>-->
+        </div>
+        <div style='display:none;'>
+            <form>
+                <input type='hidden' value='{$result.cpid}' name='cpid'>
+                <input type='hidden' value='{$result.id}' name='j_id'>
+                <input type='hidden' value='{$result.title}' name='title'>
+                <input type='hidden' value='{$result.treatmentdata}' name='treatmentdata'>
+                <input type='hidden' value='{$result.endtime}' name='endtime'>
+                <input type='hidden' value='{$result.Tariff}' name='Tariff'>
+                <input type='hidden' value='{$result.employ}' name='employ'>
+                <input type='hidden' value='{$result.experiencedata}' name='experiencedata'>
+                <input type='hidden' value='{$result.educationdata}' name='educationdata'>
+                <input type='hidden' value='{$result.jobplacedata}' name='jobplacedata'>
+                <input type='hidden' value='{$result.strycatedata}' name='strycatedata'>
+                <input type='hidden' value='{$result.Jobcatedata}' name='Jobcatedata'>
+                <input type='hidden' value='{$result.email}' name='email'>
+                <input type='hidden' value='{$result.mobile}' name='mobile'>
+                <input type='hidden' value='{$result.joblangdata}' name='joblangdata'>
+                <input type='hidden' value='{$result.orderid}' name='orderid'>
+                <input type='hidden' value='{$result.cascname}' name='cascname'>
+                <input type='hidden' value='{$result.content}' name='content'>
+                <input type='hidden' value='{$result.workdesc}' name='workdesc'>
+                <input type='hidden' value='{$result.posttime}' name='posttime'>
+                <input type='hidden' value='{$result.starttime}' name='starttime'>
+
+
+            </form>
+
+
+            <!--为微信分享提供参数开始-->
+            <input type='hidden' value='{$appId}' id='appId'>
+            <input type='hidden' value='{$timestamp}' id='timestamp'>
+            <input type='hidden' value='{$nonceStr}' id='nonceStr'>
+            <input type='hidden' value='{$signature}' id='signature'>
+            <input type='hidden' value='{$result.cpname}' id='companyName'>
+            <input type='hidden' value='{$result.Tariff}' id='TariffMoney'>
+            <input type='hidden' value='{$result.employ}' id='employNum'>
+            <input type='hidden' value='{$result.treatmentdata}' id='treatmentMoney'>
+            <input type='hidden' value='{$result.title}' id='jobtitle'>
+            <!--为微信分享提供参数结束-->
+        </div>
+        <div style=" background: #283645;  height:50px;position: fixed; left: 0px; bottom: 0px; z-index: 110; margin-bottom: 0px;width:100%;">
+            <button onclick='location.href="/Home/Webchat/push_resume/jobid/{$result.id}"' type="button" class="logininput inputsubmit" id="btn"  disabled="disabled" style="background-color:#ccc;position: absolute;left:50%;margin-left:-60px;height: 30px;width: 120px;border-radius:5px;color:#ffffff;bottom:8px;"/>立即推荐</button></div>
+        <script type="text/javascript" src="/Public/js/jquery.js"></script>
+    <include file="Webchat:like_alert"/>
+    <include file="Webchat:statistics">
+    <script type="text/javascript">
+        $("#sc").click(function () {
+            if ($(this)[0].className == "shoucang noshoucang") {
+
+                $(this)[0].className == "shoucang shoucang";
+
+                var cpid = $("[name='cpid']").val();
+                var j_id = $("[name='j_id']").val();
+                var title = $("[name='title']").val();
+                var treatmentdata = $("[name='treatmentdata']").val();
+                var endtime = $("[name='endtime']").val();
+                var Tariff = $("[name='Tariff']").val();
+                var employ = $("[name='employ']").val();
+                var experiencedata = $("[name='experiencedata']").val();
+                var educationdata = $("[name='educationdata']").val();
+                var jobplacedata = $("[name='jobplacedata']").val();
+                var strycatedata = $("[name='strycatedata']").val();
+                var Jobcatedata = $("[name='Jobcatedata']").val();
+                var email = $("[name='email']").val();
+                var mobile = $("[name='mobile']").val();
+                var joblangdata = $("[name='joblangdata']").val();
+                var orderid = $("[name='orderid']").val();
+                var cascname = $("[name='cascname']").val();
+                var content = $("[name='content']").val();
+                var workdesc = $("[name='workdesc']").val();
+                var posttime = $("[name='posttime']").val();
+                var starttime = $("[name='starttime']").val();
+                $.post("/Home/Webchat/collect_job", {
+                    'cpid': cpid,
+                    'j_id': j_id,
+                    'title': title,
+                    'treatmentdata': treatmentdata,
+                    'endtime': endtime,
+                    'Tariff': Tariff,
+                    'employ': employ,
+                    'experiencedata': experiencedata,
+                    'educationdata': educationdata,
+                    'jobplacedata': jobplacedata,
+                    'strycatedata': strycatedata,
+                    'Jobcatedata': Jobcatedata,
+                    'email': email,
+                    'mobile': mobile,
+                    'joblangdata': joblangdata,
+                    'orderid': orderid,
+                    'cascname': cascname,
+                    'content': content,
+                    'workdesc': workdesc,
+                    'posttime': posttime,
+                    'starttime': starttime
+                }, function (data) {
+                    if (data.code == "400") {
+                        location.href = "/Home/Webchatlogin/login";
+                    } else {
+                        re_like_alert(data.msg);
+                    }
+                }, "json");
+            } else {
+                var j_id = $("[name='j_id']").val();
+                $.post("/Home/Webchat/cancel_collect_job", {
+                    'j_id': j_id
+                }, function (data) {
+                    if (data.code == "400") {
+                        location.href = "/Home/Webchatlogin/login";
+                    } else {
+                        re_like_alert(data.msg);
+                    }
+                }, "json");
+            }
+        })
+
+
+        //判断该用户已为该职位推荐几个人     
+        var j_id = $("[name='j_id']").val();
+        $.post("/Home/Webchat/checkSelectUser", {
+            'jid': j_id,
+        }, function (data) {
+
+            if (data < 10) {
+                $("#btn")[0].style.backgroundColor = "#1190f1";
+                $("#btn")[0].disabled = false;
+            }
+        }, "text");
+
+
+
+    </script> 
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="/Public/js/webchat/shares.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>自我介绍-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="cn cn2 Self ComIntrod1" style="display:none">
+                <div class="cn_tp">
+                    <h3>自我介绍</h3>
+                    <div>
+                        <script id="editor" name="editor" type="text/plain" style="width:776px;height:300px;margin-top:10px;"></script>
+
+                    </div>
+                    <p class="error4"></p>
+                </div>
+                <div class="cn_btm">
+                    <input class="btn ComIntro1 zwjs_btn cur_point" type="button" value="保存" onclick="introduce()">
+                </div>
+            </div>
+
+            <div class="cn cn2 Self ComIntrod2">
+                <div class="cn_tp">
+                    <h3>自我介绍</h3>
+
+                    <div  <?php if($info['intro']){?>class="gsjanjie"<?php }?> id="gsjanjie"><?php echo $info['intro'];?></div>
+
+                </div>
+                <div class="cn_btm" style="margin-top:-20px!important;">
+                    <input class="btn ComIntro2 cur_point" type="button" value="修改" >
+                </div>
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+<script type="text/javascript">
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+    function introduce()
+    {
+        var oneself = ue.getContent()
+        var GetText1 = ue.getPlainTxt();
+        if (GetText1.trim() == '') {
+            $('.PersData .cn2 .cn_tp p.error4').html('内容不能为空');
+            $('.PersData .cn2 .cn_tp p.error4').show();
+            //alert(23)
+            return false;
+        }
+        $.ajax({
+            url: "__URL__/introduce",
+            type: "post",
+            data: {"oneself": oneself},
+            success: function(msg)
+            {
+                if (msg == "ok")
+                {
+                    //$(""intromyself
+                    window.location.reload();
+                }
+                ;
+            }
+
+        });
+
+
+    }
+    ;
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        /*$( '.ComIntrod1 .ComIntro1' ).on( 'click', function(){
+         $( '.ComIntrod1' ).hide();
+         $( '.ComIntrod2' ).show();
+         } )
+         
+         */$('.ComIntrod2 .ComIntro2').on('click', function() {
+            var gsjanjie = $("#gsjanjie").html();
+
+            ue.setContent(gsjanjie);
+            $('.ComIntrod2').hide();
+            $('.ComIntrod1').show();
+        })
+    })
+
+    /*
+     $('.ComIntro1').on('click',function(){
+     introduce();
+     })*/
+</script>
+
+</html>

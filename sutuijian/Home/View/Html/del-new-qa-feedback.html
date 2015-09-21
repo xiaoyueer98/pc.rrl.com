@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>意见反馈</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+    </head>
+    <body style="background:#ffffff">
+    <include file="Public:newHeader"/>
+    <div class="wrap new-qa" style="background:#ffffff">
+        <div class="content">
+            <div class="m-t"><h3 class="title">意见与反馈</h3></div>
+            <div class="ms-feeback">
+                <span class="bt">尊敬的用户：</span>
+                <p>您好！为了给您提供更好的服务，我们希望收集您使用人人猎网页时的看法或建议。以帮助人人猎网为全体用户提供更加优质的服务。对您的配合与支持表示衷心的感谢！</p>
+                <span class="fon-weight bt">您的联系方式</span>
+                <div class="clearfix m-inp">
+                    <span><em class="m">姓名：</em><input type="text" placeholder="请输入真实姓名"></span>
+                    <span><em class="m">手机：</em><input type="text" placeholder="请输入手机号"></span>
+                    <span><em>邮箱：</em><input type="text" placeholder="francis_fh@163.com"></span>
+                </div>
+                <span class="fon-weight bt" style="margin-top:0;">您的建议与反馈<i>*</i></span>
+                <textarea placeholder="" class="ms-text"></textarea>
+                <div class="clearfix ms-f">
+                    <span class="fl-lef">如果需要图片来辅助说明，可以</span><em class="fl-lef">上传图片</em><span class="fl-lef">支持gif/jpg/nng格式</span>
+                    <input type="file" class="hover-hand">
+                </div>
+                <div class="clearfix ero" id="baseError" style="display:block;">
+                    <b class="fl-lef dis-block dis-inlin" style="margin-left:32px;">温馨提示:</b>
+                    <span class="fl-lef dis-block dis-inlin clearfix">
+                        <i class="fl-lef dis-block dis-inlin"></i>
+                        <span class="fl-lef dis-block dis-inlin">请填写手机号码</span>
+                    </span>
+                </div>
+                <span class="my-btn2 m" style="margin:20px auto;">提交</span>
+            </div>
+        </div>
+    </div>
+
+    <include file="Public:newFooter"/>
+    <div class="return-index">
+        <span></span>
+        <i style="opacity: 0;"></i>
+        <a href="/" style="display: none;">返回首页</a>
+    </div>
+    <div class="return-index scrol-top">
+        <span></span>
+        <i style="opacity: 0;"></i>
+        <a href="javascript:void(0);" style="display: none;">返回顶部</a>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var index;
+            var list = $(".nav-btn span");
+            var divs = $(".ms>.list");
+            list.on("click",function(){
+                that = $(this);
+                index = that.index();
+                that.addClass("m").siblings().removeClass("m");
+                $(this).find("a").addClass("m").parent("li").siblings().find("a").removeClass("m");
+                divs.eq(index).show().siblings("div").hide();
+            });
+            $(".return-index").hide();
+            $(window).scroll(function(){
+                var $scrollTop = $(document).scrollTop();
+               if($scrollTop<768){
+                   $(".return-index").hide();
+                }else if($scrollTop>768){
+                    $(".return-index").show();
+                } 
+            })
+            
+            $(".return-index").hover(function(){
+                $(this).find("i").css({"opacity":"0.5"});
+                $(this).find("a").show();
+            },function(){
+                $(this).find("i").css({"opacity":"0"});
+                $(this).find("a").hide();
+            })
+            $(".scrol-top").click(function(){
+                $('html,body').animate({
+                    'scrollTop': 0
+                }, 200)
+            })
+        })
+    </script>
+</body>
+</html>

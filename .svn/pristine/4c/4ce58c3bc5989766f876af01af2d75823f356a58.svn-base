@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>职位预览-人人猎</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+    <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+
+          <input type="hidden" id="jobid" value="{$cp.jobid}">
+            <div class="positi">
+                <h3>职位明细</h3>
+                <ul class="first_Ul">
+                    <h4><em>{$cp.title}</em><span><?php if($cp[posttime]){?>发布：<?php echo $cp[posttime];?><?php }?> 截止：{$cp.endtime}</span></h4>
+                    <li>
+                        <p><em>招聘人数：</em><span>{$cp.employ}</span><em>推荐人数：</em><span style="color:#cb000d">{$cp['tn']}</span><em>工作地点：</em><span>{$cp.casc}</span></p>
+                        <p><em>工作经验：</em><span>{$cp.ccasc}</span><em>学历要求：</em><span>{$cp.ccas}</span><em>语言能力:</em><span></span></p>
+                        <dl class="clearfix">
+                            <dt><em>地址：</em><span>{$comp.address}</span></dt>
+                            <dd><em>职位月薪：</em><span style="color:#cb000d">{$cp.dataname}</span></dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><em>主页：</em>{$comp.webname}</span></dt>
+                            <dd><em style="color:#2380b8">推荐费：</em><span style="color:#cb000d">{$cp.Tariff}元</span></dd>
+                        </dl>
+                        
+                    </li>
+                    <?php if($jobBright){?>
+                    <li style="" class="li_3 clearfix">
+                        <?php foreach($jobBright as $bright){?>
+                        <?php if($bright){?>
+                        <span><?php echo $bright;?></span>
+                        <?php }?>
+                        <?php }?>
+                        </li>
+                    <?php }?>
+                </ul>
+
+                <h5>岗位职责</h5>
+                <ul class="nth_child">
+                    <li>{$cp.workdesc}</li>
+
+                </ul>
+
+                <h5>职位描述</h5>
+                <ul class="nth_child">
+                    <li><span>{$cp.content}</span>
+                    </li>
+
+                </ul>
+
+               <a href="__URL__/companyJobList.html"> <input type="button" class="ljtj" value="返回招聘记录"></a>
+                <div class="fiexd2">
+
+
+                    <dl>
+                        <dt style="background:none">
+
+                        <a href="{:U('/')}Home/Index/EnterIndex/comid/{$comp.id}"> <img src="__ROOT__/<?php echo $comp['comlogo'];?>" style="width: 160px;height:  160px;"></a>
+                        
+
+                        </dt>
+                        <dd>
+                            <p><em>公司：</em><span><a href="{:U('/')}Home/Index/EnterIndex/comid/{$comp.id}">{$comp.cpname}</a></span></p>
+                            <p><em>融资阶段：</em><span>{$comp.stage}</span></p>
+                            <p><em>性质：</em><span>{$comp.nature}</span></p>
+                            <p><em>规模：</em><span>{$comp.scale}</span></p>
+                        </dd>
+                        <!--
+                        <ul>
+                            <li class="li_1" onclick="userfavorite()">
+                            </li>
+                            <li class="li_2">
+                                <ul>
+                                    <li class="clearfix"><span><img src="__ROOT__/Public/img/xl_icon.png" alt=""></span><em>分享至微博</em></li>
+                                    <li class="clearfix"><span><img src="__ROOT__/Public/img/weixin_ic.png" alt=""></span><em>分享至微博</em></li>
+                                    <li class="clearfix"><span><img src="__ROOT__/Public/img/qq_ic.png" alt=""></span><em>分享至微博</em></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        -->
+                    </dl>
+
+                </div>
+            </div>
+
+        <include file="Public:centerFooter"/>
+    </div>
+   
+    <include file="Public:fiexdTop"/>
+    <script type="text/javascript">
+        function checkuseres() {
+            var username = $("#fusername").val();
+            var flag = $("#fflag").val();
+            if (!username) {
+                $('.mask').show();
+                $('.dlpd').show();
+                return false;
+            }
+            if (flag == 1) {
+                $("#errmsg").html("您是企业账号，请登录推荐人账号再试！");
+                $('.mask').show();
+                $('.dlpd').show();
+                return false;
+            }
+        }
+        $('.dlpd .quxiao').on('click',function(){
+            $('.mask').hide();
+            $('.dlpd').hide();
+        })
+        function userfavorite()
+        {
+            var jobid = $("#jobid").val();
+            $.ajax({
+                url: "__URL__/aaa",
+                data: {"jobid": jobid},
+                type: "post",
+                success: function(vic)
+                {
+                    if (vic == "ok")
+                    {
+                        sys_window("关注成功");
+                    }
+                    else if (vic == "no")
+                    {
+                        sys_window("关注失败");
+                    }
+                    else if (vic == "ceng")
+                    {
+                        sys_window("已关注过");
+                    }
+                }
+
+            })
+        }
+        
+    </script>
+</body>
+
+</html>

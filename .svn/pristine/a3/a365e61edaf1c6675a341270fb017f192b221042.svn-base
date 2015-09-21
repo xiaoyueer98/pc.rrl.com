@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我们-人人猎</title>
+     <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+    <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+    <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+    <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+</head>
+<body>
+	<!-- 遮罩层 -->
+	<div class="mask" id="mask"></div>
+	<include file="Public:zzwc"/>
+	<include file="Public:zzyz"/>
+	<include file="Public:zhuce"/>
+	<include file="Public:denglu"/>
+	<include file="Public:gsjs"/>
+	<include file="Public:Right"/>
+	<div class="center">
+		<include file="Public:centerTop"/>
+		<div class="lxwm"  style="height:400px;">
+			<span style="font-size:28px;">人人猎</span><span style="line-height:30px"><br><br>
+                            
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    人人猎 是中国最有效的优质互联网创业企业人才极速直招平台。她让企业在 7 天内搞定招聘需求、招到靠谱的人；既让猎头、HR、知名公司的面试官等推荐人暂不使用的简历得以轻松变现，又让中高端候选人快速找到匹配的工作。<br>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    人人猎 核心团队由来自百度、搜狐等知名互联网公司的互联网资深人士，及有10多年猎头从业经验的人才招聘行业专家组成。<br>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     人人猎 成立之初，相继获得知名投资人的种子资金和天使轮投资。人人猎以“简单、诚实、可靠”为企业理念，以“避免互联网创业企业长久招不到靠谱的人而受损失，帮助候选人加入最匹配的团队，让猎头和HR等推荐人的每个面试都有现金回报”为宗旨，以追求“极佳效果和服务”为始终如一的目标。
+		</div>
+		<include file="Public:centerFooter"/>
+	</div>
+	<include file="Public:fiexdTop"/>
+</body>
+
+</html>

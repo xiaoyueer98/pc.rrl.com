@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><?php if($isold == 1) echo "往期招聘-";else echo "正在招聘-"?>人人猎</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="recom1 data recom2">
+                <div class="recom1_tp">
+                    <h3><?php if($isold == 1) echo "往期招聘";else echo "正在招聘"?></h3>
+                    <div class="tab tck">
+                        <table  border="1"  class="tdclick">
+                            <tr class="zzzp">
+                                <th>序号</th>
+                                <th>职位名称</th>
+                                <th>招聘费</th>
+                                <th>状态</th>
+                                <th>推荐人数</th>
+                                <th>截止日期</th>
+                                <th>操作</th>
+                            </tr>
+                            <volist name="list['jobList']" id="job">
+                                <tr class="bg job_{$job['id']}">
+                                    <td>{$job['sort_id']}</td>
+                                    <td><a href="__URL__/viewSendJob/id/{$job['id']}.html">{$job['title']}</td>
+                                    <td>{$job['Tariff']}<span style="position:relative;top:3px;left:10px;" class="cur_point"><img src="__ROOT__/Public/img/zj.png" alt="增加悬赏金"  onclick="addTariff({$job['id']}, {$job['Tariff']})"></span></td>
+                                    <td>{$job['status']}</td>
+                                    <td class="pos_td"><?php if($checked=='true'){?><a href="__URL__/experList/id/<?php echo $job['id']?>.html"><?php }?>{$job['total']}<?php if($job['noread']>0){ echo "<i>".$job['noread']."</i>";}?><?php if($checked=='true'){?></a><?php }?></td>
+                                    <td>{$job['endtime']}</td>
+                                    <td><span class="sp2"><img src="__ROOT__/Public/img/dle3.png" alt="删除" onclick="deleteJob({$job['id']})"></span></td>
+
+                                </tr>
+                            </volist>
+                            <input type="hidden" value="0" id="deleteid"/>
+                        </table>
+                    </div>
+                    {$list['page']}
+                    <div class="Pop-up">
+                        <h3>确定要删除此招聘信息吗？</h3>
+                        <input type="button" class="btnL" value="确认" onclick="goDelete()">
+                        <input type="button" class="btnR" value="取消" onclick="$('.Pop-up').slideUp();">
+                    </div>
+                </div>
+                <div class="recoml_btm">
+                </div>
+
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+
+    <div class="popup_ft" id="addTariffWind">
+        <h3>增加推荐费</h3>
+        <a class="close cur_point"></a>
+        <ul>
+            <li class="clearfix" style="padding-left:25px;"><span>推荐费：</span>
+                <input type="hidden" id="jobid">
+                <input type="text" id="TariffValue"  onkeyup="value = value.replace(/[^\d]/g, '')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"><em>00&nbsp;&nbsp;元</em></li>
+            <li class="clearfix" style="margin-top:20px;"><span style="color: #2380b8">小提示：</span><em class="emc">增加推荐费，可以刺激推荐人推荐的兴趣及动力，
+                    缩短招聘周期。推荐费只可以上调，不可以下调。
+                </em></li>
+            <li class="clearfix"><button class="cur_point" id="confAddTriff">确认</button></li>
+        </ul>
+    </div> 
+    <include file="Public:fiexdTop"/>
+    <script type="text/javascript">
+    $(function(){
+        $(".close").click(function(){
+            $("#addTariffWind").hide();
+            $(".mask").hide();
+        });
+        $("#confAddTriff").click(function (){
+            var TariffValue = $("#TariffValue").val();
+            var jobId = $("#jobid").val();
+            if(confirm("您确定修改此招聘的费用为"+TariffValue * 100+"元吗？")){
+                  $.post("/Home/Company/addTariff.html", {
+                 'jobId': jobId,
+                 'TariffValue':TariffValue
+                }, function(data) {
+                    $("#addTariffWind").hide();
+                    if (data.code == "200") 
+                    {
+                        sys_window(data.msg);
+                        location.href = location.href;
+                                //  $(".job"+jobId).hide();
+                    }
+                    else 
+                    {
+                    
+                        sys_window(data.msg);
+                    }
+                }, "json")
+            }
+      
+        });
+    })
+
+    function deleteJob(jobId) {
+        $("#deleteid").val(jobId);
+        $('.Pop-up').slideDown();
+    }
+    function goDelete() {
+        var jobId = $("#deleteid").val();
+        $('.Pop-up').slideUp();
+        $.post("/Home/Company/deleteJob.html",
+            {'jobId': jobId}, function(data) {
+                if (data.code == "200") 
+                {
+                    location.href = location.href;
+                }
+                else 
+                {
+                    sys_window(data.msg);
+                }
+            }, "json")
+        }
+
+        function addTariff(id, Tariff){
+                $("#jobid").val(id);
+                 $("#addTariffWind").show();
+                $(".mask").show();
+        }
+
+    </script>
+</body>
+
+</html>

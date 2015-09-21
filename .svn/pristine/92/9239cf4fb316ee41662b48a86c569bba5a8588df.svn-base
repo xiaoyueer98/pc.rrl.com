@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>沙龙活动详情</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/salon.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <style>
+   
+        </style>
+    </head>
+    <body style="background:#cdedfd">
+        <span id="top" name="top"></span>
+        <div class="show-header2">
+            <div class="content">
+                <img src="/Public/img/activity-img/pic2.png" alt="">
+                <?php if($isActive):?>
+                <span class="btn hover-hand" onclick="location.href = '/Home/Active/new_sign_up'"></span>
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="mywrap">
+            <div class="wrap">
+                <div class="salon-show2 clearfix">
+                    <h2>{$arActive.activename}套图</h2>
+                    <div class="myimg">
+                        <img src="{$arActive.picurl}" alt="" style='width:100%;height:100%;'>
+                    </div>
+
+                    <div style='margin-bottom:50px;'>
+                        {$arActive.content}
+                    </div>
+
+                    <if condition = "$arActivePre eq 0" >
+                        <else />
+                        <h4>上一期：<a href="{$arActivePre.id}" style='color:#545454'>{$arActivePre.activename}。</a></h4>
+                    </if>
+                    <if condition = "$arActiveNex eq 0" >
+                        <else />
+                        <h4 class="myh4"><a href="{$arActiveNex.id}" style='color:#545454'>下一期：{$arActiveNex.activename}。</a></h4>
+                    </if>
+                        <ul class="myul">
+                            <li class="m"> <a href="/">去首页</a></li>
+                            <li class="m2"> <a href="#top">回到顶部</a></li>
+                        </ul>
+                    
+
+                </div>
+            </div>
+    </div>
+    <include file="Public:newFooter"/>
+</body>
+</html>

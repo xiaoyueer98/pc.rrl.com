@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>职位收藏-人人猎</title>
+     <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+    <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+    <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+    <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+    <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+    <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+</head>
+<body>
+	<!-- 遮罩层 -->
+	<div class="mask" id="mask"></div>
+	<include file="Public:zhuce"/>
+	<include file="Public:denglu"/>
+	  <include file="Public:recomLeftNav"/>
+	<include file="Public:Right"/>
+	<div class="center">
+		<include file="Public:centerTop"/>
+		<div class="PersData">
+			<div class="recom1 data recom2">
+				<div class="recom1_tp">
+					<h3>收藏的职位</h3>
+					<div class="tab tck">
+						<table  border="1">
+							<tr>
+								<th>序号</th>
+								<th>职位</th>
+								<th>所属公司</th>
+								<th>招聘人数</th>
+								<th>推荐人数</th>
+								<th>推荐费(元)</th>
+								<th>截止日期</th>
+								<!--<th>操作</th>-->
+							</tr>
+							<volist name="arCollectList" id="vo">
+							<tr>
+								<td>{$vo.sort_id}</td>
+								<td><a href="/Home/Index/EnterIndex2/comid/{$vo.cpid}/jobid/{$vo.j_id}">{$vo.title}</a></td>
+								<td>{$vo.cpname}</tb>
+								<td>{$vo.employ}</tb>
+								<td>{$vo.count}</tb>
+								<td>{$vo.Tariff}</tb>
+								<td>{$vo.endtime}</td>
+								<!--<td><span class="sp2"><img src="__ROOT__/Public/img/dle.png" alt=""></span></td> -->
+							</tr>
+							</volist>
+							
+						</table>
+					</div>
+					
+					{$page}
+					<div class="Pop-up">
+						<h3>确定要删除此推荐人信息吗？</h3>
+						<input type="button" class="btnL" value="确认">
+						<input type="button" class="btnR" value="取消">
+					</div>
+				</div>
+				<div class="recoml_btm">
+				</div>
+
+			</div>
+		</div>
+		<include file="Public:centerFooter"/>
+	</div>
+	<include file="Public:fiexdTop"/>
+</body>
+</html>

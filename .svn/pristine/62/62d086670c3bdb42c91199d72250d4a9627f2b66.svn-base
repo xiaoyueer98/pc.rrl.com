@@ -1,0 +1,19 @@
+<ul class="tb-r-comments">
+    <?php if($arCommentList):?>
+    <?php foreach($arCommentList as $commentInfo):?>
+    <li class="clearfix comment-info">
+        <div class="tb-buyer fl-lef">
+            <span class="dis-inlin dis-block tx"><img src="<?php echo $commentInfo['avatar']?>" width="40px" heigth='40px'></span>
+            <span class="dis-inlin dis-block use"><?php echo $commentInfo['username']?></span>
+        </div>
+        <div class="tb-bd fl-lef">
+            <p>
+                <?php echo $commentInfo['content']?>
+            </p>
+            <span><?php echo $commentInfo['created_at']?></span>
+        </div>
+    </li>
+    <?php endforeach;?>
+    <?php echo $page;?>
+    <?php endif;?>
+</ul>

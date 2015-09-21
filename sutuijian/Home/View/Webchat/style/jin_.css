@@ -1,0 +1,96 @@
+/* 
+* @Author: jin
+* @Date:   2015-02-28 15:53:12
+*/
+* {
+margin: 0px;
+padding: 0px;
+-webkit-box-sizing: border-box;
+-mox-box-sizing: border-box;
+ box-sizing: border-box; 
+}
+.resultjobs {
+position: relative;
+min-height: 70px;
+border-bottom: 1px solid #dcdcdc;
+background-color: #fff;
+padding: 10px 0px 10px 15px;
+overflow: hidden;
+}
+.searchResult .resultjobs .job_title h3 {
+font-size: 1.6rem;
+font-weight: bold;
+
+display: inline-block;
+max-width: 70%;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.left{display: inline-block;
+width: 65%;}
+.searchResult .resultjobs .job_title span {
+display: inline-block;
+
+text-align: left;
+padding-left: 5px;
+vertical-align: top;
+}
+.resultjobs .job_title span em {
+font-weight: bold;
+
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+font-size: 1.2rem;
+padding: 2px;
+}
+.jobsInfo i{ color: #696969; font-style: normal; font-family: "黑体" ;}
+.searchResult .resultjobs .jobsInfo {
+padding-top: 8px;
+}
+.searchResult .resultjobs .jobsInfo p {
+display: inline-block;
+width: 65%;
+color: #a6a6a6;
+font-size: 1.5rem;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+}
+.searchResult .resultjobs .right {
+display: inline-block;
+width: 33%;
+text-align: right;
+}
+.searchResult .resultjobs .jobsCompany {
+padding-top: 8px;
+}
+.searchResult .resultjobs .jobsCompany p {
+width: 100%;
+color: #a6a6a6;
+font-size: 1.4rem;
+white-space: normal;
+word-break: break-all;
+word-wrap: break-word;
+}
+.searchResult .enterpriseMore {
+position: absolute;
+top: 33%;
+right: 10px;
+margin-top: -6px;
+display: block;
+height: 14px;
+color: #e84700;
+font-size: 22px;
+}
+.jin_xz{color: #206daf;}
+.jin_ds{color: #e84700;}
+.footer{ background: #283645; padding: 8px; padding-top: 12px;}
+.ftitle{ font-size: 22px; color: #fff;}
+.ftel{ font-size: 16px;color: #b9b9b9;}
+.colorlan{color: #206daf;}
+.colorhei{ color: #000;}
+.colorhui{color: #a6a6a6;}
+.yshenhe{background:url(images/yshenhe.png); width: 34px; height: 22px;display: inline-block;}
+.wshenhe{background:url(images/weishenhe.png); width: 34px; height: 22px;display: inline-block;}

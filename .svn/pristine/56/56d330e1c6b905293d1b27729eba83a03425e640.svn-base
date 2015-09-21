@@ -1,0 +1,90 @@
+<div class="al-header">
+    <div class="wrap">
+        <div class="al-logo dis-inlin"><a href="/"><img src="__ROOT__/Public/img/new-index/al-logo.png" alt=""></a></div>
+        <div class="al-nav dis-inlin fl-lef">
+            <ul>
+                <li class="dis-inlin fl-lef indx-li"><a <if  condition="$cur eq index">class="m"</if> href="/">首页</a></li>
+                <li class="dis-inlin fl-lef"><a <if  condition="$cur eq search">class="m"</if> href="/Home/Index/search.html">职位</a></li>
+                <li class="dis-inlin fl-lef"><a <if  condition="$cur eq anli">class="m"</if> href="/Home/Index/anli.html">案例</a></li>
+                <li class="dis-inlin fl-lef last-li"><a <if  condition="$cur eq qa">class="m"</if> href="/Home/public/qa.html">Q&A<img src="/Public/img/new-index/new.png" alt=""></a></li>
+                <li class="dis-inlin fl-lef"><a <if  condition="$cur eq active">class="m"</if> href="/Home/Active/salon_show.html">活动</a></li>
+            </ul>
+        </div>
+        <php>
+            if(!empty($_SESSION['username']) || !empty($_SESSION['cusername'])){
+            $username = ($_SESSION['username']?$_SESSION['username']:$_SESSION['cusername']);
+            $arUserinfo = M("userinfo")->where("username='$username'")->find();
+
+            $flag = $arUserinfo['flag'];
+            if($flag==1){
+            $arHaedUserinfo = M("company")->where("username='$username'")->find();
+            if($arHaedUserinfo['comlogo']){
+                $logoTmp = substr($arHaedUserinfo['comlogo'],0,1);
+                if($logoTmp != "/"){
+                     $arHaedUserinfo['comlogo'] = "/".$arHaedUserinfo['comlogo'];
+                }
+            }
+            }elseif($flag==0){
+            $arHaedUserinfo = M("member")->where("username='$username'")->find();
+            }
+            if(strlen($username)=="31" && substr($username,0,3) == "wx_"){
+            $username = "微信用户";
+            }
+            if(substr($username,0,3) == "qq_" && $_COOKIE[$username]){
+            $username = $_COOKIE[$username];
+            }elseif(substr($username,0,3) == "qq_"){
+            $username = "qq用户";
+            }
+        </php>
+        <div class="al-right dis-inlin fl-rig" id="my-account">
+            <div class="mydiv clearfix" id="my-account2"><span class="m-user dis-block dis-inlin fl-lef">{$username}</span><span class="dis-block dis-inlin fl-rig account-jt"></span></div>
+
+            <php>if($flag == "0"){</php>
+            <dl class="mydl">
+                <dt class="fl-lef dis-inlin">
+                <span class="head" style="display: block">
+                    <?php if($flag==0 && isset($arHaedUserinfo['avatar']) && $arHaedUserinfo['avatar'] !='' && file_get_contents("http://".$_SERVER['SERVER_NAME']."/".$arHaedUserinfo['avatar'])):?>
+                    <img src="<?php echo '/'.$arHaedUserinfo[avatar];?>" style="width: 124px;height: 124px">
+                    <?php endif;?>
+                </span>
+                <!-- <span class="btn">更换头像<input type="file" class="sc"></span> -->
+                </dt>
+                <dd class="fl-lef dis-inlin" id="my-data">
+                    <a class="a1 m fl-lef dis-inlin" href="/Home/Login/userinfo.html"><img src="/Public/img/new-index/a1.png" alt="">完善资料</a>
+                    <a class="a2 fl-lef dis-inlin" href="/Home/Login/JobSearch.html"><img src="/Public/img/new-index/a2.png" alt="">推荐职位</a>
+                    <a class="a3 fl-lef dis-inlin" href="/Home/Login/Recording.html"><img src="/Public/img/new-index/a3.png" alt="">跟踪状态</a>
+                    <a class="a4 fl-lef dis-inlin" href="/Home/Login/DetailsFunds.html"><img src="/Public/img/new-index/a4.png" alt="">查看收益</a> 
+                    <a class="a5 fl-lef dis-inlin" href="/Home/Login/Recommended.html"><img src="/Public/img/new-index/a5.png" alt="">简历库</a>
+                    <a class="a6 fl-lef dis-inlin" href="/Home/Login/logout.html"><img src="/Public/img/new-index/a6.png" alt="">退出登录</a>
+                </dd>
+            </dl>
+            <php>}elseif($flag == "1"){</php>
+            <dl class="mydl">
+                <dt class="fl-lef dis-inlin">
+                <span class="head">
+
+                    <?php if($flag==1 && isset($arHaedUserinfo['comlogo']) && $arHaedUserinfo['comlogo'] !="" && file_get_contents("http://".$_SERVER['SERVER_NAME'].$arHaedUserinfo['comlogo'])):?>
+                    <img src="<?php echo $arHaedUserinfo[comlogo];?>" style="width: 124px;height: 124px">
+                    <?php endif;?>
+                </span>
+                <!-- <span class="btn">更换头像<input type="file" class="sc"></span> -->
+                </dt>
+                <dd class="fl-lef dis-inlin" id="my-data">
+                    <a class="a1 m fl-lef dis-inlin" href="/Home/Company/EnterpriseInformation.html"><img src="/Public/img/company-img/al1.png" alt="">完善资料</a>
+                    <a class="a2 fl-lef dis-inlin" href="/Home/Company/SignContract.html"><img src="/Public/img/company-img/al2.png" alt="">签订合同</a>
+                    <a class="a3 fl-lef dis-inlin" href="/Home/Company/SendJob.html"><img src="/Public/img/company-img/al3.png" alt="">发布职位</a>
+                    <a class="a4 fl-lef dis-inlin" href="/Home/Company/ResumeList.html"><img src="/Public/img/company-img/al4.png" alt="">查看候选人</a>
+                    <a class="a5 fl-lef dis-inlin" href="/Home/Company/toBePaid.html"><img src="/Public/img/company-img/al5.png" alt="">入职管理</a>
+                    <a class="a6 fl-lef dis-inlin" href="/Home/Login/logout.html"><img src="/Public/img/company-img/al6.png" alt="">退出登录</a>
+                </dd>
+            </dl>
+            <php>}</php>
+        </div>
+        <php>}else{</php>
+        <div class="al-right dis-inlin fl-rig">
+            <div class="mydiv2 clearfix" id="my-account2"><span class="dengluBtn hover-hand">登录</span><span class="zhuce1 hover-hand" id="zhuce">注册</span></div>
+        </div>
+        <php>}</php>
+
+    </div>	
+</div>

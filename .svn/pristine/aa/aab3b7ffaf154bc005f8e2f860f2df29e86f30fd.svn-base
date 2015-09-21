@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>人人猎</title>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask1"></div>
+        <div id="" class="wjmima">
+            <a class="Close"></a>
+            <h3></h3>
+            <div class="jindutiao">
+                <img src="__ROOT__/Public/img/replace_phone1.png" alt="">
+            </div>
+            <!--<form action="__URL__/huoquyou" method="post">  -->
+            <ul class="InputUl">
+                <li><em>更换手机号码：</em><i>18500521769</i></li>
+                <li><button class='btn'>免费获取验证码</button></li>
+                <li><input type="text" style="width:107px;"><input class="phone_btn" type="button" value="下一步"></li>
+                <li><p>asdfsad</p></li>
+            </ul>
+            
+
+            <!--</form>  -->
+        </div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:indexLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="centerCon2">
+            <div class="mins1 clearfix">
+                <div class="promo">
+                    <div class="promo-bd">
+                        <div style="position:absolute;left:-610px;">
+                            <div>
+                                <ins style="display:inline-block;padding:0;margin:0;width:610px;height:280px;*zoom:1;*display:inline"
+                                     id="tanxssp-outer-conmm_12852562_1778064_13670999">
+                                    <a href="http://www.renrenlie.com/ad/ad1/regad.php" target=blank>
+                                        <img border="0" src="__ROOT__/Public/img/hd1_banner.jpg"
+                                             width="610px" height="280px">
+                                    </a>
+                                </ins>
+                                <a class="hide">
+                                </a>
+                            </div>
+                            <div>
+                                <ins style="display:inline-block;padding:0;margin:0;width:610px;height:280px;*zoom:1;*display:inline"
+                                     id="tanxssp-outer-conmm_12852562_1778064_13674396">
+                                    <a href="#" >
+                                        <img border="0" src="__ROOT__/Public/img/hd2_banner.png"
+                                             width="610px" height="280px">
+                                    </a>
+                                </ins>
+                                <a class="hide">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#">
+                                    <img border="0" src="__ROOT__/Public/img/hd3_banner.png"
+                                         width="610px" height="280px">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="promo-ft">
+                        <div id="J_PromoOpt" class="promo-opt">
+                            <a href="javascript:;" class="J_Prev prev">
+                                <i>
+                                </i>
+                            </a>
+                            <a href="javascript:;" class="J_Next next">
+                                <i>
+                                </i>
+                            </a>
+                        </div>
+                        <ul class="promo-nav">
+                            <li class="selected">
+                                <a href="javascript:void(0);">
+                                    1
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    2
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    3
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mins1Right">
+                    <a href="http://www.51shebao.com" target="Blank" ><img src="__ROOT__/Public/img/51_logo.png" alt=""></a>
+                    <a href="http://meililai.com" target="Blank" ><img src="__ROOT__/Public/img/mlilai_logo.png" target="Blank" alt=""></a>
+                    <a href="http://www.idachu.cn/" target="Blank" ><img src="__ROOT__/Public/img/adachu_logo.png" target="Blank" alt=""></a>
+                </div>
+            </div>
+            <include file="Public:center_content"/>
+        </div>
+
+        <include file="Public:centerFooter"/>
+    </div>
+
+    <include file="Public:fiexdTop"/>
+
+</body>
+<script type="text/javascript">
+    $(function (){
+        $("#zhaohuimima").attr("disabled", false);
+    })
+    $("#zhaohuimima").click(function() {
+       
+        var email = $("input[name='usernameEmail']").val();
+        var patten = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+(com|cn)$/);
+        if(!patten.test(email)){
+            $('.error2').html('请正确输入邮箱格式')
+            $('.error2').show();
+            return false;
+        }
+        
+        $("#zhaohuimima").attr("disabled", "disabled");
+        $.post("__URL__/huoquyou", {
+            'email': email
+        }, function(data) {
+            if (data.code == 200) {
+                location.href = "__URL__/huoquyou2&email="+email;
+                return false;
+            } else {
+                $("#zhaohuimima").attr("disabled", false);
+                $('.error2').html(data.msg)
+                $('.error2').show();
+                return false;
+            }
+        }, "json")
+    });
+
+</script>
+</html>

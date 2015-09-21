@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title><?php echo trim($jobInfo['title']);?>-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/focuspic2.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-index.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/window.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/denglu.js"></script>
+    </head>
+    <body>
+        <div class="mask" id="mask" <?php if($showWindow == 1){echo "style='display:block'";}?>></div>
+        <div class="denglu" <?php if($showWindow == 1){echo "style='display:block'";}?> id="odl">
+             <a href="/"><h3 class="dl2_hd"></h3></a>
+            <dl>
+                <dt style="width:100%;border:none;">
+                <p style="margin-top:40px;height:50px;line-height:30px;font-size:20px;text-align:center;color:#2284bb">欢迎来到人人猎，查看职位明细信息！<br>请选择快速登录</p>
+                <ul class="clearfix ul_ul1">
+                    <li class="li_1"><a href="{:U('login?type=qq')}"><img src="__ROOT__/Public/img/qq_icon.png"></a></li>
+                    <!--<li><a href="{:U('login?type=qq')}"><img src="__ROOT__/Public/img/qq2.png"></a></li> -->
+                    <li class="li_1"><a href="{:U('login?type=sina')}"><img src="__ROOT__/Public/img/weibo.png"></a></li>
+                    <!-- <li class="li_1"><img src="__ROOT__/Public/img/weixin2.png"></li> -->
+                    <li class="li_1"><a href="{:U('login?type=weixin')}"><img src="__ROOT__/Public/img/weixin.png"></a></li>
+                    <li class="li_1"><a href="{:U('login?type=renren')}"><img src="__ROOT__/Public/img/renren.png"></a></li>
+
+                </ul>
+                <p style="margin-top:65px;text-align:right;padding-right:20px"><a style="font-size:12px;margin-left:5px;color:#2284bb" href="javascript:;" id="odengluBon">登录</a><a style="margin-left:10px;font-size:12px;color:#2284bb" href="javascript:;" id="ozhuceBon">注册</a></p>
+                </dt>
+            </dl>
+
+        </div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:shalong"/>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <?php if($flag === "0"):?>
+
+
+        <div class="new-step clearfix">
+            <div class="st1">
+                <b class="m">1</b>
+                <span class="m">选择职位：</span>
+                <em class="m" title="<?php echo $jobInfo['title'];?>"><?php echo $jobInfo['title'];?></em>
+            </div>
+            <div class="st2">
+                <b>2</b>
+                <span>选择候选人 : </span>
+                <em></em>
+            </div>
+            <div class="st3">
+                <b>3</b>
+                <span> 确认推荐：</span>
+                <em></em>
+            </div>
+        </div>
+
+        <?php endif;?>
+        <div class="post-datel clearfix">
+            <div class="public-t">
+                <div class="t-head">
+                    <div class="con">
+                        <div class="l dis-inlin dis-block fl-lef">
+                            <h2 ><?php echo $jobInfo['title'];?></h2>
+                            <?php if($jobInfo['type'] == 2):?>
+                            <p class="m"></p>
+                            <?php else:?>
+                            <p><?php echo $comInfo['cpname'];?></p>
+                            <?php endif;?>
+
+                        </div>
+                        <div class="r dis-inlin dis-block fl-rig">
+                            <form action="/Home/Login/RecommendTheCandidate/comid/<?php echo $comInfo['id'];?>/jobid/<?php echo $jobInfo['id'];?>.html" method="post"  id='recordFrom2'>
+                                <div class="wxts2 undis userinfo-notice">
+                                    <span class="fl-lef">温馨提示：</span>
+                                    <span class="fl-lef">验证手机号码后才可以推荐！</span>
+                                    <a class="fl-rig" href="/Home/Login/userinfo.html">立即去验证</a>
+                                </div>
+                                <span class="hover-hand dis-block btn"  onclick="checkuseres(2)">我要推荐</span>
+                            </form>
+                            <?php if(empty($clectInfo)):?>
+                            <?php if($username && $flag !=1):?>
+                            <span class="hover-hand collection<?php if(!empty($clectInfo)):?> m<?php endif;?>" id="colloctJob" jid="<?php echo $jobInfo[id];?>"></span>
+                            <?php endif;?>
+                            <?php else:?>
+                            <span class="hover-hand collection m" id="colloctJob"  jid="<?php echo $jobInfo[id];?>"></span>
+                            <?php endif;?>
+                        </div>
+                    </div>
+                </div> 
+                <div class="r fl-rig" style='position: absolute;margin-top: 25px;margin-left: 680px'>
+                        <div class="jiathis_style_24x24" id="shareAction" style="padding: 8px;width: 297px;">
+                            <a class="jiathis_button_qzone"></a>
+                            <a class="jiathis_button_weixin"></a>
+                            <a class="jiathis_button_tsina"></a>
+
+                            <a class="jiathis_button_tqq"></a>
+                            <a class="jiathis_button_renren"></a>
+                            <a class="jiathis_button_cqq"></a>
+                            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" style="padding:0px!important;  margin-right: -2px;" target="_blank"></a>
+                            <a class="jiathis_counter_style" style="margin-right: 35px;"></a>
+                        </div>
+                    </div>
+                <div class="contant clearfix">
+                    <div class="l dis-inlin fl-lef">
+                        <h3 class="clearfix">
+                            <em class="dis-block dis-inlin fl-lef"><?php echo $jobInfo['treatment'];?> </em>
+                            <span class="dis-block dis-inlin fl-rig">候选人成功入职，你即得奖励 ￥<?php echo $jobInfo['Tariff'];?></span>
+                    
+                        </h3>
+                       
+                        <ul style="width:830px;">
+                            <li class="li1">
+                                <span>招聘人数：<?php echo $jobInfo['employ'];?></span>
+                                <span>推荐人数：<i><?php echo $jobInfo['tn'];?></i></span>
+                                <span><?php echo $jobInfo['jobplace'];?></span>
+                                <span><?php echo $jobInfo['education'];?></span>
+                                <span <?php if(!$jobInfo['report']):?> class="last-span"<?php endif;?>><?php echo $jobInfo['experience'];?> </span>
+                                <?php if($jobInfo['report']):?><span>汇报对象：<?php echo $jobInfo['report'];?></span><?php endif;?>
+                                <?php if($jobInfo['report_number']):?><span class="last-span">下属人数：<?php echo $jobInfo['report_number'];?></span><?php endif;?>
+                            </li>
+                            <?php if($comInfo['address']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">办公地址：</em><span class="dis-block dis-inlin fl-lef"><?php echo $comInfo['address'];?></span></li>
+                            <?php endif;?>
+                            <?php if($comInfo['webname']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</em><span class="dis-block dis-inlin fl-lef"><?php echo $comInfo['webname'];?></span></li>
+                            <?php endif;?>
+                            <?php if($comInfo['stage']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">融资阶段：</em><span class="dis-block dis-inlin fl-lef"><?php echo $comInfo['stage'];?></span></li>
+                            <?php endif;?>
+                            <?php if($jobInfo['starttime']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">发布时间：</em><span class="dis-block dis-inlin fl-lef"><?php echo $jobInfo['starttime'];?></span></li>
+                            <?php endif;?>
+                            <?php if($jobInfo['endtime']):?>
+                            <li class="clearfix"><em class="dis-block dis-inlin fl-lef">截止日期：</em><span class="dis-block dis-inlin fl-lef"><?php echo $jobInfo['endtime'];?></span></li>
+                            <?php endif;?>
+                            <li class="clearfix last-li">
+                                <?php if($jobBright):?>
+                                <?php foreach($jobBright as $brightInfo):?>
+                                <?php if($brightInfo):?>
+                                <span><?php echo $brightInfo;?></span>
+                                <?php endif;?>
+                                <?php endforeach;?>
+                                <?php endif;?>
+
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="public-c clearfix">
+                <ul class="nav clearfix">
+                    <li class="hover-hand fl-lef dis-inlin m" id='jobInfoBtn'>职位信息</li>
+                    <li class="hover-hand fl-lef dis-inlin" id='comInfoBtn'>公司简介</li>
+                    <li class="hover-hand fl-lef dis-inlin" id='evaluation'>累计评价<b><?php echo $commentCount;?></b></li>
+                </ul>
+            </div>
+            <div class="public-f">
+                <div class="cont"  id='jobInfo'>
+                    <h3>岗位职责</h3>
+                    <ul>
+                        <li>
+                            <?php echo $jobInfo['workdesc'];?>
+                        </li>
+                    </ul>
+                    <h3>任职要求</h3>
+                    <ul>
+                        <li><?php echo $jobInfo['content'];?></li>
+                    </ul>
+                    <?php if($jobInfo['softlytip']):?>
+                    <div class="wxts">
+                        <span class='tips'>职位温馨提示</span>
+                        <?php echo $jobInfo['softlytip'];?>
+                    </div>
+                    <?php endif;?>
+                    <?php if($comInfo['remark']):?>
+                    <h3>补充说明</h3>
+                    <ul>
+                        <li>  <?php echo $comInfo['remark'];?></li>
+                    </ul>
+                    <?php endif;?>
+
+                </div>
+                <div class="cont undis" id='companyInfo'>
+                    <?php if($comInfo['intro']):?>
+                    <h3>公司介绍</h3>
+                    <ul>
+                        <li>
+                            <?php echo $comInfo['intro'];?>
+                        </li>
+                    </ul>
+                    <?php endif;?>
+                    <?php if($comInfo['bright']):?>
+                    <h3>公司亮点</h3>
+                    <ul>
+                        <li>
+                            <?php echo $comInfo['bright'];?>
+                        </li>
+                    </ul>
+                    <?php endif;?>
+                    <?php if($comInfo['remark']):?>
+                    <h3>补充说明</h3>
+                    <ul>
+                        <li>
+                            <?php echo $comInfo['remark'];?>
+                        </li>
+                    </ul>
+                    <?php endif;?>
+                </div>
+
+
+                <div class="cont undis"  id='evaluationInfo'>
+                    <ul class="tb-r-comments">
+                        <?php if($arCommentList):?>
+                        <?php foreach($arCommentList as $commentInfo):?>
+                        <li class="clearfix comment-info">
+                            <div class="tb-buyer fl-lef">
+                                <span class="dis-inlin dis-block tx"><img src="<?php echo $commentInfo['avatar']?>" width="40px" heigth='40px'></span>
+                                <span class="dis-inlin dis-block use"><?php echo $commentInfo['username']?></span>
+                            </div>
+                            <div class="tb-bd fl-lef">
+                                <p>
+                                    <?php echo $commentInfo['content']?>
+                                </p>
+                                <span><?php echo $commentInfo['created_at']?></span>
+                            </div>
+                        </li>
+                        <?php endforeach;?>
+                        <?php echo $page;?>
+                        <input type='hidden' id='jid' value='<?php echo $jobInfo["id"];?>'>
+                        <?php endif;?>
+                    </ul>
+
+                </div>
+                <form action="/Home/Login/RecommendTheCandidate/position/<?php echo trim($jobInfo['title']);?>/comid/<?php echo $comInfo['id'];?>/jobid/<?php echo $jobInfo['id'];?>.html" method="post"  id='recordFrom1'>
+                    <span class="record-btn hover-hand" onclick="checkuseres(1)">我要推荐</span>
+                    <div class="wxts2 wxts3 userinfo-notice undis">
+                        <span class="fl-lef">温馨提示：</span>
+                        <span class="fl-lef">验证手机号码后才可以推荐！</span>
+                        <a class="fl-rig" href="/Home/Login/userinfo.html">立即去验证 </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <input type="hidden" value="<?php echo $_SESSION['username'];?>" id='fusername'>
+    <input type="hidden" value="<?php echo $flag;?>" id='fflag'>
+
+    <script type="text/javascript">
+                        $(function() {
+
+                            $("#jobInfoBtn").click(function() {
+                                $(this).addClass("m");
+                                $("#comInfoBtn").removeClass("m");
+                                $("#jobInfo").show();
+                                $("#companyInfo").hide();
+                                $("#evaluationInfo").hide();
+                                $("#evaluation").removeClass("m");
+                            });
+                            $("#evaluation").click(function() {
+                                $(this).addClass("m");
+                                $("#jobInfoBtn").removeClass("m");
+                                $("#comInfoBtn").removeClass("m");
+                                $("#evaluationInfo").show();
+                                $("#jobInfo").hide();
+                                $("#companyInfo").hide();
+                            });
+                            $("#comInfoBtn").click(function() {
+                                $(this).addClass("m");
+                                $("#jobInfoBtn").removeClass("m");
+                                $("#companyInfo").show();
+                                $("#jobInfo").hide();
+                                $("#evaluation").removeClass("m");
+                                $("#evaluationInfo").hide();
+                            });
+
+                            $("#odengluBon").click(function() {
+                                $("#odl").hide();
+                                $(".dengluBtn2").show();
+                                $(".Close").hide();
+                            });
+                            $("#ozhuceBon").click(function() {
+                                $("#conZhuce").show();
+                                $(".Close").hide();
+                            });
+                        })
+
+                        $("#shareAction").click(function() {
+                            var url = "<?php echo $share['url']?>";
+                            $.post("__URL__/saveShareUrl.html", {
+                                'url': url
+                            }, function(data) {
+                            }, "json")
+                        });
+                        function checkuseres(type) {
+
+                            var username = $("#fusername").val();
+                            var flag = $("#fflag").val();
+                            if (flag == 1) {
+
+                                sys_window("您是企业账号，请登录推荐人账号再试！");
+                                return false;
+                            }
+                            if (!username) {
+                                $(".dengluBtn").click();
+                                //$('.mask').show();
+                                //$('.dlpd').show();
+                                return false;
+                            }
+                            $.post("/Home/Login/isComplatdUser.html", {}, function(data) {
+                                if (data.code == "200") {
+                                    $("#recordFrom" + type).submit();
+                                } else {
+                                    $(".userinfo-notice").show();
+                                }
+                            }, "json")
+
+                        }
+
+                        $(function() {
+                            $("#colloctJob").click(function() {
+                                var jobid = $(this).attr("jid");
+                                var username = $("#fusername").val();
+                                if (!jobid || !username) {
+                                    return false;
+                                }
+
+                                var params = {"jobid": jobid, "username": username};
+                                $.post("__URL__/collectJob.html", params, function(data) {
+                                    if (data.code == "200")
+                                    {
+                                        $("#colloctJob").addClass("m");
+                                        location.reload();
+                                    }
+                                    else
+                                    {
+                                        sys_window("关注失败");
+                                    }
+
+                                }, "json")
+                            })
+                        })
+                        $(function() {
+                            $("#shareLogin").click(function() {
+                                $(".denglu").show();
+                                $(".duqq").hide();
+                            });
+                            $("#shareRegiest").click(function() {
+                                $(".zhuce").show();
+                                $(".duqq").hide();
+                            });
+                        })
+
+                        function page(i) {
+                            var jid = $("#jid").val();
+                            $.ajax({
+                                url: "/Home/Index/commentPage",
+                                type: "post",
+                                data: {'jid': jid, 'i': i},
+                                success: (function(mgsp) {
+
+                                    $("#evaluationInfo").html(mgsp);
+                                })
+                            });
+                        }
+    </script>
+    <script >
+        var jiathis_config = {
+            imageWidth: 26,
+            marginTop: 150,
+            url: "{$share['url']}",
+            title: "{$share['title']}",
+            summary: "{$share['description']}",
+            pic: "http://www.renrenlie.com/Public/img/web_logo.png"
+        }
+    </script> 
+</body>
+</html>

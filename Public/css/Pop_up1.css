@@ -1,0 +1,9 @@
+.Industry{
+	width: 500px;
+	height: 300px;
+	border: 1px #1a628e solid;
+	background: #ffffff;
+}
+.Industry ul{
+	display: none;
+}

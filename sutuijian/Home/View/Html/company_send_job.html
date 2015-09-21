@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>发布职位-人人猎</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/mourse.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.ui.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/smoothness/jquery.ui.css" type="text/css" />
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:company_left"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData peoplerenm">
+            <!--    <form action="__URL__/companySendJobAdd" method="post" enctype="multipart/form-data" onsubmit="return checkSendJob()"> -->
+
+            <h3 class="til">发布职位</h3>
+            <form action="__URL__/xinxi" method="post" >
+                <div class="cn cn2 Self Self2">
+                    <div class="cn_tp" style="margin-top:0px;">
+                        <ul>
+                            <h4>基本信息</h4>
+                            <li class="clearfix">
+                                <p class="firstP" style="width:auto;margin-right:15px;">
+                                    <em>职位名称：</em>
+
+                                    <input type="text" style="width:180px;" name = "jobtitle" id = "title">
+                                </p>
+                            </li>
+                             <li class="clearfix">
+                                <p class="firstP" style="width:auto;margin-right:15px;display:block">
+                                    <em>行业类别：</em>
+                                    <!-- <select id="strycate" name="strycate">
+                                        <volist name="hyData" id="hy">
+                                            <option value="{$hy['id']}">{$hy['cascname']}</option>
+                                        </volist>
+                                    </select> -->
+
+                                    <select  id="strycate1" onchange="changeHy($(this).val(), 'strycate')">
+                                        <option value="请选择">请选择</option>
+                                        <volist name="hyData" id="HY">
+                                            <option value="{$HY['id']}">{$HY['cascname']}</option>
+                                        </volist>
+
+                                    </select>
+                                    <select name="jobstrycate" id="strycate">
+                                        <option>请选择行业</option>
+                                    </select> 
+                                </p>
+                                <p class="firstP" style="width:auto;margin-left:45px;">
+                                    <em>职位类别：</em>
+                                    <select  id="Jobcate1" style="width:99px;" onchange="changeHy($(this).val(), 'Jobcate')">
+                                        <option value="请选择">请选择</option>
+                                        <volist name="zwData" id="ZW">
+                                            <option value="{$ZW['id']}">{$ZW['cascname']}</option>
+                                        </volist>
+                                    </select>
+                                    <select name="jobJobcate" style="width:87px;" id="Jobcate">
+                                        <option>请选择职位</option>
+                                    </select> 
+
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <p class="firstP"  style="width:auto;margin-right:10px">
+                                    <em>工作地点：</em>
+
+                                    <select style="margin-left:10px;" id="dq" onchange="changeHy($(this).val(), 'jobplace')">
+                                        <option value="请选择">请选择</option>
+                                        <volist name="dqData" id="DQ">
+                                            <option value="{$DQ['id']}">{$DQ['cascname']}</option>
+                                        </volist>
+                                    </select>
+                                    <select name="jobjobplace" id="jobplace">
+                                        <option>请选择市</option>
+                                    </select> 
+                                </p>
+                                 <p class="firstP" style="width:auto;margin-left:50px;">
+                                    <em>招聘人数：</em>
+                                    <input type="number" style="width:108px;" name = "jobemploy" id = "employ">
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                 <p class="firstP"  style="width:auto;margin-right:10px;">
+                                    <em>学历要求：</em>
+                                    <select style="width:128px;height:26px; line-height:26px; border-radius:5px;" name = "jobeducation" id = "education">
+                                        <option value="0">请选择</option>
+                                        <volist name="jobInfo[3]['config_list']" id="arConfigList">
+                                            <option value="{$arConfigList['datavalue']}">{$arConfigList['dataname']}</option>
+                                        </volist>
+                                    </select>
+                                </p>
+                                
+                                <p class="firstP"  style="width:auto;margin-right:10px;margin-left:32px">
+                                    <em>工作经验：</em>
+                                    <select style="width:120px; height:26px; line-height:26px; border-radius:5px;" name = "jobexperience" id = "experience">
+                                        <option value="0">请选择</option>
+                                        <volist name="jobInfo[2]['config_list']" id="arConfigList">
+                                            <option value="{$arConfigList['datavalue']}">{$arConfigList['dataname']}</option>
+                                        </volist>
+                                    </select>
+                                </p>
+                                <p class="firstP" style="width:auto;margin-right:40px;margin-left:32px">
+                                    <em>语言能力：</em>
+                                    <select id="joblang" name="jobjoblang" style="margin-left:10px">
+                                        <volist name="ynData" id="yn">
+                                            <option value="{$yn['datavalue']}">{$yn['dataname']}</option>
+                                        </volist>
+                                    </select>
+                                </p>
+
+                            </li>
+                            <li class="clearfix">
+                                <p class="firstP" style="width:auto;margin-right:40px;">
+                                   <em>公司背景：</em>
+                                   <select id="match_company" name = "match_company" style="width: 240px"> 
+                                           <option value="请选择">请选择</option>
+                                           <option value="A">一线公司 （BAT，即百度、阿里、腾讯）</option>
+                                           <option value="B">二线公司 （BAT外的其它互联网上市公司）</option>
+                                           <option value="C">三线公司 （C轮融资）</option>
+                                           <option value="D">四线公司 （已融资）</option>
+                                           <option value="E">其它公司 （包括自有资金）</option>
+                                   </select>
+                                   <i style="float: right">（期望候选人的公司背景）</i>
+                                </p>
+                                <p class="firstP" style="width:auto;margin-right:40px;">
+                                   <em>细分行业：</em>
+                                 <select name="match_industry" id="match_industry" style="width: 240px"> 
+                                                    <option value="请选择">请选择</option>
+                                                    <option value="A">互联网金融（P2P）</option>
+                                                    <option value="B">旅游</option>
+                                                    <option value="C">教育</option>
+                                                    <option value="D">医疗</option>
+                                                    <option value="E">电商</option>
+                                                    <option value="F">搜索</option>
+                                                    <option value="G">传媒广告</option>	
+                                                    <option value="H">非TMT（非互联网行业）</option>	
+                                                </select> 
+                                   <i style="float: right">（期望候选人上家公司的行业）</i>
+                                   </p>
+                            </li>
+                            <li class="clearfix">
+                                 <p class="firstP" style="width:auto;margin-right:10px;">
+                                    <em>月薪待遇：</em>
+                                    <select onchange="treatmentChange()" style="width:128px; padding-left:10px;height:26px; line-height:26px; border-radius:5px;" name = "jobtreatment" id = "treatment">
+                                        <option value="0" tar="0">请选择</option>
+                                        <volist name="jobInfo[1]['config_list']" id="arConfigList">
+                                            <option value="{$arConfigList['datavalue']}" tar="{$arConfigList['id']}">{$arConfigList['dataname']}</option>
+                                        </volist>										
+                                    </select>
+                                </p>
+                                <p class="firstP"  style="width:auto;margin-right:40px">
+                                    <em>截止时间：</em>
+                                    <input type="text" readonly="readonly" name = "jobendtime" id = "date" style="height:24px;margin-left:10px;width:87px;">
+                                </p>
+                            </li>
+                        </ul>
+                        <ul class="clearfix ldbq">
+                            <h4>职位亮点标签</h4>
+                            <li><p style="width:auto;height:auto;" id='jobbright'>
+                                    <volist name="ldData" id="ldDataInfo">
+                                    <span><b>{$ldDataInfo['cascname']}</b><i>X</i></span>
+                                    </volist>
+                                </p>
+                                <input type="text" style="width:60px;" class="myinput"></li>
+                        </ul>
+                        <ul class="clearfix">
+                            <h4>工作职责</h4>
+                            <textarea name = "jobeditor" id = "editor" placeholder="对大家介绍一下公司吧" style="width:776px;height:300px;margin-top:10px;"></textarea>
+                        </ul>
+
+                        <ul class="clearfix">
+                            <h4>岗位要求</h4>
+                            <textarea name = "jobeditor1" id = "editor1" placeholder="对大家介绍一下公司吧" style="width:776px;height:300px;margin-top:10px;"></textarea>
+                        </ul>
+
+                        <ul class="clearfix qita">
+                            <h4>其他：</h4>
+                            <li class="clearfix"><em>本职位管理者联系方式：</em><input type="radio" id = "meth" name = "jobmeth" checked value="1" onclick="clickDefault('default')"><em>使用默认联系方式</em><input type="radio" name = "jobmeth" value="2" id = "meth" onclick="clickDefault('write')"><em>使用其他联系方式</em>
+                            </li>
+                            <li class="clearfix" style="display:none;margin-left:294px;margin-left: 0px;" id="defaults">
+                                <input type="text" placeholder="输入联系人姓名" name = "jobemail" id = "email" >
+                                <input type="text" placeholder="输入手机号"  name = "jobmobile" id = "mobile">
+                            </li>
+                            <li class="clearfix">
+                                <span style="float:left;">招聘资费：</span>
+                                <span class="treatmentDiv" style="border: 1px #ccc solid;border-radius: 5px;height: 25px;float:left;padding:0;margin-top:5px;">
+                              
+                                <input type="text" name = "jobTariffed" id = "tariff" siz="5" style='padding-right:3px;text-align:right;float:left;border:none;;margin:0;line-height:18px;display:block;height:25px;'>
+                                <em style="float:left;height:25px;line-height:27px;">00&nbsp;&nbsp;</em>
+                                </span>&nbsp;&nbsp;元
+                                
+                                
+                                <span id = "money"></span></li>
+                            <li class="clearfix"><p class="error3" style="">您有未填写项目</p></li>
+                        </ul>
+                    </div>
+                    <div class="cn_btm">
+                        <input class="btn bianji cur_point" type="button" value="发布职位" onclick="checkSendJob()">
+                    </div>
+                </div>
+                <!--   </form>  -->
+
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+<script type="text/javascript">
+
+    function changeHy(b, h) {
+        if (b !== "请选择") {
+            $.ajax({
+                type: "post",
+                data: {"id": b},
+                dataType: "json",
+                url: "__URL__/getData",
+                success: function(datas) {
+
+
+                    if (h == "strycate") {
+                        var html = "<option>请选择行业</option>";
+                    } else if (h == "Jobcate") {
+                        var html = "<option>请选择职位</option>";
+                    } else if (h == "jobplace") {
+                        var html = "<option>请选择市</option>";
+                    }
+                    for (var i = 0; i < datas.length; i++) {
+                        html += "<option value='" + datas[i].id + "'>" + datas[i].cascname + "</option>";
+                    }
+                    $("#" + h).html(html);
+                }
+
+            });
+        }
+    }
+
+    var arrTariff = {"20197": "1000", "20121": "2000", "20122": "3000", "20123": "5000", "20132": "10000", "20134": "20000", "20135": "30000", "20136": "50000" }
+    
+    function treatmentChange() {
+        $("#money").text("(招聘资费不能低于" + arrTariff[$("#treatment  option:selected").attr("tar")] + ")");
+    }
+    function checkSendJob() {
+        /*
+         
+         var strycate = $("#strycate").val();
+         var jobcate  = $("#jobcate").val();
+         var joblang  = $("#joblang").val();
+         var employ   = $("#employ").val();
+         var treatment= $("#treatment   option:selected").attr("tar");
+         var jobplace = $("#jobplace").val();
+         var experience= $("#experience").val();
+         var education= $("#education").val();
+         var workdesc = ue.getContent();
+         var content  = ue2.getContent();
+         var tariff   = $("#tariff").val();
+         var meth     = $("#meth").val();
+         var email    = $("#email").val();
+         var mobile   = $("#mobile").val();
+         */
+        var reg = /^1[3|4|5|8][0-9]\d{4,8}$/;
+        var numreg = /[0-9]*/;
+        var title = $("input[name='jobtitle']").val();
+        var strycate = $("select[name='jobstrycate']").find("option:selected").val();
+        var Jobcate = $("select[name='jobJobcate']").find("option:selected").val();
+        var joblang = $("select[name='jobjoblang']").find("option:selected").val();
+        var employ = $("input[name='jobemploy']").val();
+        var treatment = $("select[name='jobtreatment']").find("option:selected").attr("tar");
+        var jobplace = $("select[name='jobjobplace']").find("option:selected").val();
+        var experience = $("select[name='jobexperience']").find("option:selected").val();
+        var education = $("select[name='jobeducation']").find("option:selected").val();
+        var endtime = $("input[name='jobendtime']").val();
+        var tariff = $("input[name='jobTariffed']").val();
+        var meth = $("input[name='jobmeth']:checked").val();
+        var email = $("input[name='jobemail']").val();
+        var mobile = $("input[name='jobmobile']").val();
+        var match_company = $("select[name='match_company']").find("option:selected").val();
+        var match_industry = $("select[name='match_industry']").find("option:selected").val();
+        var workdesc = ue.getContent();
+        var content = ue2.getContent();
+        var jobbright = "";
+        
+        if($("#jobbright span b").size()>0){
+             $("#jobbright span b").each(function(){
+                 jobbright += $(this).text()+"|||";
+             });
+        }
+      
+        var treatment2 = $("select[name='jobtreatment']").find("option:selected").val();
+        if (!title) {
+            $('.center .peoplerenm ul li p.error3').html('职位名称不能为空');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }
+        if (title.length > 50) {
+            $('.center .peoplerenm ul li p.error3').html('职位名称信息过长');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }
+        if (strycate == "请选择行业") {
+            $('.center .peoplerenm ul li p.error3').html('请选择您招聘的详细行业');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if (Jobcate == "请选择职位") {
+            $('.center .peoplerenm ul li p.error3').html('请选择您招聘的详细职位');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if (jobplace == "请选择市") {
+            $('.center .peoplerenm ul li p.error3').html('请选择工作地点');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if (!numreg.test(employ) || employ < 1) {
+            $('.center .peoplerenm ul li p.error3').html('招聘人数格式不正确');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }else if (education == 0) {
+            $('.center .peoplerenm ul li p.error3').html('请选择学历要求');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }  else if (experience == 0) {
+            $('.center .peoplerenm ul li p.error3').html('请选择工作经验');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }else if (joblang == 0) {
+            $('.center .peoplerenm ul li p.error3').html('请选择语言能力');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }else if(match_company == "请选择"){
+            $('.center .peoplerenm ul li p.error3').html("请选择公司背景");
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if(match_industry == "请选择"){
+            $('.center .peoplerenm ul li p.error3').html("请选择细分行业");
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }else if (treatment == 0) {
+            $('.center .peoplerenm ul li p.error3').html('请选择月薪待遇');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if (!workdesc) {
+            $('.center .peoplerenm ul li p.error3').html('工作职责不能为空');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if (!content) {
+            $('.center .peoplerenm ul li p.error3').html('岗位要求不能为空');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if (mobile) {
+            if (!reg.test(mobile)) {
+                $('.center .peoplerenm ul li p.error3').html('手机号格式错误');
+                $('.center .peoplerenm ul li p.error3').show();
+                return false;
+            }
+        } else if (!tariff) {
+            $('.center .peoplerenm ul li p.error3').html('招聘资费不能为空');
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        } else if ((tariff * 100) < eval(arrTariff[treatment])) {
+            $('.center .peoplerenm ul li p.error3').html("招聘资费不能低于" + arrTariff[treatment]);
+            $('.center .peoplerenm ul li p.error3').show();
+            return false;
+        }
+       
+ 
+        if (confirm("您确定发布此职位的招聘费为" + tariff * 100 + "元吗")) {
+            $.post("/Home/Company/companySendJobAdd.html", {
+                'title': title,
+                'strycate': strycate,
+                'employ': employ,
+                'treatment': treatment2,
+                'jobplace': jobplace,
+                'experience': experience,
+                'education': education,
+                'joblang':joblang,
+                'endtime': endtime+" 23:59:59",
+                'Tariff': tariff,
+                'meth': meth,
+                'email': email,
+                'mobile': mobile,
+                'workdesc': workdesc,
+                'content': content,
+                'Jobcate': Jobcate,
+                'jobbright':jobbright,
+                'match_company':match_company,
+                'match_industry':match_industry
+            }, function(data) {
+                if (data.code == "200") {
+                    location.href = "__URL__/companyJobList"
+                } else {
+                    $('.center .peoplerenm ul li p.error3').html(data.msg);
+                    $('.center .peoplerenm ul li p.error3').show();
+                }
+            }, "json")
+        }
+
+    }
+
+    function clickDefault(obj) {
+        var defaults = $("#defaults");
+        if (obj == "default") {
+            defaults.hide();
+        } else {
+            defaults.show();
+        }
+    }
+</script>
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+    var ue2 = UE.getEditor('editor1');
+
+    function isFocus(e) {
+        alert(UE.getEditor('editor').isFocus());
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function setblur(e) {
+        UE.getEditor('editor').blur();
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function insertHtml() {
+        var value = prompt('插入html代码', '');
+        UE.getEditor('editor').execCommand('insertHtml', value)
+    }
+    function createEditor() {
+        enableBtn();
+        UE.getEditor('editor');
+    }
+    function getAllHtml() {
+        // alert(UE.getEditor('editor').getAllHtml())
+    }
+    function getContent() {
+        var arr = [];
+        //arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+        //arr.push("内容为：");
+        //arr.push(UE.getEditor('editor').getContent());
+        //var aa = $.parseJSON( ue.getContent() );
+        // alert(ue.getContent());
+    }
+
+
+    function getPlainTxt() {
+        var arr = [];
+        arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getPlainTxt());
+        // alert(arr.join('\n'))
+    }
+    function setContent(isAppendTo) {
+        var arr = [];
+        arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+        // alert(arr.join("\n"));
+    }
+    function setDisabled() {
+        UE.getEditor('editor').setDisabled('fullscreen');
+        disableBtn("enable");
+    }
+
+    function setEnabled() {
+        UE.getEditor('editor').setEnabled();
+        enableBtn();
+    }
+
+    function getText() {
+        //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+        var range = UE.getEditor('editor').selection.getRange();
+        range.select();
+        var txt = UE.getEditor('editor').selection.getText();
+        //alert(txt)
+    }
+
+    function getContentTxt() {
+        var arr = [];
+        /*arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+         arr.push("编辑器的纯文本内容为：");
+         arr.push(UE.getEditor('editor').getContentTxt());*/
+        // alert(UE.getEditor('editor').getContentTxt());
+    }
+    $('.bianji').on('click', function() {
+        getContentTxt();
+
+    });
+    function hasContent() {
+        var arr = [];
+        arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+        arr.push("判断结果为：");
+        arr.push(UE.getEditor('editor').hasContents());
+        // alert(arr.join("\n"));
+    }
+    function setFocus() {
+        UE.getEditor('editor').focus();
+    }
+    function deleteEditor() {
+        disableBtn();
+        UE.getEditor('editor').destroy();
+    }
+    function disableBtn(str) {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++]; ) {
+            if (btn.id == str) {
+                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+            } else {
+                btn.setAttribute("disabled", "true");
+            }
+        }
+    }
+    function enableBtn() {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++]; ) {
+            UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+        }
+    }
+
+    function getLocalData() {
+        // alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+    }
+
+    function clearLocalData() {
+        UE.getEditor('editor').execCommand("clearlocaldata");
+        // alert("已清空草稿箱")
+    }
+</script>
+<script>
+ 
+    $(function() {
+        $('#search_button').button({
+            icons: {
+                primary: 'ui-icon-search',
+            },
+        });
+
+
+        $('#reg').dialog({
+            autoOpen: true,
+            modal: true,
+            resizable: false,
+            width: 320,
+            height: 340,
+            buttons: {
+                '提交': function() {
+
+                }
+            }
+        });
+
+        $('#reg').buttonset();
+
+        $('#date').datepicker({
+            dateFormat: 'yy-mm-dd',
+            //dayNames : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+            //dayNamesShort : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+            dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            altField: '#abc',
+            altFormat: 'dd/mm/yy',
+            //appendText : '日历',
+            showWeek: true,
+            weekHeader: '周',
+            firstDay: 1,
+            //disabled : true,
+            //numberOfMonths : 3,
+            //numberOfMonths : [3,2],
+            //showOtherMonths : true,
+            //selectOtherMonths : true,
+            changeMonth: true,
+            changeYear: true,
+            //isRTL : true,
+            //autoSize : true,
+            //showOn : 'button',
+            //buttonText : '日历',
+            //buttonImage : 'img/calendar.gif',
+            //buttonImageOnly : true,
+            showButtonPanel: true,
+            closeText: '关闭',
+            currentText: '今天dd',
+            //nextText : '下个月mm',
+            //prevText : '上个月mm',
+            //navigationAsDateFormat : true,
+            //yearSuffix : '年',
+            //showMonthAfterYear : true,
+
+            //日期的限制优先级，min和max最高
+
+            minDate: 0, //但是年份有另外一个属性进行了限制
+            //hideIfNoPrevNext : true,
+
+            //而maxDate和minDate只是限制日期，而年份的限制的优先级没有另外一个高
+            yearRange: '0:2220',
+
+            //maxDate: new Date(2215, 1, 1),
+            defaultDate : 30,
+
+            maxDate: new Date(new Date().getFullYear(), new Date().getMonth()+1,new Date().getDate()),
+            //defaultDate : -1,
+
+
+            //gotoCurrent : true,
+
+            //showAnim : true,
+            //duration : 1000,
+            //showAnim : 'slide',
+            //beforeShow : function () {
+            //  alert('日历显示之前被调用！');
+            //}
+
+            //beforeShowDay : function (date) {
+            //  if (date.getDate() == 1) {
+            //      return [false, 'a', '不能选择1号'];
+            //  } else {
+            //      return [true];
+            //  }
+            //}
+
+            //onChangeMonthYear : function (year, month, inst) {
+            //alert('日历中年份或月份改变时激活！');
+            //alert(year);
+            //alert(month);
+            //alert(inst.id);
+            //}
+
+            //onSelect : function (dateText, inst) {
+            //  alert(dateText);
+            //}
+
+            //onClose : function (dateText, inst) {
+            //  alert(dateText);
+            //}
+        });
+
+        //alert($('#date').datepicker('getDate').getFullYear());
+        $('#date').datepicker('setDate', '10');
+        //$('#date').datepicker('setDate', '30');
+    });
+  
+</script>
+</html>

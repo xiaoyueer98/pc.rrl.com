@@ -1,0 +1,312 @@
+<?php
+
+namespace Home\Controller;
+
+use Think\Controller;
+
+/**
+ * 活动相关 类文件 
+ * 
+ * @author      sunyue<1551058861@qq.com> 
+ * @since       1.0 
+ */
+class ActiveController extends Controller {
+
+        public function __construct() {
+                if (is_weixin() === true) {
+                        header('Location: http://m.renrenlie.com/');
+                }
+                parent::__construct();
+                $linkArr = M("friendlink")->where("status=0")->order("orderid desc,id asc")->select();
+                $this->assign("linkArr", $linkArr);
+                
+        }
+
+        /**
+         * 沙龙活动展示页面  
+         * 
+         * @access public 
+         * @since 1.0 
+         */
+        function salon() {
+
+                //显示的沙龙活动为非删除类别为salon的活动那个，即可能有未启用和启用两种状态
+                $arSalonActive = M("active")->where("category='salon' and status<2")->order("id desc")->select();
+                $this->assign("arSalonActive", $arSalonActive);
+
+                $this->display("Active/salon");
+        }
+
+        /**
+         * 沙龙活动报名手机号验重  
+         * 
+         * @access public 
+         * @param string mobile  post过来验证的手机号码
+         * @since 1.0 
+         * @return json
+         */
+        function signup_repeat_judged() {
+
+                $sMobile = $_POST['mobile'];
+
+                if (!empty($sMobile)) {
+
+                        $sRule = "/^((13[0-9])|147|(15[0-35-9])|180|182|(18[5-9]))[0-9]{8}$/A";
+                        preg_match($sRule, $sMobile, $arResult);
+                        if (!$arResult) {
+                                echo json_encode(array("code" => 500, "msg" => "请输入正确的手机号"));
+                                exit();
+                        }
+
+                        //查找正在举办的活动
+                        $arSalonActive = M("active")->where("category='salon' and status=1 and starttime>'" . date("Y-m-d H:i:s") . "'")->order("id desc")->find();
+                        if (empty($arSalonActive)) {
+                                echo json_encode(array("code" => 500, "msg" => "报名活动已停止"));
+                                exit();
+                        }
+
+                        $arSalon = M("salon")->where("activeid=" . $arSalonActive['id'] . " and mobile='" . $sMobile . "'")->find();
+
+                        if (!empty($arSalon)) {
+                                echo json_encode(array("code" => 500, "msg" => "您已经报过名了~"));
+                                exit();
+                        } else {
+                                echo json_encode(array("code" => 200, "msg" => "success"));
+                                exit();
+                        }
+                } else {
+                        echo json_encode(array("code" => 500, "msg" => "参数异常"));
+                        exit();
+                }
+        }
+
+        /**
+         * 沙龙活动报名信息保存方法  
+         * 
+         * @access public
+         * @param  array
+         *               name        post 姓名      必传
+         *               mobile      post 手机号码  必传
+         *               activeid    post 活动id    必传
+         *               activename  post 活动名称  必传
+         *               category    post 活动类别  必传
+         *               company     post 公司     可选
+         *               jobpositon  post 职位     可选
+         *               qq          post qq     可选
+         *               weixin      post 微信     可选
+         *               topic       post 感兴趣的话题     可选
+         *               advice      post 建议    可选
+         * @since 1.0 
+         * @return json
+         */
+        function sign_up_save() {
+                if($_POST['hash'] != md5("rrl_".$_SESSION['cookie'])){
+                        return;
+                }
+               
+                //echo "<pre>";var_dump($_POST);echo "</pre>";die;
+                $params = $_POST;
+                if (empty($params['name']) || empty($params['mobile'])) {
+                        echo json_encode(array("code" => 500, "msg" => "参数异常"));
+                        exit();
+                }
+//                $arRule = array(
+//                    array('mobile', '', '手机号已经存在！', 0, 'unique', 1), // 在新增的时候验证mobile字段是否唯一
+//                );
+
+                $arSalonActive = M("active")->where("category='salon' and status=1 and starttime>'" . date("Y-m-d H:i:s") . "'")->order("id desc")->find();
+                if (empty($arSalonActive)) {
+                        echo json_encode(array("code" => 500, "msg" => "报名活动已停止"));
+                        exit();
+                }
+
+                $oSalon = M("salon");
+//                if (!$oSalon->validate($arRule)->create($params)) {
+//                        // 如果创建失败 表示验证没有通过 输出错误提示信息
+//                        echo json_encode(array("code" => "500", "msg" => $oSalon->getError()));
+//                        die;
+//                }
+                $arData['username'] = empty($params['username']) ? "" : $params['username'];
+                $arData['activeid'] = $arSalonActive['id'];
+                $arData['activename'] = $arSalonActive['activename'];
+                $arData['category'] = $arSalonActive['category'];
+                $arData['name'] = $params['name'];
+                $arData['mobile'] = $params['mobile'];
+                $arData['company'] = $params['company'];
+                $arData['jobposition'] = $params['jobposition'];
+                $arData['qq'] = $params['qq'];
+                $arData['weixin'] = $params['weixin'];
+                $arData['topic'] = $params['topic'];
+                $arData['advice'] = $params['advice'];
+                $arData['signip'] = $_SERVER['REMOTE_ADDR'];
+                $arData['status'] = 1;
+                $arData['created_at'] = $arData['updated_at'] = time();
+
+                $re = $oSalon->add($arData);
+                if ($re) {
+                        //发送短信时验证手机号
+                        $sRule = "/^((13[0-9])|147|(15[0-35-9])|180|182|(18[5-9]))[0-9]{8}$/A";
+                        preg_match($sRule, $arData['mobile'], $arResult);
+                        if (!$arResult) {
+                                echo json_encode(array("code" => 200, "msg" => "报名成功,短信未发送"));
+                                exit();
+                        }
+
+                        //发送短信
+                        $sStartime = strtotime($arSalonActive['starttime']);
+                        $sStartime1 = date("n月d日H点i分", $sStartime);
+                        $sEndtime = strtotime($arSalonActive['endtime']);
+                        $sEndtime1 = date("n月d日H点i分", $sEndtime);
+
+                        $sTime = $sStartime1 . "至" . $sEndtime1;
+                        $sAddress = "海淀区西二旗辉煌国际2号楼22层2206";
+                        $content = "您好 " . $arData['name'] . "，您成功报名了人人猎线下沙龙活动，本次活动的时间是 " . $sTime . "，地点 " . $sAddress . "，请您准时参加。如有疑问请咨询01057188076。";
+                        //echo $content;die;
+                        //查看登陆用户的id
+                        $linkid = 0;
+                        $username = ($_SESSION['username'] ? $_SESSION['username'] : $_SESSION['cusername']);
+                        if (!empty($username)) {
+                                $arUserinfo = M("userinfo")->where("username='$username'")->find();
+                                if (!empty($arUserinfo)) {
+                                        $linkid = $arUserinfo['userid'];
+                                }
+                        }
+
+                        $comment = "沙龙活动信息";
+                        $tag = "salon";
+                        $bResult = oldSendMsg($arData['mobile'], $content, $linkid, $tag, $comment);
+                        if ($bResult) {
+                                echo json_encode(array("code" => 200, "msg" => "报名成功"));
+                                exit();
+                        } else {
+                                $bResult = oldSendMsg($arData['mobile'], $content, $linkid, $tag, $comment);
+                                if ($bResult) {
+                                        echo json_encode(array("code" => 200, "msg" => "报名成功"));
+                                        exit();
+                                } else {
+                                        echo json_encode(array("code" => 200, "msg" => "报名成功,短信发送失败,详情请咨询01057188076"));
+                                        exit();
+                                }
+                        }
+                } else {
+                        echo json_encode(array("code" => 500, "msg" => "报名失败"));
+                        exit();
+                }
+        }
+
+        /*
+         * 新的沙龙报名页面
+         * 
+         * @access public 
+         * @since 1.0 
+         */
+
+        function new_sign_up() {
+                $arSalonActive = M("active")->where("category='salon'")->order("id desc")->find();
+                $sBDate = date("Y年n月j日", strtotime($arSalonActive['starttime']));
+                $sEDate = date("Y年n月j日", strtotime($arSalonActive['endtime']));
+                $sBTimeH = date("H", strtotime($arSalonActive['starttime']));
+                $sBTimeI = date("i", strtotime($arSalonActive['starttime']));
+                $sETimeH = date("H", strtotime($arSalonActive['endtime']));
+                $sTimeI = date("i", strtotime($arSalonActive['endtime']));
+                if ($sBDate == $sEDate) {
+                        $arSalonActive['activetime'] = $sBDate . "&nbsp;" . $sBTimeH . ":" . $sBTimeI . "-" . $sETimeH . ":" . $sTimeI;
+                } else {
+                        $arSalonActive['activetime'] = $sBDate . "&nbsp;" . $sBTimeH . ":" . $sBTimeI . "-" . $sEDate . "&nbsp;" . $sETimeH . ":" . $sTimeI;
+                }
+                $this -> assign("hrefUrl","/Home/Active/new_sign_up");
+                $this->assign("arSalonActive", $arSalonActive);
+                $this->display("Active/new_salon_signup");
+        }
+
+        /*
+         * 沙龙活动详情页面
+         * 
+         * @access public 
+         * @param  array
+         *               id    get  姓名  必传
+         * @since 1.0 
+         */
+
+        function salon_detail() {
+                $id = $_GET['id'];
+                if (empty($id)) {
+                        header("location:/Home/Active/salon_show");
+                        die;
+                }
+                $arActive = M("active")->where("picurl !='' and status<2 and id=" . $_GET['id'])->find();
+               
+                if (empty($arActive)) {
+                        header("location:/Home/Active/salon_show");
+                        die;
+                }
+                $arActivePre = M("active")->where("picurl !='' and status<2 and category='salon' and id<" . $_GET['id'])->order("id desc")->find();
+                $arActiveNex = M("active")->where("picurl !='' and status<2 and category='salon' and id>" . $_GET['id'])->find();
+                if(empty($arActivePre)){
+                        $arActivePre = 0;
+                }
+                if(empty($arActiveNex)){
+                        $arActiveNex = 0;
+                }
+                
+                $this->assign("arActive", $arActive);
+                $this->assign("arActivePre", $arActivePre);
+                $this->assign("arActiveNex", $arActiveNex);
+
+                 //判断当前是否有正在举办的活动
+                $isActive = M("active")->where("category='salon' and status=1 and starttime>'" . date("Y-m-d H:i:s") . "'")->order("id desc")->find();
+                if (!empty($isActive))
+                {
+                      $this->assign("isActive", 1);
+                }
+                
+                $this->display("Active/new_salon_detail");
+        }
+
+        /**
+         * 新的沙龙活动展示列表页面 
+         * 
+         * @access public 
+         * @since 1.0 
+         */
+        function salon_show() {
+                 //判断当前是否有正在举办的活动
+                $isActive = M("active")->where("category='salon' and status=1 and starttime>'" . date("Y-m-d H:i:s") . "'")->order("id desc")->find();
+                if (!empty($isActive))
+                {
+                      $this->assign("isActive", 1);
+                }
+                
+                //本期活动预告
+                $arSalon = M("active")->where("category='salon'")->order("id desc")->find();
+                $sBDate = date("Y年n月j日", strtotime($arSalon['starttime']));
+                $sEDate = date("Y年n月j日", strtotime($arSalon['endtime']));
+                $sBTimeH = date("H", strtotime($arSalon['starttime']));
+                $sBTimeI = date("i", strtotime($arSalon['starttime']));
+                $sETimeH = date("H", strtotime($arSalon['endtime']));
+                $sTimeI = date("i", strtotime($arSalon['endtime']));
+                if ($sBDate == $sEDate) {
+                        $arSalon['activetime'] = $sBDate . "&nbsp;" . $sBTimeH . ":" . $sBTimeI . "-" . $sETimeH . ":" . $sTimeI;
+                } else {
+                        $arSalon['activetime'] = $sBDate . "&nbsp;" . $sBTimeH . ":" . $sBTimeI . "-" . $sEDate . "&nbsp;" . $sETimeH . ":" . $sTimeI;
+                }
+                $this->assign("arSalon", $arSalon);
+
+                //显示的沙龙活动为非删除类别为salon的活动那个，即可能有未启用和启用两种状态
+                $arSalonActive = M("active")->where("category='salon' and status<2")->order("id desc")->select();
+                foreach ($arSalonActive as $k => $v) {
+                       $arActiveName = preg_split("/([a-zA-Z0-9]+)/", $v['activename'], 0, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE); 
+                       $arSalonActive[$k]['activename1'] = $arActiveName[0];
+                       $arSalonActive[$k]['activename2'] = $arActiveName[1];
+                       $arSalonActive[$k]['activename3'] = $arActiveName[2];
+                }
+                $this->assign("cur", "active");
+                $this->assign("arSalonActive", $arSalonActive);
+
+                $this->display("Active/new_salon_show");
+        }
+        
+
+        
+
+}

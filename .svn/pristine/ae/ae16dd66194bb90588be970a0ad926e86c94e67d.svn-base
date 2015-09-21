@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>成功案例-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/window.js"></script>
+    </head>
+    <body>
+        <div class="mask1" style="display: none;"></div>
+        <div class="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="successful-case clearfix">
+            <div class="banner clearfix"><img src="/Public/img/rcmd-img/success-case.png" alt=""></div>
+            <div class="list">
+                <ul class="clearfix">
+                    <li>
+                        <img src="/Public/img/rcmd-img/mll-logo.png" alt="">
+                        <h3>美丽来</h3>
+                        <h6>(天使轮)</h6>
+                        <p>专注于中高端女性上门服务的美容o2o，在人人猎成功招到高级Android、php等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/ysy-logo.png" alt="">
+                        <h3>云视野</h3>
+                        <h6>(天使轮)</h6>
+                        <p>知名投资人投资的中国独家掌握云验光技术，为顾客上门专业验光配镜的眼镜O2O。在人人猎成功招到 php等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/yj-logo.png" alt="">
+                        <h3>易结网</h3>
+                        <h6>(A轮)</h6>
+                        <p>IDG投资的婚嫁O2O平台领航者，为结婚新人打造最佳婚礼服务平台。通过人人猎成功招到移动开发工程师等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/kmf-logo.png" alt="">
+                        <h3>盈禾优仕</h3>
+                        <h6>(A轮)</h6>
+                        <p>专注于出国考试相关的网络备考工具与服务，通过人人猎成功招到高级 Android、php等人才。</p>
+                    </li>
+                </ul>
+                <ul class="clearfix" style="padding-top:0;">
+                    <li>
+                        <img src="/Public/img/rcmd-img/exc-logo.png" alt="">
+                        <h3>E洗车</h3>
+                        <h6>(A轮)</h6>
+                        <p>致力于为广大车主提供24小时预约上门洗车，搭建移动互联网“e洗车”全国平台。在人人猎成功招到前端开发、Android等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/hqw-logo.png" alt="">
+                        <h3>好巧网</h3>
+                        <h6>(A轮)</h6>
+                        <p>好巧网是国内最好用的国际酒店搜索网站之一，专注服务于自助出境的游客。在人人猎成功招到php工程师等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/jsjy-logo.png" alt="">
+                        <h3>金色家园</h3>
+                        <h6>(天使轮)</h6>
+                        <p>由江苏省同科投资集团投资总注册资金1亿元人民币。通过人人猎成功招到O2O总经理等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/hyd-logo.png" alt="">
+                        <h3>好运到</h3>
+                        <h6>(天使轮)</h6>
+                        <p>好运到是一家专注于大数据移动医疗的初创公司。在人人猎成功招到合伙人、Android等人才。</p>
+                    </li>
+                </ul>
+                <ul class="clearfix" style="padding-top:0;">
+                    <li>
+                        <img src="/Public/img/rcmd-img/xy-logo.png" alt="">
+                        <h3>新游</h3>
+                        <h6>(A轮)</h6>
+                        <p>新游是一家至力于全球游戏分发领域的创新公司。产品：游戏下载平台。创始人：丁春妹 ，前 百度高管。通过人人猎平台成功招到了java 、Android、ui、php等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/md-logo.png" alt="">
+                        <h3>摩德</h3>
+                        <h6>(天使轮)</h6>
+                        <p>我们不仅仅是一支IT服务团队，同时也是数字化营销团队。我们汇集了经验丰富的电商服务精英、满怀激情的软件精英、设计精英，与客户共同应对艰巨的市场挑战。通过人人猎平台成功招到了php、Android等人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/sdj-logo.png" alt="">
+                        <h3>少东家</h3>
+                        <h6>(天使轮)</h6>
+                        <p>少东家是专注于电子商务平台的一家初创公司，创始团队的核心成员来自BAT，公司发展迅猛，马上进入A轮融资。通过人人猎平台成功招到了PHP等职位。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/xhh-logo.png" alt="">
+                        <h3>先花花</h3>
+                        <h6>(B轮)</h6>
+                        <p>“先花一亿元”是先花信息技术（北京）有限公司继先花花App后，推出的一款面向年轻人的社交金融服务平台，是一款代表互联网金融未来发展趋势的创新产品。通过人人猎平台成功招到了ios等职位。</p>
+                    </li>
+                </ul>
+
+                <ul class="clearfix" style="padding-top:0;">
+                    <li>
+                        <img src="/Public/img/rcmd-img/fxxk-logo.png" alt="">
+                        <h3>分享销客</h3>
+                        <h6>(D轮)</h6>
+                        <p>2014年7月完成由北极光领头的B轮融资，同年11月完成由DCM领投5千万美金的C轮，2015年6月完成D轮融资（以一年之内完成B、C、D三轮融资的速度震惊了互联网市场），目前团队已达到1000人规模。通过人人猎平台成功招到iOS人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/zm-logo.png" alt="">
+                        <h3>慈铭</h3>
+                        <h6>(自有资金)</h6>
+                        <p>慈铭健康体检管理集团股份有限公司是一家按照“早诊断、早发现、早治疗”暨“预防为主”的医学思想创建的以健康体检为主营业务的连锁化经营的专业体检机构。通过人人猎平台成功招到高级java工程师。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/51sb-logo.png" alt="">
+                        <h3>51社保</h3>
+                        <h6>(A轮)</h6>
+                        <p>51社保网隶属北京众合天下管理咨询有限公司旗下，是中国最大的社保专业网站，中国领先的社保实务品牌，中国互联网社保服务领跑者。在人人猎平台成功招到PHP人才。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/zhb-logo.png" alt="">
+                        <h3>智汇邦</h3>
+                        <h6>(自有资金)</h6>
+                        <p>智汇邦是权威的海内外高层次人才数据库和高端人才在线社交平台，旨在为高层次人才在华创新创业搭建桥梁，为其职业和事业发展提供快速便捷的服务。在人人猎平台成功招到产品总监。</p>
+                    </li>
+                </ul>
+
+                <ul class="clearfix" style="padding-top:0;">
+                    <li>
+                        <img src="/Public/img/rcmd-img/sf-logo.png" alt="">
+                        <h3>顺丰</h3>
+                        <h6>(不需要融资)</h6>
+                        <p>顺丰始终专注于服务质量的提升，不断满足市场的需求，在中国大陆、香港、澳门、台湾建立了庞大的信息采集、市场开发、物流配送、快件收派等业务机构及服务网络。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/sk-logo.png" alt="">
+                        <h3>寺库</h3>
+                        <h6>(D轮以上)</h6>
+                        <p>寺库（SECOO）致力打造全球奢侈品交流平台的多元化集团，总部设于北京。主要业务涉及奢侈品网上销售、奢侈品实体体验会所、奢侈品鉴定、养护服务等主营业务。寺库通过人人猎平台成功招到高级前端工程师。</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/zphd-logo.png" alt="">
+                        <h3>泽普互动</h3>
+                        <h6>(C轮)</h6>
+                        <p>Zepp (泽普互动（北京）科技有限公司)由前微软和Intel的资深工程师于2011年成立,核心业务是基于传感器融合技术，Acoustic等传感器融合领域。通过人人猎平台成功招到IOS工程师。
+</p>
+                    </li>
+                    <li>
+                        <img src="/Public/img/rcmd-img/talk-logo.png" alt="">
+                        <h3>51Talk</h3>
+                        <h6>(C轮)</h6>
+                        <p>51Talk的创始人CEO黄佳佳先生来自于清华大学外语系， 首创“外教一对一，在线学英语”的互联网学习模式。通过人人猎平台成功招到IOS工程师。通过人人猎平台成功招到技术VP工程师。</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="list list2">
+                <ul class="clearfix ">
+                    <li><img src="/Public/img/rcmd-img/pic1.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic2.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic3.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic4.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic5.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic6.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic7.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic8.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic9.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic10.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic11.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic12.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic13.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic14.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic15.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic16.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic17.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic18.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic19.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic20.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic21.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic22.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic23.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic24.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic25.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic26.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic27.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic28.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic29.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic30.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic31.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic32.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic33.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic34.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic35.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic36.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic37.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic38.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic39.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic40.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic41.png" alt=""></li>
+                    <li><img src="/Public/img/rcmd-img/pic42.png" alt=""></li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+</body>
+</html>

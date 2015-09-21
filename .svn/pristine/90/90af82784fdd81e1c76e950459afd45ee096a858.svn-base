@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>找回密码-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/focuspic2.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-index.css">
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/window.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/denglu.js"></script>
+        <style>
+            .al-header .wrap .al-right .mydiv2 {border-bottom: none;position: relative;z-index: 3;font-size:18px;color:white; padding: 54px 25px 56px 25px;text-align: right;}
+            .al-header .wrap .al-right .mydiv2 span{margin:0 10px;}
+            </style>
+    </head>
+    <body>
+        <div class="mask"></div>
+        <div class="mask1"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:shalong"/>
+    <include file="Public:newHeader"/>
+    <include file="Public:newCenter"/>
+    <include file="Public:newFooter"/>
+    <!--客服悬框begin-->
+    <div class="scr-top">
+        <ul>
+            <li> 
+                <img class="dis-block" src="/Public/img/new-index/wx-pic.png" alt="">
+            </li>
+            <li class="m-li2">
+                <span><wb:follow-button uid="5540068389" type="gray_1" width="67" height="24" ></wb:follow-button></span>
+            </li>
+            <li class="m-li3"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1158321049&amp;site=qq&amp;menu=yes" target="_blank" title="欢迎登录人人猎网--人人都是猎头"><img src="/Public/img/new-index/qqkf.png" alt=""></a></li>
+            <li class="m-li4"><a href="#"><img src="/Public/img/new-index/scr-top.png" alt=""></a></li>
+        </ul>
+    </div>
+    <?php if($type ==1){?>
+    <div class="wjmima">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao2">
+            <img src="__ROOT__/Public/img/wjmima2.png" alt="">
+        </div>
+        <div class="pswdEmail">
+            <p>密码重置邮件已发送到你的邮箱：<span><?php echo $email;?></span></p>
+            <p class="p2">请在24小时之内登录你的邮箱接收邮件，链接激活后可重置密码。</p>
+            <input type="hidden" value="<?php echo $mailTo;?>" id="newemail"/>
+            <input type="button" value="登录邮箱查看" class="DLemail" style="cursor:pointer;" id="openWindw">
+        </div>
+    </div>
+    <?php }?>
+    <?php if($type ==2){
+    
+        
+        
+    ?>
+    <div id="" class="wjmima">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao2">
+            <img src="__ROOT__/Public/img/wjmima_2.png" alt="">
+        </div>
+        <div class="pswdEmail">
+            <p style="font-size:14px;">您的手机号是：<span><?php echo $email;?></span></p>
+            <p class="p2 clearfix"><em class="vft_text">验证码：</em><input type="text" class="phone" id="findpwd_code" onkeydown="KeyDown();"><button class="btn_vft cur_point" id="findpwd_getcode">获取验证码</button><label class="vfit_btn2 undis"  style="margin-left:10px" id="findpwd_codetimes"><i>60</i>秒后重新获取</label></p>
+            <p style="height:20px;margin-top:20px;" class="findpwderror2"><i  style="display: none;color:red"></i></p>
+            <input type="button" value="下一步" class="DLemail cur_point" id="findpwd_step2">
+        </div>
+    </div>
+   
+    <?php   }?>
+    <script type="text/javascript">
+        $(function() {
+            $("#findpwd_getcode").attr("disabled", false);
+            $("#openWindw").click(function() {
+                var url = $("#newemail").val();
+                window.open(url)
+            });
+            $("#findpwd_step2").click(function() {
+                var findpwd_code = $("#findpwd_code").val();
+                if (!findpwd_code) {
+                    $(".findpwderror2 i").html("请输入验证码！");
+                    $(".findpwderror2 i").show();
+                    $("#findpwd_code").focus();
+                    return;
+                }
+                $.post("__URL__/checkfindpwdcode", {"findpwd_code": findpwd_code}, function(data) {
+                    if (data.code != "500") {
+                        location.href = "__URL__/changePwssword.html"
+                    } else {
+                        $(".findpwderror2 i").html(data.msg);
+                        $(".findpwderror2 i").show();
+                    }
+                }, "json")
+            });
+            $("#findpwd_getcode").click(function() {
+                
+                var hash = "<?php $_SESSION['cookie']=time();echo md5('rrl_'.$_SESSION['cookie']);?>";
+                $("#findpwd_getcode").attr("disabled", "disabled");
+                $.post("__URL__/findpwdcode.html", {hash:hash}, function(data) {
+                    if (data.code != "500") {
+                        time($("#findpwd_getcode"), $("#findpwd_codetimes"));
+                    } else {
+                        $(".findpwderror2 i").html(data.msg);
+                        $(".findpwderror2 i").show();
+                    }
+                }, "json")
+            })
+            var wait = 60;
+            function time(o, t) {
+                if (wait == 0) {
+                    o.attr("disabled", false);
+                    t.hide();
+                    o.show();
+                    wait = 60;
+                } else {
+                    t.find("i").html(wait);
+                    o.hide();
+                    t.show();
+                    wait--;
+                    setTimeout(function() {
+                        time(o, t)
+                    },
+                            1000)
+                }
+            }
+        })
+        function KeyDown()
+        {
+            if (event.keyCode == 13)
+            {
+                $("#findpwd_step2").click();
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>入职管理-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-company-common.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>			
+    </head>
+    <body>
+    <include file="Public:newHeader"/>
+    <div class="wrap" style="top:0;">
+        <div class="ms1 clearfix">
+            <a href="/Home/Company/index.html">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>企业用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+            </a>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:company_menu_left"/>
+            <div class="m2-r fl-rig">
+                <ul class="nav nav2">
+                    <li class="first dis-block dis-inlin fl-lef<?php if(!$act):?> m<?php endif;?>"><a class="<?php if(!$act):?>m <?php endif;?>back-none" href="/Home/Company/toBePaid.html">进程跟踪</a></li>
+                    <li class="first dis-block dis-inlin fl-lef<?php if($act == "newPaid"):?> m<?php endif;?>"><a class="<?php if($act == "newPaid"):?>m <?php endif;?>back-none" href="/Home/Company/toBePaid/act/newPaid.html">待付账单</a></li>
+                    <li class="first dis-block dis-inlin fl-lef<?php if($act == "oldPaid"):?> m<?php endif;?>"><a class="<?php if($act == "oldPaid"):?>m <?php endif;?>back-none" href="/Home/Company/toBePaid/act/oldPaid.html">付款记录</a></li>
+                </ul>
+                <div class="add-resume track-state<?php if($act):?> undis<?php endif;?>">
+                    <div class="con"> 
+                        <div class="titl">进程跟踪</div>
+                        <table style="width:689px;"> 
+                            <tbody> 
+                                <tr class="t"> 
+                                    <th>序号</th> 
+                                    <th>面试职位</th> 
+                                    <th>推荐进度</th> 
+                                    <th>招聘费（元）</th> 
+                                    <th>总招聘人数</th> 
+                                </tr> 
+                                <tr style="border:none;height:10px!important;">
+                                    <td style="border:none;height:10px!important;"></td>
+                                </tr>
+                            </tbody>
+                            <?php if($jobList):?>
+                            <?php foreach($jobList as $key=>$job):?>
+                            <tr> 
+                                <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;"><?php echo $key+1;?></td> 
+                                <td class="wh77 wk table-text-left"><?php echo $job['title']?></td> 
+                                <td class="wh54 wk table-text-left shenhed cur_point" tid="<?php echo $job['j_id']?>"><img src="/Public/img/company-img/icon4.png" alt=""></td> 
+                                <td class="wh102 wk table-text-left"><?php echo $job['Tariff']?></td> 
+                                <td class="wh102 wk"><?php echo $job['employ']?></td> 
+                            </tr> 
+
+                            <tbody class="state undis" id="state_<?php echo $job['j_id']?>"> 
+                                <?php foreach($job['logList'] as $keys=>$logList):?>
+                                <tr> 
+                                    <td colspan="1"></td> 
+                                    <td class="wh77 wk" colspan="1"><?php echo date("Y-m-d H:i",$logList['created_at'])?></td> 
+                                    <td class="prompt"> <b></b><i <?php if($keys==0):?>class="m"<?php endif;?>></i> </td> 
+                                    <td class="wh220 wk" colspan="3"><?php echo $logList['content'];?></td> 
+                                </tr> 
+                                <?php endforeach;?> 
+                            </tbody> 
+
+                            <?php endforeach;?>
+                        </table> 
+                        <?php else:?>
+                        <tr> 
+                            <td  class="wk" colspan="5"  style="border-left: 1px solid #b3b3b3;"><b>暂无记录</b></td>
+                        </tr>
+                        </table> 
+                        <?php endif;?>
+                    </div>  
+                </div>
+
+                <div class="add-resume track-state<?php if($act !="newPaid"):?> undis<?php endif;?>">
+                     <div class="con"> 
+                        <div class="titl">待付账单</div>
+                        <table style="width:689px;" class="data_list"> 
+                            <tbody> 
+                                <tr class="t"> 
+                                    <th>序号</th> 
+                                    <th>被推荐人</th> 
+                                    <th>推荐人</th> 
+                                    <th>面试职位</th> 
+                                    <th>招聘费（元）</th> 
+                                    <th>入职日期</th> 
+                                </tr> 
+
+                                <tr style="border:none;height:10px!important;">
+                                    <td style="border:none;height:10px!important;"></td>
+                                </tr>
+                                <?php if($newPaid['payList']):?>
+                                <?php foreach($newPaid['payList'] as $payIno):?>
+                                <tr> 
+                                    <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;"><?php echo $payIno['sort_id'];?></td> 
+                                    <td class="wh113 wk table-text-left"><?php echo $payIno['btname'];?></td> 
+                                    <td class="wh113 wk table-text-left"><?php echo $payIno['tname'];?></td> 
+                                    <td class="wh190 wk table-text-left"><?php echo $payIno['Jobcate'];?></td> 
+                                    <td class="wh102 wk hover-hand"> <?php echo $payIno['Tariff'];?></td> 
+                                    <td class="wh102 wk table-text-left"><?php echo $payIno['posttime'];?></td> 
+                                </tr> 
+                                <?php endforeach;?>
+                                <?php else:?>
+                                <tr> 
+                                    <td  class="wk" colspan="6"  style="border-left: 1px solid #b3b3b3;"><b>暂无记录</b></td>
+                                </tr>
+
+                                <?php endif;?>
+                            </tbody> 
+                        </table> 
+                        <?php echo $newPaid['page'];?>
+                    </div>  
+                </div>
+
+                <div class="add-resume track-state<?php if($act !="oldPaid"):?> undis<?php endif;?>">
+                     <div class="con"> 
+                        <div class="titl">付款记录</div>
+                        <table style="width:689px;" class="data_list"> 
+                            <tbody> 
+                                <tr class="t"> 
+                                    <th>序号</th> 
+                                    <th>被推荐人</th> 
+                                    <th>推荐人</th> 
+                                    <th>在职状态</th> 
+                                    <th>面试职位</th> 
+                                    <th>面试状态</th> 
+                                    <th>招聘费（元）</th> 
+                                    <th>付款记录</th> 
+                                </tr> 
+                                <tr style="border:none;height:10px!important;">
+                                    <td style="border:none;height:10px!important;"></td>
+                                </tr>
+                                <?php if($oldPaid['payList']):?>
+                                <?php foreach($oldPaid['payList'] as $payIno):?>
+                                <tr> 
+                                    <td class="wh47 wk" style="border-left: 1px solid #b3b3b3;"><?php echo $payIno['sort_id'];?></td> 
+                                    <td class="wh113 wk table-text-left"><?php echo $payIno['btname'];?></td> 
+                                    <td class="wh113 wk table-text-left"><?php echo $payIno['tname'];?></td> 
+                                    <td class="wh190 wk table-text-left"><?php echo $payIno['zzstatus'];?></td> 
+                                    <td class="wh190 wk table-text-left"><?php echo $payIno['title'];?></td> 	
+                                    <td class="wh102 wk hover-hand"> <?php echo $payIno['msstatus'];?></td> 
+                                    <td class="wh102 wk table-text-left"><?php echo $payIno['Tariff'];?></td> 
+                                    <td class="wh102 wk table-text-left"><?php echo $payIno['tatus'];?></td> 
+                                </tr> 
+                                <?php endforeach;?>
+                                <?php else:?>
+                                <tr> 
+                                    <td  class="wk" colspan="8"  style="border-left: 1px solid #b3b3b3;"><b>暂无记录</b></td>
+                                </tr>
+
+                                <?php endif;?>
+
+                            </tbody> 
+                        </table> 
+                        <?php echo $oldPaid['page'];?>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public:newFooter"/>
+
+    <script>
+        $(function() {
+            $(".shenhed").click(function() {
+                var id = $(this).attr("tid");
+                $(".state").hide(100);
+                $(".state2").hide(100);
+
+                if ($("#state_" + id).css("display") == "none") {
+                    $("#state_" + id).show(100);
+                } else {
+                    $("#state_" + id).hide(100);
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

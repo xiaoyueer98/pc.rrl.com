@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>意见反馈-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/focuspic2.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-index.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/window.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/denglu.js"></script>
+    </head>
+    <body>
+        <div class="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <body style="background:#ffffff">
+    <include file="Public:newHeader"/>
+    <div class="wrap new-qa" style="background:#ffffff">
+        <div class="content">
+            <div class="m-t"><h3 class="title">意见与反馈</h3></div>
+
+            <div class="ms-feeback">
+                <form action="__URL__/btjadd" method="post" enctype="multipart/form-data"  class="resubmitForm1" onsubmit="return;">
+                    <span class="bt">尊敬的用户：</span>
+                    <p>您好！为了给您提供更好的服务，我们希望收集您使用人人猎网页时的看法或建议。以帮助人人猎网为全体用户提供更加优质的服务。对您的配合与支持表示衷心的感谢！</p>
+                    <span class="fon-weight bt">您的联系方式</span>
+                    <div class="clearfix m-inp">
+                        <span><em class="m">姓名：</em><input type="text" placeholder="请输入真实姓名" id="fkusername"></span>
+                        <span><em class="m">手机：</em><input type="text" placeholder="请输入手机号" id="fkmobile"></span>
+                        <span><em>邮箱：</em><input type="text" placeholder="请输入联系邮箱" id="fkemail"></span>
+                    </div>
+                    <span class="fon-weight bt" style="margin-top:0;">您的建议与反馈<i>*</i></span>
+                    <textarea placeholder="" class="ms-text" id="fkcontent"></textarea>
+                    <!--
+                    <div class="clearfix ms-f">
+                        <span class="fl-lef">如果需要图片来辅助说明，可以</span><em class="fl-lef">上传图片</em><span class="fl-lef">支持gif/jpg/nng格式</span>
+                        <input type="file" class="hover-hand">
+                    </div>
+                    -->
+                    <div class="clearfix ero" id="fkError">
+                        <b class="fl-lef dis-block dis-inlin" style="margin-left:32px;">温馨提示:</b>
+                        <span class="fl-lef dis-block dis-inlin clearfix">
+                            <i class="fl-lef dis-block dis-inlin"></i>
+                            <span class="fl-lef dis-block dis-inlin">请填写手机号码</span>
+                        </span>
+                    </div>
+                    <span class="my-btn2 m addFeedback" style="margin:20px auto;">提交</span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="Public:newFooter"/>
+<script>
+    $(function() {
+        $(".addFeedback").click(function() {
+            $("#fkError").hide();
+            var fkusername = $("#fkusername").val();
+            var fkmobile = $("#fkmobile").val();
+            var fkemail = $("#fkemail").val();
+            var fkcontent = $("#fkcontent").val();
+            if (!fkusername) {
+                $("#fkError span span").html("请输入您的真实姓名！");
+                $("#fkusername").focus();
+                $("#fkError").show();
+                return false;
+            } else if (fkusername.length > 40) {
+                $("#fkError span span").html("请认真输入您的真实姓名！");
+                $("#fkusername").focus();
+                $("#fkError").show();
+                return false;
+            }
+            if (!fkmobile) {
+                $("#fkError span span").html("请输入您的联系电话！");
+                $("#fkmobile").focus();
+                $("#fkError").show();
+                return false;
+            } else if (fkmobile.length > 20) {
+                $("#fkError span span").html("请认真输入您的联系电话！");
+                $("#fkmobile").focus();
+                $("#fkError").show();
+                return false;
+            }
+            if (!fkcontent) {
+                $("#fkError span span").html("请输入您的宝贵意见！");
+
+                $("#fkError").show();
+                return false;
+            } else if (fkcontent.length > 1000) {
+                $("#fkError span span").html("请认真输入您的宝贵意见！");
+
+                $("#fkError").show();
+                return false;
+            }
+            $.post("/Home/Public/addfeedback.html", {
+                "fkusername": fkusername, "fkmobile": fkmobile, "fkemail": fkemail, "fkcontent": fkcontent
+            }, function(data) {
+                $("#fkError span span").html(data.msg);
+                $("#fkmobile").focus();
+                $("#fkError").show();
+            }, "json")
+        });
+    })
+</script>
+</body>
+</html>

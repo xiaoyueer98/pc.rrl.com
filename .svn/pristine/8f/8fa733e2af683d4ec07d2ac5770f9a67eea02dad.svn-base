@@ -1,0 +1,54 @@
+<div class="m2-l fl-lef">
+    <a href='/Home/Company/EnterpriseInformation.html'>
+        <div class="odiv hover-hand <?php if($first_class == 1):?><?php echo 'm';?><?php endif;?>">
+            <span>1</span>
+            <h6 class="tit1 <?php if($first_class == 1):?><?php echo 'm';?><?php endif;?>">完善资料<em <?php if($leftNavCompleted['userinfo_completed'] == true):?><?php echo 'class="m"';?><?php endif;?>></em></h6>
+            <p class="tx <?php if($first_class == 1):?><?php echo 'm';?><?php endif;?>">方便推荐人了解公司及职位</p>
+        </div>
+    </a>
+    <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+    <a href='/Home/Company/SignContract.html'>
+        <div class="odiv hover-hand <?php if($first_class == 2):?><?php echo 'm';?><?php endif;?>">
+            <span>2</span>
+            <h6 class="tit2 <?php if($first_class == 2):?><?php echo 'm';?><?php endif;?>">签订合同<em <?php if($leftNavCompleted['contract_completed'] == true):?><?php echo 'class="m"';?><?php endif;?>></em></h6>
+
+            <p class="tx <?php if($first_class == 2):?><?php echo 'm';?><?php endif;?>">签订合同后，就可以发布职位了</p>
+        </div>
+    </a>
+    <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+       
+        <div  id="sendJobDiv" class="odiv odiv3 hover-hand <?php if($first_class == 3):?><?php echo 'm';?><?php endif;?>">
+            <span>3</span>
+            <h6 class="tit3 <?php if($first_class == 3):?><?php echo 'm';?><?php endif;?>">发布职位<em <?php if($leftNavCompleted['job_completed'] == true):?><?php echo 'class="m"';?><?php endif;?>></em></h6>
+            <p class="tx <?php if($first_class == 3):?><?php echo 'm';?><?php endif;?>">职位通过系统审核，就会有推荐</p>
+            <a href="javascript:;" class="j"></a>
+        </div>
+    
+    <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+    <a href='/Home/Company/ResumeList.html'>
+        <div class="odiv hover-hand<?php if($first_class == 4):?><?php echo ' m';?><?php endif;?>">
+            <span>4</span>
+            <h6 class="tit4<?php if($first_class == 4):?><?php echo ' m';?><?php endif;?>">查看候选人<em <?php if($leftNavCompleted['record_completed'] == true):?><?php echo 'class="m"';?><?php endif;?>></em></h6>
+            <p class="jlk<?php if($first_class == 4):?><?php echo ' m';?><?php endif;?>">(简历库)</p>
+            <p class="tx<?php if($first_class == 4):?><?php echo ' m';?><?php endif;?>">如符合要求，请安排面试</p>
+        </div>
+    </a>
+    <i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+    <a href='/Home/Company/toBePaid.html'>
+        <div class="odiv hover-hand<?php if($first_class == 5):?><?php echo ' m';?><?php endif;?>">
+            <span>5</span>
+            <h6 class="tit5<?php if($first_class == 5):?><?php echo ' m';?><?php endif;?>">入职管理<em></em></h6>
+            <p class="tx<?php if($first_class == 5):?><?php echo ' m';?><?php endif;?>">候选人入职后，支付招聘费</p>
+        </div>
+    </a>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(e){
+        $(".m2-l .odiv3").on("mouseenter",function(){
+           $(this).find(".j").show();
+        });
+        $(".m2-l .odiv3").on("mouseleave",function(){
+            $(this).find(".j").hide();
+        });
+    })
+</script>

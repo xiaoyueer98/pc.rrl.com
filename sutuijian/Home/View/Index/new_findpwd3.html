@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>找回密码-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/focuspic2.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-index.css">
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/window.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/denglu.js"></script>
+        <style>
+            .al-header .wrap .al-right .mydiv2 {border-bottom: none;position: relative;z-index: 3;font-size:18px;color:white; padding: 54px 25px 56px 25px;text-align: right;}
+            .al-header .wrap .al-right .mydiv2 span{margin:0 10px;}
+            </style>
+    </head>
+    <body>
+        <div class="mask"></div>
+        <div class="mask1"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:shalong"/>
+    <include file="Public:newHeader"/>
+    <include file="Public:newCenter"/>
+    <include file="Public:newFooter"/>
+    <!--客服悬框begin-->
+    <div class="scr-top">
+        <ul>
+            <li> 
+                <img class="dis-block" src="/Public/img/new-index/wx-pic.png" alt="">
+            </li>
+            <li class="m-li2">
+                <span><wb:follow-button uid="5540068389" type="gray_1" width="67" height="24" ></wb:follow-button></span>
+            </li>
+            <li class="m-li3"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1158321049&amp;site=qq&amp;menu=yes" target="_blank" title="欢迎登录人人猎网--人人都是猎头"><img src="/Public/img/new-index/qqkf.png" alt=""></a></li>
+            <li class="m-li4"><a href="#"><img src="/Public/img/new-index/scr-top.png" alt=""></a></li>
+        </ul>
+    </div>
+    <div id="findpwd_kuang" class="wjmima">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao">
+            <img src="__ROOT__/Public/img/wjmima_3.png" alt="">
+        </div>
+
+        <ul class="InputUl" style="margin-top:20px">
+            <?php if($find_pwd_third):?>
+            <li style="padding-top:20px;">用户名：<label><?php echo $find_pwdusername ?></label></li>
+            <?php else:?>
+            <li style="padding-top:20px;margin-left:-70px;"><?php echo $find_pwdusername ?></li>
+            <?php endif;?>
+            <li><input type="password" id="findpwdpassword" name="password" placeholder="请输入新密码" onkeydown="KeyDown(event);"></li>
+            <li><input type="password" id="findpwdrepassword" placeholder="再次输入新密码" onkeydown="KeyDown(event);"></li>
+
+            <p class="error2" style="display: none">两次密码输入不相符</p>
+        </ul>
+        <input class="mimaqueren1" type="button" value="确认" id="zhaomima">
+        <input type='hidden' value='__URL__/index' id='locationHref'>
+    </div>
+
+
+    <script type="text/javascript">
+
+        $(function() {
+            $("#zhaomima").attr("disabled", false);
+        })
+        $("#findpwdpassword,#findpwdrepassword").focus(function(){
+            $(this).css("color","#343434");
+        })
+        $("#zhaomima").click(function() {
+            var password = $("#findpwdpassword").val();
+            var repassword = $("#findpwdrepassword").val();
+
+            if (!password) {
+                $('.error2').html('请输入初始密码')
+                $('.error2').show();
+                return false;
+            }
+            if (password != repassword) {
+                $('.error2').html('两次输入密码不一致')
+                $('.error2').show();
+                return false;
+            }
+            $("#zhaomima").attr("disabled", "disabled");
+            $.post("__URL__/passwordsave", {
+                'password': password,
+                'repassword': repassword
+            }, function(data) {
+                if (data.code == 200) {
+                    $("#findpwd_kuang").hide();
+                    $(".mask").hide();
+//                    $(".mask1").hide();
+                    sys_window("重置成功","__URL__/index");
+//                    location.href = "__URL__/index";
+                    return false;
+                } else {
+                    $("#zhaohuimima").attr("disabled", false);
+                    $('.error2').html(data.msg)
+                    $('.error2').show();
+                    return false;
+                }
+            }, "json")
+        });
+        function KeyDown(e)
+        {
+            var a=e||window.event;
+            if (a.keyCode == 13)
+            {
+                $("#zhaomima").click();
+            }
+        }
+
+    </script>
+</body>
+</html>

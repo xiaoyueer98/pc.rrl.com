@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>我的被推荐人-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+
+
+        <div class="mask" id="mask"></div>
+    <include file="Public:zzwc"/>
+    <include file="Public:zzyz"/>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="recom1 data recom2">
+                <div class="recom1_tp">
+                    <h3>被推荐人<a href="{:U('Login/ModifyRencom')}"><i><img src="__ROOT__/Public/img/pd_icon5.png" alt=""></i>增加</a></h3>
+                    <div class="tab tck" >
+                        <table  border="1"  class="data_list">
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>在职状态</th>
+                                <!-- <th>面试状态</th>  -->
+                                <th>手机</th> 
+                                <!--	<th>职位</th>  -->
+                                <th>操作</th>
+                            </tr>
+                            <volist name="list['arResumeList']" id="job">
+                                <tr class="bg" id="del_{$job['id']}">
+                                    <td>{$job['sort_id']}</td>
+                                    <td>{$job['username']}</td>
+                                    <td>{$job['sex']}</td>
+                                    <td>{$job['state']}</td>
+                                    <!-- <td>{$job['audstart']}</td>  -->
+                                    <td>{$job['mobile']}</td>
+                                    <td><a href="__URL__/ModifyRencom/id/{$job['id']}.html"><span class="sp1"><img src="__ROOT__/Public/img/bg1.png" alt=""></span></a><a javascript="void(0)" onclick="isdel({$job['id']})"><span class="sp2"><img src="__ROOT__/Public/img/dle.png" alt=""></span></a></td>
+                                <input type="hidden" value="0" id="deleteid"/>
+                                </tr>
+                            </volist>
+                        </table>
+                    </div>
+
+　　				{$list.page}
+
+                    <div class="Pop-up">
+                        <input type="hidden" id="del">
+                        <h3>确定要删除此人简历吗？</h3>
+                        <input type="button" class="btnL delconfirm" value="确认" >
+                        <input type="button" class="btnR qxconfirm" value="取消">
+                    </div>
+                </div>
+                <div class="recoml_btm">
+                </div>
+
+            </div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+
+    <script type="text/javascript">
+        function edit(id)
+        {
+            var url = "__URL__/ModifyRencom&id=" + id;
+            $.ajax({
+                url: "__URL__/edit",
+                data: {"id": id},
+                type: "get",
+                success: function(ise)
+                {
+                    if (ise == "yi")
+                    {
+                        sys_window("正在推荐中,无法编辑");
+                    }
+                    else if (ise == "bianji")
+                    {
+                        location.href = url;
+                    }
+                }
+
+            })
+        }
+        function isdel(id)
+        {
+            // $("#mask").show();
+            $(".Pop-up").show();
+            $("#del").val(id);
+
+
+        }
+        $(".delconfirm").click(function() {
+            var id = $("#del").val();
+            $.ajax({
+                url: "__URL__/isdel",
+                data: {"id": id},
+                type: "get",
+                success: function(is)
+                {
+                    if (is == "isdel")
+                    {
+                        sys_window("正在推荐中,无法删除");
+                    } else {
+                        $("#del_" + id).hide();
+                        // $("#mask").hide();
+                        $(".Pop-up").hide();
+
+                    }
+                }
+
+            })
+        });
+        $(".qxconfirm").click(function() {
+            $(".Pop-up").hide();
+        });
+         /* 当鼠标移到表格上是，当前一行背景变色 */
+        $(document).ready(function() {
+            $(".data_list tr td").mouseover(function() {
+                $(this).parent().find("td").css("background-color", "#dad7d7");
+            });
+        })
+        /* 当鼠标在表格上移动时，离开的那一行背景恢复 */
+        $(document).ready(function() {
+            $(".data_list tr td").mouseout(function() {
+                var bgc = $(this).parent().attr("bg");
+                $(this).parent().find("td").css("background-color", bgc);
+            });
+        })
+
+        $(document).ready(function() {
+            var color = "#f0f0f0"
+            $(".data_list tr:odd td").css("background-color", color);  //改变偶数行背景色
+            /* 把背景色保存到属性中 */
+            $(".data_list tr:odd").attr("bg", color);
+            $(".data_list tr:even").attr("bg", "#fff");
+        })
+    </script>
+</body>
+
+</html>

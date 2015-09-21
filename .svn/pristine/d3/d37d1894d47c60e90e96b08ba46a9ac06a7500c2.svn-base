@@ -1,0 +1,166 @@
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+	margin:0;
+	padding:0
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%
+}
+address,cite,dfn,em,var {
+	font-style:normal
+}
+code,kbd,pre,samp {
+	font-family:courier new,courier,monospace
+}
+small {
+	font-size:12px
+}
+ol,ul {
+	list-style:none
+}
+a {
+	text-decoration:none
+}
+a:hover {
+	text-decoration:underline
+}
+sup {
+	vertical-align:text-top
+}
+sub {
+	vertical-align:text-bottom
+}
+legend {
+	color:#000
+}
+fieldset,img {
+	border:0
+}
+button,input,select,textarea {
+	font-size:100%
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+
+html:root .promo .promo-nav,
+html:root .promo .promo-opt .next,
+html:root .promo .promo-opt .next:hover,
+html:root .promo .promo-opt .prev,
+html:root .promo .promo-opt .prev:hover {
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#00000000',EndColorStr='#00000000')
+}
+
+.promo {
+	position:relative;
+	width:610px;
+	height:280px;
+	overflow:hidden;
+	*zoom:1;
+	float: left;
+}
+.promo-bd {
+	position: relative;
+}
+.promo-bd div {
+	height: 280px;
+}
+.promo-bd div div {
+	float: left;
+}
+.promo .promo-bd {
+	position:relative
+}
+.promo .promo-bd .mod {
+	width:610px;
+	height:280px;
+	overflow:hidden;
+	*zoom:1
+}
+.promo .promo-bd .mod img {
+	display:block
+}
+.promo .promo-ft .promo-opt {
+	display: none;
+}
+.promo .promo-ft .promo-opt a {
+	display:block;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	*zoom:1;
+	position:absolute;
+	top:120px;
+	width:40px;
+	color:#fff;
+	background-color:rgba(0,0,0,.3);
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#4C000000',EndColorStr='#4C000000')
+}
+.promo .promo-ft .promo-opt a:hover {
+	background-color:rgba(0,0,0,.6);
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#99000000',EndColorStr='#99000000')
+}
+.promo .promo-ft .promo-opt a i {
+	display:block;
+	margin:8px 0 0 12px;
+	cursor:pointer;
+	width:15px;
+	height:23px;
+	overflow:hidden;
+	*zoom:1;
+	background: url(http://gtms01.alicdn.com/tps/i1/T1iG48FDpfXXX8QSDI-400-340.png);
+}
+.promo .promo-ft .promo-opt .prev {
+	left:5px
+}
+.promo .promo-ft .promo-opt .prev i {
+	background-position:-200px 0
+}
+.promo .promo-ft .promo-opt .next {
+	right:5px
+}
+.promo .promo-ft .promo-opt .next i {
+	background-position:-200px -24px
+}
+.promo .promo-ft .promo-nav {
+	position:absolute;
+	bottom:15px;
+	left:290px;
+	height:13px;
+	text-align:center;
+	font-size:0;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	-ms-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+	background:rgba(255,255,255,.3);
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#4CFFFFFF',EndColorStr='#4CFFFFFF')
+}
+.promo .promo-ft .promo-nav li {
+	display:-moz-inline-stack;
+	display:inline-block;
+	vertical-align:middle;
+	*vertical-align:auto;
+	zoom:1;
+	*display:inline;
+	margin:2px
+}
+.promo .promo-ft .promo-nav li a {
+	display:block;
+	padding-top:9px;
+	width:9px;
+	height:0;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-ms-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+	background:#b7b7b7;
+	overflow:hidden;
+	*zoom:1
+}
+.promo .promo-ft .promo-nav .selected a {
+	background:#f40
+}

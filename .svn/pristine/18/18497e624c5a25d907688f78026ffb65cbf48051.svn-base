@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>推荐职位-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/record-common.js"></script>
+    </head>
+    <body>
+
+        <div class="mask" id='mask'></div>
+    <include file="Public:newHeader"/>
+
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <a href="/Home/Login/index.html">
+                <div class="m1-l fl-lef">
+                    <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                    <span>推荐人用户中心</span>
+                    <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                </div>
+            </a>    
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:record_menu_left"/>
+            <div class="m2-r fl-rig">
+                <div class="recommend-candidates2" style="display:block">
+
+                    <div class="new-step2 clearfix">
+                        <div class="st1">
+                            <b class="m">1</b>
+                            <span class="m">选择职位：</span>
+                            <em class="m">{$jobInfo['title']}</em>
+                        </div>
+                        <div class="st2 m">
+                            <b class="m">2</b>
+                            <span class="m">选择候选人 : </span>
+                            <em class="m">简历列表</em>
+                        </div>
+                        <div class="st3">
+                            <b class="">3</b>
+                            <span class=""> 确认推荐：</span>
+                            <em class=""></em>
+                        </div>
+                    </div>
+
+
+                    <div class="option-btn2">
+                        <div class="public l fl-lef m">
+                            <span class="m">没有符合选定职位的候选人简历</span>
+                            <em class="m"><a href="/Home/Login/addResume.html">添加候选人简历</a></em>
+                        </div>
+                        <div class="c">or</div>
+                        <div class="public r fl-rig">
+                            <span>有符合选定职位的候选人简历</span>
+                            <em><a href="javascript:;">进入候选人简历列表</a></em>
+                        </div>
+                    </div>
+                    <form action="__URL__/RecommendTheCandidate3" method="post" id='submitForm'>
+                        <input type="hidden" name="comid" value="<php>echo $_GET['comid'];</php>">
+                        <input type="hidden" name="position" value="<php>echo $_GET['position'];</php>">
+                        <input type="hidden" name="jobid" value="<php>echo $_GET['jobid'];</php>">
+                        <input type="hidden" name="audstarttime">
+                        <div class="table-list">
+                            <table class="data_list">
+                                <thead>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>状态</th>
+                                <th>手机</th>
+                                <th>选择</th>
+                                </thead>
+                                <tbody>
+                                <volist name="resumelist" id="vo">
+                                    <tr>
+                                        <td  class="wh45 wk">{$vo.sort_id}</td>
+                                        <td  class="wh210 wk">{$vo.username}</td>
+                                        <td class="wh86 wk"><if condition="$vo.sex eq 1">女<else/>男</if></td>
+                                    <td class="wh161 wk">{$vo.state}</td>
+                                    <td class="wh122 wk">{$vo.mobile}</td>
+                                    <td class="wh52 wk "><input type="Radio" name="id[]" id="id[]" value="{$vo.id}" fname="{$vo.username}"  {$vo.isRecord}  class="checkbox {$vo.limit}" ></td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                            <?php echo $page;?>
+
+                        </div>
+                        <div class="recoml_btm">
+                            <input type="button" class="button1 hover-hand" value="立即推荐" onclick = "checkSelectInfo({$jobid});"/>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="eject undis" id='hxrmssj'>
+        <div class="eject-t">
+            <div class="new-step2 clearfix">
+                <div class="st1">
+                    <b class="m">1</b>
+                    <span class="m">选择职位：</span>
+                    <em class="m">{$jobInfo['title']}</em>
+                </div>
+                <div class="st2 m">
+                    <b class="m">2</b>
+                    <span class="m">选择候选人 : </span>
+                    <em class="m"  id="jllbname">简历列表</em>
+                </div>
+                <div class="st3">
+                    <b class="">3</b>
+                    <span class=""> 确认推荐：</span>
+                    <em class=""></em>
+                </div>
+            </div>
+
+        </div>
+        <div class="content">
+            <div class="clearfix">
+                <em class="dis-block dis-inlin fl-lef">候选人面试时间</em>
+                <input class="dis-block dis-inlin fl-lef" type="text" id="audstarttime">
+            </div>
+            <p>（例如：3月5日全天或3月6日下午，3月5日-7日下午5点以后）</p>
+        </div>
+
+        <div class="clearfix ero" id="bankError" style="display: block;">
+            <b class="fl-lef dis-block dis-inlin" style="margin-left:105px;">温馨提示:</b>
+            <span class="fl-lef dis-block dis-inlin clearfix" style="height:auto">
+                <i class="fl-lef dis-block dis-inlin"></i>
+                <span class="fl-lef dis-block dis-inlin wk" style="width:500px;height:auto;line-height:20px;">向企业推荐候选人之前，必须同候选人进行沟通。一旦发现“盲目提交”（未经过候选人同意即提交职位候选人）遭到客户投诉，人人猎将终止你的推荐人用户资格。</span>
+            </span>
+            <span class="btn-l btn m hover-hand dis-block dis-inlin" id='querentuijian'>确认推荐</span>
+            <span class="btn-r btn hover-hand dis-block dis-inlin" id='zaigoutongyixia'>再沟通一下</span>
+        </div>
+    </div>
+    <input type="hidden" value="{$count}" id="bt_count">
+    <include file="Public:newFooter"/>
+    <script type="text/javascript">
+        /* 当鼠标移到表格上是，当前一行背景变色 */
+        $(document).ready(function() {
+            $(".data_list tr td").mouseover(function() {
+                $(this).parent().find("td").css("background-color", "#eee");
+            });
+        })
+        /* 当鼠标在表格上移动时，离开的那一行背景恢复 */
+        $(document).ready(function() {
+            $(".data_list tr td").mouseout(function() {
+                var bgc = $(this).parent().attr("bg");
+                $(this).parent().find("td").css("background-color", bgc);
+            });
+        })
+
+        $(document).ready(function() {
+            var color = "#fafafa"
+            $(".data_list tr:odd td").css("background-color", color);  //改变偶数行背景色
+            /* 把背景色保存到属性中 */
+            $(".data_list tr:odd").attr("bg", color);
+            $(".data_list tr:even").attr("bg", "#fff");
+        })
+        $(function() {
+            var bt_count = $("#bt_count").val();
+            if (bt_count == 0) {
+                sys_window("暂无候选人，请增加简历后再推荐该职位！", "/Home/login/ModifyRencom/addtype/1.html");
+                return false;
+            }
+        })
+
+        function checkSelectInfo(jid) {
+            var selectNum = 0;
+            var username = '';
+            $('input[name="id[]"]:checked').each(function() {
+                username = $(this).attr("fname");
+                selectNum = selectNum + 1;
+            });
+            var isSelectNum = 0
+            $('.disabled').each(function() {
+                isSelectNum = isSelectNum + 1;
+            })
+            if (selectNum == 0) {
+                sys_window("请选择您要推荐的人");
+                return false;
+            }
+            if (selectNum > 3) {
+                sys_window("每次推荐的人员不能超过3个");
+                return false;
+            }
+            if (isSelectNum == 10) {
+                sys_window("每个企业发布的招聘，您只能推荐十个人哦");
+                return false;
+            }
+            $.post("/Home/Login/checkSelectUser.html", {
+                'jid': jid
+            }, function(data) {
+                if (data >= 10) {
+                    sys_window("每个企业发布的招聘，您只能推荐十个人哦");
+                } else {
+                    $("#jllbname").html(username);
+                    $("#mask").show();
+                    $("#hxrmssj").show();
+                }
+            }, "json")
+
+
+        }
+
+        $(function() {
+            $("#zaigoutongyixia").click(function() {
+                $("#mask").hide();
+                $("#hxrmssj").hide();
+            });
+            $("#querentuijian").click(function() {
+                var audstarttime = $("#audstarttime").val();
+                if (!audstarttime) {
+                    sys_window("请输入候选人面试时间");
+                    return false;
+                } else {
+                    $("input[name='audstarttime']").val(audstarttime);
+                }
+                $("#submitForm").submit();
+            });
+            //如果已经推荐给该职位
+            $(".disabled").click(function() {
+                this.checked = false;
+                sys_window("该候选人已经推荐给该职位");
+
+            })
+            //如果选择推荐给过这家公司的候选人
+            $(".isthiscompany").click(function() {
+                this.checked = false;
+                sys_window("同一个候选人只能推荐给该公司的一个职位");
+
+            })
+            //如果选择已经推荐给过3家公司的候选人
+            $(".isthreecompany").click(function() {
+                this.checked = false;
+                sys_window("同一个候选人同时只能给3个企业");
+            })
+        })
+    </script>
+</body>
+
+</html>

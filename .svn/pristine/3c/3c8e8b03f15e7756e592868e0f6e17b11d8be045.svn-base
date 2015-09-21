@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>个人中心-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-company.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/lanrenzhijia.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/company.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/laydate.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/new-company-common.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/Public/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/Public/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+    </head>
+    <body>
+        <div class="mask" id="mask"></div>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="ms1 clearfix">
+            <div class="m1-l fl-lef">
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                <span>企业用户中心</span>
+                <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+            </div>
+            <div class="m1-r fl-rig">
+                <span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+                <div class="search dis-inlin fl-lef">
+                    <input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+                    <span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+                        <img src="/Public/img/new-index/position-btn.png">                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ms2 clearfix">
+            <include file="Public:company_menu_left"/>
+            <div class="m2-r fl-rig">
+                <ul class="nav nav2">
+                    <li class="m first dis-block dis-inlin fl-lef"><a class="m">基本信息</a></li>
+                    <li class="first dis-block dis-inlin fl-lef"><a class="back-none">安全设置</a></li>
+                </ul>
+                <div class="box-1">
+                    <div class="add-resume save_base_info undis">
+                        <div class="public upload-resume" style="display:block;position:relative">
+                            <form action="{:U('Company/saveCompanyBaseInfo')}" id="submitBaseInfo"  name= "submitBaseInfo" method = 'post'  enctype="multipart/form-data">
+                                <h3>个人信息</h3>
+                                <ul>
+                                    <li class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">公司名称</em>
+                                        <input placeholder="请输入公司名称" class="input dis-block dis-inlin fl-lef" type="text" name="cpname" value='<?php echo $arCompanyInfo["cpname"];?>'>
+                                    </li>
+                                    <li  class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">
+                                            公司性质
+                                        </em>
+                                        <span class="dis-block dis-inlin fl-lef">
+
+                                            <select id="nature" name="nature"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+                                                <option value="请选择" <?php if($arCompanyInfo['nature'] == "-1"):?>selected=selected<?php endif;?>>请选择公司性质</option>
+                                                <?php foreach($arNatureList as $natureList):?>
+                                                <option value="<?php echo $natureList['datavalue'];?>" <?php if($arCompanyInfo['nature'] == $natureList['datavalue']):?>selected=selected<?php endif;?>><?php echo $natureList['dataname'];?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </span>
+                                    </li>
+                                    <li  class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">
+                                            公司规模
+                                        </em>
+                                        <span class="dis-block dis-inlin fl-lef">
+
+                                            <select id="scale" name="scale"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+                                                <option value="请选择" <?php if($arCompanyInfo['scale'] == "-1"):?>selected=selected<?php endif;?>>请选择公司规模</option>
+                                                <?php foreach($arScaleList as $ScaleList):?>
+                                                <option value="<?php echo $ScaleList['datavalue'];?>"  <?php if($arCompanyInfo['scale'] == $ScaleList['datavalue']):?>selected=selected<?php endif;?>><?php echo $ScaleList['dataname'];?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </span>
+                                    </li>
+                                    <li  class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">
+                                            公司阶段
+                                        </em>
+                                        <span class="dis-block dis-inlin fl-lef">
+
+                                            <select id="stage" name="stage"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+                                                <option value="请选择" <?php if($arCompanyInfo['stage'] == "-1"):?>selected=selected<?php endif;?>>请选择公司阶段</option>
+                                                <?php foreach($arStageList as $StageList):?>
+                                                <option value="<?php echo $StageList['datavalue'];?>"  <?php if($arCompanyInfo['stage'] == $StageList['datavalue']):?>selected=selected<?php endif;?>><?php echo $StageList['dataname'];?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </span>
+                                    </li>
+
+
+                                    <li class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">成立日期</em>
+                                        <input placeholder="请选择成立日期" id="laydate1" class="input dis-block dis-inlin fl-lef" type="text" name="brightregdata" value='<?php echo $arCompanyInfo[brightregdata]?$arCompanyInfo[brightregdata]:"";?>' readonly="true">
+                                    </li>
+                                    <li class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">公司网址</em>
+                                        <input placeholder="请输入公司网址" class="input dis-block dis-inlin fl-lef" type="text" name="webname" value='<?php echo $arCompanyInfo[webname]?$arCompanyInfo[webname]:"";?>'>
+                                    </li>
+                                </ul>
+                                <h3 style="margin-top:40px;">营业执照</h3>
+                                <ul class="icense">
+                                    <div id="preview2"  style="padding: 0px;<?php if(!$arCompanyInfo['licence']):?>display: none<?php endif;?>">   
+                                        <dt><img id="imghead2"  width=100% height=100% border=0 <?php if($arCompanyInfo['licence']):?>src="<?php echo $arCompanyInfo['licence'];?>"<?php endif;?>>   </dt>
+                                    </div> 
+                                    <?php if($arCompanyInfo['checklicence'] =="1"):?>
+                                    <li class="clearfix myicense" style="position:relative">
+                                        <em class="dis-block dis-inlin fl-lef"></em>
+                                        <span class="myspan dis-inlin dis-block fl-lef">已通过审核</span>
+
+                                    </li>
+                                    <?php else:?>
+                                    <li class="clearfix myicense" style="position:relative">
+                                        <em class="dis-block dis-inlin fl-lef"></em>
+                                        <span class="myspan dis-inlin dis-block fl-lef">上传公司营业执照</span>
+                                        <input class="hover-hand" type="file" tabindex="8" name="licence" onchange="previewImage2(this), 'avatar'">
+                                    </li>
+                                    <?php endif;?>
+                                </ul>
+
+                                <h3 style="margin-top:40px;">公司简介</h3>
+                                <div class="recmd-reason">
+                                    <script id="editor1" type="text/plain" style="width:576px;height:300px;margin-top:10px;margin-left: 100px;" name="intro"><?php echo $arCompanyInfo[intro];?></script>
+                                </div>
+
+                                <h3 style="margin-top:40px;">公司亮点</h3>
+                                <div class="recmd-reason">
+                                    <script id="editor2" type="text/plain" style="width:576px;height:300px;margin-top:10px;margin-left: 100px;" name="bright"><?php echo $arCompanyInfo[bright];?></script>
+                                </div>
+                                <h3 style="margin-top:40px;">联系我们</h3>
+                                <ul>
+                                    <li class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">办公地址</em>
+                                        <input placeholder="请输入办公地址" class="input dis-block dis-inlin fl-lef" type="text" name="address" value='<?php echo $arCompanyInfo[address]?$arCompanyInfo[address]:"";?>'>
+                                    </li>
+                                    <li class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">联系人</em>
+                                        <input placeholder="请输入联系人" class="input dis-block dis-inlin fl-lef" type="text" name="cnname" value='<?php echo $arCompanyInfo[cnname]?$arCompanyInfo[cnname]:"";?>'>
+                                    </li>
+                                    <li class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">座机</em>
+                                        <input placeholder="请输入座机" class="input dis-block dis-inlin fl-lef" type="text" name="telephone" value='<?php echo $arCompanyInfo[telephone]?$arCompanyInfo[telephone]:"";?>'>
+                                    </li>
+                                    <input type="hidden" value="{$arCompanyInfo['mobile']}" id="mobilemobile">
+                                    <if condition="$arCompanyInfo[mobile]">
+                                        <li><em class="dis-block dis-inlin fl-lef back-none">手机 </em>
+                                            <input type="text"  class="input dis-block dis-inlin fl-lef" id="mobile" name="mobile" value="{$arCompanyInfo['mobile']}" disabled="disabled"/>
+                                            <input class="Enterxg cur_point" type="button" value="修改" style="width: 80px;background: none repeat scroll 0 0 #2380b8;color: #fff;height: 34px" id="change_telehone"></li>
+                                    </if>
+                                    <if condition="!$arCompanyInfo[mobile]">
+                                        <li>
+                                            <em class="dis-block dis-inlin fl-lef back-none">手机 </em>
+                                            <input type="text" id="mobile" name="mobile" class="input dis-block dis-inlin fl-lef" value="{$arCompanyInfo['mobile']}" />
+                                            <input class="Enterxg cur_point" type="button" value="手机验证" style="width: 80px;background: none repeat scroll 0 0 #2380b8;color: #fff;height: 34px" id="ccheck_telehone"></li>
+                                    </if>
+
+
+                                    <li class="clearfix">
+                                        <em class="dis-block dis-inlin fl-lef back-none">邮箱</em>
+                                        <input placeholder="请输入邮箱" class="input dis-block dis-inlin fl-lef" type="text" name="email" value='<?php echo $arCompanyInfo[email]?$arCompanyInfo[email]:"";?>'>
+                                    </li>
+                                </ul>
+
+                                <dl class="photo">
+                                    <dt style="overflow:hidden;border-radius:120px;">
+                                    <div id="preview"  style="height:100%;width: 100%;padding: 0px;<?php if(!$arCompanyInfo['comlogo']):?>display: none<?php endif;?>">  
+                                        <img id="imghead"  width=100% height=100% border=0 <?php if($arCompanyInfo['comlogo']):?>src="<?php echo $arCompanyInfo['comlogo'];?>"<?php endif;?>>
+                                    </div>   
+                                    </dt>
+                                    <?php if($arCompanyInfo['checklogo'] =="1"):?>
+
+                                    <?php else:?>
+                                    <dd>企业LOGO</dd>
+                                    <input type="file" class="hover-hand" tabindex="16" onchange="previewImage(this), 'avatar'" name="comlogo">
+                                    <?php endif;?>
+
+
+                                </dl>
+                                <p style="margin-left:103px;margin-top:20px;" class="error update_base_error undis">错误</p>
+                                <button class="btn btn1 save_base_btn my-btn">保存</button>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="add-resume update_base_info">
+                        <div class="public upload-resume" style="display:block;position:relative">
+                            <h3>个人信息</h3>
+                            <ul>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">公司名称</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['cpname']?$arCompanyInfo['cpname']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">公司性质</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['naturedata']?$arCompanyInfo['naturedata']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">公司规模</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['scaledata']?$arCompanyInfo['scaledata']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none"> 公司阶段</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['stagedata']?$arCompanyInfo['stagedata']:"暂未填写";?></span>
+                                </li>
+
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">成立日期</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['brightregdata']?$arCompanyInfo['brightregdata']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">公司网址</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['webname']?$arCompanyInfo['webname']:"暂未填写";?></span>
+                                </li>
+                            </ul>
+                            <h3 style="margin-top:40px;">营业执照</h3>
+                            <ul class="icense">
+                                <li class="clearfix myicense" style="height:auto;">
+                                    
+                                       <?php if($arCompanyInfo['licence']):?>
+                                         <em style="background:none!important;"></em>
+                                   
+                                         <span class="license-img dis-inlin dis-block fl-lef" style="margin-left: 75px;">
+                                        <img src="<?php echo $arCompanyInfo['licence'];?>" >
+                                        </span>
+                                        <?php else:?>
+                                       <em class="dis-block dis-inlin fl-lef"></em>
+                                    
+                                        <i style="font-size: 16px;">暂未上传</i>
+                                        <?php endif;?>
+                                    
+                                </li>
+                            </ul>
+                            <div class="biaoqian clearfix">
+                                <h3 class="fl-lef dis-block dis-inlin">公司简介</h3>
+                                <div class="recmd-reason">
+                                    <span class="jianjie-dis">
+                                        <?php if($arCompanyInfo['intro']):?>
+                                        <?php echo $arCompanyInfo['intro'];?>
+                                        <?php else:?>
+                                        暂未填写
+                                        <?php endif;?>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="biaoqian clearfix">
+                                <h3 class="fl-lef dis-block dis-inlin">公司亮点</h3>
+                                <div class="recmd-reason">
+                                    <span class="jianjie-dis">
+                                        <?php if($arCompanyInfo['bright']):?>
+                                        <?php echo $arCompanyInfo['bright'];?>
+                                        <?php else:?>
+                                        暂未填写
+                                        <?php endif;?>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 style="margin-top:40px;">联系我们</h3>
+                            <ul>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">办公地址</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['address']?$arCompanyInfo['address']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">联系人</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['cnname']?$arCompanyInfo['cnname']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">座机</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['telephone']?$arCompanyInfo['telephone']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">手机</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['mobile']?$arCompanyInfo['mobile']:"暂未填写";?></span>
+                                </li>
+                                <li class="clearfix">
+                                    <em class="dis-block dis-inlin fl-lef back-none">邮箱</em>
+                                    <span class="infor-dis dis-block dis-inlin fl-lef"><?php echo $arCompanyInfo['email']?$arCompanyInfo['email']:"暂未填写";?></span>
+                                </li>
+                            </ul>
+                            <dl class="photo">
+                                
+                                <?php if($arCompanyInfo['comlogo']):?>
+                                <dt>
+                                <img src="<?php echo $arCompanyInfo['comlogo'];?>">
+                                 </dt>
+                                <?php else:?>
+                                  <dt>
+                                  </dt>
+                                <div style="font-size: 16px;margin-left: 50px;margin-top: 20px;">暂未上传</div>
+                                <?php endif;?>
+                               
+                            </dl>
+
+                            <button class="btn btn1  my-btn update_base_btn">修改</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="change-pswd undis">
+                    <h3>更改密码</h3>
+                    <ul>
+                        <li class="clearfix">
+                            <em class="dis-inlin dis-block fl-lef">原始密码：</em>
+                            <input placeholder="请输入原始密码" class="dis-inlin dis-block fl-lef" type="text" name="update-opassword">
+                        </li>
+                        <li class="clearfix">
+                            <em class="dis-inlin dis-block fl-lef">新密码：</em>
+                            <input placeholder="请输入新密码" class="dis-inlin dis-block fl-lef" type="text"  name="update-password">
+                        </li>
+                        <li class="clearfix">
+                            <em class="dis-inlin dis-block fl-lef">重复密码：</em>
+                            <input placeholder="请再次输入新密码" class="dis-inlin dis-block fl-lef" type="text" name="update-repassword">
+                        </li>
+                        <p style="margin-left:95px;margin-top:10px;" class="error update-pwd-error undis">错误</p>
+                        <div style="margin: 20px;">
+                        <button id="passwordUpdate" class="btn btn1 my-btn">修改</button>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="change_telehone_step1" class="wjmima openWind" style="display: none">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao">
+            <img src="__ROOT__/Public/img/replace_phone1.png" alt="">
+        </div>
+        <ul class="InputUl">
+            <li><em>更换手机号码：</em><i>{$arCompanyInfo['mobile']}</i></li>
+            <li><button class='btn'  id="change_telehone_code_step1">免费获取验证码</button><label class="vfit_btn2"  style="display: none" id="change_telehone_time_step1"><i>60</i>秒后重新获取</label></li>
+            <li><input type="text" style="width:107px;" id="change_telehone_ccode_step1"><input class="phone_btn" type="button" value="下一步" id="change_telehone_btn_step1"></li>
+            <li id="change_error" class="undis"><p style="padding-left: 21px"></p></li>
+        </ul>
+    </div>
+    <div id="change_telehone_step2" class="wjmima openWind" style="display: none">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao">
+            <img src="__ROOT__/Public/img/replace_phone2.png" alt="">
+        </div>
+
+        <ul class="InputUl">
+            <li><em class="myem">新手机号码：</em><input class="myinput"  type="text" id="change_telehone_telephone_step2"><button class='btn' id="change_telehone_code_step2">获取短信验证码</button><label class="vfit_btn2"  style="display: none" id="change_telehone_time_step2"><i>60</i>秒后重新获取</label></li>
+
+            <li><em class="myem">输入验证码：</em><input type="text" style="width:109px;" id="change_telehone_ccode_step2"><input class="phone_btn" type="button" value="下一步"  id="change_telehone_btn_step2"></li>
+            <li id="change_error2"><p style="padding-left: 21px"></p></li>
+        </ul>
+
+    </div>
+    <div id="change_telehone_step3" class="wjmima openWind" style="display: none">
+        <a class="Close"></a>
+        <h3></h3>
+        <div class="jindutiao">
+            <img src="__ROOT__/Public/img/replace_phone3.png" alt="">
+        </div>
+        <ul class="InputUl">
+            <li><h4>恭喜您手机验证成功</h4></li>
+            <li><button class="end">完成</button></li>
+        </ul>
+    </div>
+    <div id="regtelephone" class="denglu yzsj openWind" style="display:none">
+        <a class="Close"></a>
+        <h4>验证手机</h4>
+        <ul class="jcid">
+            <li><div id="telephoneCheck">您的手机号码是：</div></li>
+            <li  style="text-align: center;">
+                <button class='btn cur_point' id="getcheckCode" style="background: none repeat scroll 0 0 #2380b8;border: medium none;border-radius: 5px;color: #ffffff;font-size: 14px;font-weight: bold; height: 30px;width: 174px;text-align: center;">获取短信验证码</button><label class="vfit_btn2"  style="display: none" id="codetimes"><i>60</i>秒后重新获取</label>
+
+            </li>
+            <li><div><em>验证码：</em><input class="inpu1" type="text" id="code"><i class="error3" style="display:none;">不能为空</i></div></li>
+            <li><div><input type="button" class="butonqr cur_point" value="确认" id="checkbtn"></div></li>
+        </ul>
+        <input type="hidden" id="isFinshed">
+    </div>
+    <include file="Public:newFooter"/>
+    <script>
+        $(document).ready(function() {
+            $(".mySelect3").styleSelect({styleClass: "selectFruits", optionsWidth: 1, speed: 'fast'});
+            $(".down-menu").styleSelect({styleClass: "selectDark"});
+        });
+        var ue1 = UE.getEditor('editor1');
+        var ue2 = UE.getEditor('editor2');
+
+        var list = $(".m2-r .nav li");
+        list.eq(0).click(function() {
+            $(".box-1").show();
+            $(".change-pswd").hide();
+            $(this).addClass("m");
+            $(this).siblings().removeClass("m");
+            $(this).find("a").addClass("m");
+            $(this).siblings().find("a").removeClass("m");
+        })
+        list.eq(1).click(function() {
+            $(".box-1").hide();
+            $(".change-pswd").show();
+            $(this).addClass("m");
+            $(this).siblings().removeClass("m");
+            $(this).find("a").addClass("m");
+            $(this).siblings().find("a").removeClass("m");
+        })
+
+        $(".update_base_btn").click(function() {
+            $(".update_base_info").hide();
+            $(".save_base_info").show();
+        });
+        $(".save_base_btn").click(function() {
+            $(".update_base_error").hide();
+            var cpname = $("input[name='cpname']").val();
+            var nature = $("#nature").val();
+            var scale = $("#scale").val();
+            var stage = $("#stage").val();
+            var brightregdata = $("input[name='brightregdata']").val();
+            var webname = $("input[name='webname']").val();
+            var licence = $("input[name='licence']").val();
+            var intro = ue1.getContentTxt();
+            var bright = ue2.getContentTxt();
+            var address = $("input[name='address']").val();
+            var cnname = $("input[name='cnname']").val();
+            var telephone = $("input[name='telephone']").val();
+            var email = $("input[name='email']").val();
+            if (!cpname) {
+                $(".update_base_error").html("请输入公司名称");
+                $(".update_base_error").show();
+                $("input[name='cpname']").focus();
+                return false;
+            }
+            if (cpname.length > 50) {
+                $(".update_base_error").html("公司名称过长");
+                $(".update_base_error").show();
+                $("input[name='cpname']").focus();
+                return false;
+            }
+            if (!nature || nature == "请选择") {
+                $(".update_base_error").html("请选择公司性质");
+                $(".update_base_error").show();
+                return false;
+            }
+            if (!scale || scale == "请选择") {
+                $(".update_base_error").html("请选择公司规模");
+                $(".update_base_error").show();
+                return false;
+            }
+            if (!stage || stage == "请选择") {
+                $(".update_base_error").html("请选择公司阶段");
+                $(".update_base_error").show();
+                return false;
+            }
+            if (!brightregdata) {
+                $(".update_base_error").html("请选择公司成立日期");
+                $(".update_base_error").show();
+                $("input[name='brightregdata']").focus();
+                return false;
+            }
+            if (!webname) {
+                $(".update_base_error").html("请输入公司网址");
+                $(".update_base_error").show();
+                $("input[name='webname']").focus();
+                return false;
+            }
+            /*
+             if (!licence) {
+             $(".update_base_error").html("请选择公司营业执照");
+             $(".update_base_error").show();
+             return false;
+             }
+             */
+            if (!intro) {
+                $(".update_base_error").html("请输入公司介绍");
+                $(".update_base_error").show();
+                return false;
+            }
+            if (!bright) {
+                $(".update_base_error").html("请输入公司亮点");
+                $(".update_base_error").show();
+
+                return false;
+            }
+            if (!address) {
+                $(".update_base_error").html("请输入公司办公地址");
+                $(".update_base_error").show();
+                $("input[name='address']").focus();
+                return false;
+            }
+            if (!cnname) {
+                $(".update_base_error").html("请输入联系人");
+                $(".update_base_error").show();
+                $("input[name='cnname']").focus();
+                return false;
+            }
+            if (!email) {
+                $(".update_base_error").html("请输入邮箱地址");
+                $(".update_base_error").show();
+                $("input[name='email']").focus();
+                return false;
+            }
+            $.post("/Home/Company/changeUserEmail.html", {"email":email}, function(data) {
+                if (data.code != "500") {
+                        $("#submitBaseInfo").submit();
+                } else {
+                    $(".update_base_error").html(data.msg);
+                    $(".update_base_error").show();
+                    return false;
+                }
+            }, "json")
+            return false;
+        });
+
+        $("#passwordUpdate").click(function() {
+            var opassword = $("input[name='update-opassword']").val();
+            var password = $("input[name='update-password']").val();
+            var repassword = $("input[name='update-repassword']").val();
+            if (!opassword) {
+                $("input[name='update-opassword']").focus();
+                $(".update-pwd-error").html("请输入原始密码");
+                $(".update-pwd-error").show();
+                return false;
+            }
+            if (password != repassword) {
+                $(".update-pwd-error").html("两次输入不一致");
+                $(".update-pwd-error").show();
+                return false;
+            }
+            if (!password || password == "请输入密码") {
+                $("input[name='update-password']").focus();
+                $(".update-pwd-error").html("密码不能为空");
+                $(".update-pwd-error").show();
+                return false;
+            }
+
+            if (password.length == 0)
+            {
+                $("input[name='update-password']").focus();
+                $(".update-pwd-error").html("密码不能为空");
+                $(".update-pwd-error").show();
+                return false;
+            }
+            else if (password.length < 6 || password.length > 16)
+            {
+                $("input[name='update-password']").focus();
+                $(".update-pwd-error").html("密码应为6-16个字符之间");
+                $(".update-pwd-error").show();
+                return false;
+            }
+            else
+            {
+                var preg = /[`,，。;；'"‘’“” \u4e00-\u9fa5　]+/;
+                if (preg.test(password))
+                {
+                    $("input[name='update-password']").focus();
+                    $(".update-pwd-error").html("密码不能含有特殊字符");
+                    $(".update-pwd-error").show();
+                    return false;
+                }
+                else
+                {
+                    //验证密码复杂度
+                    var preg1 = /^[0-9]{6,}$/;
+                    var preg2 = /^[a-zA-Z]{6,}$/;
+                    if (preg1.test(password) || preg2.test(password))
+                    {
+                        $("input[name='update-password']").focus();
+                        $(".update-pwd-error").html("密码不能是纯字母或纯数字");
+                        $(".update-pwd-error").show();
+                        return false;
+                    }
+                    else
+                    {
+                        $(".update-pwd-error").hide();
+                    }
+                }
+
+            }
+            $.post("/Home/Company/changePassword.html", {
+                'opassword': opassword,
+                'password': password
+            }, function(data) {
+                $(".update-pwd-error").html(data.msg);
+                $(".update-pwd-error").show();
+            }, "json")
+        });
+    </script>
+    <script type="text/javascript">
+        !function() {
+            laydate.skin('yahui');//切换皮肤，请查看skins下面皮肤库
+            laydate({elem: '#demo'});//绑定元素
+        }();
+        laydate({
+            elem: '#laydate1',
+            format: 'YYYY-MM-DD',
+            festival: true, //显示节日
+            min: "1980-01-01", //-1代表昨天，-2代表前天，以此类推
+            max: laydate.now(), //+1代表明天，+2代表后天，以此类推
+            choose: function(datas) { //选择日期完毕的回调
+                //  alert('得到：' + datas);
+            }
+        });
+
+        $(".Close").click(function() {
+
+            $(".openWind").hide();
+            $(".mask").hide();
+        });
+
+    </script>
+</body>
+
+</html>

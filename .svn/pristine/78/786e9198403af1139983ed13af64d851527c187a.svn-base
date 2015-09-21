@@ -1,0 +1,83 @@
+body{
+	background: #6cc4ce
+}
+.wrapper{
+	background: #6cc4ce;
+}
+.header{
+	max-width: 1400px;
+	min-width: 1000px;
+	margin:0 auto;
+}
+.header img{
+	width: 100%;
+}
+.wrap{
+	max-width: 1400px;
+	min-width: 1000px;
+	margin:0 auto;
+}
+.wrap .con{
+	max-width: 1400px;
+	min-width: 1000px;
+	margin:0 auto;
+	background: url(../img/activity-img/sl-bg.png) repeat;
+	padding-top: 26px;
+	padding-bottom: 66px;
+	margin-bottom: 20px;
+}
+.wrap .con .m{
+	width: 960px;
+	height: 710px;
+	margin:0 auto;
+	position: relative;
+}
+.wrap .con .m .t{
+	width: 858px;
+	height: 240px;
+	background: url(../img/activity-img/sl-t.png) no-repeat;
+	background-size: 100% auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	font-size: 49px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 148px;
+	padding-left: 50px;
+}
+.wrap .con .m .b{
+	width: 920px;
+	height: 608px;
+	background: #c9c9c9;
+	position:absolute;
+	top: 115px;
+	left: 35px;
+	z-index: 2;
+}
+.wrap .con .m .b img{width: 100%;height: 100%;}
+.wrap .con .m span{
+	width: 235px;
+	height: 125px;
+	display: block;
+	background: url(../img/activity-img/icon.png) no-repeat center;
+	position: absolute;
+	top: 114px;
+	left: 12px;
+	z-index: 1;
+}
+
+
+
+
+/* -------------------------new-salon----------------------- */
+.new-salon1{
+	width: 1000px;
+	background: #fff;
+}
+.new-salon1 h2{
+	width: 385px;
+	height: 53px;
+	background: url(../img/activity-img/new-salon-ipc1.png) no-repeat center;
+}

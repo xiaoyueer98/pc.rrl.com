@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+    <head>
+        <meta charset="UTF-8">
+        <title>加入我们-人人猎</title>
+         <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <meta property="qc:admins" content="150127217762562564156375" />
+        <meta property="wb:webmaster" content="b6b76a15352cdde2" />
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="alexaVerifyID" content="VB4cVOEzvCsBEyKXNC4PQDYyV34"/>
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <meta name="application-name" content="人人猎首页"/>
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+    </head>
+    <body>
+    <!-- 遮罩层 -->
+    <div class="mask" id="mask"></div>
+    <div class="duqq" style="display:none;">
+        <a class="gb"></a>
+        <ul>
+            <li>登录</li>
+            <li style="width:10px;">|</li>
+            <li>注册</li>
+        </ul>
+        <span></span>
+    </div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:indexLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="joinus">
+            <div class="tp clearfix"><img src="__ROOT__/Public/img/joinus.png" alt=""></div>
+            <div class="ms">
+                <ul class="clearfix">
+                    <a href="{:U('Index/jobresponsibilities')}"><li>
+                        <p class="zw">线上新媒体推广</p>
+                        <p><span>薪资待遇：</span><span>7k-12k</span><span>北京</span></p>
+                    </li></a>
+                     <a href="{:U('Index/jobresponsibilities2')}"><li>
+                        <p class="zw">线下活动策划执行</p>
+                        <p><span>薪资待遇：</span><span>7k-12k</span><span>北京</span></p>
+                    </li></a>
+                    <a href="{:U('Index/jobresponsibilities3')}"><li>
+                        <p class="zw">高级UI设计师</p>
+                        <p><span>薪资待遇：</span><span>10k-15k</span><span>北京</span></p>
+                    </li></a>
+                </ul>
+            </div>
+            <div class="tp clearfix"><img src="__ROOT__/Public/img/joinus_bt.png" alt=""></div>
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+</body>
+<script type="text/javascript">
+    $('.mashangzhuce').on('click',function(){
+        $('#mask').show();
+        $('#conZhuce').slideDown();
+        $('.nav .navfirstLi').addClass('mover3').siblings().removeClass('mover3');
+        $('.nav .navlastLi input').val('0');
+        $('.nav .navlastLi input').val('1');
+        $('.zhuce dl dd .Grey').hide();
+        $('.zhuce dl dd .Sign').show();
+    });
+
+    $('.mashangzhuce2').on('click',function(){
+        $('#mask').show();
+        $('#conZhuce').slideDown();
+        $('.nav .navlastLi').addClass('mover3').siblings().removeClass('mover3');
+        $('.nav .navfirstLi input').val('1');
+        $('.nav .navlastLi input').val('0');
+        $('.zhuce dl dd .Sign').hide();
+        $('.zhuce dl dd .Grey').show();
+    });
+</script>
+</html>

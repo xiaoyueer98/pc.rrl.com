@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+	<title>推荐候选人第二步</title>
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+</head>
+<body>
+	<div class="eject" style="display:none">
+		<div class="eject-t">
+			<div class="step">
+				<div class="odiv1">
+					<span class="sp1">第一步</span>
+					<span>第二步</span>
+					<span>第三步</span>
+				</div>
+				<div class="odiv2">
+					<img src="/Public/img/rcmd-img/step4.png" alt="">
+				</div>
+				<div class="odiv3 clearfix">
+					<div class="fl-lef m">
+						<h5 class="m">选择要推荐的职位</h5>
+						<b class="m dis-block dis-inlin">运维工程师</b>
+					</div>
+					<span class="spn dis-inlin dis-inlin fl-lef m">我要推荐</span>
+					<div class="fl-lef m">
+						<h5 class="m">选择并推荐候选人</h5>
+						<b class="m dis-block dis-inlin">上传简历模式</b>
+					</div>
+					<span class="dis-inlin dis-inlin fl-lef m">立即推荐</span>
+					<div class="fl-lef last-div m">
+						<h5 class="m">确认推荐</h5>
+						<b class="dis-block dis-inlin m"></b>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="clearfix">
+				<em class="dis-block dis-inlin fl-lef">候选人面试时间</em>
+				<input class="dis-block dis-inlin fl-lef" type="text">
+			</div>
+			<p>（例如：3月5日全天或3月6日下午，3月5日-7日下午5点以后）</p>
+		</div>
+		<div class="clearfix ero" id="bankError" style="display: block;">
+            <b class="fl-lef dis-block dis-inlin" style="margin-left:105px;">温馨提示:</b>
+            <span class="fl-lef dis-block dis-inlin clearfix" style="height:auto">
+                <i class="fl-lef dis-block dis-inlin"></i>
+                <span class="fl-lef dis-block dis-inlin wk" style="width:500px;height:auto;line-height:20px;">向企业推荐候选人之前，必须同候选人进行沟通。一旦发现“盲目提交”（未经过候选人同意即提交职位候选人）遭到客户投诉，人人猎将终止你的推荐人用户资格。</span>
+            </span>
+        </div>
+		<span class="btn-l btn m hover-hand dis-block dis-inlin">确认推荐</span>
+		<span class="btn-r btn hover-hand dis-block dis-inlin">再沟通一下</span>
+	</div>
+	<div class="eject recomend-success" style="display:block">
+		<div class="content">
+			<div class="eject-t">
+				<div class="step">
+					<div class="odiv1">
+						<span class="sp1">第一步</span>
+						<span>第二步</span>
+						<span>第三步</span>
+					</div>
+					<div class="odiv2">
+						<img src="/Public/img/rcmd-img/step4.png" alt="">
+					</div>
+					<div class="odiv3 clearfix">
+						<div class="fl-lef m">
+							<h5 class="m">选择要推荐的职位</h5>
+							<b class="m dis-block dis-inlin">职位：运维工程师</b>
+						</div>
+						<span class="spn dis-inlin dis-inlin fl-lef m">我要推荐</span>
+						<div class="fl-lef m">
+							<h5 class="m">选择并推荐候选人</h5>
+							<b class="m dis-block dis-inlin">上传简历模式</b>
+						</div>
+						<span class="dis-inlin dis-inlin fl-lef m">立即推荐</span>
+						<div class="fl-lef last-div m">
+							<h5 class="m">确认推荐</h5>
+							<b class="dis-block dis-inlin m">状态：推荐成功</b>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<span class="dis-inlin dis-block cg"><img src="/Public/img/rcmd-img/chenggong.png" alt=""></span>
+			<span class="btn-l btn m hover-hand dis-block dis-inlin">继续推荐</span>
+			<span class="btn-r btn hover-hand dis-block dis-inlin">其他职位</span>
+		</div>	
+	</div>
+	
+	<div class="eject retv-pswd" style="display:none">
+		<img src="/Public/img/retv-pswd-head.png" class="head" alt="">
+		<img src="/Public/img/retv-pswd1.png" class="success" alt="">
+		<ul>
+			<li><input type="text" class="email" placeholder="请输入您的手机或邮箱"></li>
+			<li><span class="btn my-btn">确定</span></li>
+		</ul>
+	</div>
+
+	<div class="eject retv-pswd" style="display:none">
+		<img src="/Public/img/retv-pswd-head.png" class="head" alt="">
+		<img src="/Public/img/retv-pswd2.png" class="success" alt="">
+		<ul>
+			<li>
+				<div class="clearfix odiv1"><span>您的手机号是：</span><span class="mobile">18500521769</span></div>
+			</li>
+			<li>
+				<div class="clearfix odiv2"><span>验证码：</span><input class="yzm" type="text"><span class="my-btn">获取验证码</span></div>
+			</li>
+			<li><span class="btn my-btn">确定</span></li>
+		</ul>
+	</div>
+	<div class="eject retv-pswd" style="display:none">
+		<img src="/Public/img/retv-pswd-head.png" class="head" alt="">
+		<img src="/Public/img/retv-pswd3.png" class="success" alt="">
+		<ul>
+			<li>
+				<div class="clearfix odiv1"><span class="yhm">用户名：</span><span class="username">wanghaiyu22222w</span></div>
+			</li>
+			<li>
+				<div class="clearfix odiv3 top"><input placeholder="请输入新的密码" type="text"></div>
+				<div class="clearfix odiv3"><input placeholder="请再次输入新的密码" type="text"></div>
+			</li>
+			<li><span class="btn my-btn">确定</span></li>
+		</ul>
+	</div>
+	<div class="eject retv-pswd" style="display:none">
+		<img src="/Public/img/retv-pswd-head.png" class="head" alt="">
+		<img src="/Public/img/retv-pswd3.png" class="success" alt="">
+		<ul>
+			<li>
+				<p>温馨提示：重置成功</p>
+			</li>
+			<li><span class="btn my-btn">确定</span></li>
+		</ul>
+	</div>
+	<div class="mask" style="display:block"></div>
+	<include file="Public:newHeader"/>
+	
+	<div class="wrap">
+		<div class="ms1 clearfix">
+			<div class="m1-l fl-lef">
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+				<span>推荐人用户中心</span>
+				<img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+			</div>
+			<div class="m1-r fl-rig">
+				<span class="gjz dis-block dis-inlin fl-lef">关键字</span>
+				<div class="search dis-inlin fl-lef">
+					<input id="searchbox" class="dis-block dis-inlin post fl-lef" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JAVA &nbsp; Android &nbsp; IOS " type="text">
+					<span class="btn hover-hand dis-block dis-inlin post fl-lef btn-search">
+						<img src="/Public/img/new-index/position-btn.png" alt="">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="ms2 clearfix">
+			<div class="m2-l fl-lef">
+				<div class="odiv hover-hand">
+					<span>1</span>
+					<h6 class="tit1">完善资料<em></em></h6>
+					<p class="tx m">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>2</span>
+					<h6 class="tit2">维护候选人<em></em></h6>
+					<p class="jlk">(简历库)</p>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv m hover-hand">
+					<span>3</span>
+					<h6 class="tit3 m">推荐职位<em class="m"></em></h6>
+					<p class="tx m">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>4</span>
+					<h6 class="tit4">跟踪状态<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+				<i class="dis-block"><img src="/Public/img/rcmd-img/btmjd.png" alt=""></i>
+				<div class="odiv hover-hand">
+					<span>5</span>
+					<h6 class="tit5">查看收益<em></em></h6>
+					<p class="tx">完成之后可以推荐候选人</p>
+				</div>
+			</div>
+			<div class="m2-r fl-rig">
+				<div class="recommend-candidates2" style="display:block">
+					<div class="step">
+						<div class="odiv1">
+							<span class="sp1">第一步</span>
+							<span>第二步</span>
+							<span>第三步</span>
+						</div>
+						<div class="odiv2">
+							<img src="/Public/img/rcmd-img/step3.png" alt="">
+						</div>
+						<div class="odiv3 clearfix">
+							<div class="fl-lef m">
+								<h5 class="m">选择要推荐的职位</h5>
+								<b class="m dis-block dis-inlin">运维工程师</b>
+							</div>
+							<span class="spn dis-inlin dis-inlin fl-lef m">我要推荐</span>
+							<div class="fl-lef m child-div">
+								<h5 class="m">选择并推荐候选人</h5>
+								<b class="m dis-block dis-inlin">上传简历模式</b>
+							</div>
+							<span class="dis-inlin dis-inlin fl-lef">立即推荐</span>
+							<div class="fl-lef last-div">
+								<h5>确认推荐</h5>
+								<b class="dis-block dis-inlin"></b>
+							</div>
+						</div>
+					</div>
+					<div class="option-btn2">
+						<div class="public l fl-lef m">
+							<span class="m">没有符合选定职位的候选人简历</span>
+							<em class="m"><a href="">添加候选人简历</a></em>
+						</div>
+						<div class="c">or</div>
+						<div class="public r fl-rig">
+							<span>有符合选定职位的候选人简历</span>
+							<em><a href="">进入候选人简历列表</a></em>
+						</div>
+					</div>
+					<div class="table-list">
+						<table class="data_list">
+							<thead>
+								<th>序号</th>
+								<th>姓名</th>
+								<th>职位名称</th>
+								<th>状态</th>
+								<th>手机</th>
+								<th>选择</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="wh45 wk">1</td>
+									<td class="wh86 wk">张三</td>
+									<td class="wh210 wk">safasdfdsafdasf</td>
+									<td class="wh161 wk">已通过面试</td>
+									<td class="wh122 wk">1339918620133399</td>
+									<td class="wh52 wk"><input class="radio" name="radio" type="radio"></td>
+								</tr>
+
+								<tr>
+									<td class="wh45 wk">1</td>
+									<td class="wh86 wk">李四</td>
+									<td class="wh210 wk">特别高级的UI设计师</td>
+									<td class="wh161 wk">已通过面试</td>
+									<td class="wh122 wk">18620133399</td>
+									<td class="wh52 wk"><input class="radio" name="radio" type="radio"></td>
+								</tr>
+
+								<tr>
+									<td class="wh45 wk">1</td>
+									<td class="wh86 wk">李三</td>
+									<td class="wh210 wk">特别高级的UI设计师</td>
+									<td class="wh161 wk">已通过面试</td>
+									<td class="wh122 wk">18620133399</td>
+									<td class="wh52 wk"><input class="radio" name="radio" type="radio"></td>
+								</tr>
+
+								<tr>
+									<td class="wh45 wk">1</td>
+									<td class="wh86 wk">王五</td>
+									<td class="wh210 wk">特别高级的UI设计师</td>
+									<td class="wh161 wk">已通过面试</td>
+									<td class="wh122 wk">18620133399</td>
+									<td class="wh52 wk"><input class="radio" name="radio" type="radio"></td>
+								</tr>
+
+								<tr>
+									<td class="wh45 wk">1</td>
+									<td class="wh86 wk">赵六</td>
+									<td class="wh210 wk">特别高级的UI设计师</td>
+									<td class="wh161 wk">已通过面试</td>
+									<td class="wh122 wk">18620133399</td>
+									<td class="wh52 wk"><input class="radio" name="radio" type="radio"></td>
+								</tr>
+
+								<tr>
+									<td class="wh45 wk">1</td>
+									<td class="wh86 wk">王八</td>
+									<td class="wh210 wk">特别高级的UI设计师</td>
+									<td class="wh161 wk">已通过面试</td>
+									<td class="wh122 wk">18620133399</td>
+									<td class="wh52 wk"><input class="radio" name="radio" type="radio"></td>
+								</tr>
+
+								<tr>
+									<td class="wh45 wk">1</td>
+									<td class="wh86 wk">李三</td>
+									<td class="wh210 wk">特别高级的UI设计师</td>
+									<td class="wh161 wk">已通过面试</td>
+									<td class="wh122 wk">18620133399</td>
+									<td class="wh52 wk"><input class="radio" name="radio" type="radio"></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="inner clearfix">
+							<div class="form clearfix dis-inlin fl-rig dis-block">
+								<span class="text dis-block dis-inlin fl-lef">跳转到第</span>
+								<input class="input dis-block dis-inlin fl-lef" type="text">
+								<span class="text dis-block dis-inlin fl-lef">页</span>
+								<span class="btn dis-block dis-inlin fl-lef">确定</span>
+							</div>
+							<ul class="clearfix dis-inlin fl-rig dis-block">
+								<li class="prev dis-block dis-inlin fl-lef">|<</li>
+								<li class="itme active dis-block dis-inlin fl-lef"><a class="active" href="">1</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">2</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">3</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">4</a></li>
+								<li class="itme dis-block dis-inlin fl-lef"><a href="">5</a></li>
+								<li class="next dis-block dis-inlin fl-lef">>|</li>
+								<div class="total dis-block dis-inlin fl-lef">共100页，</div>
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<include file="Public:newFooter"/>
+	<script type="text/javascript">
+			$(".data_list .radio").click(function(){
+				if($(".radio").is(":checked"))
+				{
+					var mVal = $(this).parents("tr").children().eq(1).text();
+					$(".step .odiv3 .child-div b").text(mVal)
+				}
+				else{
+					alert('未选中');
+				}
+			})
+		  /* 当鼠标移到表格上是，当前一行背景变色 */
+            $(document).ready(function() {
+                $(".data_list tr td").mouseover(function() {
+                    $(this).parent().find("td").css("background-color", "#eee");
+                });
+            })
+            /* 当鼠标在表格上移动时，离开的那一行背景恢复 */
+            $(document).ready(function() {
+                $(".data_list tr td").mouseout(function() {
+                    var bgc = $(this).parent().attr("bg");
+                    $(this).parent().find("td").css("background-color", bgc);
+                });
+            })
+
+            $(document).ready(function() {
+                var color = "#fafafa"
+                $(".data_list tr:odd td").css("background-color", color);  //改变偶数行背景色
+                /* 把背景色保存到属性中 */
+                $(".data_list tr:odd").attr("bg", color);
+                $(".data_list tr:even").attr("bg", "#fff");
+            })
+	</script>
+</body>
+
+</html>

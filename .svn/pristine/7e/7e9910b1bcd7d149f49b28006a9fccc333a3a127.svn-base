@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>沙龙活动报名</title>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/salon.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/boss.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+
+    </head>
+    <body>
+        <div class="mask" id="mask"></div> 
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="new-salon1 clearfix">
+            <h2></h2>
+            <div class="m1 clearfix">
+                <h3></h3>
+                <div class="l fl-lef">
+                    <ul>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">时间：</em><span class="dis-inlin dis-block fl-lef">{$arSalonActive.activetime}</span></li>
+                        <!-- <li class="clearfix"><em class="dis-inlin dis-block fl-lef">标题：</em><span class="dis-inlin dis-block fl-lef">{$arSalonActive.activename}。</span></li> -->
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">主题：</em><span class="dis-inlin dis-block fl-lef">{$arSalonActive.theme}。</span></li>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">电话：</em><span class="dis-inlin dis-block fl-lef">010-57188076</span></li>
+                        <li class="clearfix mydizhi hover-hand">
+                            <em class="dis-inlin dis-block fl-lef">地址：</em>
+                            <span style="position:relative" class="dis-inlin dis-block fl-lef">海淀区西二旗辉煌国际2号楼2206. <a href="">（近距指引）
+                                    <div class="tu">
+                                        <div class="clearfix">
+                                            <img src="/Public/img/activity-img/tu1.jpg" alt="">
+                                        </div>
+                                        <div class="clearfix">
+                                            <img src="/Public/img/activity-img/tu2.jpg" alt="">
+                                        </div>
+                                        <div class="clearfix">
+                                            <img src="/Public/img/activity-img/tu3.jpg" alt="">
+                                        </div>
+                                        <div class="clearfix">
+                                            <img src="/Public/img/activity-img/tu4.jpg" alt="">
+                                        </div>
+                                        <div class="clearfix">
+                                            <img src="/Public/img/activity-img/tu5.jpg" alt="">
+                                        </div>
+                                    </div></a></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="r fl-rig">
+                    <span class="cx">查询</span>
+                    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3&ak=7nqCp5QGXqGaxpBkOIvb16po"></script>
+                    <input id="text_" type="hidden" value="北京市海淀区西二旗辉煌国际2号楼2206" style="margin-right:100px;"/>
+                    <input id="result_" type="hidden" />
+                    <div class="ditu" id="container"></div>
+                </div>
+            </div>
+            <h1>报名表<span class="fl-rig dis-block dis-inlin">*表示必填项</span></h1>
+            <div class="m2 clearfix">
+                <h3></h3>
+                <div class="l fl-lef">
+                    <ul>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef m">姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</em><input type="text" placeholder="输入真实姓名,系统会对个人信息保密" class="dis-inlin dis-block fl-lef" id="name"></li>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">用&nbsp户&nbsp名：</em><input type="text" placeholder="如果是本网站用户，请填写用户名" class="dis-inlin dis-block fl-lef" id="username"></li>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp司：</em><input type="text" placeholder="请输入您目前所任职的公司" class="dis-inlin dis-block fl-lef" id="company"></li>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">职&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp位：</em><input type="text" placeholder="输入职位" class="dis-inlin dis-block fl-lef" id="jobposition"></li>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef m">手机号码：</em><input type="text" placeholder="输入手机号码，用以接收沙龙活动短信息" class="dis-inlin dis-block fl-lef" id="mobile"></li>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">Q&nbspQ号码：</em><input type="text" placeholder="输入QQ号码" class="dis-inlin dis-block fl-lef" id="qq"></li>
+                        <li class="clearfix"><em class="dis-inlin dis-block fl-lef">微信号码：</em><input type="text" placeholder="输入微信号码" class="dis-inlin dis-block fl-lef" id="weixin"></li>
+                        <!-- <li><p class="error" id="salonError" style="margin-left:20px;margin-top:10px;display:none;">错误</p></li> -->
+                        <li class="clearfix ero" id="salonError">
+                            <b class="fl-lef dis-block dis-inlin">温馨提示:</b>
+                            <span class="fl-lef dis-block dis-inlin clearfix">
+                                <i class="fl-lef dis-block dis-inlin"></i>
+                                <em class="fl-lef dis-block dis-inlin">safsa</em>
+                            </span>
+                        </li>
+                        <li><button class="hover-hand tijiao" id="salonBtn">提交</button></li>
+                    </ul>
+                </div>
+                <div class="r fl-lef">
+                    <h4>感兴趣的话题</h4>
+                    <textarea placeholder="" id="topic"></textarea>
+                    <h4>建议（对人人猎）</h4>
+                    <textarea placeholder="" id="adivce"></textarea>
+                </div>
+                <img class="fl-rig dis-block dis-inlin myimg" src="/Public/img/rcmd-img/sl-pic.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <include file="Public:newFooter"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".mydizhi a").on("mouseenter", function () {
+                $(".tu").show();
+            }).on("mouseleave", function () {
+                $(".tu").hide();
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        var map = new BMap.Map("container");
+        map.centerAndZoom("北京", 12);
+        map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+        map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+        map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+        map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
+        map.addControl(new BMap.OverviewMapControl({isOpen: true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT}));   //右下角，打开
+
+        var localSearch = new BMap.LocalSearch(map);
+        localSearch.enableAutoViewport(); //允许自动调节窗体大小
+
+        searchByStationName();
+        function searchByStationName() {
+            map.clearOverlays();//清空原来的标注
+            var keyword = document.getElementById("text_").value;
+            localSearch.setSearchCompleteCallback(function (searchResult) {
+                var poi = searchResult.getPoi(0);
+                document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat;
+                map.centerAndZoom(poi.point, 13);
+                var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
+                map.addOverlay(marker);
+                var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+                var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+                marker.addEventListener("click", function () {
+                    this.openInfoWindow(infoWindow);
+                });
+                // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+            });
+            localSearch.search(keyword);
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#salonBtn")[0].disabled = false;
+            $("#salonBtn").click(function () {
+
+                this.disabled = true;
+
+                var name = $("#name").val();
+                var username = $("#username").val();
+                var mobile = $("#mobile").val();
+                var jobposition = $("#jobposition").val();
+                var company = $("#company").val();
+                var qq = $("#qq").val();
+                var weixin = $("#weixin").val();
+                var topic = $("#topic").val();
+                var advice = $("#advice").val();
+                if ($.trim(name) == "") {
+                    this.disabled = false;
+                    $("#salonError").show();
+                    $("#salonError span em").html("请填写姓名");
+                    return;
+                }
+                if ($.trim(mobile) == "") {
+                    this.disabled = false;
+                    $("#salonError").show();
+                    $("#salonError span em").html("请填写手机号码");
+                    return;
+
+                } else {
+                    $.post("/Home/Active/signup_repeat_judged", {
+                        'mobile': mobile,
+                    }, function (data) {
+
+                        if (data.code != "200") {
+                            $("#salonBtn")[0].disabled = false;
+                            $("#salonError").show();
+                            $("#salonError span em").html(data.msg);
+                            return;
+                        } else {
+                            $.post("/Home/Active/sign_up_save", {
+                                'name': name,
+                                'username': username,
+                                'mobile': mobile,
+                                'jobposition': jobposition,
+                                'company': company,
+                                'qq': qq,
+                                'weixin': weixin,
+                                'topic': topic,
+                                'advice': advice,
+                            }, function (data) {
+
+                                if (data.code != "200") {
+                                    $("#salonBtn")[0].disabled = false;
+                                    $("#salonError").show();
+                                    $("#salonError span em").html(data.msg);
+                                    return;
+                                } else {
+                                    alert(data.msg);
+                                    location.href = "/Home/Active/salon_show";
+                                }
+                            }, "json");
+                        }
+                    }, "json");
+
+                }
+            })
+            //        $(".shalong").keyup(function (e) {
+            //            if (e.keyCode == "13") {
+            //                    $("#salonBtn").click();   //服务器控件loginsubmit点击事件被触发
+            //                    return false;
+            //        }
+            //        })
+
+            $(".dengluBtn,#denglu3").click(function () {
+                $(".mask").show();
+                $("#conZhuce").hide();
+                $(".denglu").show();
+            })
+
+            $("#dengluBtn2,#zhuce").click(function () {
+                $(".mask").show();
+                $(".denglu").hide();
+                $("#conZhuce").show();
+            })
+            $(".Close,.close").click(function () {
+                $(".mask").hide();
+                $("#conZhuce").hide();
+                $(".denglu").hide();
+                //location.href = $("#hrefUrl").val();
+            })
+
+        })
+        $("input[name='usernamees']").focus(function () {
+            $(this).next().hide();
+        })
+        $("input[name='usernamees']").blur(function () {
+            if ($(this).val() == "") {
+                $(this).next().show();
+            }
+        })
+        $("input[name='passwordes']").focus(function () {
+            $(this).next().hide();
+        })
+        $("input[name='passwordes']").blur(function () {
+            if ($(this).val() == "") {
+                $(this).next().show();
+            }
+        })
+
+    </script>
+</body>
+</html>

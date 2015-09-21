@@ -1,0 +1,11 @@
+访问IP：http://123.57.79.2/
+数据库：http://123.57.79.2/phpMyAdmin/
+	mystj/VsEW8aNDwp7BNTwH
+上传文件：ftp://123.57.79.2
+	21/ftptmpuser/myftp4321
+
+
+deskshark   111111
+
+
+test1   111111

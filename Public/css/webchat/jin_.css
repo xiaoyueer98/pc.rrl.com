@@ -1,0 +1,429 @@
+/* 
+* @Author: jin
+* @Date:   2015-02-28 15:53:12
+*/
+* {
+margin: 0px;
+padding: 0px;
+-webkit-box-sizing: border-box;
+-mox-box-sizing: border-box;
+ box-sizing: border-box; 
+}
+.resultjobs {
+position: relative;
+min-height: 70px;
+border-bottom: 1px solid #dcdcdc;
+background-color: #fff;
+padding: 10px 0px 10px 15px;
+overflow: hidden;
+}
+.searchResult .resultjobs .job_title h3 {
+font-size: 1.6rem;
+font-weight: bold;
+
+display: inline-block;
+max-width: 70%;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.left{display: inline-block;
+width: 65%;
+}
+.searchResult .resultjobs .job_title span {
+display: inline-block;
+
+text-align: left;
+padding-left: 5px;
+vertical-align: top;
+}
+.resultjobs .job_title span em {
+font-weight: bold;
+
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+font-size: 1.2rem;
+padding: 2px;
+}
+.jobsInfo i{ color: #696969; font-style: normal; font-family: "黑体" ;}
+.searchResult .resultjobs .jobsInfo {
+padding-top: 8px;
+}
+.searchResult .resultjobs .jobsInfo p {
+    display: inline-block;
+    width: 65%;
+    color: #a6a6a6;
+    font-size: 1.5rem;
+    /* text-overflow: ellipsis; */
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
+    line-height: 25px;
+}
+.searchResult .resultjobs .right {
+display: inline-block;
+width: 33%;
+text-align: right;
+}
+.searchResult .resultjobs .jobsCompany {
+padding-top: 8px;
+}
+.searchResult .resultjobs .jobsCompany p {
+width: 100%;
+color: #a6a6a6;
+font-size: 1.4rem;
+white-space: normal;
+word-break: break-all;
+word-wrap: break-word;
+}
+.searchResult .enterpriseMore {
+position: absolute;
+top: 33%;
+right: 10px;
+margin-top: -6px;
+display: block;
+height: 14px;
+color: #e84700;
+font-size: 22px;
+}
+.wrapper{
+    position: absolute;
+    top: 0;
+    bottom: 50px;
+    width: 100%;
+    overflow: auto;
+}
+.wrapper .iscroll{
+    position: relative;
+}
+#thelist{
+    position: relative;
+}
+#pullUp {
+    background:#fff;
+    height:40px;
+    line-height:40px;
+    padding:5px 10px;
+    border-bottom:1px solid #ccc;
+    font-weight:bold;
+    font-size:14px;
+    color:#888;
+}
+.pullUp1{
+    width:100px;
+    height: 50px;
+    background: red;
+}
+#pullDown, #pullUp {
+    background:#fff;
+    height:40px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    font-weight:bold;
+    font-size:14px;
+    color:#888;
+}
+#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+    display:block; float:left;
+    width:40px; height:40px;
+    background:url(pull-icon@2x.png) 0 0 no-repeat;
+    -webkit-background-size:40px 80px; background-size:40px 80px;
+    -webkit-transition-property:-webkit-transform;
+    -webkit-transition-duration:250ms;
+}
+#pullDown .pullDownIcon {
+    -webkit-transform:rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon  {
+    -webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+    -webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+    -webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+    background-position:0 100%;
+    -webkit-transform:rotate(0deg) translateZ(0);
+    -webkit-transition-duration:0ms;
+
+    -webkit-animation-name:loading;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+}
+
+.jin_xz{color: #206daf;}
+.jin_ds{color: #e84700;}
+.footer{ background: #283645; padding: 8px; padding-top: 12px;}
+.ftitle{ font-size: 14px; color: #fff;}
+.ftel{ font-size: 12px;color: #b9b9b9;}
+.colorlan{color: #206daf;}
+.colorhei{ color: #000;}
+.colorhui{color: #a6a6a6;}
+.colorhuihei{color: #767676;}
+.yshenhe{background:url(/Public/images/webchat/yshenhe.png); width: 34px; height: 22px;display: inline-block;}
+.wshenhe{background:url(/Public/images/webchat/weishenhe.png); width: 34px; height: 22px;display: inline-block;}
+.select{width:2% ;float:left;height:48px;min-width:38px; background: url(/Public/images/webchat/select.png) no-repeat -65px 0;margin-top: 6px;}
+.isselect{ background-position: 0 0;}
+#jobPost .jobName {
+ margin-top: 1rem; 
+padding: 0px 0px 0px 15px;
+}
+#jobPost .jobName h2 {
+font-size: 2.3rem;
+font-weight: bold;
+}
+#jobPost .jobName p {
+padding-left: 5px;
+color: #0b0b0b;
+position: relative;
+}
+#jobPost .jobName p span {
+display: block;
+font-size: 1.3rem;
+}
+#jobPost .jobName p span i {
+color: #a6a6a6;
+font-style: normal;
+padding-top: 9px;
+display: inline-block;
+}
+.shoucang {
+display: inline-block;
+margin-top: -50px;
+background: url(/Public/images/webchat/shoucang.png) no-repeat 0 0;
+height: 40px;
+width: 40px;
+float:right;
+}
+.noshoucang{background-position: -55px 0;}
+#jobPost .comWelfare {
+overflow: hidden;
+margin-bottom: 10px;
+padding: 0px 0px 10px 15px;
+border-bottom: 1px #dcdcdc solid;
+}
+#jobPost .comWelfare h2 {
+width: 100%;
+font-size: 1.6rem;
+font-weight: bold;
+}
+#jobPost .comWelfare h2 b {
+    display: inline-block;
+    /* width: 86%; */
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    float: left;
+    color: #333;
+    line-height: 25px;
+}
+#jobPost .comWelfare h2 span {
+display: inline-block;
+float: right;
+font-size: 1.6rem;
+padding-top: 16px;
+color: #00b5e0;
+margin-right: 10px;
+}
+.cb { clear: both;}
+.xingzhi i{ font-style: normal; }
+#jobPost .basicInfo h2, #jobPost .jobRequire h2, #jobPost .payWelfare h2 {
+padding-bottom: 13px;
+font-size: 1.6rem;
+border-bottom: 1px #dcdcdc solid;
+color: #0b0b0b;
+}
+#jobPost .basicInfo, #jobPost .jobRequire, #jobPost .payWelfare {
+padding: 13px 0px 15px 15px;
+clear: both;
+}
+
+#jobPost .basicInfo h2 span, #jobPost .jobRequire h2 span, #jobPost .payWelfare h2 span {
+border-left: 4px #2380b8 solid;
+height: 17px;
+display: inline-block;
+vertical-align: middle;
+margin-right: 10px;
+float: left;
+}
+#jobPost .basicInfo ul, #jobPost .jobRequire ul, #jobPost .payWelfare ul {
+padding-top: 15px;
+padding-bottom: 15px;
+}
+#jobPost .basicInfo ul li, #jobPost .jobRequire ul li, #jobPost .payWelfare ul li {
+width: 100%;
+font-size: 1.5rem;
+clear: both;
+}
+#jobPost .basicInfo ul li b, #jobPost .jobRequire ul li b, #jobPost .payWelfare ul li b {
+padding-right: 14px;
+font-weight: normal;
+color: #303030;
+float: left;
+padding-bottom: 22px;
+}
+#jobPost .basicInfo ul li span, #jobPost .jobRequire ul li span, #jobPost .payWelfare ul li span {
+    color: #777;
+    display: inline-block;
+    float: left;
+    width: 63%;
+    padding-bottom: 10px;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    /* overflow: hidden; */
+    width: 64%;
+    line-height: 22px;
+    /*border:1px solid red;*/
+}
+#jobPost .jobRequire p {
+padding: 10px 21px 9px 0px;
+color: #303030;
+font-size: 1.4rem;
+line-height: 28px;
+}
+.borderlanxi{border-left: 1px #2380b8 solid;
+height: 50px;
+display: inline-block;
+vertical-align: middle;
+margin-right: 10px;
+float: left;}
+.logbd{height:100%; overflow:hidden; margin:0px; padding:0px;}
+
+.loginmain {
+background: url(/Public/images/webchat/loginbg.jpg) no-repeat; background-size: 100% 100%;
+height:100%; position:absolute; width:100%;
+padding: 10rem 1rem 0;
+-webkit-transform: translate(0, 0);
+}
+.loginmain .log{ margin-left: 20%;}
+.logininput{
+margin-top: 15px;
+width: 99%;
+padding: 1rem 1rem;
+padding-left: 30px;
+font-size: 1.4rem;
+border: #000 solid 1px;
+opacity:0.55;
+outline: none;
+-webkit-appearance: none;
+color: #fff;
+}
+.btn_ljtj a{
+/*     width: 175px;
+height: 40px;
+background: #2380b8;
+position: relative;
+left: 50%;
+display: block;
+margin-left: -88px;
+border-radius: 5px;
+text-align: center; */
+}
+.btn_ljtj a button{
+    background: #2380b8!important;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    outline: none;
+    border:none;
+    width: 175px;
+    height: 40px;
+    left: 50%;
+    display: block;
+    margin-left: 88px;
+    border-radius: 5px;
+    text-align: center;
+}
+.forget{
+display: block;
+margin-top: 15px;
+text-align: right;
+width: 99%;
+padding: 1rem 1rem;}
+
+.inputbgname{ background:#000 url(/Public/images/webchat/loginico.png) no-repeat 5px 4px;}
+.inputbpass{ background:#000 url(/Public/images/webchat/loginico.png) no-repeat 5px -34px;}
+.inputsubmit{  
+background: #2380b8!important;
+border: none;
+opacity: 1;
+width: 175px;
+position: relative;
+left: 50%;
+
+border-radius: 5px;
+font-weight: bold;
+text-align: center;
+padding:0 !important;
+height: 40px;
+border-radius: 5px;
+}
+.newinputstyle{
+    width: 98%;
+    margin-left:-49%;
+}
+.yxiajia{background:url(/Public/images/webchat/xiajia.png); width: 34px; height: 22px;display:inline-block;background-size:100%;}
+.ytuijian{background:url(/Public/images/webchat/ytuijian.png); width: 34px; height: 22px;display: inline-block;background-size:100%;}
+
+
+
+
+/**
+ *
+ * 下拉样式 Pull down styles
+ *
+ */
+#pullDown, #pullUp {
+    background:#fff;
+    height:52px;
+    line-height:40px;
+    padding:5px 10px;
+    border-bottom:1px solid #ccc;
+    font-weight:bold;
+    font-size:14px;
+    color:#888;
+}
+#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+    display:block; float:left;
+    width:40px; height:40px;
+    background:url(../../img/pull-icon@2x.png) 0 0 no-repeat;
+    -webkit-background-size:40px 80px; background-size:40px 80px;
+    -webkit-transition-property:-webkit-transform;
+    -webkit-transition-duration:250ms;
+}
+#pullDown .pullDownIcon {
+    -webkit-transform:rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon  {
+    -webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+    -webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+    -webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+    background-position:0 100%;
+    -webkit-transform:rotate(0deg) translateZ(0);
+    -webkit-transition-duration:0ms;
+
+    -webkit-animation-name:loading;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+    from { -webkit-transform:rotate(0deg) translateZ(0); }
+    to { -webkit-transform:rotate(360deg) translateZ(0); }
+}

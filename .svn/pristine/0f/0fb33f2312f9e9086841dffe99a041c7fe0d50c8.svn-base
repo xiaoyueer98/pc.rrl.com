@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>推荐人设置-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/focuspic.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/menu_v.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/script.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.ui.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/index2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/mourse.js"></script>
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/resizer.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/focuspic.css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/menu_v.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicsdon.ico" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/smoothness/jquery.ui.css" type="text/css" />
+        <link rel="stylesheet" href="__ROOT__/Public/css/style.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/style.css">
+        <link rel="stylesheet" href="__ROOT__/Public/css/Pop_up1.css" />
+    </head>
+    <body>
+        <!-- 遮罩层 -->
+        <div class="mask" id="mask"></div>
+    <include file="Public:zhuce"/>
+    <include file="Public:denglu"/>
+    <include file="Public:recomLeftNav"/>
+    <include file="Public:Right"/>
+    <div class="center">
+        <include file="Public:centerTop"/>
+        <div class="PersData">
+            <div class="recom1 data re1" id="wind1s" >
+                <div class="recom1_tp RecSetUp">
+                    <h3>推荐设置</h3>
+                    <ul>
+                        <li>行业：<span>{$userBaseInfo['strycatedata']}</span></li>
+                        <li>职位：<span>{$userBaseInfo['Jobcatedata']}</span></li>
+                    </ul>
+
+                    <h3>地区设置</h3>
+                    <ul>
+                        <li>地区：<span>{$userBaseInfo['areadata']}</span></li>
+                    </ul>
+
+                    <h3>时间设置</h3>
+                    <ul style="margin-left:10px;">
+                        <li>时间：<span>{$userBaseInfo['date']}</span></li>
+                    </ul>
+                    <h3>我的人脉标签</h3>
+                    <ul style="margin-bottom:0;padding-top:15px" class="clearfix">
+                        <em class="embq">熟悉公司：</em><li class="bqli">
+                            <p style="float:left;">
+                        <if condition="$link_companys">
+                            <volist name="link_companys" id="l_companys">
+                                <span>{$l_companys}</span>
+                            </volist>
+                            <else />
+                            暂无熟悉公司标签
+                        </if>
+
+                        </p>
+                        </li>
+                    </ul>
+                    <ul style="margin-bottom:0;padding-top:15px" class="clearfix">
+                        <em class="embq">熟悉职位：</em><li class="bqli2">
+                            <p style="float:left;">
+                        <if condition="$link_postions">
+                            <volist name="link_postions" id="l_postions">
+                                <span>{$l_postions}</span>
+                            </volist>
+                            <else />
+                            暂无熟悉职位标签
+                        </if>
+                        </p>
+                        </li>
+                    </ul>
+                    <ul style="margin-bottom:0;padding-top:15px" class="clearfix">
+                        <em class="embq">擅长领域：</em>
+                        <li class="bqli3">
+                            <p style="float:left;">
+                        <if condition="$link_areas">
+                            <volist name="link_areas" id="l_areas">
+                                <span>{$l_areas}</span>
+                            </volist>
+                            <else />
+                            暂无擅长领域标签
+                        </if>
+                        </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="r_">
+                    <img src="__ROOT__/Public/img/bianqian.png" alt="">
+                </div>
+                <div class="recoml_btm bt" style="padding-top:28px">
+                    <input class="btn update cur_point" type="button" value="修改">
+                </div>
+            </div>
+
+
+            <div class="recom1 xg"  id="wind2s" style="display:none">
+                <form enctype="multipart/form-data" action="__URL__/userSaveInfo" method="post" id="userSaveInfo"  onsubmit = "return checkUserBaseInfo();" >
+                    <div class="recom1_tp">
+                        <h3>推荐设置</h3>
+                        <ul>
+                            <li>
+                                行业： 
+                                <select  id="strycate1" onchange="changeHy($(this).val(), 'strycate')" name="strycate1">
+                                    <option value="请选择">请选择</option>
+                                    <volist name="hyData" id="HY"> 
+                                        <option value="{$HY['id']}" <if condition= "$HY['cascname'] eq $userBaseInfo['p_strycate']" >selected</if>>{$HY['cascname']}</option>
+                                    </volist>
+
+                                </select>
+                                <select name="strycate" id="strycate" >
+                                    <option value="{$userBaseInfo['strycate_id']}">{$userBaseInfo['strycate']}</option>
+                                </select>   
+                            </li>
+                            <li>职位：
+                                <select  id="Jobcate1" onchange="changeHy($(this).val(), 'Jobcate')" name="Jobcate1">
+                                    <option value="请选择">请选择</option>
+                                    <volist name="zwData" id="ZW">
+                                        <option value="{$ZW['id']}" <if condition= "$ZW['cascname'] eq $userBaseInfo['p_Jobcate']" >selected</if>>{$ZW['cascname']}</option>
+                                    </volist>
+                                </select>
+                                <select name="Jobcate" id="Jobcate" >
+                                    <option value="{$userBaseInfo['Jobcate_id']}">{$userBaseInfo['Jobcate']}</option>
+                                </select>   
+
+                            </li>
+                        </ul>
+
+                        <h3>地区设置</h3>
+                        <ul>
+                            <li>地区：
+                                <select id="area1" onchange="changeHy($(this).val(), 'area')" name="area1">
+                                    <option value="请选择">请选择</option>
+                                    <volist name="dqData" id="DQ">
+                                        <option value="{$DQ['id']}" <if condition= "$DQ['cascname'] eq $userBaseInfo['p_area']" >selected</if>>{$DQ['cascname']}</option>
+                                    </volist>
+                                </select>
+                                <select name="area" id="area" >
+                                    <option value="{$userBaseInfo['area_id']}">{$userBaseInfo['area']}</option>
+                                </select>  
+
+                            </li>
+                        </ul>
+
+                        <h3>时间设置</h3>
+                        <ul>
+                            <li>时间：<input type="text" name="date" readonly="readonly" class="text" id="date" value="{$userBaseInfo['maxdate']}"/>
+                        </ul>
+
+                        <h3>我的人脉标签</h3>
+                        <ul style="margin-bottom:0;padding-top:15px" class="clearfix">
+                            <em class="embq">熟悉公司：</em><li class="bqli">
+                                <p style="float:left;" id="companyList">
+                                    <?php if(!$link_companys){?>
+                                    <?php if($arCompanyList){?>
+                                    <?php foreach($arCompanyList as $arCompanyInfo){?>
+                                    <span><b><?php echo $arCompanyInfo['cascname'];?></b><i>X</i></span>
+                                    <?php }?>
+                                    <?php }?>
+                                    <?php }else{?>
+                                    <?php if($link_companys){?>
+                                    <?php foreach($link_companys as $value){?>
+                                    <span><b><?php echo $value;?></b><i>X</i></span>
+                                    <?php }?>
+                                    <?php }?>
+                                    <?php }?>
+
+                                </p><input maxlength="10" type="text" class="myinput2" value=""></li>
+                        </ul>
+                        <ul style="margin-bottom:0;padding-top:15px" class="clearfix">
+                            <em class="embq">熟悉职位：</em>
+                            <li class="bqli2">
+                                <p style="float:left;" id="postionList">
+                                    <?php if(!$link_postions){?>
+                                    <?php if($arPostionList){?>
+                                    <?php foreach($arPostionList as $arPostionInfo){?>
+                                    <span><b><?php echo $arPostionInfo['cascname'];?></b><i>X</i></span>
+                                    <?php }?>
+                                    <?php }?>
+                                    <?php }else{?>
+                                    <?php if($link_postions){?>
+                                    <?php foreach($link_postions as $value){?>
+                                    <span><b><?php echo $value;?></b><i>X</i></span>
+                                    <?php }?>
+                                    <?php }?>
+                                    <?php }?>
+                                </p><input maxlength="10" type="text" class="myinput2" value="">
+                            </li>
+                        </ul>
+                        <ul style="margin-bottom:0;padding-top:15px" class="clearfix">
+                            <em class="embq">擅长领域：</em><li class="bqli3">
+                                <p style="float:left;" id="areaList">
+                                    <?php if(!$link_areas){?>
+                                    <?php if($arAreaList){?>
+                                    <?php foreach($arAreaList as $arAreaInfo){?>
+                                    <span><b><?php echo $arAreaInfo['cascname'];?></b><i>X</i></span>
+                                    <?php }?>
+                                    <?php }?>
+                                    <?php }else{?>
+                                    <?php if($link_areas){?>
+                                    <?php foreach($link_areas as $value){?>
+                                    <span><b><?php echo $value;?></b><i>X</i></span>
+                                    <?php }?>
+                                    <?php }?>
+                                    <?php }?>
+                                </p>
+                                <input maxlength="10" type="text" class="myinput2" value=""></li>
+                        </ul>
+
+                        <h3>消息设置</h3>
+                        <ul style="border:none;margin-bottom:0;">
+                            <li><input class="checbox" id="dds" type="checkbox" value="1"><label for="dd">我同意接收符合本人设置条件的新职位的通知。</label></li>
+                            <li><p class="error4"></p></li>
+                        </ul>
+                    </div>
+
+                    <div class="recoml_btm">
+                        <input type="hidden" id="companyListValue" name="link_companys">
+                        <input type="hidden" id="postionListValue" name="link_postions">
+                        <input type="hidden" id="areaListValue" name="link_areas">
+                        <input class="bc bcbtton cur_point" type="button" value="保存">
+                        <input class="qx qxbtton cur_point" type="button" value="取消">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <include file="Public:centerFooter"/>
+    </div>
+    <include file="Public:fiexdTop"/>
+    <script type="text/javascript">
+        $(function() {
+            $(".bcbtton").click(function() {
+                $("#userSaveInfo").submit();
+            });
+        })
+
+        function changeHy(b, h) {
+            if (b !== "请选择") {
+                $.ajax({
+                    type: "post",
+                    data: {"id": b},
+                    dataType: "json",
+                    url: "__URL__/getData",
+                    success: function(datas) {
+                        if (h == "strycate") {
+                            var html = "<option>请选择行业</option>";
+                        } else if (h == "Jobcate") {
+                            var html = "<option>请选择职位</option>";
+                        } else if (h == "area") {
+                            var html = "<option>请选择市</option>";
+                        }
+                        for (var i = 0; i < datas.length; i++) {
+                            html += "<option value='" + datas[i].id + "'>" + datas[i].cascname + "</option>";
+                        }
+                        $("#" + h).html(html);
+                    }
+
+                });
+            }
+        }
+
+        $(".update").click(function() {
+            $("#wind1s").hide();
+            $("#wind2s").show();
+            // $(".bt").hide();
+        });
+        $(".qxbtton").click(function() {
+            $("#wind1s").show();
+            $("#wind2s").hide();
+            //  $(".bt").show();
+            //  alert(23);
+        });
+
+        function checkUserBaseInfo() {
+            var strycate1 = $("#strycate1").val();
+            var strycate = $("#strycate").val();
+            var Jobcate1 = $("#Jobcate1").val();
+            var Jobcate = $("#Jobcate").val();
+            var area1 = $("#area1").val();
+            var area = $("#area").val();
+            var dd = document.getElementById("dds").checked;
+            if (strycate1 == "请选择") {
+                $('.PersData .recom1_tp ul li p.error4').html('请选择擅长推荐的行业');
+                $('.PersData .recom1_tp ul li p.error4').show();
+                return false;
+            }
+
+            if (Jobcate1 == "请选择") {
+                $('.PersData .recom1_tp ul li p.error4').html('请选择擅长推荐的职位');
+                $('.PersData .recom1_tp ul li p.error4').show();
+                return false;
+            }
+            if (area1 == "请选择") {
+                $('.PersData .recom1_tp ul li p.error4').html('请选择地区');
+                $('.PersData .recom1_tp ul li p.error4').show();
+                return false;
+            }
+            /*
+             if(strycate == "请选择行业"){
+             $('.PersData .recom1_tp ul li p.error4').html('请选择擅长推荐的行业');
+             $('.PersData .recom1_tp ul li p.error4').show();
+             return false;
+             }
+             
+             if(Jobcate  == "请选择职位"){
+             $('.PersData .recom1_tp ul li p.error4').html('请选择擅长推荐的职位');
+             $('.PersData .recom1_tp ul li p.error4').show();
+             return false;
+             }
+             if(area  == "请选择市"){
+             $('.PersData .recom1_tp ul li p.error4').html('请选择市');
+             $('.PersData .recom1_tp ul li p.error4').show();
+             return false;
+             }  */
+            var companyList = "";
+            var postionList = "";
+            var areaList = "";
+
+            if ($("#companyList span b").size() > 0) {
+                $("#companyList span b").each(function() {
+                    companyList += $(this).text() + "|||";
+                });
+                $("#companyListValue").val(companyList);
+            }
+            if ($("#postionList span b").size() > 0) {
+                $("#postionList span b").each(function() {
+                    postionList += $(this).text() + "|||";
+                });
+                $("#postionListValue").val(postionList);
+            }
+            if ($("#areaList span b").size() > 0) {
+                $("#areaList span b").each(function() {
+                    areaList += $(this).text() + "|||";
+                });
+                $("#areaListValue").val(areaList);
+            }
+            /*
+             if(dd == false){
+             $('.PersData .recom1_tp ul li p.error4').html('未同意接受消息');
+             $('.PersData .recom1_tp ul li p.error4').show();
+             return false;
+             }
+             */
+            return true;
+        }
+
+    </script>
+</body>
+</html>

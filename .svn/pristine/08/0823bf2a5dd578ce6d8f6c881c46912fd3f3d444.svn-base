@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="__ROOT__/Public/img/favicon.ico" type="image/ico">
+        <title>推荐职位-人人猎</title>
+        <meta name="keywords" content="人人猎,人人猎网，人人猎头,renrenlie.com,www.renrenlie.com,人人猎首页,人人猎官网，人人都是猎头" />
+        <meta name="description" content="人人猎（www.renrenlie.com)是企业低成本极速直招平台，让企业一周内搞定招聘需求，为推荐人提供“人力资源”变现通道。" />
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-resizer.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/new-recommends.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/lanrenzhijia2.css">
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/jquery.styleSelect2.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/al-index.js"></script>
+        <script type="text/javascript" src="__ROOT__/Public/js/record-common.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".mySelect3").styleSelect({styleClass: "selectFruits", optionsWidth: 1, speed: 'fast'});
+                $(".down-menu").styleSelect({styleClass: "selectDark"});
+            });
+        </script>
+    </head>
+    <body>
+    <include file="Public:newHeader"/>
+    <div class="wrap">
+        <div class="ms2 clearfix">
+
+            <div class="m2-l fl-lef">
+                <a href="/Home/Login/index.html">
+                    <div class="m1-l" style="padding:0;height: 56px;padding-top: 10px;padding-left: 5px;">
+                        <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                        <span>推荐人用户中心</span>
+                        <img src="/Public/img/rcmd-img/reco-icon.png" alt="">
+                    </div>
+                </a>
+                <include file="Public:record_menu_left"/>
+            </div>
+
+            <div class="m2-r fl-rig">
+                <div class="step1">
+                    <div class="new-step2 clearfix">
+                        <div class="st1">
+                            <b class="m">1</b>
+                            <span class="m">选择职位</span>
+                            <em class="m"></em>
+                        </div>
+                        <div class="st2">
+                            <b >2</b>
+                            <span >选择候选人  </span>
+                        </div>
+                        <div class="st3">
+                            <b class="">3</b>
+                            <span class=""> 确认推荐：</span>
+                            <em class=""></em>
+                        </div>
+                    </div>
+
+                    <div style="background:#f5f5f5;width:100%;padding:5px 0;margin-top:20px;" class="clearfix">
+                        <div style="display: block;margin-bottom: 5px;margin-top:5px;" class="clearfix ero ts">
+                            <b style="margin-left:0px;" class="fl-lef dis-block dis-inlin">温馨提示:</b>
+                            <span class="fl-lef dis-block dis-inlin clearfix">
+                                <i class="fl-lef dis-block dis-inlin"></i>
+                                <span id="fitjobCount" style="width:647px;" class="fl-lef dis-block dis-inlin">
+                                    上传优质简历，坐等收钱。                            </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="input-list clearfix">
+                        <h3 class="clearfix">
+                            <em class="fl-lef dis-inlin dis-block">搜索要推荐的职位</em>
+                            <a href="/Home/Login/JobSearch/act/collect.html"><span class="fl-rig btn hover-hand dis-inlin dis-block position-ollection-btn">职位收藏夹</span></a>
+                            <span class="fl-rig btn hover-hand dis-inlin dis-block sousuo">高级搜索</span>
+                        </h3>
+                        <div class="m-input clearfix<?php if($act =='collect'):?> undis<?php endif;?>" >
+                            <input class="dis-inlin dis-block fl-lef title1"   type="text" name="title" id="title" value="<?php echo $title;?>">
+                            <span class="dis-inlin dis-block fl-lef hover-hand" onclick="search()"><b>搜索</b></span>
+                        </div>
+                        <ul class="clearfix myul" style="display:none">
+                            <li class="clearfix dis-inlin fl-lef">
+                                <em class="dis-block dis-inlin fl-lef">职位名称</em>
+                                <input type="text" name="title" class="title2" value="<?php echo $title;?>">
+                            </li>
+                            <li class="clearfix dis-inlin fl-lef">
+                                <em class="dis-block dis-inlin fl-lef">公司名称</em>
+                                <input type="text" name="cpname" id="cpname">
+                            </li>
+                            <li class="clearfix dis-inlin fl-lef">
+                                <em class="dis-block dis-inlin fl-lef">行业类别</em>
+                                <span class="dis-block dis-inlin fl-lef">
+                                    <select name="industry" id="industry"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+                                        <option selected="selected" value="">不限</option>
+                                        <volist name="arIndustry" id="Industry">
+                                            <option value="{$Industry['id']}">{$Industry['cascname']}</option>
+                                        </volist>
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="clearfix dis-inlin fl-lef">
+                                <em class="dis-block dis-inlin fl-lef">职位类别</em>
+
+                                <span class="dis-block dis-inlin fl-lef">
+                                    <select name="position" id="positionss"  class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+                                        <option selected="selected" value="">不限</option>
+                                        <volist name="arPosition" id="Position">
+                                            <option value="{$Position['id']}" >{$Position['cascname']}</option>
+                                        </volist>
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="clearfix dis-inlin fl-lef">
+                                <em class="dis-block dis-inlin fl-lef">工资待遇</em>
+                                <span class="dis-block dis-inlin fl-lef">
+                                    <select name='treatment' id="treatment"   class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+                                        <option selected="selected" value="">不限</option>
+                                        <volist name="money" id="m">
+                                            <option value='{$m.datavalue}'>{$m.dataname}</option>
+                                        </volist>
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="clearfix dis-inlin fl-lef">
+                                <em class="dis-block dis-inlin fl-lef">发布时间</em>
+                                <span class="dis-block dis-inlin fl-lef">
+                                    <select  name='puttime' id="puttime" class="down-menu" style="width:195px;top:38px;left:-197px;display:none;">
+                                        <option selected="selected" value="">不限</option>
+                                        <volist name="positime" id="pt">
+                                            <option value='{$pt.datavalue}'>{$pt.dataname}</option>
+                                        </volist>
+                                    </select>
+                                </span>
+                            </li>
+                            <button onclick="search()">搜索</button>
+                        </ul>
+                    </div>
+                    <div style="background:#f5f5f5;width:100%;height:15px;margin-top:20px;"></div>
+                    <div class='listUl joblist<?php if($act =='collect'):?> undis<?php endif;?>'>
+                         <div class="job-list">
+                            <?php if(!empty($arJobList)):?>
+                            <?php foreach($arJobList as $jobInfo):?>
+                            <div class="clearfix list">
+
+                                <span class="np-logo dis-block dis-inlin fl-lef">
+                                    <?php if($jobInfo['type'] == 2):?>
+                                    <img src="/Public/img/company_logo/bmkh.png" alt="" width="50px" height="50px">
+                                    <?php else:?>
+                                    <img src="<?php echo $jobInfo['thumlogo'];?>" alt="" width="50px" height="50px">
+                                    <?php endif;?>
+                                </span>
+                                <ul class="r fl-rig">
+                                    <li class="clearfix li1">
+                                        <a href="/Home/Index/EnterIndex2/comid/<?php echo $jobInfo['cpid'];?>/jobid/<?php echo $jobInfo['guid'];?>.html"><em class="dis-inlin dis-block fl-lef"><?php echo $jobInfo['title'];?></em></a>
+                                        <span class="adrs dis-inlin dis-block fl-lef">[<?php echo $jobInfo['jobplace'];?>]</span>
+                                        <a href="/Home/Index/EnterIndex/comid/<?php echo $jobInfo['cpid'];?>.html"><h6 class="dis-inlin dis-block fl-rig"><?php echo $jobInfo['cpname'];?></h6></a>
+                                    </li>
+
+                                    <li class="clearfix li2">
+                                        <!-- <span class="dis-inlin dis-block fl-lef"></span> -->
+                                        <span class="dis-inlin dis-block fl-lef"><?php echo $jobInfo['treatment'];?></span>
+                                        <span class="dis-inlin dis-block fl-lef"><?php echo $jobInfo['experience'];?></span>
+                                        <span class="dis-inlin dis-block fl-lef"><?php echo $jobInfo['education'];?></span>
+                                        <div class="fl-rig dis-inlin dis-block">
+                                            <span class="c-r dis-inlin dis-block fl-lef">招聘人数：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef" style="color: black;"><?php echo $jobInfo['employ'];?></span>                                                                               
+                                            <span class="c-r dis-inlin dis-block fl-lef">推荐人数：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef" style="color: red;font-weight: bold"><?php echo $jobInfo['record_num'];?></span>
+
+                                        </div>
+                                        <div class="fl-rig dis-inlin dis-block">
+                                            <span class="c-r dis-inlin dis-block fl-lef">所属行业：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef"><?php echo $jobInfo['strycate'];?></span>                                                                               
+                                            <span class="c-r dis-inlin dis-block fl-lef">融资阶段：</span>
+                                            <span class="ic dis-inlin dis-block fl-lef"><?php echo $jobInfo['stage'];?></span>
+                                            <span class="c-r dis-inlin dis-block fl-lef">规模：</span> 
+                                            <span class="ic dis-inlin dis-block fl-lef"><?php echo $jobInfo['scale'];?></span>
+                                        </div>
+
+                                    </li>
+                                    <li class="clearfix li3">
+                                        <em class="c3-l	dis-inlin dis-block fl-lef">候选人成功入职，你即得奖励  <i>￥<?php echo $jobInfo['Tariff'];?></i></em>
+                                        <span class="c-r dis-inlin dis-block fl-rig">[<?php echo $jobInfo['starttime'];?>]</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <?php endforeach;?>
+                            <?php else:?>
+                            <p style="text-align:center;color:#000000;font-size:12px;margin:50px 0;">
+                                <b style="font-size:14px;line-height:40px;">抱歉，没有找到相关的职位<br></b>
+                                <b >请查看输入关键词是否有误</b>或调整关键字，如将“前端 <b>H5</b>”改为“<b>前端</b>”
+                            </p>
+                            <?php endif;?>
+                        </div>
+                        <?php echo $page;?>
+                    </div>
+                    <div class="track-state collectList" <?php if($act !='collect'):?>style="display:none"<?php endif;?>>
+                         <div class="con"> 
+                            <table style="width:689px;" class="data_list"> 
+                                <tbody> 
+                                    <tr class="t"> 
+                                        <th>序号</th> 
+                                        <th>职位</th> 
+                                        <th>所属公司</th> 
+                                        <th>招聘人数</th> 
+                                        <th>推荐人数</th> 
+                                        <th>推荐费（元）</th> 
+                                        <th>截止日期</th>
+                                    </tr> 
+                                <if condition="arCollectList">
+                                    <volist name="arCollectList" id="vo">
+                                        <tr style="height:5px;"></tr>
+                                        <tr>
+                                            <td  style="border-left: 1px solid #b3b3b3;">{$vo.sort_id}</td>
+                                            <td class="table-text-left"><a href="/Home/Index/EnterIndex2/comid/{$vo.cpid}/jobid/{$vo.j_id}.html">{$vo.title}</a></td>
+                                            <td class="table-text-left"><a href="/Home/Index/EnterIndex/comid/{$vo.cpid}.html">{$vo.cpname}</a></tb>
+                                            <td>{$vo.employ}</tb>
+                                            <td>{$vo.count}</tb>
+                                            <td>{$vo.Tariff}</tb>
+                                            <td>{$vo.endtime}</td>
+                                            <!--<td><span class="sp2"><img src="__ROOT__/Public/img/dle.png" alt=""></span></td> -->
+                                        </tr>
+
+                                    </volist>
+                                    <else />
+                                    <tr >
+                                        <td  class="wk" colspan="7" ><b>暂无记录</b></td>
+                                    </tr>
+                                </if>  
+                                </tbody> 
+                            </table> 
+                            <?php echo $page;?>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<include file="Public:newFooter"/>
+<script>
+    $(".step1 .input-list h3 .sousuo").click(function() {
+        if ($(this).hasClass("current")) {
+            $(".step1 .input-list .myul").hide();
+            $(".step1 .m-input").show();
+            $(".title1").attr("id", "title");
+            $(".title2").attr("id", "");
+            $(this).removeClass("current").removeClass("m");
+        } else {
+            $(".title2").attr("id", "title");
+            $(".title1").attr("id", "");
+            $(".step1 .input-list .myul").show();
+            $(".step1 .m-input").hide();
+            $(this).addClass("current").addClass("m")
+        }
+
+
+    })
+    function search(type)
+    {
+
+        //var newdesc=$("#this").val();
+        var positionsstmp = $("#positionsstmp").val()
+        var position = $("#positionss option:selected").val();
+        var nowpage = $("#hid").val();
+        var industry = $("#industry option:selected").val();
+        var area = $("#area").val();
+        var treatment = $("#treatment").val();
+        // var Tariff = $("#Tariff").val();
+        var puttime = $("#puttime").val();
+        var title = $("#title").val();
+        var area = "";
+        var cpname = $("#cpname").val();
+
+
+        $.ajax({
+            url: "__URL__/searchs.html",
+            type: "post",
+            data: {"position": position, "industry": industry, "area": area, "treatment": treatment, "puttime": puttime, 'title': title, 'cpname': cpname},
+            success: function(msg)
+            {
+
+                $(".track-state").hide();
+                $(".joblist").show();
+                $(".listUl").html(msg);
+            }
+
+        });
+    }
+    function page(i) {
+
+        var positionsstmp = $("#positionsstmp").val()
+        var position = $("#positionss option:selected").val();
+        var nowpage = $("#hid").val();
+        var industry = $("#industry option:selected").val();
+        var area = $("#area").val();
+        var treatment = $("#treatment").val();
+        // var Tariff = $("#Tariff").val();
+        var puttime = $("#puttime").val();
+        var title = $("#title").val();
+        var area = "";
+        var cpname = $("#cpname").val();
+        $.ajax({
+            url: "__URL__/searchs.html",
+            type: "post",
+            data: {'i': i, "position": position, "industry": industry, "area": area, "treatment": treatment, "puttime": puttime, 'title': title, 'cpname': cpname},
+            success: (function(mgsp) {
+
+                $(".track-state").hide();
+                $(".joblist").show();
+                $(".listUl").html(mgsp);
+            })
+        });
+    }
+    $(".qxconfirm").click(function() {
+        $(".Pop-up").hide();
+    });
+
+</script>
+</body>
+
+</html>
